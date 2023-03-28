@@ -1,0 +1,210 @@
+@media (max-width: 425px) {
+    .recomendar-link-copiar h6 {
+        font-size: 9px;
+    }
+    .content-recomendar-amigo-creditos-inf h4 {
+        font-size: 15px;
+    }
+    
+    .cont-pago-estado-form-ganado {
+        margin-left: 60%;
+    }
+    .tabla-pagos {
+        margin-top: 40px;
+        overflow: auto;
+    }
+    .tabla-pagos_table-valoracion-div-n {
+        margin: 2px;
+    }
+    .tabla-pagos_table-valoracion-div-g {
+        margin: 2px;
+    }
+    input.cont-pago-estado-form_input {
+        width: 100%;
+    }
+    input.s-personalizada_input {
+        font-size: 14px;
+    }
+    
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+    .content-recomendar-amigo-creditos-inf p {
+        margin-right: 0px;
+    }
+    
+    .emblemas-perfil-cont {
+        margin-bottom: 30px;
+    }
+    .container.inf-general-perfil {
+        display: flex;
+        margin-top: 200px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .inf-general-perfil-2 {
+        text-align: end;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .m-60 {
+        margin-top: 10px;
+    }
+    .emblemas-perfil-cont {
+        margin-bottom: 35px;
+    }
+    .direccion-perfil p {
+        padding-left: 10px;
+        font-size: 14px;
+        width: 355px;
+    }
+    .container.inf-general-perfil {
+        padding: 30px 30px 0;
+    }
+    
+    
+    .col-md-6.content-inf-emblemas-cont_col-6 {
+        padding-bottom: 40px;
+    }
+    .subir-foto {
+        width: 200px;
+        height: 200px;
+    }
+    .row.cont-row-form input {
+        margin-top: 20px!important;
+    }
+    .main-brand {
+        display: inherit;
+        width: 100%;
+    }
+    a.btn-a-dl {
+        padding: 10px;
+    }
+    .content-recomendar-amigo-creditos-inf {
+        width: 100%;
+    }
+    .col-md-3.content-barra-lateral {
+        border: none;
+        padding-right: 15px; 
+    }
+    .cont-pago-estado-form .dropdown {
+        width: 100%;
+      
+    }
+    button.btn-d-estado-p.dropdown-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    input.cont-pago-estado-form_input {
+        width: 83%;
+        margin-top: 20px;
+    }
+    .cont-pago-estado-form h6 {
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-top: 25px;
+    }
+   
+    .cont-pago-estado-form-ganado h5 {
+        margin-top: 20px;
+    }
+    td.tabla-pagos_table_td {
+        background: #e9e9e9;
+        margin-top: 10px;
+    }
+    td.tabla-pagos_table_td p {
+        font-size: 14px;
+    }
+}
+@media (min-width: 320px) and (max-width: 500px) {
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    a.btn-a-dl {
+        padding: 10px;
+    }
+    .content-recomendar-amigo-creditos-inf {
+        width: 100%;
+    }
+    .foto-dl {
+        margin-left: 20px;
+        margin-right: 20px;
+        width: 110px;
+        height: 110px;
+    }
+    .cont-pago-estado-form .dropdown {
+        width: 100%;
+      
+    }
+    button.btn-d-estado-p.dropdown-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    input.cont-pago-estado-form_input {
+        width: 83%;
+        margin-top: 20px;
+    }
+    .cont-pago-estado-form h6 {
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-top: 25px;
+    }
+    .cont-pago-estado-form-ganado {
+        margin-left: 0%;
+    }
+    .cont-pago-estado-form-ganado h5 {
+        margin-top: 20px;
+    }
+    td.tabla-pagos_table_td {
+        background: #e9e9e9;
+        margin-top: 10px;
+    }
+    td.tabla-pagos_table_td p {
+        font-size: 14px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	    .foto-dl {
+        margin-left: 20px;
+        margin-right: 20px;
+        width: 120px;
+        height: 120px;
+    }
+    .cont-pago-estado-form .dropdown {
+        width: 100%;
+      
+    }
+    button.btn-d-estado-p.dropdown-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    input.cont-pago-estado-form_input {
+        width: 39%;
+        margin-top: 20px;
+    }
+    .cont-pago-estado-form h6 {
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-top: 25px;
+    }
+    .cont-pago-estado-form-ganado {
+        margin-left: 78%;
+    }
+    td.tabla-pagos_table_td p {
+        font-size: 12px;
+    }
+    table.tabla-pagos_table { 
+        font-size: 14px;
+    }
+    .cont-pago-estado-form-ganado h5 {
+        margin-top: 20px;
+    }
+
+}

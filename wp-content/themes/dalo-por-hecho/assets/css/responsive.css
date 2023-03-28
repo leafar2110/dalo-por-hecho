@@ -1,0 +1,819 @@
+@media (min-width: 0px) and (max-width: 767px) {
+	
+	.main-taks__mobiletitle{
+		margin-bottom: 1rem;
+	}
+	.buscar_tareas.scrollhiden{
+		overflow: hidden;
+	}
+	.main-taks__cardsmobile{
+		display: block;
+	}
+	.main-taks__cardsdesktop{
+		display: none;
+	}
+	.scroll-admin{
+		height: 30vh;
+	}
+	.main-content__taksdesktop{
+		display: none;
+	}
+	.main-content__localization{
+		justify-content:center;
+	}
+	.main-presupuesto__mobile{
+		display:block;
+	}
+	.main-presupuesto__desktop{
+		display:none;
+	}
+	.buscar_tareas-t{
+		padding: 1rem;
+	}
+	.main-task__title{
+		text-align: center;
+	}
+	.main-tareas_item{
+		margin-bottom: 0px;
+	}
+	.main-login__line::before{
+		left:20%;
+	}
+	.main-login__line::after{
+		right:20%;
+	}
+	.check-line {
+		flex-direction: column;
+	}
+	.form-conf-cuenta input{
+		margin-bottom: 1rem;
+	}
+	.subir-foto{
+		width: 100%;
+	}
+	.compartir-en-rs {
+		flex-direction: column;
+	}
+	.recomendar-link-copiar {
+		width: 100%;
+		margin-bottom: 1rem;
+	}
+	.s-personalizada_h3 {
+		padding-top: 30px;
+	}
+	.content-recomendar-amigo-creditos-inf {
+		width: 100%;
+	}
+	.recomendar-link{
+		flex-direction: column;
+	}
+	th, td.tabla-pagos_table_td p {
+		font-size: 12px;
+		text-align: left;
+	}
+	.tab-pane .container{
+		padding: 0;
+	}
+	.col-md-3.content-barra-lateral{
+		padding-left: 0;
+	}
+	.cont-pago-estado-form {
+		flex-direction: column;
+	}
+	.main-banner__text h2 {
+		font-size: 20px;
+		margin-bottom: 10px;
+	}
+	.main-tareas-2 .main-tareas_grid {
+		padding: 0 !important;
+	}
+	.main-tareas-2 .main-tareas_item {
+		margin-bottom: 0;
+		width: 100% !important;
+	}
+	.main-tareas_item-content p {
+		font-size: 12px;
+	}
+	.main-tareas_grid {
+		display: grid !important;
+		grid-template-columns: 1fr 1fr !important;
+	}
+	.offcanvas-collapse {
+		position: fixed;
+		top: 58px;
+		bottom: 0;
+		left: 100%;
+		width: 100%;
+		padding-right: 0rem;
+		padding-left: 0rem;
+		overflow-y: auto;
+		visibility: hidden;
+		background-color: #fff;
+		transition-timing-function: ease-in-out;
+		transition-duration: 0.3s;
+		transition-property: left, visibility;
+	}
+
+	.offcanvas-collapse.open {
+		left: 0px;
+		visibility: visible;
+		flex-direction: column-reverse;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.btn-custom-nav {
+		border: 2px solid #ec8603;
+		border-radius: 50px;
+		color: #ffffff !important;
+		background: #ec8603 !important;
+		margin-bottom: 15px;
+	}
+	.navbar-nav .nav-link {
+		color: #ec8603;
+	}
+	.main-footer_grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 10px;
+		color: #fff;
+	}
+	.mr-3,
+	.mx-3 {
+		margin-right: 0rem !important;
+	}
+	.naranja-color {
+		margin-bottom: 21px;
+	}
+	.masonry-with-columns .main-service__card {
+		margin-bottom: 50px;
+	}
+	.hj {
+		background: white;
+		margin-left: 0;
+		box-shadow: 0 0 14px #00000033;
+		height: auto;
+		width: auto;
+		border-radius: 10px;
+		padding: 25px;
+	}
+	.main-tareas_grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 15px;
+	}
+	.main-tareas_item-content {
+		width: 100%;
+		padding: 1rem;
+	}
+	.main-tareas__last{
+		margin-top:0;
+		padding: 0.8rem;
+	}
+	.content-tetimonios{
+		height: auto;
+	}
+	.main-tareas-2 .main-tareas_item-content {
+		width: 100%;
+	}
+	.main-brand {
+		display: inherit;
+	}
+	.navbar-brand img {
+		width: 70%;
+		margin-top: 10px;
+	}
+	.navbar-toggler:not(:disabled):not(.disabled) {
+		color: #fff;
+		width: 20%;
+		margin-top: 6px;
+	}
+	.titulo-general p {
+		font-size: 25px;
+	}
+	.main-tareas {
+		margin-top: 10px;
+	}
+	.main-banner__text p {
+		font-size: 19px;
+	}
+	.main-banner {
+		margin-top: 58px;
+	}
+	.main-banner__text h1 {
+		font-size: 30px;
+		margin-bottom: 1rem;
+	}
+	.main-banner__text {
+		padding: 15px;
+	}
+	#iso {
+		display: none;
+	}
+	.btn-content {
+		display: flex;
+		flex-direction: column;
+		margin: 15px;
+		align-items: center;
+	}
+	.btn-content .mr-4,
+	.mx-4 {
+		margin-right: 0 !important;
+	}
+	
+	.btn-custom {
+		margin-bottom: 30px;
+		width: 80%;
+		font-size: 12px;
+		padding: 12px !important;
+	}
+	.cta-bg {
+		width: 95%;
+
+		padding: 25px;
+
+		margin-top: 100px;
+	}
+	.slick-dots {
+		padding-left: 0rem;
+	}
+	.main-banner::after {
+		bottom: -40px;
+	}
+	.main-banner::before {
+		bottom: -20px;
+	}
+	.arrow {
+		bottom: 30%;
+		left: 44%;
+	}
+
+	.cta-bg span {
+		padding: 0;
+	}
+	.main-tareas-2 .main-tareas_grid {
+		padding: 0;
+	}
+	.bg-testimonios {
+		padding: 0;
+	}
+	.main-funciona_grid {
+		grid-template-columns: 1fr;
+		grid-gap: 30px;
+	}
+	.cards {
+		margin: 0;
+	}
+	.card-contenido {
+		width: 100%;
+		margin-bottom: 50px;
+	}
+	footer ul {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 0;
+	}
+	.footer:nth-child(1) li:before {
+		color: #353535;
+	}
+	footer li {
+		margin-bottom: 10px;
+	}
+	.border-b {
+		display: none;
+	}
+	.iso-desk {
+		display: block;
+	}
+	.datos_name ul {
+		margin-top: 10px;
+		text-align: center;
+		display: block;
+	}
+	.contenido {
+		text-align: center;
+	}
+	.contenido .name {
+		text-align: center;
+	}
+	.datos_name li {
+		margin-left: 0;
+	}
+	.admin-card .datos {
+		display: block;
+		text-align: center;
+		width: 100%;
+	}
+	.admin-card ul {
+		padding: 0;
+	}
+	.ofertas_titulos {
+		display: block;
+	}
+	.cube {
+		width: 100%;
+	}
+	.respnse {
+		display: flex;
+		flex-direction: column;
+	}
+	.respnse .ml-auto,
+	.mx-auto {
+		margin-left: 0 !important;
+	}
+	.preguntas textarea {
+		width: 80%;
+	}
+	.datos_presupuesto ul {
+		justify-content: center;
+	}
+	.admin-card .name {
+		text-align: center;
+	}
+	.content-tetimonios {
+		text-align: center;
+	}
+	.text-justify {
+		text-align: left !important;
+	}
+	.nav_bottom {
+		
+	}
+	.nav_bottom ul{
+		justify-content:space-evenly
+	}
+	.nav_bottom ul li a{
+		margin-right:10px;
+		font-size:.9rem;
+	}
+	body > header:nth-child(4) .nav_bottom  ul > li:nth-child(3), body > header:nth-child(4) .nav_bottom  ul > li:nth-child(4){
+		display:none;
+	}
+	body > header:nth-child(4) > div > ul > form > div > input{
+		width:100px !important;
+	}
+	body > header:nth-child(4) > div > ul > form > div > input::placeholder{
+		color:transparent;
+	}
+	.buscar_tareas {
+		margin: 20px 0 80px;
+	}
+	.order-last-xs {
+		order: 13;
+	}
+	.navbar .mr-auto {
+		margin-right: 0 !important;
+	}
+	nav .nav-link {
+		font-size: 13px !important;
+	}
+	.btn-custom-transparent-nav {
+		width: 150px;
+	}
+	.chat {
+		width: 20%;
+	}
+	.fixed-top {
+		position: fixed;
+	}
+	.presupuesto_minicard {
+		margin-bottom: 50px;
+	}
+	.ingresar-t{
+		padding: 1rem;
+	}
+	#job-manager-job-dashboard{
+		padding: 4rem 2rem;
+		display: flex;
+		flex-direction: column;
+		overflow: scroll;
+	}
+	.admin-card .datos_card{
+		text-align: center;
+		padding: 0;
+	}
+	.admin-card .datos{
+		width: 100%;
+		flex-direction: column;
+		align-items: center;
+	}
+	.admin-card ul{
+		padding: 0;
+	}
+	.content-tetimonios{
+		text-align: center;
+	}
+	.content-tetimonios .col-md-12 p{
+		text-align: center;
+	}
+	.job-manager-form{
+		padding: 4rem 0rem 0;
+	}
+	.wizard > div.wizard-inner{
+		    top: 40px;
+	}
+	.tab-content h4 {
+		margin-bottom: 40px;
+		font-size: 20px;
+	}
+	.main-banner__text{
+		    margin-top: -140px;
+	}
+	.main-type__inputs{
+		width:100%;
+	}
+	.main-taks__maxgrid{
+		grid-template-columns:100%;
+		grid-gap: 0rem;
+	}
+	.main-task__minigrid{
+		grid-template-columns: 100%;
+	}
+	.main-task__tabs{
+		height: 75vh;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		padding: 1rem;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.s-personalizada_h3 {
+		padding-top: 30px;
+	}
+
+	.wizard .wizard-inner{
+		top: 38px !important;
+    left: -10px !important;
+	}
+	.recomendar-link-copiar{
+		margin-bottom: 1rem;
+	}
+	.recomendar-link {
+		flex-direction: column;
+	}
+	.content-recomendar-amigo-creditos-inf {
+		width: 100%;
+	}
+	.cont-pago-estado-form-ganado {
+		display: flex;
+		flex-direction: column;
+		margin-left: 20px;
+		text-align: end;
+		width: 100%;
+		align-items: flex-end;
+		padding-right: 1rem;
+		margin-top: 2rem;
+	}
+	th, td.tabla-pagos_table_td p {
+		font-size: 12px;
+		text-align: left;
+	}
+	.tab-pane .container{
+		padding: 0;
+	}
+	.col-md-3.content-barra-lateral{
+		padding-left: 0;
+	}
+	.cont-pago-estado-form {
+		flex-direction: column;
+	}
+	.fixed-top {
+		position: fixed;
+	}
+	.mr-auto,
+	.mx-auto {
+		margin-right: 0 !important;
+	}
+	.navbar-nav .nav-link {
+		color: #ffa300;
+	}
+
+	.navbar-nav {
+		display: block;
+	}
+	.navbar-toggler .fa {
+		color: #fff;
+	}
+	.main-brand {
+		display: flex;
+		width: 100%;
+	}
+	.navbar-brand img {
+		    width: 60%;
+    		margin-top: 1rem;
+	}
+	.iso-desk {
+		display: block;
+	}
+	.navbar-expand-md .navbar-toggler {
+		display: block;
+		text-align: end;
+		margin-top: 14px;
+	}
+	.offcanvas-collapse {
+		position: fixed;
+		top: 58px;
+		bottom: 0;
+		left: 100%;
+		width: 100%;
+		padding-right: 0rem;
+		padding-left: 0rem;
+		overflow-y: auto;
+		visibility: hidden;
+		background-color: #fff;
+		transition-timing-function: ease-in-out;
+		transition-duration: 0.3s;
+		transition-property: left, visibility;
+	}
+
+	.offcanvas-collapse.open {
+		left: 0px;
+		visibility: visible;
+		flex-direction: column-reverse;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.buscador {
+		width: 220px !important;
+	}
+	.nav_bottom ul a {
+		margin-left: 26px;
+	}
+	.nav_bottom {
+		margin-top: 60px;
+	}
+	.datos_presupuesto ul {
+		justify-content: center;
+	}
+	.presupuesto_minicard {
+		margin-bottom: 50px;
+	}
+	.buscar_tareas h3 {
+		text-align: left;
+	}
+	.datos_name {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.main-content__localizationtext{
+		font-size: 13px;
+	}
+	.order-last-xs {
+		order: 13;
+	}
+	.cards.mt-5 .col-md-6 {
+		display: flex;
+	}
+	.slick-dots {
+		padding: 0;
+	}
+	.cta .cta-ilutracion {
+		object-fit: contain;
+	}
+	.main-tareas_grid {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.main-tareas_item-content {
+		margin: 10px;
+	}
+
+	.navbar {
+		height: 60px;
+	}
+	.navbar-expand-md {
+		-ms-flex-flow: row nowrap;
+		flex-flow: row nowrap;
+		-ms-flex-pack: start;
+		justify-content: flex-start;
+	}
+
+	.main-banner__text p {
+		font-size: 20px;
+	}
+	.main-tareas {
+		margin-top: 12px;
+	}
+	.cta-bg {
+		border-radius: 10px;
+		width: 90%;
+	}
+	.main-tareas-2 .main-tareas_item {
+		margin-bottom: 0;
+		width: 30%;
+	}
+	.main-tareas-2 .main-tareas_grid {
+		padding-left: 120px;
+		padding-right: 120px;
+		margin: 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.card-contenido span {
+		font-size: 13px;
+	}
+	.footer:nth-child(1) li:before {
+		color: #353535;
+	}
+
+	#iso {
+		display: none;
+	}
+	.navbar-expand-md .navbar-nav .nav-link {
+		font-size: 15px;
+		margin: 6px 0;
+	}
+	.btn-custom-nav {
+		padding-left: 5px !important;
+		padding-right: 5px !important;
+		border: 2px solid #ec8603;
+		border-radius: 50px;
+		color: #ec8603 !important;
+		background: transparent !important;
+		margin-right:0 !important;
+	}
+
+	}
+	.main-banner::after {
+		bottom: -48px;
+	}
+	.main-banner::before {
+		bottom: -36px;
+	}
+	.arrow {
+		bottom: 15%;
+		    left: 365px;
+	}
+	.content-inf-emblemas-cont-box {
+		display: block;
+	}
+	a.box-boton-emblemas_a {
+		display: inline-block;
+
+		margin-bottom: 20px;
+	}
+	.vertical-tabs .nav-link {
+		font-size: 14px;
+		padding: 5px;
+		margin-bottom: 5px;
+	}
+	.vertical-tabs {
+		margin: 0;
+		padding: 0;
+	}
+	.custom-control {
+		padding-left: 0;
+	}
+	.ingresar-t{
+		padding: 1rem 5rem;
+	}
+	.admin-card .datos_card{
+		text-align: center;
+		padding: 0;
+	}
+	.admin-card .datos{
+		width: 100%;
+		flex-direction: column;
+		align-items: center;
+	}
+	.admin-card ul{
+		padding: 0;
+	}
+	.content-tetimonios{
+		text-align: center;
+	}
+	.content-tetimonios .col-md-12 p{
+		text-align: center;
+	}
+	.job-manager-form {
+		padding-right: 1rem;
+		/* padding: 4rem; */
+		padding-top: 4rem;
+		padding-left: 1rem;
+		/* padding: 4rem 0rem 0; */
+	}
+	.main-presupuesto__desktop{
+		display: none;
+	}
+	.main-presupuesto__mobile{
+		display:block;
+	}
+	
+	.main-task__maxgrid{
+		grid-template-columns: 35% 65%;
+		grid-gap: 0rem;
+	}
+	.main-task__minigrid{
+		grid-template-columns: 100%;
+		padding-right: 2rem;
+	}
+	.main-task__tabs{
+		height: 65vh;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		padding: 1rem;
+	}
+	.datos_name ul li{
+		font-size:12px;
+	}
+}
+@media (min-width: 999px) and (max-width: 1199px){
+	.content-tetimonios{
+		height:250px;
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	.main-tareas-2 .main-tareas_grid {
+		padding-left: 0;
+		padding-right: 0px;
+		margin: 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.main-tareas-2 .main-tareas_item {
+		margin-bottom: 0;
+		width: 25%;
+	}
+
+	.navbar-nav .nav-link {
+		align-items: flex-start;
+	}
+	.content-tetimonios img {
+		width: 38px;
+		height: 38px;
+	}
+	.main-tareas-2 .main-tareas_grid {
+		padding-left: 0;
+		padding-right: 0px;
+		margin: 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.main-tareas-2 .main-tareas_item {
+		margin-bottom: 0;
+		width: 25%;
+	}
+
+	.navbar-nav .nav-link {
+		align-items: flex-start;
+	}
+	.navbar-nav .nav-link {
+		color: #ffffff;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: self-start;
+	}
+	th, td.tabla-pagos_table_td p {
+		font-size: 12px;
+		text-align: left;
+	}
+	.cont-pago-estado-form-ganado h5, .cont-pago-estado-form-ganado p{
+		font-size:14px;
+	}
+	.content-recomendar-amigo-creditos-inf {
+		width: 100%;
+	}
+	.main-presupuesto__desktop{
+		display: none;
+	}
+	.main-presupuesto__mobile{
+		display:block;
+	}
+	
+	.main-taks__maxgrid{
+		grid-template-columns: 35% 65%;
+		grid-gap: 1rem;
+	}
+	.main-task__minigrid{
+		grid-template-columns: 100%;
+	}
+	.main-taks__tabs{
+		height: 65vh;
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
+	.content-tetimonios{
+		height:250px;
+	}
+	
+}
+
+@media (min-width:1200px ) and (max-width: 1600px ){
+	.container {
+		max-width: 1250px;
+	}
+}
+.money{
+		font-size:20px;
+	}

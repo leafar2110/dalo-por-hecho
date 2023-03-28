@@ -1,0 +1,344 @@
+[05-Aug-2021 00:44:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function _deprecated_file() in /home/dalombwn/public_html/wp-includes/locale.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/locale.php on line 11
+[17-Aug-2021 10:54:07 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[23-Aug-2021 21:16:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[02-Sep-2021 19:59:07 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[11-Sep-2021 13:14:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[14-Sep-2021 07:55:57 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[21-Sep-2021 10:11:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[23-Sep-2021 03:57:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[06-Oct-2021 19:31:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[08-Oct-2021 04:29:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[08-Oct-2021 19:41:05 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[15-Oct-2021 01:22:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[20-Oct-2021 21:38:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[28-Oct-2021 16:06:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[23-Nov-2021 14:27:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[02-Dec-2021 01:36:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[03-Dec-2021 06:03:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[07-Dec-2021 04:51:45 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[16-Dec-2021 15:27:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[14-Mar-2022 15:15:55 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[14-Mar-2022 15:15:55 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[14-Mar-2022 15:15:55 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[14-Mar-2022 15:15:55 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[14-Mar-2022 15:16:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[29-Mar-2022 02:53:06 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[29-Mar-2022 02:53:06 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[29-Mar-2022 02:53:06 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[29-Mar-2022 02:53:06 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[29-Mar-2022 02:58:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[19-Apr-2022 03:07:25 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[19-Apr-2022 03:07:25 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[19-Apr-2022 03:07:25 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[19-Apr-2022 03:07:25 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[19-Apr-2022 03:08:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[06-May-2022 14:31:34 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[06-May-2022 14:31:34 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[06-May-2022 14:31:34 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[06-May-2022 14:31:34 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[31-May-2022 13:41:31 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[31-May-2022 13:41:31 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[31-May-2022 13:41:31 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[31-May-2022 13:41:31 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[31-May-2022 13:42:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[22-Aug-2022 02:25:35 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[22-Aug-2022 02:25:35 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[22-Aug-2022 02:25:35 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[22-Aug-2022 02:25:35 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[22-Aug-2022 02:26:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[01-Sep-2022 09:24:16 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[01-Sep-2022 09:24:16 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[01-Sep-2022 09:24:16 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[01-Sep-2022 09:24:16 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[01-Sep-2022 09:24:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[11-Sep-2022 09:56:10 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[11-Sep-2022 09:56:10 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[11-Sep-2022 09:56:10 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[11-Sep-2022 09:56:10 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[11-Sep-2022 09:56:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[13-Sep-2022 07:32:27 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[13-Sep-2022 07:32:27 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[13-Sep-2022 07:32:27 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[13-Sep-2022 07:32:27 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[13-Sep-2022 07:33:07 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[24-Sep-2022 12:33:51 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[24-Sep-2022 12:33:51 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[24-Sep-2022 12:33:51 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[24-Sep-2022 12:33:51 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[24-Sep-2022 12:34:20 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[30-Sep-2022 12:12:43 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[30-Sep-2022 12:12:43 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[30-Sep-2022 12:12:43 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[30-Sep-2022 12:12:43 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[30-Sep-2022 12:12:57 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[30-Sep-2022 22:44:31 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[30-Sep-2022 22:44:31 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[30-Sep-2022 22:44:31 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[30-Sep-2022 22:44:31 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[30-Sep-2022 22:45:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[04-Oct-2022 04:51:52 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[04-Oct-2022 04:51:52 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[04-Oct-2022 04:51:52 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[04-Oct-2022 04:51:52 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[04-Oct-2022 04:52:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[07-Oct-2022 10:55:20 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[07-Oct-2022 10:55:20 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[07-Oct-2022 10:55:20 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[07-Oct-2022 10:55:20 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[02-Nov-2022 01:31:45 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[02-Nov-2022 01:31:45 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[02-Nov-2022 01:31:45 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[02-Nov-2022 01:31:45 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[02-Nov-2022 01:34:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[15-Nov-2022 11:47:52 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[15-Nov-2022 11:47:52 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[15-Nov-2022 11:47:52 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[15-Nov-2022 11:47:52 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[15-Nov-2022 11:47:54 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php on line 18
+[15-Nov-2022 11:47:56 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-styles.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-styles.php on line 18
+[15-Nov-2022 11:48:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[24-Nov-2022 19:46:00 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[24-Nov-2022 19:46:00 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[24-Nov-2022 19:46:00 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[24-Nov-2022 19:46:00 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[24-Nov-2022 19:46:05 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php on line 18
+[24-Nov-2022 19:46:08 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-styles.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-styles.php on line 18
+[24-Nov-2022 19:47:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[25-Nov-2022 22:57:57 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[25-Nov-2022 22:57:57 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[25-Nov-2022 22:57:57 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[25-Nov-2022 22:57:57 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[25-Nov-2022 22:58:01 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php on line 18
+[25-Nov-2022 22:58:04 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-styles.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-styles.php on line 18
+[25-Nov-2022 22:58:45 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[12-Dec-2022 03:41:25 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[12-Dec-2022 03:41:25 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[12-Dec-2022 03:41:25 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[12-Dec-2022 03:41:25 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[12-Dec-2022 03:41:28 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php on line 18
+[12-Dec-2022 03:41:30 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-styles.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-styles.php on line 18
+[12-Dec-2022 03:42:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[30-Jan-2023 03:23:11 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[30-Jan-2023 03:23:11 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[30-Jan-2023 03:23:11 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[30-Jan-2023 03:23:11 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[30-Jan-2023 03:23:13 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php on line 18
+[30-Jan-2023 03:23:14 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-styles.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-styles.php on line 18
+[30-Jan-2023 03:23:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[11-Feb-2023 13:57:46 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[11-Feb-2023 13:57:46 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[11-Feb-2023 13:57:46 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[11-Feb-2023 13:57:46 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[11-Feb-2023 13:57:47 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php on line 18
+[11-Feb-2023 13:57:47 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-styles.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-styles.php on line 18
+[11-Feb-2023 13:58:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[15-Feb-2023 16:28:03 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[15-Feb-2023 16:28:03 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[15-Feb-2023 16:28:03 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[15-Feb-2023 16:28:03 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[15-Feb-2023 16:28:07 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php on line 18
+[15-Feb-2023 16:28:10 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-styles.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-styles.php on line 18
+[15-Feb-2023 16:28:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[19-Feb-2023 10:55:18 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[19-Feb-2023 10:55:18 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[19-Feb-2023 10:55:18 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[19-Feb-2023 10:55:18 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[19-Feb-2023 10:55:19 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php on line 18
+[19-Feb-2023 10:55:19 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-styles.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-styles.php on line 18
+[19-Feb-2023 10:55:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[23-Feb-2023 04:29:17 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[23-Feb-2023 04:29:17 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[23-Feb-2023 04:29:17 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[23-Feb-2023 04:29:17 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[23-Feb-2023 04:29:21 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php on line 18
+[23-Feb-2023 04:29:24 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-styles.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-styles.php on line 18
+[23-Feb-2023 04:31:16 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_the_block_template_html() in /home/dalombwn/public_html/wp-includes/template-canvas.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/template-canvas.php on line 12
+[09-Mar-2023 09:23:46 UTC] PHP Warning:  Use of undefined constant ABSPATH - assumed 'ABSPATH' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[09-Mar-2023 09:23:46 UTC] PHP Warning:  Use of undefined constant WPINC - assumed 'WPINC' (this will throw an Error in a future version of PHP) in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[09-Mar-2023 09:23:46 UTC] PHP Warning:  require(ABSPATHWPINC/class-requests.php): failed to open stream: No such file or directory in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[09-Mar-2023 09:23:46 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/class-requests.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/dalombwn/public_html/wp-includes/class-wp-http.php on line 11
+[09-Mar-2023 09:23:53 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-scripts.php on line 18
+[09-Mar-2023 09:23:59 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Dependencies' not found in /home/dalombwn/public_html/wp-includes/class-wp-styles.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/class-wp-styles.php on line 18

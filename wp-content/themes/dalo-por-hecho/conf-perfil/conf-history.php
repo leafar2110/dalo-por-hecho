@@ -1,0 +1,245 @@
+<?php global $current_user, $wp_roles; ?>
+                <!--tab history -->
+                <div class="tab-pane fade" id="v-pills-history" role="tabpanel"  aria-labelledby="v-pills-history-tab">
+                    <?php $pf = 0;
+                    $pedidos = get_posts( array(
+                    'numberposts' => -1,
+                    'meta_key'    => '_customer_user',
+                    'meta_value'  => get_current_user_id(),
+                    'post_type'   => wc_get_order_types(),
+                    'post_status' => "wc-completed",
+
+                    ) );
+                    foreach ($pedidos as $pedido)
+                    {
+                        $wp_pedido = new WC_Order($pedido->ID);
+                        $cant_pedidos = $cant_pedidos +1;
+                        $gastado = $gastado + $wp_pedido->discount_total;
+                        if ($pf < 1) {
+                            $primera_fecha = $wp_pedido->date_created; 
+                        }
+                        $ultima_fecha = $wp_pedido->date_created;
+                        $pf = $pf + 1;
+                    }
+                    $trans = "".$cant_pedidos." transacciones del ".date_order_new($primera_fecha)." al ".date_order_new($ultima_fecha).""; ?>
+                    <div class="content-metodos-pago">
+                        <h5>Historial de pagos</h5>
+                        <div class="container mt-3">
+                            <ul class="nav nav-tabs h-p-nav-tab">
+                                <li class="nav-item">
+                                    <a class="nav-link historial-pago-tab active" data-toggle="tab"
+                                                    href="#ganado">Ganado</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link historial-pago-tab" data-toggle="tab"
+                                                    href="#saliente">Saliente</a>
+                                </li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div id="ganado" class="container tab-pane active"><br>
+                                    <div class="cont-pago-estado">
+                                        <div class="cont-pago-estado-tab">
+                                            <!-- <p>Demostración</p> -->
+                                            <div class="cont-pago-estado-form">
+<!--                                                 <div class="dropdown">
+                                                    <button type="button" class="btn-d-estado-p dropdown-toggle"
+                                                                    data-toggle="dropdown">Tiempo
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="#">Link 1</a>
+                                                        <a class="dropdown-item" href="#">Link 2</a>
+                                                        <a class="dropdown-item" href="#">Link 3</a>
+                                                    </div>
+                                                </div> -->
+                                                <!-- <input class="cont-pago-estado-form_input dropdown-toggle" type="text" placeholder="tiempo"> -->
+<!--                                                 <h6>De</h6>
+                                                <input class="cont-pago-estado-form_input" type="date">
+                                                <h6>A</h6>
+                                                <input class="cont-pago-estado-form_input" type="date"> -->
+                                                    <div class="cont-pago-estado-form-ganado">
+                                                        <h5>Ganado neto</h5>
+                                                        <p>$ 000</p>
+                                                    </div>
+                                            </div>
+<!--                                             <small>1 transacciones del 07 de noviembre del 2020 al 30 de
+                                                            noviembre del 2020
+                                            </small> -->
+                                            <div class="tabla-pagos">
+                                                <table class="tabla-pagos_table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Fecha de la tarea</th>
+                                                            <th>Nombre de la tarea</th>
+                                                            <th>Valoración dada</th>
+                                                            <th>Pago realizado</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+                                                        $args3 = array (
+                                                            'post_type' => 'asignados',
+                                                            'post_status' =>'publish',
+                                                            'meta_query' => array(
+                                                            'relation'=>'AND', // 'AND' 'OR' ...
+                                                            array(
+                                                               'key' => 'asignar_status',
+                                                               'value' => 'Completado',
+                                                               'operator' => 'IN',
+                                                            ),                                                            
+                                                            array(
+                                                               'key' => 'asignar_id_empleado',
+                                                               'value' => get_current_user_id(),
+                                                               'operator' => 'IN',
+                                                            )),                     
+                                                        ); 
+                                                        $loop3 = new WP_Query( $args3 ); 
+                                                        while ( $loop3->have_posts() ) : $loop3->the_post(); 
+                                                         $fecha_tarea_publicada = get_post_meta( get_field( 'asignar_id_tarea_publicada' ), '_job_expires', true );
+
+                                                        ?>                                                            
+                                                            <tr>
+                                                                <td class="tabla-pagos_table_td">
+                                                                    <p><?php  echo date("d/m/y",strtotime($fecha_tarea_publicada)); ?> </p>
+                                                                </td>
+                                                                <td class="tabla-pagos_table_td">
+                                                                    <p><?php echo get_post_meta( get_field( 'asignar_id_tarea_publicada' ), '_job_title', true ); ?></p>
+                                                                </td>
+                                                                <td class="tabla-pagos_table_td">
+                                                                    <p>
+                                                                        <div class="tabla-pagos_table-valoracion">
+                                                                            <?php
+                                                                         
+                                                                            $count_rating = count_rating(get_field('asignar_id_empleado'),'Empleado');
+                                                                            if ($count_rating == 0) { ?>
+                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
+                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
+                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
+                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
+                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
+
+                                                                            <?php  }
+                                                                            for ($i=0; $i < $count_rating; $i++) { ?>
+                                                                                <div class="tabla-pagos_table-valoracion-div-n">
+                                                                            </div>
+                                                                            <?php } ?>            
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
+                                                                    </p>
+                                                                </td>
+                                                                <td class="tabla-pagos_table_td">
+                                                                    <p class="n-m">$ <?php echo get_field('asignar_monto_tarea'); ?></p>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endwhile; ?>   
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            </div>
+                                                </div>
+                                            </div>
+                                            <div id="saliente" class="container tab-pane  fade"><br>
+                                                <div class="cont-pago-estado">
+                                                    <div class="cont-pago-estado-tab">
+                                                        <!-- <p>Demostración s</p> -->
+                                                        <div class="cont-pago-estado-form">
+<!--                                                             <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn-d-estado-p dropdown-toggle"
+                                                                    data-toggle="dropdown">
+                                                                    Tiempo
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="#">Link 1</a>
+                                                                    <a class="dropdown-item" href="#">Link 2</a>
+                                                                    <a class="dropdown-item" href="#">Link 3</a>
+                                                                </div>
+                                                            </div> -->
+                                                            <!-- <input class="cont-pago-estado-form_input dropdown-toggle" type="text" placeholder="tiempo"> -->
+<!--                                                             <h6>De</h6>
+                                                            <input class="cont-pago-estado-form_input" type="date">
+                                                            <h6>A</h6>
+                                                            <input class="cont-pago-estado-form_input" type="date"> -->
+                                                            <div class="cont-pago-estado-form-ganado">
+                                                                <h5>Gastado neto</h5>
+                                                                <p><?php echo $gastado ?> $000</p>
+                                                            </div>
+                                                        </div>
+                                                        <!-- <small><?php echo $trans ?> </small> -->
+                                                        <div class="tabla-pagos">
+                                                            <table class="tabla-pagos_table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Fecha de la tarea <?php echo get_current_user_id(); ?></th>
+                                                                        <th>Nombre de la tarea</th>
+                                                                        <th>Valoración dada</th>
+                                                                        <th>Pago realizado</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>                                                                  
+                                                        <?php
+                                                        $args3 = array (
+                                                            'post_type' => 'asignados',
+                                                            'post_status' =>'publish',
+                                                            'meta_query' => array(
+                                                            'relation'=>'AND',                                     
+                                                            array(
+                                                               'key' => 'asignar_id_empleador',
+                                                               'value' => get_current_user_id(),
+                                                               'operator' => 'IN',
+                                                            )),                     
+                                                        ); 
+                                                        $loop3 = new WP_Query( $args3 ); 
+                                                        while ( $loop3->have_posts() ) : $loop3->the_post(); 
+                                                         $fecha_tarea_publicada = get_post_meta( get_field( 'asignar_id_tarea_publicada' ), '_job_expires', true );
+
+                                                        ?>                                                            
+                                                            <tr>
+                                                                <td class="tabla-pagos_table_td">
+                                                                    <p><?php  echo date("d/m/y",strtotime($fecha_tarea_publicada)); ?> </p>
+                                                                </td>
+                                                                <td class="tabla-pagos_table_td">
+                                                                    <p><?php echo get_post_meta( get_field( 'asignar_id_tarea_publicada' ), '_job_title', true ); ?></p>
+                                                                </td>
+                                                                <td class="tabla-pagos_table_td">
+                                                                    <p>
+                                                                        <div class="tabla-pagos_table-valoracion">
+                                                                            <?php
+                                                                         
+                                                                            $count_rating = count_rating(get_field('asignar_id_empleado'),'Empleador');
+                                                                            if ($count_rating == 0) { ?>
+                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
+                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
+                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
+                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
+                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
+
+                                                                            <?php  }
+                                                                            for ($i=0; $i < $count_rating; $i++) { ?>
+                                                                                <div class="tabla-pagos_table-valoracion-div-n">
+                                                                            </div>
+                                                                            <?php } ?>            
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
+                                                                    </p>
+                                                                </td>
+                                                                <td class="tabla-pagos_table_td">
+                                                                    <p class="n-m">$ <?php echo get_field('asignar_monto_tarea'); ?></p>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endwhile; ?>                                                          
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
