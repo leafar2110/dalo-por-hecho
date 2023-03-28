@@ -188,7 +188,7 @@ input#hide:checked ~ div#contente {
         <div class="main-taks__cards">
             <div class="main-taks__cardsmobile">
                 <div class="main-taks__mobiletitle">
-                    Ver más tareas
+                    <span>Ver más tareas</span>
                     <i class="fa fa-angle-right"></i>
                 </div>
                 <div class="main-taks__sidebar">
@@ -196,6 +196,7 @@ input#hide:checked ~ div#contente {
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <?php $i=0;
                             $loop = new WP_Query( $args ); 
+
                             while ( $loop->have_posts() ) : $loop->the_post(); global $product; $show_slary = get_post_meta( get_the_ID(), '_job_salary', true )?>                     
                                 <a class="av-link <?php if($i==0 && $_GET['tab_tarea'] == NULL){ echo "active";} ?> card-job" id="v-pills-<?php echo get_the_ID();?>-tab_m" data-toggle="pill" href="#v-pills-<?php echo get_the_ID();?>" role="tab" aria-controls="v-pills-<?php echo get_the_ID();?>" aria-selected="false">
                                     <div class="content-tetimonios admin-card">
@@ -294,8 +295,6 @@ input#hide:checked ~ div#contente {
                                         <ul>
                                             <li class="mr-4 ml-0"><?php the_job_publish_date2(); ?></li>
                                             <li class="active">Abierto</li>
-                                            <li>Asignado</li>
-                                            <li>Terminado</li>
                                         </ul>
                                     </div>
                                     <div class="datos_genereal">
@@ -628,7 +627,18 @@ new WOW().init();
 
 $('.main-taks__mobiletitle').click(function(){
     $('.main-taks__sidebar').toggleClass('active')
+    $(this).toggleClass('active')
+    $('.buscar_tareas').toggleClass('in-active')
+    if ($(this).hasClass('active')) {
+        $('.main-taks__mobiletitle span').text('Ver menos tareas')
+    }
+    else{
+        $('.main-taks__mobiletitle span').text('Ver más tareas')   
+    }
 })
+
+
+
 $('.content-tetimonios').click(function(){
     $('.main-taks__sidebar').removeClass('active')
 })

@@ -130,7 +130,8 @@
                                     <i class="fa fa-bell-o" aria-hidden="true"></i> <span>1</span> 
                                 </a>
                                 <a class="nav-link-notifications" href="#">
-                                    <i class="fa fa-envelope-o" aria-hidden="true"></i> <span>1</span>
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i> 
+                                    <span><?php echo count_chat($current_user->ID); ?></span>
                                 </a>
                             </li>
                             <?php

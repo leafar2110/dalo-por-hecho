@@ -1492,6 +1492,7 @@ input {
 	padding: 0;
 	list-style: none;
 	display: flex;
+	align-items: center;
 	margin-top: 10px;
 }
 .datos_name li {
@@ -1550,7 +1551,7 @@ input {
 	padding: 8px;
 	font-size: 15px;
 	border-radius: 15px;
-	margin-right: 9px;
+	margin-bottom: 10px;
 }
 .datos_presupuesto a:last-child {
 	margin-right: 2px;
@@ -2736,7 +2737,7 @@ fieldset.fieldset-create_account_email {
 
 .main-task__minigrid{
 	display: grid;
-	grid-template-columns: 60% 30%;
+	grid-template-columns: 100%;
 	grid-gap: 2rem;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -3022,4 +3023,41 @@ span#notification-count {
 }
 .nav_bottom .col-6 label{
 	margin: 0;
+}
+.content-tetimonios.admin-card > div:last-child > div:nth-child(2){
+	max-width: 100%;
+	width: 100%;
+	padding-top: 15px;
+}
+#field_pregunta_tarea2{
+	border-radius: 15px !important;
+}
+.buscar_tareas.in-active::before{
+	background: #00000085;
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	left: 0;
+	top: 0;
+}
+.buscar_tareas.in-active .frm_style_formidable-style.with_frm_style .form-field{
+	z-index: -1;
+}
+.buscar_tareas .content-tetimonios > div:last-child > div:last-child{
+	flex-direction: column;
+}
+.buscar_tareas .content-tetimonios > div:last-child > div:last-child > div{
+	text-align: center;
+}
+.buscar_tareas .admin-card ul{
+	padding: 0;
+	text-align: center;
+}
+.buscar_tareas .content-tetimonios.admin-card > div:last-child > div:nth-child(2){
+	text-align: center;
+}
+.buscar_tareas .content-tetimonios .col-md-12 p{
+	text-align: center;
 }

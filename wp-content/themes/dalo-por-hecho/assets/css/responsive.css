@@ -308,9 +308,6 @@
 	footer li {
 		margin-bottom: 10px;
 	}
-	.border-b {
-		display: none;
-	}
 	.iso-desk {
 		display: block;
 	}
@@ -513,6 +510,65 @@
 	.main-tareas{
 		padding: 50px;
 	}
+	.form-inline .fa-search{
+		z-index: 2;
+	}
+	.main-form__icons button{
+		background: #ededed;
+		top: 1px;
+	}
+	#contente form > div > div > div:last-child .dropdown-menu{
+		right: 0;
+    	left: inherit;
+	}
+	.datos_name ul li{
+		margin: 0 !important;
+	}
+	.buscar_tareas{
+		height: max-content;
+	}
+	.main-task__minigrid{
+		height: max-content;
+	    overflow: hidden;
+	    padding: 0 !important;
+	}
+	.main-taks__sidebar{
+		height: max-content;
+		transition: .5s ease-in-out;
+		padding: 15px;
+	}
+	.main-taks__sidebar.active{
+		transition: .5s ease-in-out;	
+	}
+	.main-taks__mobiletitle i{
+		transition: .3s ease-in-out;
+	}
+	.main-taks__mobiletitle.active{
+		position: relative;
+		z-index: 2;
+		color: #ffffff;
+	}
+	.main-taks__mobiletitle.active i{
+		transform: rotate(180deg);
+		transition: .3s ease-in-out;
+	}
+	.main-taks__sidebar .content-tetimonios > div:last-child{
+		align-items: center;
+	}
+	.main-taks__sidebar .admin-card .price{
+		text-align: center;
+	}
+	.nav-link-notifications{
+		color: #ec8603;
+	}
+	.nav-item-notifications{
+		justify-content: center;
+		padding: 10px 0 0;
+		gap: 30px;
+	}
+	.nav_bottom .col-6{
+		padding: 0;
+	}
 }
 
 
@@ -567,7 +623,14 @@
 	.navbar-nav .nav-link {
 		color: #ffa300;
 	}
-
+	.nav-link-notifications{
+		color: #ec8603;
+	}
+	.nav-item-notifications{
+		justify-content: center;
+		padding: 10px 0 0;
+		gap: 30px;
+	}
 	.navbar-nav {
 		display: block;
 	}
@@ -650,6 +713,21 @@
 	}
 	.buscador {
 		width: 220px !important;
+	}
+	.nav_bottom .navbar-nav.container{
+		padding: 0;
+	}
+	.nav_bottom .col-6{
+		padding: 0;
+	}
+	.nav_bottom .col-6:last-child .navbar-nav{
+		justify-content: end;
+	}
+	.nav_bottom .col-6 span#ocul > a, .nav_bottom .col-6 span#most > a{
+		margin-left: 0;
+	}
+	.nav_bottom .col-6:last-child .navbar-nav .nav-link{
+		margin: 0;
 	}
 	.nav_bottom ul a {
 		margin-left: 26px;
@@ -759,7 +837,7 @@
 	}
 	.main-testimonios__content .slick-slide > div {
 	    width: 50%;
-}	
+	}	
 	#iso {
 		display: none;
 	}
@@ -802,6 +880,17 @@
 	.cta-bg{
 		margin: 50px 0 0;
 	}
+	.buscar_tareas .content-tetimonios.admin-card{
+		padding: 10px;
+	}
+	.buscar_tareas .content-tetimonios.admin-card > div:last-child > div:nth-child(2){
+		padding: 15px 0 0;
+	}
+	.buscar_tareas .admin-card .price{
+		text-align: center;
+	}
+	.tab-content.main-taks__tabs{
+		padding-right: 30px;
 	}
 	.main-banner::after {
 		bottom: -48px;
@@ -874,7 +963,6 @@
 	}
 	.main-task__minigrid{
 		grid-template-columns: 100%;
-		padding-right: 2rem;
 	}
 	.main-task__tabs{
 		height: 65vh;
@@ -885,6 +973,8 @@
 	.datos_name ul li{
 		font-size:12px;
 	}
+	
+
 }
 @media (min-width: 999px) and (max-width: 1199px){
 	.content-tetimonios{
@@ -990,6 +1080,23 @@
 	    max-width: 75%;
 	    padding: 0;
 	}
+	.buscar_tareas .content-tetimonios > div:first-child > div:first-child{
+		width: 100%;
+		max-width: 100%;
+	}
+	.buscar_tareas .content-tetimonios.admin-card > div:last-child > div:nth-child(2){
+		text-align: center;
+	}
+	.buscar_tareas .content-tetimonios > div:first-child > div:last-child{
+		width: 100%;
+		max-width: 100%;
+		flex-direction: column;
+	}
+	.buscar_tareas .admin-card ul{
+		padding: 0;
+		text-align: center;
+	}
+
 	
 }
 
