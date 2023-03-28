@@ -437,19 +437,20 @@ section {
 .main-tareas_grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-gap: 25px;
 }
 .main-tareas_item {
 	text-align: center;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 50px;
+	width: 100%;
 }
 .main-tareas_item-content {
 	box-shadow: 0px 3px 10px #0000001f;
 	text-align: center;
 	border-radius: 10px;
-	width: 150px;
+	width: 100%;
 	height: 150px;
 	display: flex;
 	flex-direction: column;
@@ -499,10 +500,9 @@ section {
 .content-tetimonios {
 	box-shadow: 0px 3px 10px #0000001f;
 	border-radius: 20px;
-	padding: 16px;
+	padding: 24px;
 	margin-bottom: 30px;
 	margin: 10px;
-	height: 170px;
 }
 .content-tetimonios.admin-card{
 	height: auto;
@@ -526,7 +526,7 @@ section {
 	grid-template-columns: 1fr 1fr 1fr;
 }
 .main-funciona_grid-item img {
-	width: 42%;
+	width: 50%;
 	box-shadow: 0px 3px 10px #0000001f;
 	border-radius: 10px;
 	padding: 5px;
@@ -664,6 +664,7 @@ footer.footer-bottom div {
 }
 .main-tareas{
 	padding-top:4rem;
+	padding-bottom: 100px;
 }
 .main-tareas_item-content:hover {
 	box-shadow: 0px 3px 10px #00000014;
@@ -2744,9 +2745,6 @@ fieldset.fieldset-create_account_email {
 input[type="file"] {
 	border: none;
 }
-.main-tareas__last{
-	margin-top: -52px; 
-}
 .wdgk_donation_content input.wdgk_donation {
     display: none;
  }    
@@ -2908,7 +2906,8 @@ ul.navbar-nav.hmv {
     background-color: #fff !important;
 }
 img.arrow {
-    left: auto;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .ur-frontend-form .description {
     display: block;
@@ -2953,4 +2952,74 @@ span#notification-count {
     text-align: center;
     font-size: 10px;
     font-weight: 600;
+}
+
+
+.navbar-toggler, .navbar-toggler-icon{
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	height: unset;
+}
+.content-tetimonios > div:last-child{
+	display: flex;
+	flex-direction: column;
+	padding-top: 15px;
+}
+.content-tetimonios > div:last-child > div:first-child{
+	padding: 0;
+	width: 100%;
+	max-width: 100%;
+}
+.content-tetimonios > div:last-child > div:last-child {
+  display: flex;
+  padding: 0;
+  width: 100%;
+	max-width: 100%;
+	justify-content: end;
+}
+.content-tetimonios > div:last-child > div:last-child .money{
+	margin-bottom: 0;
+}
+.content-tetimonios{
+	min-height: 200px;
+	display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.content-tetimonios .row{
+	margin: 0;
+}
+.nav-item-notifications{
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	padding-left: 15px;
+}
+.nav-link-notifications{
+	color: #ffffff;
+	position: relative;
+	font-size: 22px;
+}
+.nav-link-notifications span{
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: -5px;
+	right: -8px;
+	font-size: 10px;
+	background: red;
+	color: #ffffff;
+	padding: 4px;
+	border-radius: 50%;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center
+}
+.nav_bottom .col-6{
+	display: flex;
+}
+.nav_bottom .col-6 label{
+	margin: 0;
 }

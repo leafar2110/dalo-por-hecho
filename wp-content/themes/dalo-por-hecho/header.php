@@ -80,9 +80,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo get_home_url() ?>/politicas-de-empresa">Políticas de Empresa</a>
                         </li>						
-						<li class="nav-item">
-                            <a class="nav-link" href="<?php echo get_home_url() ?>/soporte">Soporte</a>
-                        </li>
                         <?php 
                             if ( is_home()): ?>
                                 <li class="nav-item">
@@ -105,6 +102,7 @@
                                             Cerrar Sesión
                                         </p>
                                     </a>
+
                                 </div>
                             </div>
                             <?php else: ?>
@@ -118,14 +116,25 @@
                                     echo get_avatar( $current_user->user_email, 30 );
                                 ?>
                                 </a>
+                                
                              <?php
                         }else{ ?>
                             Ingresa
-                            <img class="user avatar" src="<?php echo get_template_directory_uri();?>/assets/img/user.png" alt=""></a>
+                            
                         <?php } ?>
                             </a>
                         </li>
-
+                        <?php if (is_user_logged_in()){ ?>
+                            <li class="nav-item-notifications">
+                                <a class="nav-link-notifications" href="#"> 
+                                    <i class="fa fa-bell-o" aria-hidden="true"></i> <span>1</span> 
+                                </a>
+                                <a class="nav-link-notifications" href="#">
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i> <span>1</span>
+                                </a>
+                            </li>
+                            <?php
+                        } ?>
                     </ul>
                 </div>
             </div>

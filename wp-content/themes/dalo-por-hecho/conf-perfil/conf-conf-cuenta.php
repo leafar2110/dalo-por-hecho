@@ -92,10 +92,11 @@ $porcent = (( $cont2 + $cont4 + $cont5 + $cont6 + $cont7 + $cont8)/7)*100;
                                                   <form method="post" id="adduser" action="<?php echo get_home_url(); ?>/save">  
                                                     <input type="hidden" name="name_form" value="rol" />
                                                     <label class="radio-inline">
-                                                      <input type="radio" name="user_registration_radio_1600171615" id="user_registration_radio_1600171615" value="Ofrezco un Servicio"  <?php if( meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) == "Ofrezco un Servicio" ){ echo 'checked="checked"';} ?>>Ofrezco un Servicio
+                                                      <input type="radio" name="user_registration_radio_1600171615" id="user_registration_radio_1600171615" value="Ofrezco un Servicio"  <?php if( meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) == "Ofrezco un Servicio" ){ echo 'checked="checked"';} ?>>Necesito un Servicio
                                                     </label>
                                                     <label class="radio-inline">
-                                                      <input type="radio" name="user_registration_radio_1600171615" id="user_registration_radio_1600171615" value="Necesito un Servicio" <?php if( meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) == "Necesito un Servicio" ){ echo 'checked="checked"';} ?>>Necesito un Servicio
+                                                      <input type="radio" name="user_registration_radio_1600171615" id="user_registration_radio_1600171615" value="Necesito un Servicio" <?php if( meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) == "Necesito un Servicio" ){ echo 'checked="checked"';} ?>>
+                                                      Ofrezco un Servicio
                                                     </label>
                                                     <div class="cont-boton-cambios">
                                                       <input name="updateuser" type="submit" id="updateuser" class="guardar-cambios" value="Guardar cambios" />

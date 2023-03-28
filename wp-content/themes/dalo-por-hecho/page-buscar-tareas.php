@@ -41,7 +41,7 @@ div#contente {
       max-width: 700px;
   
 }
-
+ 
 input#show:checked ~ div#contente {
     display:block;
 }
