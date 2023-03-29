@@ -4,6 +4,10 @@ $(function () {
 	$('[data-toggle="offcanvas"]').on("click", function () {
 		$(".offcanvas-collapse").toggleClass("open");
 	});
+    $('.perfil-open-menu').on("click", function () {
+        $("#v-pills-tab").toggle("slow");
+    });
+    
 });
 
 ///Buscar tareas

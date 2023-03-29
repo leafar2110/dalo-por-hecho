@@ -50,12 +50,14 @@
  <div class="modal-dialog" role="document">
     <div class="modal-content">  
         <div class="modal-body">
-           <h3 class="mb-3 main-task__title">Pagar Ofertas</h3>
+           <h3 class="mb-3 main-task__title">Pagar Oferta</h3>
                             <div class="contenido">
                                 <div class="datos_name">
                                     <div class="row">
                                         <div class="col-lg-2 col-md-3">
-                                           <div id="img_avatar"></div>
+                                           <div id="img_avatar">
+                                             <?php echo get_avatar( get_the_author_meta( 'user_email' ), 50 );?>
+                                           </div>
                                         </div>
                                         <div class="col-lg-8 col-md-9">
                                             <p class="name" id="nombre_empleado"></p>
@@ -72,6 +74,14 @@
                                               <p> 
                                                Resumen
                                               </p>
+                                              <br>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                        <div class="col-md-6">
+                                          <div class="main-content__localization">                       
+                                            <div class="main-content__localizationtext">
                                               <p>Monto tarea</p>
                                             </div>
                                           </div>
@@ -79,9 +89,6 @@
                                         <div class="col-md-6">
                                           <div class="main-content__localization">                       
                                             <div class="main-content__localizationtext">
-                                              <p> 
-                                               <br>
-                                              </p>
                                               <p id="monto_tarea"></p>
                                             </div>
                                           </div>
