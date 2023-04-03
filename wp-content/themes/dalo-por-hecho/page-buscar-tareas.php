@@ -218,7 +218,7 @@ input#hide:checked ~ div#contente {
                                                 </div>
                                                 <div class="">
                                                     <ul>
-                                                       <li class="price">$<?php echo str_replace(',', '.' ,number_format($show_slary)); ?></li>
+                                                       <li class="price">$<?php echo str_replace(',', '.' ,$show_slary); ?></li>
                                                        <li class="open">Abierta</li>
                                                     </ul>
                                                 </div>
@@ -259,7 +259,7 @@ input#hide:checked ~ div#contente {
                                         </div>
                                         <div class="">
                                             <ul>
-                                               <li class="price">$<?php echo str_replace(',', '.' ,number_format($show_slary)); ?></li>
+                                               <li class="price">$<?php echo str_replace(',', '.' ,$show_slary); ?></li>
                                                <li class="open">Abierta</li>
                                             </ul>
                                         </div>
@@ -326,7 +326,7 @@ input#hide:checked ~ div#contente {
                                     <div class=" datos_presupuesto main-presupuesto__mobile">
                                         <div class="presupuesto_minicard">
                                             <p>Presupuesto </p>
-                                            <span class="precio">$<?php echo str_replace(',', '.' ,number_format(get_post_meta( get_the_ID(), '_job_salary', true ))); ?></span>
+                                            <span class="precio">$<?php echo str_replace(',', '.' ,get_post_meta( get_the_ID(), '_job_salary', true )); ?></span>
                                             <?php if (is_user_logged_in() != NULL && meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) == "Necesito un Servicio" )
                                             { $title_tarea2 = $title_tarea."-".meta_user_value( 'first_name', $current_user->ID ); 
                                                 if (bank_data() == "yes" )
@@ -452,7 +452,7 @@ input#hide:checked ~ div#contente {
                                 <div class="main-presupuesto__desktop">
                                     <div class="presupuesto_minicard">
                                         <p>Presupuesto</p>
-                                        <span class="precio">$<?php echo str_replace(',', '.' ,number_format(get_post_meta( get_the_ID(), '_job_salary', true ))); ?></span>
+                                        <span class="precio">$<?php echo str_replace(',', '.' ,get_post_meta( get_the_ID(), '_job_salary', true )); ?></span>
                                         <?php if (is_user_logged_in() != NULL && meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) == "Necesito un Servicio" )
                                         { 
                                             $title_tarea2 = $title_tarea."-".meta_user_value( 'first_name', $current_user->ID ); 

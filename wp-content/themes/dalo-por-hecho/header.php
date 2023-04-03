@@ -68,7 +68,7 @@
                         <li class="nav-item">
                         <?php if( is_user_logged_in() != NULL):?>
                             <a class="nav-link btn-custom-nav  btn-custom-transparent-nav" id="form_conf" href="" data-toggle="modal"
-                                data-target="#step" onclick="enviarDatos2();"><?php echo get_theme_mod('banner1_button2'); ?></a>
+                                data-target="#step" onclick=""><?php echo get_theme_mod('banner1_button2'); ?></a>
                             <?php else: ?>
 <a class="nav-link btn-custom-nav  btn-custom-transparent-nav" href="#" data-toggle="modal" data-target="#exampleModal"><?php echo get_theme_mod('banner1_button2'); ?></a>
                                 <?php endif; ?>

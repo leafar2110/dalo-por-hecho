@@ -119,14 +119,14 @@ function enviarDatos(id_cat,names_cat){
     //$('.hid').prop('id', 'hidd');
 } 
    
-function enviarDatos23(){ 
-    this.names_cat = 'Seleccionar';
-    this.id_cat = '0';
-    document.getElementById('job_cat').innerHTML=this.names_cat;
-    $("#job_cat").val(this.id_cat);   
+// function enviarDatos23(){ 
+//     this.names_cat = 'Seleccionar';
+//     this.id_cat = '0';
+//     document.getElementById('job_cat').innerHTML=this.names_cat;
+//     $("#job_cat").val(this.id_cat);   
 
-    //$('.hid').prop('id', 'hidd');
-}
+//     //$('.hid').prop('id', 'hidd');
+// }
 
 
 $(document).ready(function() {     

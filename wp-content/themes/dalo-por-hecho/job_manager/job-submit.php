@@ -93,7 +93,7 @@ if (strpos($url, '?') !== false) {
 				<ul class="navbar-nav hmv">		
 					<li class='nav-item dropdown dowms'>                                            
 						<input class="form-control" type="search" placeholder="Categorías" aria-label="Search" name="job_category2" id="job_category2" autocomplete="off" required>
-						<input class="form-control buscador" type="hidden" placeholder="Categorías" aria-label="Search" name="job_category[]" id="job_category">
+						<input class="form-control buscador" type="hidden" placeholder="Categorías" aria-label="Search" name="job_category" id="job_category">
 
 						<div aria-labelledby='dropdownMenuButton' class='dropdown-menu dropdown-menu__scroll'>
 							<div class='content-drop' id="result2_submit">
@@ -139,7 +139,11 @@ if (strpos($url, '?') !== false) {
 							<a class="job-but" onclick="mark('<?=$category->name ?>')">	
 								<p class="p-0 m-0 color-blue">
 									<i	class="<?php if($category->name == 'En Persona'){ $mens = "Selecciona si necesitas la persona físicamente en el lugar"; echo "fa fa-map-marker";}if($category->name == 'On Line'){ $mens = "Selecciona si la tarea se puede hacer desde casa"; echo "fa fa-globe";} ?>" aria-hidden="true"></i>
-									<input name="job_type" id="<?=$category->slug ?>" type="radio" value="<?=$category->term_id ?>" <?php if($category->name == 'En Persona'){ echo "checked='checked'";} ?>  onclick="block_<?=$category->term_id ?>()"
+									<input 
+										name="job_type" 
+										id="<?=$category->slug ?>" 
+										type="radio" 
+										value="<?=$category->term_id ?>" <?php if($category->name == 'En Persona'){ echo "checked='checked'";} ?>  onclick="block_<?=$category->term_id ?>()"
 									<?=$category->name ?>> 
 								</p>
 								<span><?php echo $mens; ?></span>
@@ -204,7 +208,7 @@ if (strpos($url, '?') !== false) {
 				<div class="tab content2">
 					<div class="row mb-3">
 						<div class="col-md-6">
-							<input type="text" onkeypress="return onlynumbers(event)" class="" name="job_clp" id="job_clp" placeholder="CLP" required pattern="[0-9]" />
+							<input type="text" onkeypress="return onlynumbers(event)" class="" name="job_salary" id="job_salary" placeholder="CLP" required pattern="[0-9]" />
 						</div>
 						<div class="col-md-6">
 							<input type="text" class="" onkeypress="return onlynumbers(event)" name="job_horas" id="job_horas" placeholder="Horas" />
@@ -221,7 +225,7 @@ if (strpos($url, '?') !== false) {
 							</span>
 						</div>
 						<div class="col-md-4 d-flex justify-content-center align-items-center" >
-                            <input type="text" class="form-control" name="job_salary1" id="job_salary1" value="" /><br>
+                            <input type="text" class="form-control" name="job_salary" id="job_salary1" value="" /><br>
 							<input type="hidden" class="form-control" name="job_salary" id="job_salary" value="" />
 						</div>
 					</div>

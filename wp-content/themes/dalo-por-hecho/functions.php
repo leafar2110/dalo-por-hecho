@@ -808,7 +808,7 @@ function gma_wpjmef_admin_add_salary_field( $fields ) {
   $fields['_job_salary'] = array(
     'label'       => __( 'Salary', 'wpjm-extra-fields' ),
     'type'        => 'text',
-    'placeholder' => 'e.g. USD$ 20.000',
+    'placeholder' => 'e.g. CLP 20.000',
     'description' => ''
   );
 
@@ -984,3 +984,4 @@ class="wdgk_error_front"></div></div>';
   
 }
 
+require_once 'inc/jobs/jobs-utils.php';
