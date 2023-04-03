@@ -135,7 +135,7 @@ if (strpos($url, '?') !== false) {
 				<div class="content-row">
 					<?php $product_categories = get_categories( array( 'taxonomy' => 'job_listing_type', 'orderby' => 'menu_order', 'order' => 'asc', 'hide_empty'=> FALSE ));  ?>
 					<?php foreach($product_categories as $category):  global $wpdb; $i = 0;?>					
-						<div class="col-md-6 step-content ">
+						<div class="col-md-6 step-content <?php if ($category->name == 'En Persona') {echo 'active';} ?> ">
 							<a class="job-but" onclick="mark('<?=$category->name ?>')">	
 								<p class="p-0 m-0 color-blue">
 									<i	class="<?php if($category->name == 'En Persona'){ $mens = "Selecciona si necesitas la persona físicamente en el lugar"; echo "fa fa-map-marker";}if($category->name == 'On Line'){ $mens = "Selecciona si la tarea se puede hacer desde casa"; echo "fa fa-globe";} ?>" aria-hidden="true"></i>
@@ -413,6 +413,7 @@ $(document).ready(function(){
             load_data2_submit();            
         }
     });
+
 });
 
 function mark(tipo){
@@ -425,6 +426,8 @@ function mark(tipo){
         $("#job_direccion2").css("display", "none");
         $("#job_location3").css("display", "none");
         $("#job_direccion3").css("display", "none");        
+        $("#step2 .step-content:first-child").removeClass('active');
+        $("#step2 .step-content:last-child").addClass('active');
 	}
 	if (tipo == 'En Persona') {
         $("#en-persona").prop("checked", true); 
@@ -434,7 +437,28 @@ function mark(tipo){
         $("#job_direccion2").css("display", "block");   
         $("#job_location3").css("display", "block");
         $("#job_direccion3").css("display", "block");  
+        $("#step2 .step-content:last-child").removeClass('active');
+        $("#step2 .step-content:first-child").addClass('active');
 	}
  
 }
+
+
+var fecha = new Date();
+    var anio = fecha.getFullYear();
+    var dia = fecha.getDate();
+    var _mes = fecha.getMonth();//viene con valores de 0 al 11
+    _mes = _mes + 1;//ahora lo tienes de 1 al 12
+    if (_mes < 10)//ahora le agregas un 0 para el formato date
+    { var mes = "0" + _mes;}
+    else
+    { var mes = _mes.toString;}
+	if (dia < 10)//ahora le agregas un 0 para el formato date
+    { var dia = "0" + dia;}
+    else
+    { var dia = dia.toString;}
+    document.getElementById("job_expires").min = anio+'-'+mes+'-'+dia; 
+
+    console.log( anio+'-'+mes+'-'+dia )
+
 </script>
