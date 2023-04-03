@@ -204,8 +204,7 @@ input#hide:checked ~ div#contente {
                             $loop2 = new WP_Query( $asig);
 
                             while ( $loop->have_posts() ) : $loop->the_post(); global $product; $show_slary = get_post_meta( get_the_ID(), '_job_salary', true )?>
-
-                            <?php if ($status == "publish" && $asignados == ""): ?>       
+  
 
                                 <a class="av-link <?php if($i==0 && $_GET['tab_tarea'] == NULL){ echo "active";} ?> card-job" id="v-pills-<?php echo get_the_ID();?>-tab_m" data-toggle="pill" href="#v-pills-<?php echo get_the_ID();?>" role="tab" aria-controls="v-pills-<?php echo get_the_ID();?>" aria-selected="false">
                                     <div class="content-tetimonios admin-card">
@@ -238,7 +237,7 @@ input#hide:checked ~ div#contente {
 
                                 
 
-                            <?php endif; ?>
+
 
                             <?php $i = $i+1; endwhile; ?>    
                         </div>   
@@ -257,7 +256,7 @@ input#hide:checked ~ div#contente {
                         
                     $asignados = $loop2->posts[$i]->ID;
                     $status =  $loop->posts[$i]->post_status; ?>
-                    <?php if ($status == "publish" && $asignados == ""): ?>
+
                          <a class="av-link email_custom_job <?php if($i==0 && $_GET['tab_tarea'] == NULL){ echo "active";} ?> card-job" id="v-pills-<?php echo get_the_ID();?>-tab" data-mailjob="<?php echo get_the_author_meta( 'user_email' ); ?>" data-toggle="pill" href="#v-pills-<?php echo get_the_ID();?>" role="tab" aria-controls="v-pills-<?php echo get_the_ID();?>" aria-selected="false">
                             <div class="content-tetimonios admin-card">
                                 <div class="row">
@@ -291,7 +290,7 @@ input#hide:checked ~ div#contente {
                         </a> 
 
                         
-                    <?php endif; ?>
+                    
                          
                     <?php $i = $i+1; endwhile; ?>    
                 </div>   
@@ -311,7 +310,7 @@ input#hide:checked ~ div#contente {
                   <?php
                   $asignados = $loop2->posts[$j]->ID;
                   $status =  $loop->posts[$j]->post_status; ?>
-                  <?php if ($status == "publish" && $asignados == ""): ?>
+
 
                     <?php var_dump(get_the_ID()) ?>
 
@@ -653,7 +652,7 @@ input#hide:checked ~ div#contente {
                     
 
 
-                    <?php endif; ?> 
+                    
 
 
 

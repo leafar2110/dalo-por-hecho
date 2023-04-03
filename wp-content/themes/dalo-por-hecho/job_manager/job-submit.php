@@ -463,6 +463,6 @@ var fecha = new Date();
     { var dia = dia.toString;}
     document.getElementById("job_expires").min = anio+'-'+mes+'-'+dia; 
 
-    console.log( anio+'-'+mes+'-'+dia )
+    
 
 </script>

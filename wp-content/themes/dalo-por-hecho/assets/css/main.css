@@ -1363,6 +1363,9 @@ input {
 	justify-content: center;
 	align-items: center;
 }
+.dropdown:hover > .dropdown-menu{
+	display: block;
+}
 #step .dropdown .dropdown-menu{
 	height: 0;
 	display: block;
