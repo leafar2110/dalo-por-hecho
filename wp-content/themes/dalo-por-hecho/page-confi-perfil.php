@@ -25,12 +25,13 @@ get_header();?>
  
 <div class="container perfil m-110">
    <section> 
-        <div class="container vertical-tabs">
+        <div class="container vertical-tabs ">
             <div class="row">
-                <div class="col-md-4 content-barra-lateral">
+                <div class="col-md-3 content-barra-lateral">
                     <div class="perfil-content">
                         <?php if (is_user_logged_in()){ echo get_avatar( $current_user->user_email, 165 );  }?> 
                         <p class="mt-3 mb-4"><?php the_author_meta( 'first_name', $current_user->ID ); ?></p>
+                        <div class="perfil-open-menu">Ver menú</div>
                     </div>
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
                             aria-orientation="vertical">
@@ -77,7 +78,7 @@ get_header();?>
                                  aria-selected="false">Salir</a>
                     </div>
                 </div>
-                <div class="col-md-8 main-content__tabs">
+                <div class="col-md-9 main-content__tabs">
                     <div class="tab-content" id="v-pills-tabContent">
 
                         <?php get_template_part('conf-perfil/conf-history'); ?>

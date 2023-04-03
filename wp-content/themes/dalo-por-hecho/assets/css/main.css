@@ -135,6 +135,8 @@ section {
 .naranja-color {
 	color: #ec8603 !important;
 	font-weight: 600;
+	display: flex;
+	align-items: center;
 }
 .main-banner__text {
 	color: #fff;
@@ -944,7 +946,7 @@ button:focus,
 	margin: 0 auto;
 	left: 0;
 	right: 0;
-	top: 10px;
+	top: 50px;
 	z-index: 1;
 }
 
@@ -1027,7 +1029,7 @@ span.round-tab i {
 	padding: 0;
 	background-color: transparent;
 	position: relative;
-	top: 0;
+	top: 40px;
 }
 .wizard .nav-tabs > li a i {
 	position: absolute;
@@ -1361,9 +1363,16 @@ input {
 	justify-content: center;
 	align-items: center;
 }
-
-.dropdown:hover > .dropdown-menu {
+#step .dropdown .dropdown-menu{
+	height: 0;
 	display: block;
+	padding: 0;
+	border: none;
+	transition: .3s ease-in-out;
+}
+#step .dropdown:hover > .dropdown-menu, #step .dropdown:focus > .dropdown-menu {
+	height: 300px;
+	transition: .3s ease-in-out;
 }
 
 .dropdown > .dropdown-toggle:active {
@@ -1514,7 +1523,7 @@ input {
 .datos_genereal {
 	border-top: 1px solid #ededed;
 	border-bottom: 1px solid #ededed;
-	padding: 20px;
+	padding: 20px 0;
 	text-align: center;
 }
 .datos_genereal p {
@@ -1631,13 +1640,13 @@ input {
 	margin-top: 110px;
 }
 .perfil-content img {
-	width: 50%;
+	width: 150px;
 	border: 2px solid #ec8603;
 	border-radius: 50%;
-	height:130px;
+	height:150px;
 }
 .perfil-content {
-	text-align: center;
+	text-align: start;
 }
 
 .card a {
@@ -1793,6 +1802,7 @@ a.box-boton-emblemas_a {
 	padding: 5px 10px;
 	border-radius: 50px;
 	font-size: 14px;
+	cursor: pointer;
 }
 /*fin emblemas*/
 .cont-top-conf-cuenta {
@@ -1852,6 +1862,7 @@ textarea.textarea-conf {
 	border-radius: 20px;
 	resize: none;
 	height: 150px;
+	padding: 0.375rem 0.75rem;
 }
 input[type="radio"] {
 	font-size: 12px;
@@ -2320,19 +2331,24 @@ a.nav-link.historial-pago-tab.active {
 	border-right: 0;
 	border-top: 0;
 	border-left: 0;
-	border-bottom: 2px solid #ec8603;
-	padding:5px;
+	padding: 15px;
+	position: relative;
 }
 ul.nav.nav-tabs.h-p-nav-tab {
 	border: none;
 }
-a.nav-link.historial-pago-tab:hover {
-	border-right: none;
-	border-left: none;
-	border-top: none;
-	border-bottom: 2px solid #ec8603;
+a.nav-link.historial-pago-tab {
+	border: none;
 }
-
+a.nav-link.historial-pago-tab.active::before{
+	content: '';
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: #ec8603;
+}
 /*notificaciones*/
 a.nav-link.link-notificaciones-mensajes.dropdown-toggle::after {
 	display: none;
@@ -2731,7 +2747,7 @@ fieldset.fieldset-create_account_email {
 }
 .main-taks__maxgrid{
 	display: grid;
-	grid-template-columns: 30% 70%;
+	grid-template-columns: 30% 68%;
 	grid-gap: 2rem;
 }
 
@@ -2765,7 +2781,8 @@ body > header > nav > div > div.navbar-collapse.offcanvas-collapse > ul:nth-chil
 
 
 .content-barra-lateral{
-	padding:0 3rem;
+	padding-right:3rem;
+	padding-left: 0;
 }
 
 .img-p-p {
@@ -2795,12 +2812,21 @@ label.frm_screen_reader.frm_hidden {
 a#item-perfil.active {
     background: #fff;
     color: #ec8603 !important;
-    border-color: #dee2e6 #dee2e6 #fff;
-    border-bottom: 2px solid #ec8603;
+    border: none;
+    position: relative;
 }
-
+a#item-perfil.active::before{
+	position: absolute;
+	content: '';
+	bottom: -1px;
+	left: 0;
+	height: 2px;
+	width: 100%;
+	background: #ec8603;
+}
 a#item-perfil {
     padding: .8rem .5rem;
+    border: none;
 }
 a#item-perfil:hover {
     border: none;
@@ -3060,4 +3086,119 @@ span#notification-count {
 }
 .buscar_tareas .content-tetimonios .col-md-12 p{
 	text-align: center;
+}
+a.button.wdgk_add_donation{
+	padding: 10px 30px;
+}
+.main-soporte__content input, .main-soporte__content textarea{
+	border-radius: 15px !important;
+}
+.perfil .entry-content h5 > a:hover, .perfil .entry-content h5 > a{
+	color: #3e3e3e !important;
+	cursor: default;
+}
+.opc-conf-cuenta label{
+	cursor: pointer;
+	width: max-content;
+}
+.opc-conf-cuenta label input{
+	position: relative;
+}
+.opc-conf-cuenta label input:hover{
+	width: 12px !important;
+	height: 12px !important;
+	top: 0 !important;
+	left: 0 !important;
+}
+.opc-conf-cuenta label input[type='radio']:checked::after{
+	width: 14px !important;
+	height: 14px !important;
+}
+.opc-conf-cuenta label input[type='radio']:checked::before{
+	content: '';
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	border-radius: 50px;
+	border: 1px solid #ffa500;
+	left: -3px;
+	top: -4px;
+}
+.cont-boton-cambios input{
+	cursor: pointer;
+}
+.form-inline.cumple{
+	justify-content: space-between;
+}
+.form-inline.cumple input{
+	width: 30%;
+}
+.perfil-open-menu{
+	background: #ec8603;
+	padding: 8px 30px;
+	font-size: 14px;
+	color: #ffffff;
+	border-radius: 15px;
+}
+#v-pills-emblemas button.close, #chate-e button.close{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: max-content;
+}
+.perfil-open-menu{
+	display: none;
+}
+.checkout #customer_details{
+	display: none;
+}
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt{
+	background: #ec8603;
+	border: 2px solid #ec8603;
+	transition: .3s ease-in-out;
+	border-radius: 15px;
+}
+.woocommerce-info{
+	border-top-color: #ec8603;
+}
+.woocommerce-info::before{
+	color: #ec8603;
+}
+.woocommerce-info a, .woocommerce-checkout-payment a{
+	color: #ec8603;	
+}
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt:hover, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt:hover, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt:hover, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt:hover, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt:hover, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt:hover, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt:hover, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt:hover{
+	background: transparent;
+	color: #ec8603;
+	transition: .3s ease-in-out;
+}
+.vertical-tabs .content-barra-lateral .nav-link{
+	padding-left: 0;
+}
+.main-task__minigrid{
+
+}
+.step-content .job-but input{
+	display: none;
+}
+#step2 .step-content{
+	transition: .3s ease-in-out;
+	padding: 10px;
+	cursor: pointer;
+}
+#step2 .step-content a{
+	line-height: 1;
+}
+#step2 .step-content a:hover{
+	color: inherit !important;
+}
+#step2 .step-content.active{
+	background: #ec8603;
+	transition: .3s ease-in-out;
+}
+#step2 .step-content.active a, #step2 .step-content.active a:hover{
+	color: #ffffff !important;
+}
+#step2 .step-content.active a p.color-blue{
+	color: #ffffff;
 }

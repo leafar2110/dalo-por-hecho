@@ -264,8 +264,8 @@ $(document).ready(function () {
         }          
  
  		
-		var elemento_job_clp = document.getElementById("job_clp");	
-        valor_job_clp = document.getElementById("job_clp").value;
+		var elemento_job_clp = document.getElementById("job_salary");	
+        valor_job_salary = document.getElementById("job_salary").value;
 
  		
 		var elemento_job_horas = document.getElementById("job_horas");	
