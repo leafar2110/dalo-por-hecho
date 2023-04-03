@@ -1363,9 +1363,16 @@ input {
 	justify-content: center;
 	align-items: center;
 }
-
-.dropdown:hover > .dropdown-menu {
+#step .dropdown .dropdown-menu{
+	height: 0;
 	display: block;
+	padding: 0;
+	border: none;
+	transition: .3s ease-in-out;
+}
+#step .dropdown:hover > .dropdown-menu, #step .dropdown:focus > .dropdown-menu {
+	height: 300px;
+	transition: .3s ease-in-out;
 }
 
 .dropdown > .dropdown-toggle:active {
@@ -2740,7 +2747,7 @@ fieldset.fieldset-create_account_email {
 }
 .main-taks__maxgrid{
 	display: grid;
-	grid-template-columns: 30% 70%;
+	grid-template-columns: 30% 68%;
 	grid-gap: 2rem;
 }
 
@@ -3141,4 +3148,57 @@ a.button.wdgk_add_donation{
 }
 .perfil-open-menu{
 	display: none;
+}
+.checkout #customer_details{
+	display: none;
+}
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt{
+	background: #ec8603;
+	border: 2px solid #ec8603;
+	transition: .3s ease-in-out;
+	border-radius: 15px;
+}
+.woocommerce-info{
+	border-top-color: #ec8603;
+}
+.woocommerce-info::before{
+	color: #ec8603;
+}
+.woocommerce-info a, .woocommerce-checkout-payment a{
+	color: #ec8603;	
+}
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt:hover, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt:hover, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt:hover, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt:hover, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt:hover, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt:hover, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt:hover, :where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt:hover{
+	background: transparent;
+	color: #ec8603;
+	transition: .3s ease-in-out;
+}
+.vertical-tabs .content-barra-lateral .nav-link{
+	padding-left: 0;
+}
+.main-task__minigrid{
+
+}
+.step-content .job-but input{
+	display: none;
+}
+#step2 .step-content{
+	transition: .3s ease-in-out;
+	padding: 10px;
+	cursor: pointer;
+}
+#step2 .step-content a{
+	line-height: 1;
+}
+#step2 .step-content a:hover{
+	color: inherit !important;
+}
+#step2 .step-content.active{
+	background: #ec8603;
+	transition: .3s ease-in-out;
+}
+#step2 .step-content.active a, #step2 .step-content.active a:hover{
+	color: #ffffff !important;
+}
+#step2 .step-content.active a p.color-blue{
+	color: #ffffff;
 }
