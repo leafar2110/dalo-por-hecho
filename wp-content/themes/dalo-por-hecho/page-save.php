@@ -113,7 +113,7 @@ if ( $_POST['name_form'] == 'job_list' ) {
      if ($_POST['_job_salary'] != NULL) {
         update_post_meta( $_POST['id_job'], '_job_salary', esc_attr( $_POST['_job_salary'] ) );
         if ($_POST['_job_clp'] != NULL && $_POST['_job_horas'] != NULL) {
-          update_post_meta( $_POST['id_job'], '_job_clp', esc_attr( $_POST['_job_clp'] ) );
+          update_post_meta( $_POST['id_job'], '_job_salary', esc_attr( $_POST['_job_salary'] ) );
           update_post_meta( $_POST['id_job'], '_job_horas', esc_attr( $_POST['_job_horas'] ) );
         }    
      }

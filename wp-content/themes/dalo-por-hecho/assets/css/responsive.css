@@ -342,6 +342,7 @@
 	.respnse {
 		display: flex;
 		flex-direction: column;
+		gap: 5px;
 	}
 	.respnse .ml-auto,
 	.mx-auto {
@@ -508,7 +509,7 @@
 		margin-bottom: 0;
 	}
 	.main-tareas{
-		padding: 50px;
+		padding: 50px 15px;
 	}
 	.form-inline .fa-search{
 		z-index: 2;
@@ -568,6 +569,82 @@
 	}
 	.nav_bottom .col-6{
 		padding: 0;
+	}
+	.main-content__localizationtext{
+		align-items: center;
+	}
+	.wdgk_donation_content{
+		text-align: center;
+	}
+	.wizard .nav-tabs > li a{
+		top: 0px;
+	}
+	.connecting-line{
+		top: 10px;
+	}
+	.main-tareas.main-categories{
+		padding: 100px 15px 50px;
+	}
+	.perfil{
+		padding-bottom: 50px;
+	}
+	.perfil #v-pills-tab{
+		display: none;
+	}
+	.perfil-content{
+		text-align: center;
+	}
+	.cont-pago-estado-form-ganado{
+		margin: 0 !important;
+	}
+	.perfil .vertical-tabs .main-content__tabs{
+		padding: 0;
+	}
+	.perfil .col-md-3.content-barra-lateral{
+		padding: 0;
+	}
+	.perfil .card-header{
+		padding: 0;
+	}
+	.cont-top-conf-cuenta{
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.cont-top-conf-cuenta .barra-progreso{
+		padding-top: 10px;
+	}
+	.cont-top-conf-cuenta .barra-progreso br{
+		display: none;
+	}
+	.perfil .cont-inf-conf-cuenta, .perfil  #adduser{
+		padding: 0;
+	}
+	.perfil .row.cont-row-form{
+		padding: 0 15px;
+	}
+	.perfil .subir-foto{
+		margin-left: 15px;
+	}
+	#chate-e .ofertas_titulos{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	#chate-e .ofertas_titulos > a{
+		width: 20%;
+	}
+	#chate-e .ofertas_titulos > a.ml-auto{
+		width: 100%;
+		text-align: end;
+		padding-top: 10px;
+	}
+	#chate-e .ofertas_titulos .flex{
+		text-align: start;
+	}
+	#chate-e .datos_genereal .col-lg-8.col-md-9{
+		padding: 0;
+	}
+	.perfil-open-menu{
+		display: block;
 	}
 }
 
@@ -649,9 +726,8 @@
 		display: block;
 	}
 	.navbar-expand-md .navbar-toggler {
-		display: block;
+		display: flex;
 		text-align: end;
-		margin-top: 14px;
 	}
 	.offcanvas-collapse {
 		position: fixed;
@@ -973,8 +1049,24 @@
 	.datos_name ul li{
 		font-size:12px;
 	}
-	
-
+	.ofertas_conetnt .datos_name > div{
+		width: 100%;
+	}
+	.wizard .nav-tabs > li a{
+		top: 0px;
+	}
+	.connecting-line{
+		top: 10px;
+	}
+	.main-tareas .main-tareas_grid > a{
+		width: 25%;
+	}
+	a.nav-link.historial-pago-tab{
+		padding: 15px;
+	}
+	.tab-pane .check-line{
+		flex-wrap: wrap;
+	}
 }
 @media (min-width: 999px) and (max-width: 1199px){
 	.content-tetimonios{
