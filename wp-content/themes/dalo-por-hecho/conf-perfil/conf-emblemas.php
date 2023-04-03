@@ -47,7 +47,10 @@ un servicio</h3>
                                                        <!-- Modal añadir -->
                                                         <div class="modal fade" id="modal_emblemas<?php echo get_the_ID(); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                             <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">  
+                                                                <div class="modal-content"> 
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                  <span aria-hidden="true">&times;</span>
+                                                                </button> 
                                                                     <div class="modal-body">
                                                                         <div class="contenido">
                                                                             <div class="datos_name"> 

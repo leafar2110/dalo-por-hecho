@@ -414,6 +414,7 @@ input#hide:checked ~ div#contente {
                                                             <p>$ <?php echo $postulado_monto; ?></p>
                                                         </div>
                                                         <div class="respnse">
+                                                            
                                                                 <?php 
                                                             $value_var_array = str_replace("<br>",":",$var_array); 
                                                             $sinparametros= explode(':', $value_var_array, 14);
@@ -426,9 +427,13 @@ input#hide:checked ~ div#contente {
                                                                 $codigo_unico = str_replace(' ', '', $codigo_unico); ?>
                                                                 <?php if (post_asignados($current_user->ID,$codigo_unico,get_the_author_meta( 'ID' )) == 1) 
                                                                 { ?>
+
                                                                     <div class="ml-auto"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Oferta respondida</div>
                                                                  <?php }
                                                                 else{ ?>
+                                                                    <div>
+                                                                        <a target="_blank" href="perfil?post=<?php echo $id_postulado ?>">Ver perfil</a>
+                                                                    </div>
                                                                     <a href="" class="ml-auto" data-toggle="modal" data-target="#modal_donation" onclick="function_donation('<?php echo $postulado_monto ?>','<?php echo $var_array ?>'), 
                                                                         show_data('<?php echo $postulado_monto ?>','<?php echo $var_array ?>','<?php echo $sinparametros[5]; ?>','<?php echo get_post(meta_user_value( '_wpupa_attachment_id', $sinparametros[7] ))->guid; ?>') "><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Responder oferta</a> 
                                                                 <?php }} ?> 
@@ -675,7 +680,7 @@ $('.content-tetimonios').click(function(){
     <div class="modal-dialog" role="document">
         <div class="modal-content">  
             <div class="modal-body">
-               <h3 class="mb-3 main-task__title">Pagar Ofertas</h3>
+               <h3 class="mb-3 main-task__title">Pagar Oferta</h3>
                 <div class="contenido">
                     <div class="datos_name">
                         <div class="row">
@@ -696,16 +701,14 @@ $('.content-tetimonios').click(function(){
                                         <p> 
                                             Resumen
                                         </p>
-                                        <p>Monto tarea</p>
+                                        
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="main-content__localization">                       
                                     <div class="main-content__localizationtext">
-                                        <p> 
-                                            <br>
-                                        </p>
+                                        <p>Monto tarea</p>
                                         <p id="modal_salary">$<?php echo $salarys; ?></p>
                                     </div>
                                 </div>
