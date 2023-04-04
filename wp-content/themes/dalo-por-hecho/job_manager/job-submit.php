@@ -201,7 +201,7 @@ if (strpos($url, '?') !== false) {
 				<div class="tab content1">
 					<div class="row mb-3">
 						<div class="col-md-6">
-							<input type="text"  name="job_total" id="job_total" placeholder="$000" required="" onkeypress=""  onpaste="return false"/>
+							<input type="number"  name="job_total" id="job_total" placeholder="$000" required="" onkeypress=""  onpaste="return false"/>
 						</div>
 					</div>
 				</div>
