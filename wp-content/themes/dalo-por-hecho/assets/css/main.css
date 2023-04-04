@@ -3205,3 +3205,19 @@ a.button.wdgk_add_donation{
 #step2 .step-content.active a p.color-blue{
 	color: #ffffff;
 }
+.woocommerce-order .woocommerce-customer-details{
+	display: none;
+}
+.tab-content button{
+	cursor: pointer;
+}
+.woocommerce .woocommerce-order .woocommerce-table__product-total.product-total .product-total{
+	text-align: end;
+}
+.woocommerce .woocommerce-order tfoot tr td, .woocommerce-checkout-review-order-table .product-total,
+.woocommerce .woocommerce-checkout-review-order-table tfoot tr td {
+	text-align: end;
+}
+.woocommerce .woocommerce-order .woocommerce-table__product-table.product-total{
+	text-align: end;	
+}
