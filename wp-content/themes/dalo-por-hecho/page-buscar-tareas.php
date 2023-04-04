@@ -23,11 +23,7 @@ $job_featured = get_post_meta( get_the_ID(), '_featured', true );
 $company_name = get_post_meta( get_the_ID(), '_company_name', true );
 $al=str_replace("%2C%20", ", ", $_GET["location"]);
 $args = arg($_POST["search_text22"],'job_listing_category',$_POST["search"],$_POST["search_text"],$_POST["search_text33"]);  
-$asig =  array(
-  'post_type' => 'asignados',
-  'post_status' => 'publish',
 
-);
 
 $user_actual = $current_user->ID;  
 
@@ -199,14 +195,9 @@ input#hide:checked ~ div#contente {
                     <div class="scroll-admin ">
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <?php $i=0;
+                            $loop = new WP_Query( $args ); 
 
-                            $loop = new WP_Query(  $args );
-                            $loop2 = new WP_Query( $asig);
-
-                            while ( $loop->have_posts() ) : $loop->the_post(); global $product; $show_slary = get_post_meta( get_the_ID(), '_job_salary', true )?>
-
-                            <?php if ($status == "publish" && $asignados == ""): ?>       
-
+                            while ( $loop->have_posts() ) : $loop->the_post(); global $product; $show_slary = get_post_meta( get_the_ID(), '_job_salary', true )?>                     
                                 <a class="av-link <?php if($i==0 && $_GET['tab_tarea'] == NULL){ echo "active";} ?> card-job" id="v-pills-<?php echo get_the_ID();?>-tab_m" data-toggle="pill" href="#v-pills-<?php echo get_the_ID();?>" role="tab" aria-controls="v-pills-<?php echo get_the_ID();?>" aria-selected="false">
                                     <div class="content-tetimonios admin-card">
                                         <div class="row">
@@ -235,30 +226,17 @@ input#hide:checked ~ div#contente {
                                         </div>
                                     </div>
                                 </a>
-
-                                
-
-                            <?php endif; ?>
-
                             <?php $i = $i+1; endwhile; ?>    
                         </div>   
                     </div>
                 </div>
             </div>  
-
-
             <div class="scroll-admin main-taks__cardsdesktop">
                 <div class="nav flex-column nav-pills" id="v-pills-tab"  role="tablist" aria-orientation="vertical">
                     <?php $i=0;
-                    $loop = new WP_Query( $args); 
-                    $loop2 = new WP_Query( $asig);
-
-                    while ( $loop->have_posts() ) : $loop->the_post(); global $product; $show_slary = get_post_meta( get_the_ID(), '_job_salary', true );  
-                        
-                    $asignados = $loop2->posts[$i]->ID;
-                    $status =  $loop->posts[$i]->post_status; ?>
-                    <?php if ($status == "publish" && $asignados == ""): ?>
-                         <a class="av-link email_custom_job <?php if($i==0 && $_GET['tab_tarea'] == NULL){ echo "active";} ?> card-job" id="v-pills-<?php echo get_the_ID();?>-tab" data-mailjob="<?php echo get_the_author_meta( 'user_email' ); ?>" data-toggle="pill" href="#v-pills-<?php echo get_the_ID();?>" role="tab" aria-controls="v-pills-<?php echo get_the_ID();?>" aria-selected="false">
+                    $loop = new WP_Query( $args ); 
+                    while ( $loop->have_posts() ) : $loop->the_post(); global $product; $show_slary = get_post_meta( get_the_ID(), '_job_salary', true ); ?>                     
+                        <a class="av-link email_custom_job <?php if($i==0 && $_GET['tab_tarea'] == NULL){ echo "active";} ?> card-job" id="v-pills-<?php echo get_the_ID();?>-tab" data-mailjob="<?php echo get_the_author_meta( 'user_email' ); ?>" data-toggle="pill" href="#v-pills-<?php echo get_the_ID();?>" role="tab" aria-controls="v-pills-<?php echo get_the_ID();?>" aria-selected="false">
                             <div class="content-tetimonios admin-card">
                                 <div class="row">
                                     <div class="col-md-12 col-lg-3 text-center">
@@ -288,11 +266,7 @@ input#hide:checked ~ div#contente {
                                     </div>
                                 </div>
                             </div>
-                        </a> 
-
-                        
-                    <?php endif; ?>
-                         
+                        </a>  
                     <?php $i = $i+1; endwhile; ?>    
                 </div>   
             </div>
@@ -301,21 +275,9 @@ input#hide:checked ~ div#contente {
         <!-- Tab panes -->
         <div class=" main-content__tabs">
             <div class="tab-content main-taks__tabs" id="v-pills-tabContent">
-                <?php $loop = new WP_Query( $args ); $j = 0; $v=0; $i = 0;
-                $loop2 = new WP_Query( $asig);
-
-                while ( $loop->have_posts() ) : $loop->the_post(); $user_tarea = get_the_author_meta( 'ID' ); $title_tarea = get_the_title(); $id_tarea = get_the_ID(); $monto_salary = get_post_meta( get_the_ID(), '_job_salary', true ); $email_empleador = get_the_author_meta( 'user_email' ); ?>
-
-                  
-
-                  <?php
-                  $asignados = $loop2->posts[$j]->ID;
-                  $status =  $loop->posts[$j]->post_status; ?>
-                  <?php if ($status == "publish" && $asignados == ""): ?>
-
-                    <?php var_dump(get_the_ID()) ?>
-
-                    <div class="tab-pane fade <?php echo $i ; if($j == 0 ){ echo "show active";} ?>" id="v-pills-<?php echo get_the_ID();?>" role="tabpanel" aria-labelledby="v-pills-<?php echo get_the_ID();?>-tab">        
+                <?php $loop2 = new WP_Query( $args ); $j = 0; $v=0;
+                while ( $loop2->have_posts() ) : $loop2->the_post(); $user_tarea = get_the_author_meta( 'ID' ); $title_tarea = get_the_title(); $id_tarea = get_the_ID(); $monto_salary = get_post_meta( get_the_ID(), '_job_salary', true ); $email_empleador = get_the_author_meta( 'user_email' ); ?>                
+                    <div class="tab-pane fade <?php if($j==0 && $_GET['tab_tarea'] == NULL){ echo "show active";} ?>" id="v-pills-<?php echo get_the_ID();?>" role="tabpanel" aria-labelledby="v-pills-<?php echo get_the_ID();?>-tab">        
                         <div class="main-task__minigrid">                
                             <div class="main-taks__date">
                                 <h3 class="mb-3 main-task__title"><?php wpjm_the_job_title(); ?></h3>
@@ -417,7 +379,9 @@ input#hide:checked ~ div#contente {
                                             )),                     
                                         ); 
                                         $loop3 = new WP_Query( $args3 ); 
-                                        while ( $loop3->have_posts() ) : $loop3->the_post(); $comision = (get_field('ofertar_monto_tarea')*0.10); $salarys = get_field('ofertar_monto_tarea');
+                                        while ( $loop3->have_posts() ) : $loop3->the_post(); $salarys = get_field('ofertar_monto_tarea');
+                                        $a = str_replace('.', ',', get_field('ofertar_monto_tarea'));
+                                        $comision = (int) $a*0.10*1000;
                                             global $id_postulado;
                                             $id_postulado = get_the_author_meta( 'ID' );  
                                             $rating_postulado  = get_field('ofertar_id_empleado');
@@ -648,18 +612,9 @@ input#hide:checked ~ div#contente {
                             <span>Debe iniciar sesión para hacer preguntas</span>                              
                             <textarea name="" id="" cols="37" rows="5" placeholder="Hacer preguntas"></textarea>
                         <?php } ?>                        
-                    </div><!--tab-->   
+                    </div><!--tab-->     
 
-                    
-
-
-                    <?php endif; ?> 
-
-
-
-                <?php $j = $j+1; $v = $v+1; $i = $i+1; endwhile; ?>
-
-
+                <?php $j = $j+1; $v = $v+1; endwhile; ?>
                 <?php if ($v == 0) {
                     echo "<h6> No hay resultados </h6>";
                 } ?>        
