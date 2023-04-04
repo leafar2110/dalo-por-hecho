@@ -23,11 +23,7 @@ $job_featured = get_post_meta( get_the_ID(), '_featured', true );
 $company_name = get_post_meta( get_the_ID(), '_company_name', true );
 $al=str_replace("%2C%20", ", ", $_GET["location"]);
 $args = arg($_POST["search_text22"],'job_listing_category',$_POST["search"],$_POST["search_text"],$_POST["search_text33"]);  
-$asig =  array(
-  'post_type' => 'asignados',
-  'post_status' => 'publish',
 
-);
 
 $user_actual = $current_user->ID;  
 
@@ -199,6 +195,7 @@ input#hide:checked ~ div#contente {
                     <div class="scroll-admin ">
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <?php $i=0;
+                            $loop = new WP_Query( $args ); 
 
                             $loop = new WP_Query(  $args );
                             $loop2 = new WP_Query( $asig);
@@ -226,7 +223,7 @@ input#hide:checked ~ div#contente {
                                                 </div>
                                                 <div class="">
                                                     <ul>
-                                                       <li class="price">$<?php echo str_replace(',', '.' ,$show_slary); ?></li>
+                                                       <li class="price">$<?php echo number_format($show_slary, 0, '.', '.'); ?></li>
                                                        <li class="open">Abierta</li>
                                                     </ul>
                                                 </div>
@@ -239,25 +236,23 @@ input#hide:checked ~ div#contente {
 
 
 
+
+
                             <?php $i = $i+1; endwhile; ?>    
                         </div>   
                     </div>
                 </div>
             </div>  
-
-
             <div class="scroll-admin main-taks__cardsdesktop">
                 <div class="nav flex-column nav-pills" id="v-pills-tab"  role="tablist" aria-orientation="vertical">
                     <?php $i=0;
                     $loop = new WP_Query( $args); 
                     $loop2 = new WP_Query( $asig);
+                
 
-                    while ( $loop->have_posts() ) : $loop->the_post(); global $product; $show_slary = get_post_meta( get_the_ID(), '_job_salary', true );  
-                        
-                    $asignados = $loop2->posts[$i]->ID;
-                    $status =  $loop->posts[$i]->post_status; ?>
+                    while ( $loop->have_posts() ) : $loop->the_post(); global $product; $show_slary = get_post_meta( get_the_ID(), '_job_salary', true ); ?>                     
+                        <a class="av-link email_custom_job <?php if($i==0 && $_GET['tab_tarea'] == NULL){ echo "active";} ?> card-job" id="v-pills-<?php echo get_the_ID();?>-tab" data-mailjob="<?php echo get_the_author_meta( 'user_email' ); ?>" data-toggle="pill" href="#v-pills-<?php echo get_the_ID();?>" role="tab" aria-controls="v-pills-<?php echo get_the_ID();?>" aria-selected="false">
 
-                         <a class="av-link email_custom_job <?php if($i==0 && $_GET['tab_tarea'] == NULL){ echo "active";} ?> card-job" id="v-pills-<?php echo get_the_ID();?>-tab" data-mailjob="<?php echo get_the_author_meta( 'user_email' ); ?>" data-toggle="pill" href="#v-pills-<?php echo get_the_ID();?>" role="tab" aria-controls="v-pills-<?php echo get_the_ID();?>" aria-selected="false">
                             <div class="content-tetimonios admin-card">
                                 <div class="row">
                                     <div class="col-md-12 col-lg-3 text-center">
@@ -280,7 +275,7 @@ input#hide:checked ~ div#contente {
                                         </div>
                                         <div class="">
                                             <ul>
-                                               <li class="price">$<?php echo str_replace(',', '.' ,$show_slary); ?></li>
+                                               <li class="price">$<?php echo number_format($show_slary, 0, '.', '.'); ?></li>
                                                <li class="open">Abierta</li>
                                             </ul>
                                         </div>
@@ -292,6 +287,9 @@ input#hide:checked ~ div#contente {
                         
                     
                          
+
+                        </a>  
+
                     <?php $i = $i+1; endwhile; ?>    
                 </div>   
             </div>
@@ -300,21 +298,11 @@ input#hide:checked ~ div#contente {
         <!-- Tab panes -->
         <div class=" main-content__tabs">
             <div class="tab-content main-taks__tabs" id="v-pills-tabContent">
-                <?php $loop = new WP_Query( $args ); $j = 0; $v=0; $i = 0;
-                $loop2 = new WP_Query( $asig);
+                <?php $loop2 = new WP_Query( $args ); $j = 0; $v=0; $i = 0;      
 
-                while ( $loop->have_posts() ) : $loop->the_post(); $user_tarea = get_the_author_meta( 'ID' ); $title_tarea = get_the_title(); $id_tarea = get_the_ID(); $monto_salary = get_post_meta( get_the_ID(), '_job_salary', true ); $email_empleador = get_the_author_meta( 'user_email' ); ?>
+                while ( $loop2->have_posts() ) : $loop2->the_post(); $user_tarea = get_the_author_meta( 'ID' ); $title_tarea = get_the_title(); $id_tarea = get_the_ID(); $monto_salary = get_post_meta( get_the_ID(), '_job_salary', true ); $email_empleador = get_the_author_meta( 'user_email' ); ?>                
+                    <div class="tab-pane fade <?php if($j==0 && $_GET['tab_tarea'] == NULL){ echo "show active";} ?>" id="v-pills-<?php echo get_the_ID();?>" role="tabpanel" aria-labelledby="v-pills-<?php echo get_the_ID();?>-tab">        
 
-                  
-
-                  <?php
-                  $asignados = $loop2->posts[$j]->ID;
-                  $status =  $loop->posts[$j]->post_status; ?>
-
-
-                    <?php var_dump(get_the_ID()) ?>
-
-                    <div class="tab-pane fade <?php echo $i ; if($j == 0 ){ echo "show active";} ?>" id="v-pills-<?php echo get_the_ID();?>" role="tabpanel" aria-labelledby="v-pills-<?php echo get_the_ID();?>-tab">        
                         <div class="main-task__minigrid">                
                             <div class="main-taks__date">
                                 <h3 class="mb-3 main-task__title"><?php wpjm_the_job_title(); ?></h3>
@@ -363,7 +351,8 @@ input#hide:checked ~ div#contente {
                                     <div class=" datos_presupuesto main-presupuesto__mobile">
                                         <div class="presupuesto_minicard">
                                             <p>Presupuesto </p>
-                                            <span class="precio">$<?php echo str_replace(',', '.' ,get_post_meta( get_the_ID(), '_job_salary', true )); ?></span>
+                                            
+                                            <span class="precio">$<?php echo number_format( get_post_meta( get_the_ID(), '_job_salary', true ), 0, '.', '.'); ?></span>
                                             <?php if (is_user_logged_in() != NULL && meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) == "Necesito un Servicio" )
                                             { $title_tarea2 = $title_tarea."-".meta_user_value( 'first_name', $current_user->ID ); 
                                                 if (bank_data() == "yes" )
@@ -416,7 +405,9 @@ input#hide:checked ~ div#contente {
                                             )),                     
                                         ); 
                                         $loop3 = new WP_Query( $args3 ); 
-                                        while ( $loop3->have_posts() ) : $loop3->the_post(); $comision = (get_field('ofertar_monto_tarea')*0.10); $salarys = get_field('ofertar_monto_tarea');
+                                        while ( $loop3->have_posts() ) : $loop3->the_post(); $salarys = get_field('ofertar_monto_tarea');
+                                        $a = str_replace('.', ',', get_field('ofertar_monto_tarea'));
+                                        $comision = (int) $a*0.10*1000;
                                             global $id_postulado;
                                             $id_postulado = get_the_author_meta( 'ID' );  
                                             $rating_postulado  = get_field('ofertar_id_empleado');
@@ -430,26 +421,31 @@ input#hide:checked ~ div#contente {
                                                         <div class="col-md-12">
                                                             <div class="ofertas_titulos mb-3">
                                                                 <?php echo get_avatar( get_the_author_meta( 'user_email' ), 50 );?> 
+                                                                
                                                                 <div class="flex ml-3">
                                                                     <span><?php echo meta_user_value( 'first_name',  $rating_postulado ); ?></span>
-                                                                    <div>
-                                                                    <?php                                                
-                                                                    $count_rating = count_rating($rating_postulado,'todo'); echo " ";
 
-                                                                    for ($i=0; $i < $count_rating; $i++) { ?>
-                                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    <?php } 
-                                                                    for ($i=0; $i < (5-$count_rating); $i++) { ?>
-                                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                                    <?php } ?>                                                                    
-                                                                </div>
+                                                                  <div>
+                                                                      
+                                                                     <!--  <?php                            
+                                                                      //$count_rating = count_rating($rating_postulado,'todo'); echo " ";
+
+                                                                      //for ($i=0; $i < $count_rating; $i++) { ?>
+                                                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                                                      <?php// } 
+                                                                      //for ($i=0; $i < (5-$count_rating); $i++) { ?>
+                                                                          <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                      <?php// } ?>    -->                                                                 
+                                                                  </div>
                                                             </div>
+                                                            
                                                             <p class="ml-auto"><?php echo $postulado_date ?></p>
                                                         </div>
                                                         <p><?php echo $postulado_mensaje; ?></p>
                                                         <div class="cube mb-4">
                                                             <p>$ <?php echo $postulado_monto; ?></p>
                                                         </div>
+
                                                         <div class="respnse">
                                                             
                                                                 <?php 
@@ -472,7 +468,7 @@ input#hide:checked ~ div#contente {
                                                                         <a target="_blank" href="perfil?post=<?php echo $id_postulado ?>">Ver perfil</a>
                                                                     </div>
                                                                     <a href="" class="ml-auto" data-toggle="modal" data-target="#modal_donation" onclick="function_donation('<?php echo $postulado_monto ?>','<?php echo $var_array ?>'), 
-                                                                        show_data('<?php echo $postulado_monto ?>','<?php echo $var_array ?>','<?php echo $sinparametros[5]; ?>','<?php echo get_post(meta_user_value( '_wpupa_attachment_id', $sinparametros[7] ))->guid; ?>') "><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Responder oferta</a> 
+                                                                        show_data('<?php echo $postulado_monto ?>','<?php echo $var_array ?>','<?php echo $sinparametros[5]; ?>','<?php echo get_avatar_url( get_the_author_meta('user_email'), 50 ); ?>') "><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Responder oferta</a> 
                                                                 <?php }} ?> 
                                                                 <p></p>
                                                             </div>
@@ -480,6 +476,7 @@ input#hide:checked ~ div#contente {
                                                     </div>
                                                 </div>
                                             </div> 
+                                            
                                         <?php endwhile; ?>
                                     </div>
                                 </div>
@@ -489,7 +486,7 @@ input#hide:checked ~ div#contente {
                                 <div class="main-presupuesto__desktop">
                                     <div class="presupuesto_minicard">
                                         <p>Presupuesto</p>
-                                        <span class="precio">$<?php echo str_replace(',', '.' ,get_post_meta( get_the_ID(), '_job_salary', true )); ?></span>
+                                        <span class="precio">$<?php echo number_format( get_post_meta( get_the_ID(), '_job_salary', true ), 0, '.', '.'); ?></span>
                                         <?php if (is_user_logged_in() != NULL && meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) == "Necesito un Servicio" )
                                         { 
                                             $title_tarea2 = $title_tarea."-".meta_user_value( 'first_name', $current_user->ID ); 
@@ -645,7 +642,7 @@ input#hide:checked ~ div#contente {
                         <?php }
                         else { ?>                           
                             <span>Debe iniciar sesión para hacer preguntas</span>                              
-                            <textarea name="" id="" cols="37" rows="5" placeholder="Hacer preguntas"></textarea>
+                            
                         <?php } ?>                        
                     </div><!--tab-->   
 
@@ -659,6 +656,10 @@ input#hide:checked ~ div#contente {
                 <?php $j = $j+1; $v = $v+1; $i = $i+1; endwhile; ?>
 
 
+                    </div><!--tab-->     
+
+
+                
                 <?php if ($v == 0) {
                     echo "<h6> No hay resultados </h6>";
                 } ?>        

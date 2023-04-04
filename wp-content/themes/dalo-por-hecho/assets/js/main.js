@@ -190,6 +190,8 @@ $(document).ready(function() {
 
 
 $('#note_description').appendTo('.variation');
+
+
     
 }); 
 
