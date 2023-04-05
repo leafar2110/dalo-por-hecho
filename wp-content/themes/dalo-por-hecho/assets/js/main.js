@@ -14,8 +14,9 @@ $(function () {
 $(document).ready(function(){
 
 load_data();
+console.log(api.urlAjax)
 function load_data(query)
-{ var urll = '<?php echo get_home_url(); ?>/ajax'; 
+{ var urll = api.urlAjax; 
     $.ajax({
         url:urll,
         method:"post",
@@ -42,7 +43,7 @@ $('#search_text').keyup(function(){
 
 load_data2();
 function load_data2(query)
-{var urll2 = "<?= get_home_url() ?>/ajaxcat"; 
+{var urll2 = api.urlAjaxCat; 
     $.ajax({
         url:urll2,
         method:"post",
@@ -56,6 +57,7 @@ function load_data2(query)
 
 $('#search_text2').keyup(function(){
     var search = $(this).val();
+    console.log(search)
     if(search != '')
     {
         load_data2(search);
@@ -134,10 +136,10 @@ $(document).ready(function() {
     $('#key').on('keyup', function() {
         var key = $(this).val();        
         var dataString = 'key='+key;
-        var url = "<?= get_home_url() ?>"; 
+        var url = api.urlAjax; 
     $.ajax({
             type: "POST",
-            url: url+"/ajax/",
+            url: url,
             data: dataString,
             success: function(data) {
                 //Escribimos las sugerencias que nos manda la consulta
@@ -161,10 +163,10 @@ $(document).ready(function() {
     $('#job_location').on('keyup', function() {
         var job_location = $(this).val();        
         var dataString = 'job_location='+job_location;
-        var url = "<?= get_home_url() ?>"; 
+        var url = api.urlAjax; 
     $.ajax({
             type: "POST",
-            url: url+"/ajax/",
+            url: url,
             data: dataString,
             success: function(data) {
                 //Escribimos las sugerencias que nos manda la consulta
