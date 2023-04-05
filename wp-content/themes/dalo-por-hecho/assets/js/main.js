@@ -14,7 +14,7 @@ $(function () {
 $(document).ready(function(){
 
 load_data();
-console.log(api.urlAjax)
+
 function load_data(query)
 { var urll = api.urlAjax; 
     $.ajax({
