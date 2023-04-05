@@ -406,7 +406,7 @@ input#hide:checked ~ div#contente {
                                         $loop3 = new WP_Query( $args3 ); 
                                         
                                         while ( $loop3->have_posts() ) : $loop3->the_post(); $salarys = get_field('ofertar_monto_tarea');
-
+                                        
                                         $comision = get_field('ofertar_monto_tarea') * 0.10;
                                             global $id_postulado;
                                             $id_postulado = get_the_author_meta( 'ID' );  
@@ -423,19 +423,19 @@ input#hide:checked ~ div#contente {
                                                                 <?php echo get_avatar( get_the_author_meta( 'user_email' ), 50 );?> 
                                                                 
                                                                 <div class="flex ml-3">
-                                                                    <span><?php echo meta_user_value( 'first_name',  $rating_postulado ); ?></span>
+                                                                    <span><?php echo meta_user_value( 'first_name',  $id_postulado ); ?></span>
 
                                                                   <div>
                                                                       
-                                                                     <!--  <?php                            
-                                                                      //$count_rating = count_rating($rating_postulado,'todo'); echo " ";
+                                                                     <?php                            
+                                                                      $count_rating = count_rating($rating_postulado,'todo'); echo " ";
 
-                                                                      //for ($i=0; $i < $count_rating; $i++) { ?>
+                                                                      for ($i=0; $i < $count_rating; $i++) { ?>
                                                                           <i class="fa fa-star" aria-hidden="true"></i>
-                                                                      <?php// } 
-                                                                      //for ($i=0; $i < (5-$count_rating); $i++) { ?>
+                                                                      <?php } 
+                                                                      for ($i=0; $i < (5-$count_rating); $i++) { ?>
                                                                           <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                                      <?php// } ?>    -->                                                                 
+                                                                      <?php } ?>                                                             
                                                                   </div>
                                                             </div>
                                                             
@@ -550,10 +550,6 @@ input#hide:checked ~ div#contente {
                                                         <p class="ml-auto"><?php the_job_publish_date_postu(); ?></p>
                                                     </div>
                                                     <p><?php the_field('pregunta_tarea'); ?></p>
-                                                    <?php if (is_user_logged_in() != NULL && $user_actual == $user_tarea)
-                                                    {  ?>
-                                                        <a href="" data-toggle="modal" data-target="#modal_responder_p<?php echo get_the_ID() ?>"  aria-hidden="true">Responder</a>
-                                                    <?php } ?>
                                                 </div> 
                                             </div>
                                             <?php 
@@ -600,37 +596,11 @@ input#hide:checked ~ div#contente {
                                                                     <p class="ml-auto"><?php the_job_publish_date_postu(); ?></p>
                                                                 </div>
                                                                 <p><?php the_field('pregunta_tarea'); ?></p>
-                                                                <?php if (is_user_logged_in() != NULL && $user_actual == $user_tarea)
-                                                                {  ?>
-                                                                    <a href="" data-toggle="modal" data-target="#modal_responder_r<?php echo $id_p; ?>"  aria-hidden="true",>Responder</a>
-                                                                <?php } ?>
                                                             </div>                                                          
                                                         </div>       
                                                     </div>
                                                 </div>
-                                                <!-- Modal Responder -->
-                                                <div class="modal fade" id="modal_responder_r<?php echo get_the_ID() ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">  
-                                                            <div class="modal-body">
-                                                                <h4 class="mb-3 main-task__title">Responder</h4>
-                                                                    <?php echo do_shortcode('[frm-set-get id_tareas_preguntas_copy='.$id_tarea.'][frm-set-get id_pregunta='.get_the_ID().'][frm-set-get id_user_preguntas='.$user_actual.'][formidable id=15]');   ?>
-                                                            </div>         
-                                                        </div>
-                                                    </div> 
-                                                </div>
-                                            <?php endwhile; ?>                                                              
-                                            <!-- Modal Responder preguntas -->
-                                            <div class="modal fade" id="modal_responder_p<?php echo $id_p ; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">  
-                                                        <div class="modal-body">
-                                                            <h4 class="mb-3 main-task__title">Responder</h4>
-                                                            <?php echo do_shortcode('[frm-set-get id_tareas_preguntas_copy='.$id_tarea.'][frm-set-get id_pregunta='.get_the_ID().'][frm-set-get id_user_preguntas='.$user_actual.'][formidable id=15]');   ?>
-                                                        </div>         
-                                                    </div>
-                                                </div> 
-                                            </div><!---->                                                        
+                                            <?php endwhile; ?>                                                                                                                   
                                         </div>
                                     </div>
                                 <?php endwhile; ?>
