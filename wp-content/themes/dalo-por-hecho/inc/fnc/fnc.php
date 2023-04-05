@@ -319,7 +319,9 @@ function count_chat( $asignar_id_empleado){
             endwhile; 
               
             return $value;
-}   
+}
+
+
 
 /********************Cont rating**********************/
 

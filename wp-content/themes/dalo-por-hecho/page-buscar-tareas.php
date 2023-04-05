@@ -197,7 +197,12 @@ input#hide:checked ~ div#contente {
                             <?php $i=0;
                             $loop = new WP_Query( $args ); 
 
-                            while ( $loop->have_posts() ) : $loop->the_post(); global $product; $show_slary = get_post_meta( get_the_ID(), '_job_salary', true )?>                     
+                            $loop = new WP_Query(  $args );
+                            $loop2 = new WP_Query( $asig);
+
+                            while ( $loop->have_posts() ) : $loop->the_post(); global $product; $show_slary = get_post_meta( get_the_ID(), '_job_salary', true )?>
+  
+
                                 <a class="av-link <?php if($i==0 && $_GET['tab_tarea'] == NULL){ echo "active";} ?> card-job" id="v-pills-<?php echo get_the_ID();?>-tab_m" data-toggle="pill" href="#v-pills-<?php echo get_the_ID();?>" role="tab" aria-controls="v-pills-<?php echo get_the_ID();?>" aria-selected="false">
                                     <div class="content-tetimonios admin-card">
                                         <div class="row">
@@ -218,7 +223,7 @@ input#hide:checked ~ div#contente {
                                                 </div>
                                                 <div class="">
                                                     <ul>
-                                                       <li class="price">$<?php echo str_replace(',', '.' ,$show_slary); ?></li>
+                                                       <li class="price">$<?php echo number_format($show_slary, 0, '.', '.'); ?></li>
                                                        <li class="open">Abierta</li>
                                                     </ul>
                                                 </div>
@@ -226,6 +231,13 @@ input#hide:checked ~ div#contente {
                                         </div>
                                     </div>
                                 </a>
+
+                                
+
+
+
+
+
                             <?php $i = $i+1; endwhile; ?>    
                         </div>   
                     </div>
@@ -234,9 +246,13 @@ input#hide:checked ~ div#contente {
             <div class="scroll-admin main-taks__cardsdesktop">
                 <div class="nav flex-column nav-pills" id="v-pills-tab"  role="tablist" aria-orientation="vertical">
                     <?php $i=0;
-                    $loop = new WP_Query( $args ); 
+                    $loop = new WP_Query( $args); 
+                    $loop2 = new WP_Query( $asig);
+                
+
                     while ( $loop->have_posts() ) : $loop->the_post(); global $product; $show_slary = get_post_meta( get_the_ID(), '_job_salary', true ); ?>                     
                         <a class="av-link email_custom_job <?php if($i==0 && $_GET['tab_tarea'] == NULL){ echo "active";} ?> card-job" id="v-pills-<?php echo get_the_ID();?>-tab" data-mailjob="<?php echo get_the_author_meta( 'user_email' ); ?>" data-toggle="pill" href="#v-pills-<?php echo get_the_ID();?>" role="tab" aria-controls="v-pills-<?php echo get_the_ID();?>" aria-selected="false">
+
                             <div class="content-tetimonios admin-card">
                                 <div class="row">
                                     <div class="col-md-12 col-lg-3 text-center">
@@ -259,14 +275,21 @@ input#hide:checked ~ div#contente {
                                         </div>
                                         <div class="">
                                             <ul>
-                                               <li class="price">$<?php echo str_replace(',', '.' ,$show_slary); ?></li>
+                                               <li class="price">$<?php echo number_format($show_slary, 0, '.', '.'); ?></li>
                                                <li class="open">Abierta</li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </a> 
+
+                        
+                    
+                         
+
                         </a>  
+
                     <?php $i = $i+1; endwhile; ?>    
                 </div>   
             </div>
@@ -275,9 +298,11 @@ input#hide:checked ~ div#contente {
         <!-- Tab panes -->
         <div class=" main-content__tabs">
             <div class="tab-content main-taks__tabs" id="v-pills-tabContent">
-                <?php $loop2 = new WP_Query( $args ); $j = 0; $v=0;
+                <?php $loop2 = new WP_Query( $args ); $j = 0; $v=0; $i = 0;      
+
                 while ( $loop2->have_posts() ) : $loop2->the_post(); $user_tarea = get_the_author_meta( 'ID' ); $title_tarea = get_the_title(); $id_tarea = get_the_ID(); $monto_salary = get_post_meta( get_the_ID(), '_job_salary', true ); $email_empleador = get_the_author_meta( 'user_email' ); ?>                
                     <div class="tab-pane fade <?php if($j==0 && $_GET['tab_tarea'] == NULL){ echo "show active";} ?>" id="v-pills-<?php echo get_the_ID();?>" role="tabpanel" aria-labelledby="v-pills-<?php echo get_the_ID();?>-tab">        
+
                         <div class="main-task__minigrid">                
                             <div class="main-taks__date">
                                 <h3 class="mb-3 main-task__title"><?php wpjm_the_job_title(); ?></h3>
@@ -396,26 +421,31 @@ input#hide:checked ~ div#contente {
                                                         <div class="col-md-12">
                                                             <div class="ofertas_titulos mb-3">
                                                                 <?php echo get_avatar( get_the_author_meta( 'user_email' ), 50 );?> 
+                                                                
                                                                 <div class="flex ml-3">
                                                                     <span><?php echo meta_user_value( 'first_name',  $rating_postulado ); ?></span>
-                                                                    <div>
-                                                                    <?php                                                
-                                                                    $count_rating = count_rating($rating_postulado,'todo'); echo " ";
 
-                                                                    for ($i=0; $i < $count_rating; $i++) { ?>
-                                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    <?php } 
-                                                                    for ($i=0; $i < (5-$count_rating); $i++) { ?>
-                                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                                    <?php } ?>                                                                    
-                                                                </div>
+                                                                  <div>
+                                                                      
+                                                                     <!--  <?php                            
+                                                                      //$count_rating = count_rating($rating_postulado,'todo'); echo " ";
+
+                                                                      //for ($i=0; $i < $count_rating; $i++) { ?>
+                                                                          <i class="fa fa-star" aria-hidden="true"></i>
+                                                                      <?php// } 
+                                                                      //for ($i=0; $i < (5-$count_rating); $i++) { ?>
+                                                                          <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                      <?php// } ?>    -->                                                                 
+                                                                  </div>
                                                             </div>
+                                                            
                                                             <p class="ml-auto"><?php echo $postulado_date ?></p>
                                                         </div>
                                                         <p><?php echo $postulado_mensaje; ?></p>
                                                         <div class="cube mb-4">
                                                             <p>$ <?php echo $postulado_monto; ?></p>
                                                         </div>
+
                                                         <div class="respnse">
                                                             
                                                                 <?php 
@@ -438,7 +468,7 @@ input#hide:checked ~ div#contente {
                                                                         <a target="_blank" href="perfil?post=<?php echo $id_postulado ?>">Ver perfil</a>
                                                                     </div>
                                                                     <a href="" class="ml-auto" data-toggle="modal" data-target="#modal_donation" onclick="function_donation('<?php echo $postulado_monto ?>','<?php echo $var_array ?>'), 
-                                                                        show_data('<?php echo $postulado_monto ?>','<?php echo $var_array ?>','<?php echo $sinparametros[5]; ?>','<?php echo get_post(meta_user_value( '_wpupa_attachment_id', $sinparametros[7] ))->guid; ?>') "><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Responder oferta</a> 
+                                                                        show_data('<?php echo $postulado_monto ?>','<?php echo $var_array ?>','<?php echo $sinparametros[5]; ?>','<?php echo get_avatar_url( get_the_author_meta('user_email'), 50 ); ?>') "><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Responder oferta</a> 
                                                                 <?php }} ?> 
                                                                 <p></p>
                                                             </div>
@@ -446,6 +476,7 @@ input#hide:checked ~ div#contente {
                                                     </div>
                                                 </div>
                                             </div> 
+                                            
                                         <?php endwhile; ?>
                                     </div>
                                 </div>
@@ -611,11 +642,24 @@ input#hide:checked ~ div#contente {
                         <?php }
                         else { ?>                           
                             <span>Debe iniciar sesión para hacer preguntas</span>                              
-                            <textarea name="" id="" cols="37" rows="5" placeholder="Hacer preguntas"></textarea>
+                            
                         <?php } ?>                        
+                    </div><!--tab-->   
+
+                    
+
+
+                    
+
+
+
+                <?php $j = $j+1; $v = $v+1; $i = $i+1; endwhile; ?>
+
+
                     </div><!--tab-->     
 
-                <?php $j = $j+1; $v = $v+1; endwhile; ?>
+
+                
                 <?php if ($v == 0) {
                     echo "<h6> No hay resultados </h6>";
                 } ?>        
