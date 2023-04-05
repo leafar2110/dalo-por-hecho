@@ -22,10 +22,11 @@
                                     $args = 
                                     array(
                                       'post_type' => 'job_listing',
-                                      'post_status' => array('publish','draft', 'expired'),
+                                      'post_status' => 'publish',
                                       'author' => $current_user->ID,
                                     ); 
-                                    $loop = new WP_Query( $args ); 
+                                    $loop = new WP_Query( $args );
+
                                     while ( $loop->have_posts() ) : $loop->the_post(); $comision = (get_field('ofertar_monto_tarea')*0.10);
                                         $user_tarea = get_the_author_meta( 'ID' ); $title_tarea = get_the_title(); $id_tarea = get_the_ID(); $monto_salary = get_post_meta( get_the_ID(), '_job_salary', true ); $email_empleador = get_the_author_meta( 'user_email' );
                                     
@@ -43,7 +44,7 @@
                                            '    operator' => 'IN',
                                             )),                     
                                         ); 
-                                        $loop3 = new WP_Query( $args3 ); 
+                                        $loop3 = new WP_Query( $args3 );
                                         while ( $loop3->have_posts() ) : $loop3->the_post(); $comision = (get_field('ofertar_monto_tarea')*0.10); $rating_postulado  = get_field('ofertar_id_empleado'); $mensaje_postu = get_field('ofertar_message_empleado'); $monto_postu = get_field('ofertar_monto_tarea');?>
                                             <?php if ($a == 0) {echo '<p class="active show">'.$title_tarea.'</p>';} ?>
                                             <div class="ofertas_conetnt">
