@@ -326,7 +326,7 @@ input#hide:checked ~ div#contente {
                                     <div class=" datos_presupuesto main-presupuesto__mobile">
                                         <div class="presupuesto_minicard">
                                             <p>Presupuesto </p>
-                                            <span class="precio">$<?php echo str_replace(',', '.' ,get_post_meta( get_the_ID(), '_job_salary', true )); ?></span>
+                                            <span class="precio">$<?php echo get_post_meta( $id_tarea, '_job_salary', true ) ?></span>
                                             <?php if (is_user_logged_in() != NULL && meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) == "Necesito un Servicio" )
                                             { $title_tarea2 = $title_tarea."-".meta_user_value( 'first_name', $current_user->ID ); 
                                                 if (bank_data() == "yes" )
@@ -379,9 +379,10 @@ input#hide:checked ~ div#contente {
                                             )),                     
                                         ); 
                                         $loop3 = new WP_Query( $args3 ); 
+                                        
                                         while ( $loop3->have_posts() ) : $loop3->the_post(); $salarys = get_field('ofertar_monto_tarea');
-                                        $a = str_replace('.', ',', get_field('ofertar_monto_tarea'));
-                                        $comision = (int) $a*0.10*1000;
+
+                                        $comision = get_field('ofertar_monto_tarea') * 0.10;
                                             global $id_postulado;
                                             $id_postulado = get_the_author_meta( 'ID' );  
                                             $rating_postulado  = get_field('ofertar_id_empleado');
@@ -454,7 +455,7 @@ input#hide:checked ~ div#contente {
                                 <div class="main-presupuesto__desktop">
                                     <div class="presupuesto_minicard">
                                         <p>Presupuesto</p>
-                                        <span class="precio">$<?php echo str_replace(',', '.' ,get_post_meta( get_the_ID(), '_job_salary', true )); ?></span>
+                                        <span class="precio">$<?php echo get_post_meta( $id_tarea, '_job_salary', true ) ?></span>
                                         <?php if (is_user_logged_in() != NULL && meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) == "Necesito un Servicio" )
                                         { 
                                             $title_tarea2 = $title_tarea."-".meta_user_value( 'first_name', $current_user->ID ); 
