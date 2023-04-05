@@ -28,7 +28,7 @@ defined( 'ABSPATH' ) || exit;
 
     <?php if ( $order->has_status( 'failed' ) ) : ?>
 
-      <p class="woocommerce-notice woocommerce-notice--error woocommerce-thankyou-order-failed"><?php esc_html_e( 'Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction. Please attempt your purchase again.', 'woocommerce' ); ?></p>
+      <p class="woocommerce-notice woocommerce-notice--error woocommerce-thankyou-order-failed"><?php esc_html_e( 'Lamentablemente, su pedido no se puede procesar porque el banco/comerciante de origen ha rechazado su transacción. Por favor intente su compra nuevamente.', 'woocommerce' ); ?></p>
 
       <p class="woocommerce-notice woocommerce-notice--error woocommerce-thankyou-order-failed-actions">
         <a href="<?php echo esc_url( $order->get_checkout_payment_url() ); ?>" class="button pay"><?php esc_html_e( 'Pay', 'woocommerce' ); ?></a>
@@ -84,7 +84,7 @@ defined( 'ABSPATH' ) || exit;
             ?>
             
             <?php //echo do_shortcode('[frm-set-get asignar_title_tarea_publicada='.$title_tarea.'][frm-set-get asignar_name_tarea_publicada='.$name_tarea.'][frm-set-get asignar_id_tarea_publicada='.$id_tarea.'][frm-set-get asignar_email_empleador='.$email_empleador.'][frm-set-get asignar_name_empleado='.$name_empleado.'][frm-set-get asignar_id_empleado='.$id_empleado.'][frm-set-get asignar_monto_tarea='.$monto_tarea.'][formidable id=10]');  ?>
-      <p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+      <p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Gracias. Tu orden ha sido recibida.', 'woocommerce' ), $order ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 
       <ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
 
@@ -126,7 +126,7 @@ defined( 'ABSPATH' ) || exit;
 
   <?php else : ?>
 
-    <p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Thank you. Your order has been received.', 'woocommerce' ), null ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+    <p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Gracias. Tu orden ha sido recibida.', 'woocommerce' ), null ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 
   <?php endif; ?>
 </div>

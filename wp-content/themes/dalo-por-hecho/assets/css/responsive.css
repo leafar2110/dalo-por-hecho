@@ -646,6 +646,26 @@
 	.perfil-open-menu{
 		display: block;
 	}
+	.woocommerce .woocommerce-order ul.order_details{
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+	.woocommerce .woocommerce-order ul.order_details li{
+		border-right: none;
+		border-bottom: 1px solid #d3ced2;
+		display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+	    padding: 0;
+	}
+	.woocommerce .woocommerce-order .wc-item-meta{
+		padding: 0;
+	}
+	
+
+
 }
 
 
