@@ -97,12 +97,16 @@
                         
                             <div aria-labelledby='dropdownMenuButton' class='dropdown-menu' >
                                 <div class='content-drop'>
+                                    
+                                    <?php if( meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) == "Ofrezco un Servicio" )
+                                    { ?>
+                                        <a class='dropdown-item' href="<?php bloginfo('url'); ?>/mis-tareas">Mis tareas</a>
+                                    <?php } ?>
                                     <a class='dropdown-item' href='<?php echo wp_logout_url( home_url() ); ?>'>
                                         <p>
                                             Cerrar Sesión
                                         </p>
                                     </a>
-
                                 </div>
                             </div>
                             <?php else: ?>

@@ -43,13 +43,10 @@
                                                         <p><?php the_title();?></p>
                                                     </td>
                                                     <td class="tabla-pagos_table_td">
-                                                        <p class="n-m">
-                                                            <ul class="nav nav-tabs h-p-nav-tab">
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link historial-pago-tab" data-toggle="tab" href="#edit_job<?=get_the_ID()?>">editar</a>
-                                                                </li>
-                                                            </ul>
-                                                        </p>
+                                                        
+                                                            
+                                                        <a class="btn-general historial-pago-tab" data-toggle="tab" href="#edit_job<?=get_the_ID()?>">Editar</a>
+                                                        
                                                     </td>
                                                 </tr>  
                                                 <?php endwhile; ?>     

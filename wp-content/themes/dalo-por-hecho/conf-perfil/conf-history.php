@@ -59,7 +59,7 @@
                                                 <input class="cont-pago-estado-form_input" type="date"> -->
                                                     <div class="cont-pago-estado-form-ganado">
                                                         <h5>Ganado neto</h5>
-                                                        <p>$ 000</p>
+                                                        <p>$0</p>
                                                     </div>
                                             </div>
 <!--                                             <small>1 transacciones del 07 de noviembre del 2020 al 30 de
@@ -164,7 +164,7 @@
                                                             <input class="cont-pago-estado-form_input" type="date"> -->
                                                             <div class="cont-pago-estado-form-ganado">
                                                                 <h5>Gastado neto</h5>
-                                                                <p><?php echo $gastado ?> $000</p>
+                                                                <p><?php echo $gastado ?> $0</p>
                                                             </div>
                                                         </div>
                                                         <!-- <small><?php echo $trans ?> </small> -->
@@ -201,7 +201,7 @@
                                                                     <p><?php  echo date("d/m/y",strtotime($fecha_tarea_publicada)); ?> </p>
                                                                 </td>
                                                                 <td class="tabla-pagos_table_td">
-                                                                    <p><?php echo get_post_meta( get_field( 'asignar_id_tarea_publicada' ), '_job_title', true ); ?></p>
+                                                                    <p><?php echo get_the_title(); ?></p>
                                                                 </td>
                                                                 <td class="tabla-pagos_table_td">
                                                                     <p>
@@ -228,7 +228,7 @@
                                                                     </p>
                                                                 </td>
                                                                 <td class="tabla-pagos_table_td">
-                                                                    <p class="n-m">$ <?php echo get_field('asignar_monto_tarea'); ?></p>
+                                                                    <p class="n-m">$ <?php echo  number_format(get_field('asignar_monto_tarea'), 0, '.', '.'); ?></p>
                                                                 </td>
                                                             </tr>
                                                         <?php endwhile; ?>                                                          
