@@ -1,11 +1,11 @@
 <?php global $current_user, $wp_roles; ?>
 <style type="text/css">
  input[type='radio']:checked:after {
-        width: 15px;
-        height: 15px;
+        width: 16px;
+        height: 16px;
         border-radius: 15px;
-        top: -2px;
-        left: -1px;
+        top: -14px;
+        left: 0.45px;
         position: relative;
         background-color: #ffa500;
         content: '';
@@ -13,25 +13,13 @@
         visibility: visible;
         border: 2px solid white;
     }
- input[type='radio']:checked:hover {
-        width: 15px;
-        height: 15px;
-        border-radius: 15px;
-        top: -2px;
-        left: -1px;
-        position: relative;
-        background-color: #ffa500;
-        content: '';
-        display: inline-block;
-        visibility: visible;
-        border: 2px solid white;
-    }
+    
     </style>
                 <!-- asignados -->
                 <div class="tab-pane fade " id="v-pills-asignados" role="tabpanel"
                                 aria-labelledby="v-pills-asignados-tab">
                     <div id="accordion" role="tablist">
-                        <div class="card">
+                        <div class="">
                             <div class="card-header top-headline" role="tab" id="headingOne">
                                 <h5> Tareas Asignadas </h5>
                                 <?php 
@@ -74,7 +62,7 @@
                                         $meta_value = 'Terminada';?>
                                         <?php if ($asig_terminada > 0){  update_post_meta($post_id,$meta_key,$meta_value); } ?> 
                                         <?php if ($asig_terminada == 0) { ?>
-                                           <?php if ($a == 0) {echo '<p class="nav-link active show">'.$title_tarea.'</p>';} ?>
+                                           <?php if ($a == 0) {echo '<p class=" active show">'.$title_tarea.'</p>';} ?>
                                             <div class="ofertas_conetnt">
                                                 <div class="datos_name">
                                                     <div class="row border-n mb-5">
@@ -106,11 +94,11 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <a class="ml-auto" href="" data-toggle="modal" data-target="#modal_rating_<?php echo $cod_chat; ?>"  aria-hidden="true"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Estatus Asignación</a> 
+                                                                <a class="ml-auto btn-general" href="" data-toggle="modal" data-target="#modal_rating_<?php echo $cod_chat; ?>"  aria-hidden="true"> Estatus Asignación</a> 
 
                         
                                                                 <!-- Modal rating -->
-                                                                <div class="modal fade" id="modal_rating_<?php echo $cod_chat; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal fade modal_rating" id="modal_rating_<?php echo $cod_chat; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog" role="document">
                                                                         <div class="modal-content">  
                                                                             <div class="modal-body">
