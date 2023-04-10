@@ -48,25 +48,18 @@ global $current_user, $wp_roles;?>
         </div>
         <div class="inf-general-perfil-2">
             <h6 class="p-az">Ultima coneccion hace 12h</h6>
+            
             <div class="valoracion-inf-general-perfil-2">
                 <h6>Valoracion por tareas realizadas</h6>
-                <div class="valoracion-inf-general-perfil-2-valoraciones">
-                    <div class="valoracion-perfil-g"></div>
-                    <div class="valoracion-perfil-g"></div>
-                    <div class="valoracion-perfil-n"></div>
-                    <div class="valoracion-perfil-n"></div>
-                    <div class="valoracion-perfil-n"></div>
-                </div>
-            </div>
-            <div class="valoracion-inf-general-perfil-2">
-                <h6 >Valoracion por tareas pagadas</h6>
-                <div class="valoracion-inf-general-perfil-2-valoraciones">
-                    <div class="valoracion-perfil-g"></div>
-                    <div class="valoracion-perfil-n"></div>
-                    <div class="valoracion-perfil-n"></div>
-                    <div class="valoracion-perfil-n"></div>
-                    <div class="valoracion-perfil-n"></div>
-                </div>
+                <?php                            
+                  $count_rating = count_rating($user_perfil,'todo'); echo " ";
+
+                  for ($i=0; $i < $count_rating; $i++) { ?>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                  <?php } 
+                  for ($i=0; $i < (5-$count_rating); $i++) { ?>
+                      <i class="fa fa-star-o" aria-hidden="true"></i>
+              <?php } ?> 
             </div>
         </div>
     </div>
@@ -92,17 +85,22 @@ global $current_user, $wp_roles;?>
                                         $loops = new WP_Query( $argss ); 
                                         while ( $loops->have_posts() ) : $loops->the_post(); $down_emblema = get_post(meta_value( 'id_emblema', get_the_ID() ))->post_title."&nbsp;-&nbsp;Usuario:&nbsp;".$user_perfil; ?>
                                         <div class="content-inf-emblemas-cont-box">
-                                            <div class="direccion-perfil">
-                                                <a class="" href="<?php echo meta_value_img( 'adjuntar_emblema', get_the_ID() ) ?>" download="<?php echo $down_emblema; ?>">
-                                                   
-                                                    <div><p title="Descargar Archivo">* <?php echo get_post(meta_value( 'id_emblema', get_the_ID() ))->post_title; ?></p></div>
-                                                </a> 
+                                            <div class="">
+                                                <div>
+                                                <span title="Descargar Archivo">* <?php echo get_post(meta_value( 'id_emblema', get_the_ID() ))->post_title; ?></span>
+                                                </div>
+                                                <a class="" href="<?php echo meta_value_img( 'adjuntar_emblema', get_the_ID() ) ?>" download="<?php echo $down_emblema; ?>">Descargar</a> 
+                                                <a class="" target="_blank" href="<?php echo meta_value_img( 'adjuntar_emblema', get_the_ID() ) ?>">Ver</a>
+
                                             </div>                                                            
                                         </div>
                                     <?php endwhile; ?>
                                     </div>
-                                </div> 
-                                <a class="emblemas-perfil-cont_a" href="confi-perfil/?tab=emblemas">Consigue un emblema</a>
+                                </div>
+                                
+                                <?php if ($current_user->ID == $user_perfil): ?>
+                                    <a class="emblemas-perfil-cont_a" href="confi-perfil/?tab=emblemas">Consigue un emblema</a>    
+                                <?php endif; ?>
                             </div>
                         </div>
                        
@@ -114,7 +112,7 @@ global $current_user, $wp_roles;?>
                         <div class="cont-cont-perfil-inf">
                             <p><?php echo $description_perfil; ?></p>
                         </div>
-                        <div class="cont-cont-perfil-inf-ico"></div>
+                        
                       </div>
                        <h4>Mi portafolio</h4>
                        <div class="cont-cont-perfil-inf">
@@ -122,7 +120,7 @@ global $current_user, $wp_roles;?>
                         <div class="cont-cont-perfil-inf">
                          <div class="cont-espacio"></div>
                         </div>
-                         <div class="cont-cont-perfil-inf-ico"></div>
+                         
 
                         </div>
                        <h4>Mis aptitudes</h4>
@@ -131,7 +129,7 @@ global $current_user, $wp_roles;?>
                             <div class="cont-cont-perfil-inf">
                                 <p></p>
                             </div>
-                            <div class="cont-cont-perfil-inf-ico"></div>
+                            
 
                         </div>
                        <h4>Comentarios de la comunidad</h4>
@@ -172,7 +170,7 @@ global $current_user, $wp_roles;?>
 
     <section class="main-categories main-tareas container" id="down">
         <div class="titulo-general text-center">
-            <p><?php echo get_the_title(); ?></p>
+            
             <br><br>
         </div>
 
