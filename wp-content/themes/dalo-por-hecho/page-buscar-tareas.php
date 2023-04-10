@@ -430,7 +430,8 @@ input#hide:checked ~ div#contente {
 
                                                                   <div>
                                                                       
-                                                                     <?php                            
+                                                                     <?php
+                                                                     var_dump($rating_postulado);                        
                                                                       $count_rating = count_rating($rating_postulado,'todo'); echo " ";
 
                                                                       for ($i=0; $i < $count_rating; $i++) { ?>
@@ -634,9 +635,11 @@ input#hide:checked ~ div#contente {
 
 
                 
-                <?php if ($v == 0) {
-                    echo "<h6> No hay resultados </h6>";
-                } ?>        
+                <?php if ($v == 0) { ?>
+                    <h6 class="mb-4"> No hay resultados </h6>
+
+                    <a href="<?php bloginfo('url'); ?>/buscar-tareas/"  class="btn-general">Volver a todas las tareas </a>
+                 <?php } ?>        
 
             </div><!--tab principal -->
         </div>
