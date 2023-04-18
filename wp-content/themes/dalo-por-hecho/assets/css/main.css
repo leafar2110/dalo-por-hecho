@@ -1466,7 +1466,7 @@ input {
 }
 .dropdown-menu__scroll{
 	height: 300px;
-	overflow: scroll;
+	overflow-y: scroll;
 }
 .admin-card .price {
 	font-size: 1.5rem;
@@ -1586,11 +1586,14 @@ input {
 	background: #ec8603 !important;
 	color: #fff !important;
 	border: 1px solid #ec8603;
+	transition: .3s ease-in-out;
+	cursor: pointer;
 }
 .btn-oferta:hover {
 	background: #fff !important;
 	border: 1px solid #ec8603 !important;
 	color: #ec8603 !important;
+	transition: .3s ease-in-out;
 }
 
 #accordion .card {
@@ -1710,6 +1713,7 @@ input {
 }
 .ofertas_titulos {
 	display: flex;
+	align-items: center;
 }
 .ofertas_titulos p {
 	margin-bottom: 0;
@@ -1927,7 +1931,7 @@ p.p-na {
 	text-align: initial;
 	font-size: 18px;
 	font-weight: bold;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 }
 a.emblemas-perfil-cont_a {
 	background: #e9e9e9;
@@ -1936,10 +1940,12 @@ a.emblemas-perfil-cont_a {
 	font-weight: 500;
 	color: #ec8603;
 	transition: 0.3s ease-in-out;
+	display: flex;
+  margin-top: 20px;
+  width: max-content;
 }
 a.emblemas-perfil-cont_a:hover {
 	background: #ec8603;
-	padding: 10px 20px;
 	border-radius: 50px;
 	font-weight: 500;
 	color: #fff !important;
@@ -2622,9 +2628,7 @@ fieldset.fieldset-create_account_email {
 	padding: 8rem 0 10rem 0;
 }
 /* inicio de sesion*/
-.main-login__container{
-	padding: 2rem;
-}
+
 .labels__login{
 	width: 100% !important;
 }
@@ -2689,7 +2693,7 @@ fieldset.fieldset-create_account_email {
 .ur-frontend-form {
     margin-bottom: 30px;
     border: 1px solid transparent;
-    padding: 20px;
+    padding: 0;
     box-sizing: border-box;
 }
 .password-input-group{
@@ -3116,6 +3120,8 @@ a.button.wdgk_add_donation{
 .opc-conf-cuenta label input[type='radio']:checked::after{
 	width: 14px !important;
 	height: 14px !important;
+	top: -2px !important;
+  left: -1px !important;
 }
 .opc-conf-cuenta label input[type='radio']:checked::before{
 	content: '';
@@ -3143,7 +3149,7 @@ a.button.wdgk_add_donation{
 	color: #ffffff;
 	border-radius: 15px;
 }
-#v-pills-emblemas button.close, #chate-e button.close{
+#v-pills-emblemas button.close, #chate-e button.close, #chate button.close{
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -3218,6 +3224,239 @@ a.button.wdgk_add_donation{
 .woocommerce .woocommerce-checkout-review-order-table tfoot tr td {
 	text-align: end;
 }
-.woocommerce .woocommerce-order .woocommerce-table__product-table.product-total{
+.woocommerce .woocommerce-order .woocommerce-table__product-table.product-total,
+.woocommerce-order-details .woocommerce-table__line-item.order_item .product-total{
 	text-align: end;	
+}
+.nav_bottom #contente{
+	height: 250px;
+}
+.nav_bottom #contente input.buscador2{	
+	padding: 2px 10px;
+}
+.nav_bottom #contente input.buscador2::placeholder{
+	text-align: center;
+}
+.nav_bottom .navbar-nav #contente .dropdown-menu{
+	height: max-content;
+	max-height: 0;
+  padding: 0;
+  display: block;
+  border: none;
+  transition: .3s ease-in-out;
+}
+.nav_bottom .navbar-nav #contente .dropdown:hover > .dropdown-menu{
+	max-height: 195px !important;
+	transition: .3s ease-in-out;
+}
+.nav_bottom .navbar-nav #contente .dropdown-menu a{
+	padding: 4px 10px;
+}
+#mov{
+	transition: .3s ease-in-out;
+}
+#mov:hover, #most #mov{
+	color: #ec8603 !important;
+	transition: .3s ease-in-out;
+}
+.nav_bottom .navbar-nav #contente .nav-item.dropdown.dowms{
+	width: 100%;
+}
+.nav_bottom .navbar-nav #contente .nav-item.dropdown.dowms input{
+	border-radius: 50px !important;
+	border-width: 2px !important;
+	color: #353535 !important;
+}
+.nav_bottom .navbar-nav #contente .nav-item.dropdown.dowms .nav-link{
+	margin: 0;
+	width: 100%;
+	font-size: 1rem;
+  line-height: 1.5;
+}
+.main-task__minigrid .ofertas_conetnt .datos_name{
+	padding: 0 10px;
+}
+#chate-e .ofertas_titulos, #chate .ofertas_titulos{
+	align-items: center;
+}
+.main-task__minigrid .ofertas_conetnt .respnse a, .btn-general{
+	background: #ec8603;
+  color: #fff;
+  border: 2px solid #ec8603;
+  transition: .3s ease-in-out;
+  padding: 6px 30px;
+  border-radius: 50px;
+  max-height: max-content;
+}
+.main-task__minigrid .ofertas_conetnt .respnse a:hover, .btn-general:hover{
+	background: transparent;
+	color: #ec8603;
+	transition: .3s ease-in-out;
+}
+.main-task__minigrid .ofertas_conetnt .respnse > div{
+	display: flex;
+}
+.main-task__minigrid .ofertas_conetnt .respnse > div a{
+	background: transparent;
+	color: #ec8603;
+	transition: .3s ease-in-out;
+}
+.main-task__minigrid .ofertas_conetnt .respnse > div a:hover{
+	background:  #ec8603;
+	color: #ffffff !important;
+	transition: .3s ease-in-out;
+}
+.wdgk_donation_content a.button.wdgk_add_donation{
+	border: 2px solid #ec8603;
+  transition: .3s ease-in-out;
+  padding: 10px 30px;
+  border-radius: 50px;
+  width: 100%;
+  text-align: center;
+}
+.wdgk_donation_content a.button.wdgk_add_donation:hover{
+	background: transparent !important;
+	color: #ec8603 !important;
+	transition: .3s ease-in-out;
+}
+.wdgk_donation_content{
+	max-width: 100%;
+}
+.modal-chat .main-task__minigrid{
+	height: max-content;
+	max-height: 300px;
+	grid-gap: 0;
+	overflow-y: scroll;
+}
+.modal-chat .main-task__minigrid .ofertas_conetnt{
+	display: flex;
+  height: max-content;
+  width: 100%;
+  padding-top: 20px;
+}
+.modal-chat .main-task__minigrid .ofertas_conetnt:first-child{
+	padding-top: 0;
+}
+.modal-chat .main-task__minigrid .ofertas_conetnt .datos_name{
+	width: 100%;
+}
+.modal-chat .datos_genereal{
+	text-align: start;
+}
+.modal-chat .datos_genereal textarea{
+	width: 100%;
+	border-color: #cccccc;
+	border-radius: 15px !important;
+}
+.with_frm_style .frm_submit button{
+	background: #ec8603 !important;
+  color: #fff !important;
+  border: 2px solid #ec8603 !important;
+  transition: .3s ease-in-out;
+  padding: 6px 30px !important;
+  border-radius: 50px !important;
+}
+.with_frm_style .frm_submit button:hover{
+	background: transparent !important;
+	color: #ec8603 !important;
+	transition: .3s ease-in-out;
+}
+.modal-chat .with_frm_style .frm_submit button{
+	width: 100%;
+}
+#chate-e .ofertas_titulos .flex a, #chate .ofertas_titulos .flex a{
+	color: #3e3e3e;	
+}
+#chate-e .ofertas_titulos .text-content-chat, #chate .ofertas_titulos .text-content-chat {
+	color: #3e3e3e;	
+}
+#chate-e .active, #chate .active, #notifi-e .active, #notifi .active{
+	color: #ec8603;
+	font-weight: 700;
+}
+.modal_rating label{
+	cursor: pointer;
+}
+.modal_rating input[type="radio"]{
+	cursor: pointer;
+	appearance: none;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+}
+.modal_rating input[type="radio"], .modal_rating input[type="radio"]:focus{
+	box-shadow: 0 0 0 !important;
+  border-color: #ccc !important;
+	appearance: none;
+}
+td.tabla-pagos_table_td .btn-general{
+	display: flex;
+	width: max-content;
+	margin: auto;
+	padding: 4px 30px;
+}
+.ur-form-row span.input-wrapper{
+	width: 100%;
+}
+.modal-register{
+	position: relative;
+}
+.user-registration label{
+	margin: 0 0 8px !important;
+  font-weight: normal !important;
+  font-size: 16px !important;
+}
+.modal-register label{
+	margin-bottom: 40px !important;
+	font-weight: bold !important;
+	margin-top: 10px !important;
+}
+.modal-register .ur-radio-list label{
+	font-weight: normal !important;
+	font-size: 14px !important;
+}
+.modal-register .description{
+	position: absolute;
+	top: 20px;
+	font-size: 13px;
+	color: #777777;
+}
+.main-login__container .row{
+	margin: 0;
+}
+ .form-row{
+	margin-left: 0;
+	margin-right: 0;
+}
+.main-login__container h2{
+	margin-bottom: 28px;
+}
+.main-login__container .ur-form-row .ur-form-grid{
+	padding: 0 15px;
+}
+.ur-frontend-form .ur-form-row .ur-form-grid .ur-field-item{
+	margin-bottom: 1rem;
+}
+.ur-frontend-form .ur-form-row .ur-form-grid .ur-field-item input{
+	margin-bottom: 0;
+}
+.nav_bottom .navbar-nav #contente .nav-item.dropdown.dowms input.btn-oferta{
+	color: #ffffff !important;
+}
+.nav_bottom .navbar-nav #contente .nav-item.dropdown.dowms input.btn-oferta:hover{
+	color: #353535 !important;
+}
+.content-inf-emblemas-cont-box{
+	padding: 10px 0;
+	border-bottom: 1px solid #cccccc;
+}
+.content-inf-emblemas-cont-box span{
+	font-weight: bold;
+}
+.content-inf-emblemas-cont-box a{
+	color: #ec8603;
+}
+.content-inf-emblemas-cont-box a:nth-child(2){
+	margin-right: 10px;
 }

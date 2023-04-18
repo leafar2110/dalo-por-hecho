@@ -212,7 +212,7 @@
 	.navbar-toggler:not(:disabled):not(.disabled) {
 		color: #fff;
 		width: 20%;
-		margin-top: 6px;
+		
 	}
 	.titulo-general p {
 		font-size: 25px;
@@ -332,9 +332,6 @@
 	}
 	.admin-card ul {
 		padding: 0;
-	}
-	.ofertas_titulos {
-		display: block;
 	}
 	.cube {
 		width: 100%;
@@ -625,22 +622,24 @@
 	.perfil .subir-foto{
 		margin-left: 15px;
 	}
-	#chate-e .ofertas_titulos{
+	#chate-e .ofertas_titulos, #chate .ofertas_titulos{
 		display: flex;
 		flex-wrap: wrap;
 	}
-	#chate-e .ofertas_titulos > a{
+	#chate-e .ofertas_titulos > a, #chate .ofertas_titulos > a{
 		width: 20%;
 	}
-	#chate-e .ofertas_titulos > a.ml-auto{
+	#chate-e .ofertas_titulos > a.ml-auto, #chate .ofertas_titulos > a.ml-auto{
 		width: 100%;
-		text-align: end;
-		padding-top: 10px;
+		margin-top: 10px;
 	}
-	#chate-e .ofertas_titulos .flex{
+	#chate-e .ofertas_titulos .flex, #chate .ofertas_titulos .flex{
 		text-align: start;
+		margin: 0 !important;
+		color: #3e3e3e;
 	}
-	#chate-e .datos_genereal .col-lg-8.col-md-9{
+
+	#chate-e .datos_genereal .col-lg-12, #chate .datos_genereal .col-lg-12{
 		padding: 0;
 	}
 	.perfil-open-menu{
@@ -663,7 +662,10 @@
 	.woocommerce .woocommerce-order .wc-item-meta{
 		padding: 0;
 	}
-	
+	.btn-general{
+		text-align: center;
+		height: max-content;
+	}
 
 
 }

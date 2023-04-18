@@ -97,12 +97,16 @@
                         
                             <div aria-labelledby='dropdownMenuButton' class='dropdown-menu' >
                                 <div class='content-drop'>
+                                    
+                                    <?php if( meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) == "Ofrezco un Servicio" )
+                                    { ?>
+                                        <a class='dropdown-item' href="<?php bloginfo('url'); ?>/mis-tareas">Mis tareas</a>
+                                    <?php } ?>
                                     <a class='dropdown-item' href='<?php echo wp_logout_url( home_url() ); ?>'>
                                         <p>
                                             Cerrar Sesión
                                         </p>
                                     </a>
-
                                 </div>
                             </div>
                             <?php else: ?>
@@ -124,17 +128,25 @@
                         <?php } ?>
                             </a>
                         </li>
+                        <?php if( meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) == "Ofrezco un Servicio" ) {
+                            $url = "/confi-perfil/?tab=notification";
+                        }
+                        else{
+                            $url = "/confi-perfil/?tab=notification-empleado";
+                        }
+                        ?>
                         <?php if (is_user_logged_in()){ ?>
                             <li class="nav-item-notifications">
-                                <a class="nav-link-notifications" href="#"> 
+                                <a class="nav-link-notifications" href="<?php bloginfo('url'); echo $url; ?>"> 
                                     <i class="fa fa-bell-o" aria-hidden="true"></i>
                                     <span>1</span> 
                                 </a>
-                                <a class="nav-link-notifications" href="#">
+                                <a class="nav-link-notifications" href="<?php bloginfo('url'); echo $url; ?>">
                                     <i class="fa fa-envelope-o" aria-hidden="true"></i> 
                                     <span><?php echo count_chat($current_user->ID); ?></span>
                                 </a>
                             </li>
+                            
                             <?php
                         } ?>
                     </ul>
@@ -178,6 +190,7 @@
     <div class="lwa lwa-default"><?php //class must be here, and if this is a template, class name should be that of template directory ?>
         <form class="lwa-form" action="<?php echo esc_url(LoginWithAjax::$url_login); ?>" method="post">
             <div>
+                <br>
                 <h2 class="text-center">Iniciar sesión</h2>
             <span class="lwa-status"></span>
             <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
@@ -268,7 +281,7 @@
             </div>
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 
-                <div class=" ">
+                <div class="main-login__container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 order-last-xs ">
                             
@@ -280,7 +293,7 @@
                                 <h2 class="text-center"> Registrarse</h2>
                                 
                                
-                                <h2><?php esc_html_e( $la, 'woocommerce' ); ?></h2>
+                                
 
                                 <?php echo do_shortcode('[user_registration_form id="208"]');?>
 
