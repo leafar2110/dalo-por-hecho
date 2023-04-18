@@ -300,7 +300,7 @@ input#hide:checked ~ div#contente {
             <div class="tab-content main-taks__tabs" id="v-pills-tabContent">
                 <?php $loop2 = new WP_Query( $args ); $j = 0; $v=0; $i = 0;      
 
-                while ( $loop2->have_posts() ) : $loop2->the_post(); $user_tarea = get_the_author_meta( 'ID' ); $title_tarea = get_the_title(); $id_tarea = get_the_ID(); $monto_salary = get_post_meta( get_the_ID(), '_job_salary', true ); $email_empleador = get_the_author_meta( 'user_email' ); ?>                
+                while ( $loop2->have_posts() ) : $loop2->the_post(); $user_tarea = get_the_author_meta( 'ID' ); $title_tarea = get_the_title(); $id_tarea = get_the_ID(); $monto_salary = get_post_meta( get_the_ID(), '_job_salary', true ); $email_empleador = get_the_author_meta( 'user_email' ); $id_postulado = get_the_author_meta( 'ID' );   ?>                
                     <div class="tab-pane fade <?php if($j==0 && $_GET['tab_tarea'] == NULL){ echo "show active";} ?>" id="v-pills-<?php echo get_the_ID();?>" role="tabpanel" aria-labelledby="v-pills-<?php echo get_the_ID();?>-tab">        
 
                         <div class="main-task__minigrid">                
@@ -310,7 +310,9 @@ input#hide:checked ~ div#contente {
                                     <div class="datos_name">
                                         <div class="row">
                                             <div class="col-lg-2 col-md-3">
+                                              <a target="_blank" href="perfil?post=<?php echo $id_postulado ?>">
                                                 <?php echo get_avatar( user_value( get_post(get_the_ID())->post_author ), 50 );?> 
+                                              </a>
                                             </div>
                                             <div class="col-lg-8 col-md-9">
                                                 <p class="name">Publicado por</p>
@@ -351,7 +353,7 @@ input#hide:checked ~ div#contente {
                                     <div class=" datos_presupuesto main-presupuesto__mobile">
                                         <div class="presupuesto_minicard">
                                             <p>Presupuesto </p>
-                                            <span class="precio">$<?php echo get_post_meta( $id_tarea, '_job_salary', true ) ?></span>
+                                            <span class="precio">$<?php echo number_format(get_post_meta( $id_tarea, '_job_salary', true ), 0, '.', '.'); ?></span>
                                             <?php if (is_user_logged_in() != NULL && meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) == "Necesito un Servicio" )
                                             { $title_tarea2 = $title_tarea."-".meta_user_value( 'first_name', $current_user->ID ); 
                                                 if (bank_data() == "yes" )
@@ -420,14 +422,16 @@ input#hide:checked ~ div#contente {
                                                     <div class="row border-n mb-5">
                                                         <div class="col-md-12">
                                                             <div class="ofertas_titulos mb-3">
+                                                              <a target="_blank" href="perfil?post=<?php echo $id_postulado ?>">
                                                                 <?php echo get_avatar( get_the_author_meta( 'user_email' ), 50 );?> 
-                                                                
+                                                                </a>
                                                                 <div class="flex ml-3">
                                                                     <span><?php echo meta_user_value( 'first_name',  $id_postulado ); ?></span>
 
                                                                   <div>
                                                                       
-                                                                     <?php                            
+                                                                     <?php
+                                                                     var_dump($rating_postulado);                        
                                                                       $count_rating = count_rating($rating_postulado,'todo'); echo " ";
 
                                                                       for ($i=0; $i < $count_rating; $i++) { ?>
@@ -443,7 +447,7 @@ input#hide:checked ~ div#contente {
                                                         </div>
                                                         <p><?php echo $postulado_mensaje; ?></p>
                                                         <div class="cube mb-4">
-                                                            <p>$ <?php echo $postulado_monto; ?></p>
+                                                            <p>$ <?php echo number_format($postulado_monto, 0, '.', '.'); ?></p>
                                                         </div>
 
                                                         <div class="respnse">
@@ -454,7 +458,7 @@ input#hide:checked ~ div#contente {
                                                             if ($sinparametros[3] =="124") {
                                                             '<p>'.$sinparametros[3].'</p>';
                                                             }?>
-                                                            <a href=""></a>                                            
+                                                                                                       
                                                             <?php if (is_user_logged_in() != NULL && meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) == "Ofrezco un Servicio" && $user_actual == $user_tarea ){ 
                                                                 $codigo_unico = get_the_author_meta( 'ID' )."".$id_tarea;
                                                                 $codigo_unico = str_replace(' ', '', $codigo_unico); ?>
@@ -468,7 +472,7 @@ input#hide:checked ~ div#contente {
                                                                         <a target="_blank" href="perfil?post=<?php echo $id_postulado ?>">Ver perfil</a>
                                                                     </div>
                                                                     <a href="" class="ml-auto" data-toggle="modal" data-target="#modal_donation" onclick="function_donation('<?php echo $postulado_monto ?>','<?php echo $var_array ?>'), 
-                                                                        show_data('<?php echo $postulado_monto ?>','<?php echo $var_array ?>','<?php echo $sinparametros[5]; ?>','<?php echo get_avatar_url( get_the_author_meta('user_email'), 50 ); ?>') "><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Responder oferta</a> 
+                                                                        show_data('<?php echo $postulado_monto ?>','<?php echo $var_array ?>','<?php echo $sinparametros[5]; ?>','<?php echo get_avatar_url( get_the_author_meta('user_email'), 50 ); ?>') ">Responder oferta</a> 
                                                                 <?php }} ?> 
                                                                 <p></p>
                                                             </div>
@@ -486,7 +490,8 @@ input#hide:checked ~ div#contente {
                                 <div class="main-presupuesto__desktop">
                                     <div class="presupuesto_minicard">
                                         <p>Presupuesto</p>
-                                        <span class="precio">$<?php echo get_post_meta( $id_tarea, '_job_salary', true ) ?></span>
+                                        <span class="precio">$<?php echo number_format(get_post_meta( $id_tarea, '_job_salary', true ), 0, '.', '.'); ?></span>
+
                                         <?php if (is_user_logged_in() != NULL && meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) == "Necesito un Servicio" )
                                         { 
                                             $title_tarea2 = $title_tarea."-".meta_user_value( 'first_name', $current_user->ID ); 
@@ -630,9 +635,11 @@ input#hide:checked ~ div#contente {
 
 
                 
-                <?php if ($v == 0) {
-                    echo "<h6> No hay resultados </h6>";
-                } ?>        
+                <?php if ($v == 0) { ?>
+                    <h6 class="mb-4"> No hay resultados </h6>
+
+                    <a href="<?php bloginfo('url'); ?>/buscar-tareas/"  class="btn-general">Volver a todas las tareas </a>
+                 <?php } ?>        
 
             </div><!--tab principal -->
         </div>
