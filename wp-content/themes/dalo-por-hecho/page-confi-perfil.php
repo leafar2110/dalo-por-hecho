@@ -31,7 +31,7 @@ get_header();?>
                     <div class="perfil-content">
                         <?php if (is_user_logged_in()){ echo get_avatar( $current_user->user_email, 165 );  }?> 
                         <p class="mt-3 mb-4"><?php the_author_meta( 'first_name', $current_user->ID ); ?></p>
-                        <div class="perfil-open-menu">Ver menú</div>
+                        
                     </div>
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
                             aria-orientation="vertical">

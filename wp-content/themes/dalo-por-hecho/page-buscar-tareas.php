@@ -431,7 +431,7 @@ input#hide:checked ~ div#contente {
                                                                   <div>
                                                                       
                                                                      <?php
-                                                                     var_dump($rating_postulado);                        
+                                                                     
                                                                       $count_rating = count_rating($rating_postulado,'todo'); echo " ";
 
                                                                       for ($i=0; $i < $count_rating; $i++) { ?>
@@ -540,21 +540,11 @@ input#hide:checked ~ div#contente {
                                                         <?php echo get_avatar( get_the_author_meta( 'user_email' ), 50 );?> 
                                                         <div class="flex ml-3">
                                                             <span><?php echo meta_user_value( 'first_name',  get_the_author_meta( 'ID' ) ); ?></span>
-                                                            <div>
-                                                                <?php                                                         
-                                                                    $count_rating = count_rating($rating_postulado,'todo'); echo " ";
-
-                                                                    for ($i=0; $i < $count_rating; $i++) { ?>
-                                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    <?php } 
-                                                                    for ($i=0; $i < (5-$count_rating); $i++) { ?>
-                                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                                    <?php } ?> 
-                                                            </div>
+                                                            
                                                         </div>
                                                         <p class="ml-auto"><?php the_job_publish_date_postu(); ?></p>
                                                     </div>
-                                                    <p><?php the_field('pregunta_tarea'); ?></p>
+                                                    <p><?php echo the_field('pregunta_tarea'); ?></p>
                                                 </div> 
                                             </div>
                                             <?php 

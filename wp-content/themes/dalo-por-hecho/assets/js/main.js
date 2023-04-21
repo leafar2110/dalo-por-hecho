@@ -4,10 +4,10 @@ $(function () {
 	$('[data-toggle="offcanvas"]').on("click", function () {
 		$(".offcanvas-collapse").toggleClass("open");
 	});
-    $('.perfil-open-menu').on("click", function () {
-        $("#v-pills-tab").toggle("slow");
-    });
-    
+    $('#wp_user_profile_avatar_update_profile').text('Subir foto')
+    $('#wp_user_profile_avatar_undo').text('Deshacer')
+    $('#upload_avatar_responce.wp-user-profile-avatar-error').text('Error! al seleccionar imagen')
+    $('#upload_avatar_responce.wp-user-profile-avatar-success').text('Imagen cargada correctamente')
 });
 
 ///Buscar tareas
