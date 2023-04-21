@@ -24,7 +24,11 @@ global $current_user, $wp_roles;?>
 
 
    <?php get_header(); ?>
-    <div class="top-gris"></div>
+    <div class="top-gris">
+        <?php echo meta_user_value( 'dedicacion_user',  $_GET['post'] ); ?>
+
+        
+    </div>
     <div class="container">
         <div class="img-p-p">
         <?php if ($_GET['post'] != NULL) { ?>
@@ -37,17 +41,11 @@ global $current_user, $wp_roles;?>
     <div class="container inf-general-perfil">
         <div class="inf-general-perfil-1">
             <p class="p-na"> <?php echo $name_perfil; ?></p>
-            <div class="direccion-perfil">
-                <div class="direccion-perfil_img">
-                        <img class="icons" src="<?php echo get_template_directory_uri();?>/assets/img/ubicacion.png" alt="">
-                </div>
-                <div><p><?php echo $address_perfil; ?></p></div>
-            </div>
             <h6 class="p-az">Miembro desde <?php echo $date_perfil; ?></h6>
 
         </div>
         <div class="inf-general-perfil-2">
-            <h6 class="p-az">Ultima coneccion hace 12h</h6>
+            
             
             <div class="valoracion-inf-general-perfil-2">
                 <h6>Valoracion por tareas realizadas</h6>

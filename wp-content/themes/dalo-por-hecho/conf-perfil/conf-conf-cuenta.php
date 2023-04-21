@@ -168,7 +168,7 @@ $porcent = (( $cont2 + $cont4 + $cont5 + $cont6 + $cont7 + $cont8)/7)*100;
                                                       </div>
     
                                                     </div>                                           
-                                                    <h6>Fecha de cumpleaños </h6>
+                                                    <h6>Fecha de nacimiento </h6>
                                                     <div class="form-inline cumple">
                                                       <input type="text" class="form-control" placeholder="DD" name="dia" id="dia" maxlength="2" value="<?php if (meta_user_value( 'fecha_nac_user', $current_user->ID )!=NULL) {echo date('d', strtotime(meta_user_value( 'fecha_nac_user', $current_user->ID ))); }?>">
                                                       <input type="text" class="form-control" placeholder="MM" name="mes" id="mes" min="1" max="12" maxlength="2" value="<?php if (meta_user_value( 'fecha_nac_user', $current_user->ID )!=NULL) {echo date('m', strtotime(meta_user_value( 'fecha_nac_user', $current_user->ID ))); }?>">
