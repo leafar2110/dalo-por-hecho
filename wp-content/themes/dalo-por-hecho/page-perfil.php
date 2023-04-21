@@ -25,7 +25,6 @@ global $current_user, $wp_roles;?>
 
    <?php get_header(); ?>
     <div class="top-gris">
-        <?php echo meta_user_value( 'dedicacion_user',  $_GET['post'] ); ?>
 
         
     </div>
