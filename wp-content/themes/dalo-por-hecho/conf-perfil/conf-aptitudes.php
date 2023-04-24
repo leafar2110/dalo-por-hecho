@@ -88,7 +88,7 @@
                                         <div class="form mb-4">
                                             <label for="">Mi experiencia</label>
                                             
-                                            <label for="">¿Cuáles idioma maneja?</label>
+                                            
                                             <textarea rows="10" cols="30" class="textarea-conf" placeholder="¿Dónde ha trabajado y el tiempo?" name="experiencia_user" id="experiencia_user"><?php the_author_meta( 'experiencia_user', $current_user->ID ); ?></textarea>                
                                         </div>
                                     </div>

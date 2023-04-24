@@ -1904,7 +1904,6 @@ a.desactivar-cuenta {
 }
 .progress {
 	display: flex !important;
-	justify-content: flex-end !important;
 }
 /**/
 .direccion-perfil {

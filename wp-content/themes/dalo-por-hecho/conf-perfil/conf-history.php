@@ -71,7 +71,6 @@
                                                         <tr>
                                                             <th>Fecha de la tarea</th>
                                                             <th>Nombre de la tarea</th>
-                                                            <th>Valoración dada</th>
                                                             <th>Pago realizado</th>
                                                         </tr>
                                                     </thead>
@@ -93,47 +92,30 @@
                                                                'operator' => 'IN',
                                                             )),                     
                                                         ); 
+                                                        $i = 0;
                                                         $loop3 = new WP_Query( $args3 ); 
                                                         while ( $loop3->have_posts() ) : $loop3->the_post(); 
                                                          $fecha_tarea_publicada = get_post_meta( get_field( 'asignar_id_tarea_publicada' ), '_job_expires', true );
 
-                                                        ?>                                                            
+                                                         
+
+
+                                                        ?>
                                                             <tr>
                                                                 <td class="tabla-pagos_table_td">
                                                                     <p><?php  echo date("d/m/y",strtotime($fecha_tarea_publicada)); ?> </p>
                                                                 </td>
-                                                                <td class="tabla-pagos_table_td">
-                                                                    <p><?php echo get_post_meta( get_field( 'asignar_id_tarea_publicada' ), '_job_title', true ); ?></p>
-                                                                </td>
-                                                                <td class="tabla-pagos_table_td">
-                                                                    <p>
-                                                                        <div class="tabla-pagos_table-valoracion">
-                                                                            <?php
-                                                                         
-                                                                            $count_rating = count_rating(get_field('asignar_id_empleado'),'Empleado');
-                                                                            if ($count_rating == 0) { ?>
-                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
-                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
-                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
-                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
-                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
 
-                                                                            <?php  }
-                                                                            for ($i=0; $i < $count_rating; $i++) { ?>
-                                                                                <div class="tabla-pagos_table-valoracion-div-n">
-                                                                            </div>
-                                                                            <?php } ?>            
-                                                                            
-                                                                            
-                                                                            
-                                                                        </div>
-                                                                    </p>
-                                                                </td>
                                                                 <td class="tabla-pagos_table_td">
-                                                                    <p class="n-m">$ <?php echo get_field('asignar_monto_tarea'); ?></p>
+                                                                    <p><?php echo $loop3->posts[$i]->post_title; ?></p>
+                                                                </td>
+                                                                
+                                                                <td class="tabla-pagos_table_td">
+                                                                    <p class="n-m">$ <?php echo 
+                                                                    number_format(get_field('asignar_monto_tarea'), 0, '.', '.'); ?></p>
                                                                 </td>
                                                             </tr>
-                                                        <?php endwhile; ?>   
+                                                        <?php endwhile; $i = 0; $i++  ?>   
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -174,7 +156,6 @@
                                                                     <tr>
                                                                         <th>Fecha de la tarea <?php echo get_current_user_id(); ?></th>
                                                                         <th>Nombre de la tarea</th>
-                                                                        <th>Valoración dada</th>
                                                                         <th>Pago realizado</th>
                                                                     </tr>
                                                                 </thead>
@@ -190,10 +171,12 @@
                                                                'value' => get_current_user_id(),
                                                                'operator' => 'IN',
                                                             )),                     
-                                                        ); 
+                                                        );
                                                         $loop3 = new WP_Query( $args3 ); 
                                                         while ( $loop3->have_posts() ) : $loop3->the_post(); 
                                                          $fecha_tarea_publicada = get_post_meta( get_field( 'asignar_id_tarea_publicada' ), '_job_expires', true );
+                                                         
+
 
                                                         ?>                                                            
                                                             <tr>
@@ -202,30 +185,6 @@
                                                                 </td>
                                                                 <td class="tabla-pagos_table_td">
                                                                     <p><?php echo get_the_title(); ?></p>
-                                                                </td>
-                                                                <td class="tabla-pagos_table_td">
-                                                                    <p>
-                                                                        <div class="tabla-pagos_table-valoracion">
-                                                                            <?php
-                                                                         
-                                                                            $count_rating = count_rating(get_field('asignar_id_empleado'),'Empleador');
-                                                                            if ($count_rating == 0) { ?>
-                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
-                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
-                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
-                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
-                                                                                <div class="tabla-pagos_table-valoracion-div-g"></div>
-
-                                                                            <?php  }
-                                                                            for ($i=0; $i < $count_rating; $i++) { ?>
-                                                                                <div class="tabla-pagos_table-valoracion-div-n">
-                                                                            </div>
-                                                                            <?php } ?>            
-                                                                            
-                                                                            
-                                                                            
-                                                                        </div>
-                                                                    </p>
                                                                 </td>
                                                                 <td class="tabla-pagos_table_td">
                                                                     <p class="n-m">$ <?php echo  number_format(get_field('asignar_monto_tarea'), 0, '.', '.'); ?></p>
