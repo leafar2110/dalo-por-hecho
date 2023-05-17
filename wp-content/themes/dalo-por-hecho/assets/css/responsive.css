@@ -666,6 +666,9 @@
 		text-align: center;
 		height: max-content;
 	}
+	.flex-center-align{
+		padding: 100px 0;
+	}
 
 
 }
