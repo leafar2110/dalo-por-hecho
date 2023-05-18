@@ -1891,6 +1891,41 @@ div.frm_updated_message {
 	margin-bottom:4px;
 }
 
+/* Warning message dismiss */
+.frm_warning_style {
+	position: relative;
+	padding-right: calc(var(--gap-md) + 15px);
+}
+
+body.rtl .frm_warning_style {
+	padding-right: var(--gap-md);
+	padding-left: calc(var(--gap-md) + 15px);
+}
+
+.frm-warning-dismiss {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	display: flex;
+	cursor: pointer;
+	transition: opacity 0.2s ease-out;
+}
+
+body.rtl .frm-warning-dismiss {
+	left: 10px;
+	right: auto;
+}
+
+.frm-warning-dismiss:hover {
+	opacity: 0.8;
+}
+
+.frm-warning-dismiss.frmsvg,
+.frm-warning-dismiss.frmsvg svg {
+	width: 15px;
+	height: 15px;
+}
+
 .frm_note_style {
 	background: rgba(188, 224, 253, 0.23);
 	color: var(--grey-700);
@@ -2749,12 +2784,12 @@ li[data-preview] .frm-hover-icons .frm-preview-form,
 	transform: rotate(-90deg);
 }
 
-#frm_embed_modal .frm-modal-cancel {
+#frm_embed_modal .frm_modal_footer {
 	display: none;
 }
 
-#frm_embed_modal.frm-on-page-2 .frm-modal-cancel {
-	display: inline;
+#frm_embed_modal.frm-on-page-2 .frm_modal_footer {
+	display: block;
 }
 
 .frm-embed-modal-content ul {
@@ -5962,10 +5997,6 @@ span.howto {
 	min-width: 175px;
 }
 
-#form_reports_page h2 {
-	margin-top: 2em !important;
-}
-
 /* Views Page */
 #form_views_page img.frm_no_views {
 	max-width: 100%;
@@ -6244,8 +6275,8 @@ ul.start_divider {
 
 .frm-page-collapsed .frm_clone_icon,
 .frm-page-collapsed .frm_delete_field,
-.frm-section-collapsed .frm_clone_icon,
-.frm-section-collapsed .frm_delete_field {
+.frm-page-collapsed .frm_clone_field,
+.frm-section-collapsed .frm_clone_icon {
 	opacity: .5;
 	cursor: not-allowed;
 }
@@ -7300,6 +7331,7 @@ ul .frm_col_two {
 .frm_wrap .ui-autocomplete li > div,
 .multiselect-container button.multiselect-option,
 .frm-dropdown-menu > .dropdown-item > a,
+.frm-dropdown-menu > .dropdown-item > a:visited,
 .frm-dropdown-menu > .dropdown-item > a:link, /* Override jQuery UI */
 .frm-dropdown-menu .frm_dropdown_li,
 .frm_code_list.frm-full-hover a {
@@ -7945,6 +7977,7 @@ button.frm_choose_image_box,
 .frm_wrap input[type="text"],
 .frm_wrap input[type=search],
 .frm_wrap input[type="number"],
+.frm_wrap input[type="date"],
 .frm_wrap select,
 .wp-admin .frm_wrap select,
 .field-group textarea,
@@ -7960,6 +7993,10 @@ button.frm_choose_image_box,
 	margin: 0;
 	background-color: #fff;
 	line-height: var(--leading);
+}
+
+.frm_wrap ::-webkit-datetime-edit {
+    line-height: var(--leading);
 }
 
 .frm-white-body textarea:focus,
@@ -8031,10 +8068,15 @@ button.frm_choose_image_box,
 .frm-white-body .tablenav select,
 .frm-white-body .tablenav input[type="text"],
 .wp-admin .frm_wrap .tablenav select,
+.frm_wrap .tablenav input[type="date"],
 .frm_wrap .tablenav input[type="text"] {
 	padding-top: 0;
 	padding-bottom: 0;
 	line-height: 1;
+}
+
+.frm_wrap .tablenav ::-webkit-datetime-edit {
+    line-height: 1;
 }
 
 .frm-fields button.btn,

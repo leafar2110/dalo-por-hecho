@@ -15,6 +15,11 @@ class FrmProFieldRange extends FrmFieldType {
 	 */
 	protected $type = 'range';
 
+	/**
+	 * @var bool
+	 */
+	protected $array_allowed = false;
+
 	protected function field_settings_for_type() {
 		$settings = array(
 			'invalid' => true,

@@ -15,6 +15,11 @@ class FrmProFieldStar extends FrmFieldType {
 	 */
 	protected $type = 'star';
 
+	/**
+	 * @var bool
+	 */
+	protected $array_allowed = false;
+
 	protected function input_html() {
 		return $this->multiple_input_html();
 	}

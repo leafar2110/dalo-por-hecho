@@ -27,7 +27,7 @@ class FrmProStatisticsController {
 	}
 
 	/**
-	 * Get the entry IDs for a field, operator, and value combination
+	 * Get the entry IDs for a field, operator, and value combination.
 	 *
 	 * @param array $args
 	 * @return array
@@ -45,12 +45,13 @@ class FrmProStatisticsController {
 	}
 
 	/**
-	 * Flatten multi-dimensional arrays for stats and graphs
+	 * Flatten multi-dimensional arrays for stats and graphs.
 	 *
 	 * @since 2.02.06
 	 * @param object $field
-	 * @param bool $save_other_key
-	 * @param array $field_values
+	 * @param bool   $save_other_key
+	 * @param array  $field_values
+	 * @return void
 	 */
 	public static function flatten_multi_dimensional_arrays_for_stats( $field, $save_other_key, &$field_values ) {
 		$cleaned_values = array();
@@ -63,7 +64,7 @@ class FrmProStatisticsController {
 				continue;
 			}
 
-			if ( $field->type == 'address' || $field->type == 'credit_card' ) {
+			if ( $field->type === 'address' || $field->type === 'credit_card' ) {
 				$cleaned_values[] = implode( ' ', $i );
 			} else {
 				foreach ( $i as $i_key => $item_value ) {
@@ -498,72 +499,74 @@ class FrmProStatisticsController {
 	 * @since 2.02.06
 	 * TODO: update this so old filters are converted to new filters
 	 * @param array $atts
+	 * @return void
 	 */
 	private static function check_field_filters( &$atts ) {
-		if ( ! empty( $atts['filters'] ) ) {
+		if ( empty( $atts['filters'] ) ) {
+			return;
+		}
 
-			if ( ! isset( $atts['entry_ids'] ) ) {
-				$atts['entry_ids'] = array();
-				$after_where = false;
-			} else {
-				$after_where = true;
+		if ( ! isset( $atts['entry_ids'] ) ) {
+			$atts['entry_ids'] = array();
+			$after_where = false;
+		} else {
+			$after_where = true;
+		}
+
+		foreach ( $atts['filters'] as $orig_f => $val ) {
+			// Replace HTML entities with less than/greater than symbols
+			$val = str_replace( array( '&gt;', '&lt;' ), array( '>', '<' ), $val );
+
+			// If first character is a quote, but the last character is not a quote
+			if ( ( strpos( $val, '"' ) === 0 && substr( $val, -1 ) != '"' ) || ( strpos( $val, "'" ) === 0 && substr( $val, -1 ) != "'" ) ) {
+				//parse atts back together if they were broken at spaces
+				$next_val = array( 'char' => substr( $val, 0, 1 ), 'val' => $val );
+				continue;
+				// If we don't have a previous value that needs to be parsed back together
+			} else if ( ! isset( $next_val ) ) {
+				$temp = FrmAppHelper::replace_quotes( $val );
+				foreach ( array( '"', "'" ) as $q ) {
+					// Check if <" or >" exists in string and string does not end with ".
+					if ( substr( $temp, -1 ) != $q && ( strpos( $temp, '<' . $q ) || strpos( $temp, '>' . $q ) ) ) {
+						$next_val = array( 'char' => $q, 'val' => $val );
+						$cont = true;
+					}
+					unset( $q );
+				}
+				unset( $temp );
+
+				if ( isset( $cont ) ) {
+					unset( $cont );
+					continue;
+				}
 			}
 
-			foreach ( $atts['filters'] as $orig_f => $val ) {
-				// Replace HTML entities with less than/greater than symbols
-				$val = str_replace( array( '&gt;', '&lt;' ), array( '>', '<' ), $val );
-
-				// If first character is a quote, but the last character is not a quote
-				if ( ( strpos( $val, '"' ) === 0 && substr( $val, -1 ) != '"' ) || ( strpos( $val, "'" ) === 0 && substr( $val, -1 ) != "'" ) ) {
-					//parse atts back together if they were broken at spaces
-					$next_val = array( 'char' => substr( $val, 0, 1 ), 'val' => $val );
+			// If we have a previous value saved that needs to be parsed back together (due to WordPress pullling it apart)
+			if ( isset( $next_val ) ) {
+				if ( substr( FrmAppHelper::replace_quotes( $val ), -1 ) == $next_val['char'] ) {
+					$val = $next_val['val'] . ' ' . $val;
+					unset( $next_val );
+				} else {
+					$next_val['val'] .= ' ' . $val;
 					continue;
-					// If we don't have a previous value that needs to be parsed back together
-				} else if ( ! isset( $next_val ) ) {
-					$temp = FrmAppHelper::replace_quotes( $val );
-					foreach ( array( '"', "'" ) as $q ) {
-						// Check if <" or >" exists in string and string does not end with ".
-						if ( substr( $temp, -1 ) != $q && ( strpos( $temp, '<' . $q ) || strpos( $temp, '>' . $q ) ) ) {
-							$next_val = array( 'char' => $q, 'val' => $val );
-							$cont = true;
-						}
-						unset( $q );
-					}
-					unset( $temp );
-
-					if ( isset( $cont ) ) {
-						unset( $cont );
-						continue;
-					}
 				}
+			}
 
-				// If we have a previous value saved that needs to be parsed back together (due to WordPress pullling it apart)
-				if ( isset( $next_val ) ) {
-					if ( substr( FrmAppHelper::replace_quotes( $val ), -1 ) == $next_val['char'] ) {
-						$val = $next_val['val'] . ' ' . $val;
-						unset( $next_val );
-					} else {
-						$next_val['val'] .= ' ' . $val;
-						continue;
-					}
-				}
+			$pass_args = array(
+				'orig_f' => $orig_f,
+				'val' => $val,
+				'entry_ids' => $atts['entry_ids'],
+				'form_id' => $atts['form_id'],
+				'form_posts' => $atts['form_posts'],
+				'after_where' => $after_where,
+				'drafts' => $atts['drafts'],
+			);
 
-				$pass_args = array(
-					'orig_f' => $orig_f,
-					'val' => $val,
-					'entry_ids' => $atts['entry_ids'],
-					'form_id' => $atts['form_id'],
-					'form_posts' => $atts['form_posts'],
-					'after_where' => $after_where,
-					'drafts' => $atts['drafts'],
-				);
+			$atts['entry_ids'] = self::get_field_matches( $pass_args );
+			$after_where = true;
 
-				$atts['entry_ids'] = self::get_field_matches( $pass_args );
-				$after_where = true;
-
-				if ( ! $atts['entry_ids'] ) {
-					return;
-				}
+			if ( ! $atts['entry_ids'] ) {
+				return;
 			}
 		}
 	}
@@ -851,14 +854,14 @@ class FrmProStatisticsController {
 	}
 
 	/**
-	 * Get the entry IDs for a field/column filter
+	 * Get the entry IDs for a field/column filter.
 	 *
 	 * @since 2.02.05
 	 * @param array $filter_args
 	 * @return array
 	 */
 	private static function get_entry_ids_for_field_filter( $filter_args ) {
-		if ( in_array( $filter_args['field'], array( 'created_at', 'updated_at', 'parent_item_id' ) ) ) {
+		if ( in_array( $filter_args['field'], array( 'created_at', 'updated_at', 'parent_item_id' ), true ) ) {
 
 			if ( 'parent_item_id' === $filter_args['field'] ) {
 				$filter_args['value'] = self::maybe_convert_entry_key_to_id( $filter_args['value'] );
@@ -878,13 +881,13 @@ class FrmProStatisticsController {
 			$where_atts = apply_filters( 'frm_stats_where', array( 'where_is' => $filter_args['operator'], 'where_val' => $filter_args['value'] ), $filter_args );
 
 			$pass_args = array(
-				'where_opt' => $filter_args['field'],
-				'where_is' => $where_atts['where_is'],
-				'where_val' => $where_atts['where_val'],
-				'form_id' => $filter_args['form_id'],
-				'form_posts' => $filter_args['form_posts'],
+				'where_opt'   => $filter_args['field'],
+				'where_is'    => $where_atts['where_is'],
+				'where_val'   => $where_atts['where_val'],
+				'form_id'     => $filter_args['form_id'],
+				'form_posts'  => $filter_args['form_posts'],
 				'after_where' => $filter_args['after_where'],
-				'drafts' => $filter_args['drafts'],
+				'drafts'      => $filter_args['drafts'],
 			);
 
 			$entry_ids = FrmProAppHelper::filter_where( $filter_args['entry_ids'], $pass_args );

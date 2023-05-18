@@ -87,3 +87,15 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home/dalombwn/public_html/wp-includes/widgets/class-wp-widget-block.php on line 17
+[25-Apr-2023 06:21:48 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Widget' not found in /home/dalombwn/public_html/wp-includes/widgets/class-wp-widget-block.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/widgets/class-wp-widget-block.php on line 17
+[26-Apr-2023 15:23:53 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Widget' not found in /home/dalombwn/public_html/wp-includes/widgets/class-wp-widget-block.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/widgets/class-wp-widget-block.php on line 17
+[27-Apr-2023 08:31:16 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Widget' not found in /home/dalombwn/public_html/wp-includes/widgets/class-wp-widget-block.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/dalombwn/public_html/wp-includes/widgets/class-wp-widget-block.php on line 17

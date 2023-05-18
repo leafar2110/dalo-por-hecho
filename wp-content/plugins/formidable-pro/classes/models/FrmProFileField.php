@@ -505,8 +505,14 @@ class FrmProFileField {
 
 			// Check allowed file size
 			if ( ! empty( $file_uploads['error'] ) && in_array( 1, (array) $file_uploads['error'] ) ) {
-				/* translators: %sMB: File size limit (Megabytes). */
-				$errors[ 'field' . $field->temp_id ] = __( 'That file is too big. It must be less than %sMB.', 'formidable-pro' );
+				// Hit a server limit (upload exceeds upload_max_filesize PHP directive).
+				$server_limit = self::get_server_filesize_limit();
+
+				$errors[ 'field' . $field->temp_id ] = sprintf(
+					// translators: %s: File size limit (Megabytes)
+					__( 'That file is too big. It must be less than %sMB.', 'formidable-pro' ),
+					false !== $server_limit ? $server_limit : $size_limit
+				);
 			}
 
 			if ( empty( $name ) ) {
@@ -517,12 +523,50 @@ class FrmProFileField {
 			$this_file_size = $this_file_size / 1000000; // compare in MB
 
 			if ( $this_file_size > $size_limit ) {
-				/* translators: %sMB: File size limit (Megabytes). */
+				// translators: %s: File size limit (Megabytes).
 				$errors[ 'field' . $field->temp_id ] = sprintf( __( 'That file is too big. It must be less than %sMB.', 'formidable-pro' ), $size_limit );
 			}
 
 			unset( $name );
 		}
+	}
+
+	/**
+	 * Get the filesize limit in Megabytes.
+	 *
+	 * @return int|float|false
+	 */
+	private static function get_server_filesize_limit() {
+		$limit = ini_get( 'upload_max_filesize' );
+		if ( ! $limit ) {
+			return false;
+		}
+
+		return self::convert_size_to_mb( $limit );
+	}
+
+	/**
+	 * @param string $limit
+	 * @return int|float|false
+	 */
+	private static function convert_size_to_mb( $limit ) {
+		$value = substr( $limit, 0, -1 );
+		if ( ! is_numeric( $value ) ) {
+			return false;
+		}
+
+		$value = (int) $value;
+		$unit  = $limit[ strlen( $limit ) - 1 ];
+		switch ( $unit ) {
+			case 'M':
+				return $value;
+			case 'K':
+				return $value / 1024;
+			case 'G':
+				return $value * 1024;
+		}
+
+		return $value;
 	}
 
 	/**
@@ -997,7 +1041,7 @@ class FrmProFileField {
 	 * Treat Google sheet xlsx files as the expected xlsx mime type.
 	 * Otherwise it isn't possible possible to upload an xlsx file downloaded from Google sheets.
 	 *
-	 * @since x.x
+	 * @since 6.1.2
 	 *
 	 * @return void
 	 */
@@ -1904,8 +1948,18 @@ class FrmProFileField {
 		// Temporary allow file access.
 		self::set_to_read_only( $download['path'] );
 
+		// If wp_filesystem->chmod didn't work, try using chmod.
+		if ( ! is_readable( $download['path'] ) ) {
+			chmod( $download['path'], self::READ_ONLY );
+		}
+
 		$mime_type   = FrmProAppHelper::get_mime_type( $download['path'] );
 		$disposition = self::get_disposition( $mime_type );
+
+		// Extend time limit in case for a large file that may require additional time to download.
+		if ( ! ini_get( 'safe_mode' ) ) {
+			set_time_limit( 0 );
+		}
 
 		header( FrmAppHelper::get_server_value('SERVER_PROTOCOL') . ' 200 OK');
 		header( 'Cache-Control: public' ); // needed for internet explorer
@@ -1918,7 +1972,13 @@ class FrmProFileField {
 			header( 'X-Robots-Tag: noindex' );
 		}
 
-		@readfile( $download['path'] ); // hide any errors to prevent issues with downloading an error message as a file
+		// Clear the output buffer.
+		// Without this some servers will load a corrupted file instead.
+		while ( ob_get_level() ) {
+			ob_end_clean();
+		}
+
+		@readfile( $download['path'] ); // Hide any errors to prevent issues with downloading an error message as a file.
 
 		// Set the protection back after download.
 		self::set_to_write_only( $download['path'] );
@@ -2427,7 +2487,7 @@ class FrmProFileField {
 	/**
 	 * @param string $url
 	 *
-	 * @since x.x
+	 * @since 6.1.2
 	 *
 	 * @return bool
 	 */
@@ -2509,14 +2569,23 @@ class FrmProFileField {
 	}
 
 	/**
+	 * Use a Formidable icon instead of a default WordPress icon for docx, xlsx, and pdf types.
+	 *
+	 * @since 6.1.2
+	 *
 	 * @param array $image
 	 * @param int $attachment_id
-	 *
 	 * @return void
 	 */
 	private static function set_formidable_icon( &$image, $attachment_id ) {
 		$path      = get_attached_file( $attachment_id );
 		$file_type = wp_check_filetype( $path );
+
+		if ( 'pdf' === $file_type['ext'] && false === strpos( $image[0], 'document.png' ) ) {
+			// Some servers allow PDF previews. We do not want to place an ICON if the PDF icon is not document.png.
+			return;
+		}
+
 		$image[0]  = self::get_icon_for_file_type( $file_type['ext'] );
 	}
 

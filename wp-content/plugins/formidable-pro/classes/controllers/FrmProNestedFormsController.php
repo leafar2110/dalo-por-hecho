@@ -311,6 +311,7 @@ class FrmProNestedFormsController {
 	 * @since 2.01.0
 	 *
 	 * @param array $field
+	 * @return void
 	 */
 	public static function load_hidden_sub_field_javascript( $field ) {
 		if ( self::is_hidden_nested_form_field( $field ) ) {

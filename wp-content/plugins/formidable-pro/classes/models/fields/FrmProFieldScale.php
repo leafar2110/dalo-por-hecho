@@ -15,6 +15,11 @@ class FrmProFieldScale extends FrmFieldType {
 	 */
 	protected $type = 'scale';
 
+	/**
+	 * @var bool
+	 */
+	protected $array_allowed = false;
+
 	protected function input_html() {
 		return $this->multiple_input_html();
 	}

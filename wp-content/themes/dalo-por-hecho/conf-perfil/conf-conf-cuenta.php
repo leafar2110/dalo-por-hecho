@@ -37,14 +37,6 @@ $porcent = (( $cont2 + $cont4 + $cont5 + $cont6 + $cont7 + $cont8)/7)*100;
                                                 <?php $urlsinparametros= explode('=', $_SERVER['REQUEST_URI'], 2);
                                                 $urlsin = $urlsinparametros[1]; ?>
                                               </div>
-                                              <div class="barra-progreso">
-                                                <h6>Completa tu perfil para mejorar tus oportunidades de trabajo </h6><br>
-                                                <div class="cont-barra-progreso">
-                                                  <div class="progress">
-                                                    <div class="progress-bar" style="width:<?php echo $porcent; ?>%">  </div>
-                                                  </div>
-                                                </div> 
-                                              </div>
                                             </div>
                                           </a>
                                         </h5>
@@ -68,11 +60,6 @@ $porcent = (( $cont2 + $cont4 + $cont5 + $cont6 + $cont7 + $cont8)/7)*100;
                                               Imagen Perfil 
                                             </a>
                                           </li>
-                                          <li class="nav-item">
-                                            <a class="nav-link imagen-perfil-tab" id="item-perfil" data-toggle="tab" href="#foto-portada">   
-                                              Foto Portada
-                                            </a>
-                                          </li> 
                                           <li class="nav-item">
                                             <a class="nav-link imagen-perfil-tab" id="item-perfil" data-toggle="tab" href="#datos-personales">   
                                               Datos Personales
@@ -120,31 +107,6 @@ $porcent = (( $cont2 + $cont4 + $cont5 + $cont6 + $cont7 + $cont8)/7)*100;
                                                  </div>
                                              </div>
                                          </div>  
-
-                                        <!-- Imagen Perfil -->                                    
-                                        <div id="foto-portada" class="container tab-pane  fade"><br>
-                                          <div class="cont-pago-estado">
-                                            <div class="cont-pago-estado-tab">
-                                              <p>Foto Portada</p>
-                                              <div class="cont-inf-conf-cuenta">
-                                                <h6>Mejora tu perfil y has mas atractivo tu feed<?php echo $user_actual ?></h6>
-                                                <div class="row cont-row-form">
-                                                  <div class="subir-foto col-md-6">
-                                                    <?php if(meta_value_img_frm($current_user->ID,7) == NULL){ ?>
-                                                      <h6>Subir foto de portada<?php echo meta_value_img_frm($current_user->ID,7); ?></h6>
-                                                    <?php }else{ ?>   
-                                                      <img src="<?php echo meta_value_img_frm($current_user->ID,7); ?>"> 
-                                                    <?php } ?>                                                   
-                                                  </div>
-                                                  <div class="col-md-6">
-                                                    <h6>Subir foto de portada</h6>
-                                                    <?php echo do_shortcode('[frm-set-get id_user='.$current_user->ID.'][formidable id=11]');  ?>
-                                                  </div>  
-                                                 </div>                                          
-                                              </div>
-                                            </div>  
-                                          </div>
-                                        </div>                                                                      
 
                                           <!-- Datos Personales -->                                    
                                           <div id="datos-personales" class="container tab-pane  fade"><br>

@@ -531,12 +531,8 @@ class FrmProAppController {
 		if ( FrmAppHelper::doing_ajax() ) {
 			return;
 		}
-
-		if ( FrmAppHelper::is_admin_page( 'formidable-entries' ) ) {
-			$plugin_url = FrmProAppHelper::plugin_url();
-			$version    = FrmProDb::$plug_version;
-			wp_enqueue_style( 'formidable-pro-admin', $plugin_url . '/css/formidable-entries.css', array(), $version );
-		}
+		self::maybe_enqueue_styles_for_admin_page_action( 'formidable-entries' );
+		self::maybe_enqueue_styles_for_admin_page_action( 'formidable', 'reports' );
 
 		if ( ! FrmAppHelper::is_admin_page( 'formidable' ) ) {
 			return;
@@ -558,7 +554,8 @@ class FrmProAppController {
 
 			self::register_and_enqueue_style( 'builder' );
 			self::maybe_register_and_enqueue_expired_script();
-		} elseif ( 'settings' === $action ) {
+		} elseif ( in_array( $action, array( 'settings', 'reports' ), true ) ) {
+			self::register_and_enqueue_admin_script( $action );
 			self::maybe_register_and_enqueue_expired_script();
 		} elseif ( self::on_form_listing_page() ) {
 			if ( ! FrmProApplicationsHelper::current_user_can_edit_applications() ) {
@@ -586,6 +583,27 @@ class FrmProAppController {
 
 			self::enqueue_script( 'list' );
 		}
+	}
+
+	/**
+	 * Enqueues style for specific admin page and also action, if it is provided.
+	 *
+	 * @param string $page
+	 * @param string $frm_action
+	 */
+	private static function maybe_enqueue_styles_for_admin_page_action( $page, $frm_action = '' ) {
+		if ( ! FrmAppHelper::is_admin_page( $page ) ) {
+			return;
+		}
+		if ( $frm_action ) {
+			if ( FrmAppHelper::simple_get( 'frm_action', 'sanitize_title' ) !== $frm_action ) {
+				return;
+			}
+			$frm_action = '-' . $frm_action;
+		}
+		$plugin_url = FrmProAppHelper::plugin_url();
+		$version    = FrmProDb::$plug_version;
+		wp_enqueue_style( 'formidable-pro-admin', $plugin_url . '/css/admin/' . $page . $frm_action . '.css', array(), $version );
 	}
 
 	/**

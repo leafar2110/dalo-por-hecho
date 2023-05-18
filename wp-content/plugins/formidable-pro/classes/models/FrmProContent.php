@@ -944,6 +944,10 @@ class FrmProContent {
 		$included_atts = array_intersect( $frm_atts, array_keys( $atts ) );
 
 		foreach ( $included_atts as $included_att ) {
+			if ( '0' === $atts[ $included_att ] ) {
+				// Skip any option that uses 0 so sanitize_url=0 does not encode.
+				continue;
+			}
 			$function = 'atts_' . $included_att;
 			$replace_with = self::$function( $replace_with, $atts, $display, $args );
 		}

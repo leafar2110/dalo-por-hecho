@@ -622,11 +622,7 @@ class FrmProFormActionsController {
 			return;
 		}
 
-		$data = array(
-			'url'    => 'formidable-pdfs/formidable-pdfs.php',
-			'class'  => 'frm-activate-addon',
-			'status' => 'installed',
-		);
+		$data = FrmAddonsController::install_link( 'pdfs' );
 		?>
 		<div
 			id="frm_attach_pdf_setting"
@@ -667,11 +663,7 @@ class FrmProFormActionsController {
 			return;
 		}
 
-		$data = array(
-			'url'    => 'formidable-acf/formidable-acf.php',
-			'class'  => 'frm-activate-addon',
-			'status' => 'installed',
-		);
+		$data = FrmAddonsController::install_link( 'acf' );
 		?>
 		<div
 			id="frm_acf_setting"

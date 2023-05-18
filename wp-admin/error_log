@@ -398,3 +398,1716 @@ Stack trace:
 [17-Mar-2023 14:10:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
 [17-Mar-2023 14:10:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
 [17-Mar-2023 17:13:07 UTC] WordPress database error Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_unicode_520_ci,IMPLICIT) for operation 'like' for query SELECT `c`.`comment_author_email`, `c`.`comment_author`, COUNT(`c`.`comment_ID`) AS `count`, IFNULL(`s`.`count`, 0) AS `scount`, IFNULL(`fi`.`count`, 0) AS `ficount`, IFNULL(`fw`.`count`, 0) AS `fwcount`, MAX(`c`.`comment_date_gmt`) AS `last_date` FROM `wp_comments` AS `c` LEFT JOIN (SELECT `email`, COUNT(`email`) AS `count` FROM `wp_wc_comments_subscription` WHERE `confirm` = 1 GROUP BY `email`) AS `s` ON `s`.`email` LIKE `c`.`comment_author_email` LEFT JOIN (SELECT `follower_email`, COUNT(`follower_email`) AS `count` FROM `wp_wc_follow_users` WHERE `confirm` = 1 GROUP BY `follower_email`) AS `fi` ON `fi`.`follower_email` LIKE `c`.`comment_author_email` LEFT JOIN (SELECT `user_email`, COUNT(`user_email`) AS `count` FROM `wp_wc_follow_users` WHERE `confirm` = 1 GROUP BY `user_email`) AS `fw` ON `fw`.`user_email` LIKE `c`.`comment_author_email` WHERE `c`.`comment_approved` = '1'  AND `c`.`comment_type` NOT IN('order_note')  GROUP BY `c`.`comment_author_email`, `c`.`comment_author` ORDER BY `count` DESC LIMIT 7 OFFSET 0; made by do_action('wp_ajax_wpd_stat_user'), WP_Hook->do_action, WP_Hook->apply_filters, WpdiscuzHelperAjax->wpd_stat_user, WpdiscuzDBManager->getActiveUsers
+[24-Apr-2023 22:11:26 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:11:26 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:11:28 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SELECT COUNT(*) FROM wp_wml_entries made by require_once('wp-admin/admin-header.php'), do_action('admin_notices'), WP_Hook->do_action, WP_Hook->apply_filters, WML\WP_MAIL_LOG->add_review_notice
+[24-Apr-2023 22:11:36 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:11:36 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:11:38 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SELECT COUNT(*) FROM wp_wml_entries made by require_once('wp-admin/admin-header.php'), do_action('admin_notices'), WP_Hook->do_action, WP_Hook->apply_filters, WML\WP_MAIL_LOG->add_review_notice
+[24-Apr-2023 22:11:47 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:12:28 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:12:29 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SELECT COUNT(*) FROM wp_wml_entries made by require_once('wp-admin/admin-header.php'), do_action('admin_notices'), WP_Hook->do_action, WP_Hook->apply_filters, WML\WP_MAIL_LOG->add_review_notice
+[24-Apr-2023 22:12:43 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:12:45 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SELECT COUNT(*) FROM wp_wml_entries made by require_once('wp-admin/admin-header.php'), do_action('admin_notices'), WP_Hook->do_action, WP_Hook->apply_filters, WML\WP_MAIL_LOG->add_review_notice
+[24-Apr-2023 22:12:51 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:12:54 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:12:55 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SELECT COUNT(*) FROM wp_wml_entries made by require_once('wp-admin/admin-header.php'), do_action('admin_notices'), WP_Hook->do_action, WP_Hook->apply_filters, WML\WP_MAIL_LOG->add_review_notice
+[24-Apr-2023 22:13:03 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:13:14 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:13:15 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SELECT COUNT(*) FROM wp_wml_entries made by require_once('wp-admin/admin-header.php'), do_action('admin_notices'), WP_Hook->do_action, WP_Hook->apply_filters, WML\WP_MAIL_LOG->add_review_notice
+[24-Apr-2023 22:13:16 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:13:36 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:15:40 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:15:41 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:15:44 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:16:38 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:16:44 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:18:40 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:18:45 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:20:40 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:20:44 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:22:44 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:22:45 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:24:41 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:24:47 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:26:42 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:26:47 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:32:49 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:32:52 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:32:53 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SELECT COUNT(*) FROM wp_wml_entries made by require_once('wp-admin/admin-header.php'), do_action('admin_notices'), WP_Hook->do_action, WP_Hook->apply_filters, WML\WP_MAIL_LOG->add_review_notice
+[24-Apr-2023 22:32:55 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:32:56 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:33:00 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:33:06 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:33:06 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SELECT COUNT(*) FROM wp_wml_entries made by require_once('wp-admin/admin-header.php'), do_action('admin_notices'), WP_Hook->do_action, WP_Hook->apply_filters, WML\WP_MAIL_LOG->add_review_notice
+[24-Apr-2023 22:33:08 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:33:08 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SELECT COUNT(*) FROM wp_wml_entries made by require_once('wp-admin/admin-header.php'), do_action('admin_notices'), WP_Hook->do_action, WP_Hook->apply_filters, WML\WP_MAIL_LOG->add_review_notice
+[24-Apr-2023 22:33:17 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:34:18 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:35:18 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:36:19 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:38:21 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:40:22 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:40:25 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:40:25 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:41:21 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:41:26 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:41:26 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:42:21 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:43:21 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:43:27 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:43:27 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:44:21 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:45:22 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:45:28 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:45:28 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:47:24 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:47:29 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:47:29 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:48:43 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:49:30 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:49:30 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:49:43 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:50:45 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:51:44 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:52:44 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:53:44 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:58:30 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:58:31 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SELECT COUNT(*) FROM wp_wml_entries made by require_once('wp-admin/admin-header.php'), do_action('admin_notices'), WP_Hook->do_action, WP_Hook->apply_filters, WML\WP_MAIL_LOG->add_review_notice
+[24-Apr-2023 22:58:33 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:58:33 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 22:58:38 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 23:00:57 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 23:00:57 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 23:01:57 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[24-Apr-2023 23:01:57 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[25-Apr-2023 14:17:02 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[25-Apr-2023 14:17:03 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[25-Apr-2023 14:17:05 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[25-Apr-2023 14:17:05 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[25-Apr-2023 14:17:05 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[25-Apr-2023 14:17:50 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[25-Apr-2023 14:18:37 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[25-Apr-2023 14:19:24 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[25-Apr-2023 14:20:11 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[25-Apr-2023 14:20:58 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[25-Apr-2023 17:17:45 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[26-Apr-2023 13:48:54 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[26-Apr-2023 13:48:55 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[26-Apr-2023 13:48:55 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SHOW FULL COLUMNS FROM `wp_wml_entries` made by do_action('wp_ajax_nopriv_wordfence_doScan'), WP_Hook->do_action, WP_Hook->apply_filters, wordfence::ajax_doScan_callback, wfScan::wfScanMain, wfScanEngine->go, wfScanEngine->emailNewIssues, wfIssues->emailNewIssues, wp_mail, apply_filters('wp_mail'), WP_Hook->apply_filters, WML\Classes\Capture_Mail::log_email
+[26-Apr-2023 17:28:31 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[26-Apr-2023 21:10:23 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[27-Apr-2023 11:28:02 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[27-Apr-2023 11:30:26 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[27-Apr-2023 11:33:56 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[27-Apr-2023 11:33:59 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SHOW FULL COLUMNS FROM `wp_wml_entries` made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, LoginWithAjax::init, LoginWithAjax::ajax, LoginWithAjax::login, wp_signon, wp_authenticate, apply_filters('authenticate'), WP_Hook->apply_filters, wordfence::authenticateFilter, wordfence::processBruteForceAttempt, wordfence::lockOutIP, do_action('wordfence_security_event'), WP_Hook->do_action, WP_Hook->apply_filters, wfCentral::sendAlertCallback, wfLoginLockoutAlert->send, wordfence::alert, wp_mail, apply_filters('wp_mail'), WP_Hook->apply_filters, WML\Classes\Capture_Mail::log_email
+[27-Apr-2023 11:34:12 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[27-Apr-2023 11:34:47 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[27-Apr-2023 11:34:57 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[27-Apr-2023 11:35:39 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[27-Apr-2023 11:35:40 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wp-mail-log/classes/capture-mail.php on line 38
+[27-Apr-2023 11:35:40 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SHOW FULL COLUMNS FROM `wp_wml_entries` made by do_action('wp_ajax_nopriv_user_registration_user_form_submit'), WP_Hook->do_action, WP_Hook->apply_filters, UR_AJAX::user_form_submit, UR_Frontend_Form_Handler::handle_form, do_action('user_registration_after_register_user_action'), WP_Hook->do_action, WP_Hook->apply_filters, UR_Emailer::ur_after_register_mail, UR_Emailer::send_mail_to_user, UR_Emailer::user_registration_process_and_send_email, wp_mail, apply_filters('wp_mail'), WP_Hook->apply_filters, WML\Classes\Capture_Mail::log_email
+[27-Apr-2023 11:35:41 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wp-mail-log/classes/capture-mail.php on line 38
+[27-Apr-2023 11:35:41 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SHOW FULL COLUMNS FROM `wp_wml_entries` made by do_action('wp_ajax_nopriv_user_registration_user_form_submit'), WP_Hook->do_action, WP_Hook->apply_filters, UR_AJAX::user_form_submit, UR_Frontend_Form_Handler::handle_form, do_action('user_registration_after_register_user_action'), WP_Hook->do_action, WP_Hook->apply_filters, UR_Emailer::ur_after_register_mail, UR_Emailer::send_mail_to_admin, UR_Emailer::user_registration_process_and_send_email, wp_mail, apply_filters('wp_mail'), WP_Hook->apply_filters, WML\Classes\Capture_Mail::log_email
+[27-Apr-2023 11:36:08 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[27-Apr-2023 11:44:05 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[27-Apr-2023 13:53:04 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[27-Apr-2023 13:53:05 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[27-Apr-2023 13:53:05 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SHOW FULL COLUMNS FROM `wp_wml_entries` made by do_action('wp_ajax_nopriv_wordfence_doScan'), WP_Hook->do_action, WP_Hook->apply_filters, wordfence::ajax_doScan_callback, wfScan::wfScanMain, wfScanEngine->go, wfScanEngine->emailNewIssues, wfIssues->emailNewIssues, wp_mail, apply_filters('wp_mail'), WP_Hook->apply_filters, WML\Classes\Capture_Mail::log_email
+[27-Apr-2023 17:55:28 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[28-Apr-2023 14:11:43 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[28-Apr-2023 14:11:44 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[28-Apr-2023 14:11:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[28-Apr-2023 14:11:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[28-Apr-2023 14:11:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[28-Apr-2023 14:12:31 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[28-Apr-2023 14:13:17 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[28-Apr-2023 14:14:03 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[28-Apr-2023 14:14:50 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[28-Apr-2023 14:15:37 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[28-Apr-2023 17:26:31 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[28-Apr-2023 21:50:34 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[29-Apr-2023 15:47:30 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[29-Apr-2023 15:47:31 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[29-Apr-2023 17:31:37 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[30-Apr-2023 14:05:27 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[30-Apr-2023 14:05:27 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[30-Apr-2023 17:34:53 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[01-May-2023 14:19:58 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[01-May-2023 14:19:58 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[01-May-2023 14:20:01 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[01-May-2023 14:20:01 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[01-May-2023 14:20:01 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[01-May-2023 14:20:45 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[01-May-2023 14:21:32 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[01-May-2023 14:22:19 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[01-May-2023 14:23:05 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[01-May-2023 17:17:08 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[02-May-2023 13:57:21 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[02-May-2023 13:57:21 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[02-May-2023 13:57:22 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SHOW FULL COLUMNS FROM `wp_wml_entries` made by do_action('wp_ajax_nopriv_wordfence_doScan'), WP_Hook->do_action, WP_Hook->apply_filters, wordfence::ajax_doScan_callback, wfScan::wfScanMain, wfScanEngine->go, wfScanEngine->emailNewIssues, wfIssues->emailNewIssues, wp_mail, apply_filters('wp_mail'), WP_Hook->apply_filters, WML\Classes\Capture_Mail::log_email
+[02-May-2023 17:17:47 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[02-May-2023 19:04:21 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[03-May-2023 15:07:40 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[03-May-2023 15:07:41 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[03-May-2023 15:07:42 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SHOW FULL COLUMNS FROM `wp_wml_entries` made by do_action('wp_ajax_nopriv_wordfence_doScan'), WP_Hook->do_action, WP_Hook->apply_filters, wordfence::ajax_doScan_callback, wfScan::wfScanMain, wfScanEngine->go, wfScanEngine->emailNewIssues, wfIssues->emailNewIssues, wp_mail, apply_filters('wp_mail'), WP_Hook->apply_filters, WML\Classes\Capture_Mail::log_email
+[03-May-2023 18:08:15 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[04-May-2023 14:18:27 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[04-May-2023 14:18:27 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[04-May-2023 14:18:28 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SHOW FULL COLUMNS FROM `wp_wml_entries` made by do_action('wp_ajax_nopriv_wordfence_doScan'), WP_Hook->do_action, WP_Hook->apply_filters, wordfence::ajax_doScan_callback, wfScan::wfScanMain, wfScanEngine->go, wfScanEngine->emailNewIssues, wfIssues->emailNewIssues, wp_mail, apply_filters('wp_mail'), WP_Hook->apply_filters, WML\Classes\Capture_Mail::log_email
+[04-May-2023 14:18:28 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[04-May-2023 14:18:28 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[04-May-2023 14:18:30 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[04-May-2023 14:18:30 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[04-May-2023 14:18:30 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[04-May-2023 14:19:15 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[04-May-2023 14:20:01 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[04-May-2023 14:20:48 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[04-May-2023 18:36:47 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[05-May-2023 13:55:01 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[05-May-2023 13:55:01 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[05-May-2023 13:55:02 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SHOW FULL COLUMNS FROM `wp_wml_entries` made by do_action('wp_ajax_nopriv_wordfence_doScan'), WP_Hook->do_action, WP_Hook->apply_filters, wordfence::ajax_doScan_callback, wfScan::wfScanMain, wfScanEngine->go, wfScanEngine->emailNewIssues, wfIssues->emailNewIssues, wp_mail, apply_filters('wp_mail'), WP_Hook->apply_filters, WML\Classes\Capture_Mail::log_email
+[05-May-2023 17:17:16 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[05-May-2023 19:47:32 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[05-May-2023 19:47:33 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SELECT COUNT(*) FROM wp_wml_entries made by require_once('wp-admin/admin-header.php'), do_action('admin_notices'), WP_Hook->do_action, WP_Hook->apply_filters, WML\WP_MAIL_LOG->add_review_notice
+[05-May-2023 19:47:33 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[05-May-2023 19:47:36 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[05-May-2023 19:47:37 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[05-May-2023 19:47:37 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[05-May-2023 19:47:38 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[05-May-2023 19:47:44 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[05-May-2023 19:47:53 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[05-May-2023 19:47:53 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SELECT COUNT(*) FROM wp_wml_entries made by require_once('wp-admin/admin-header.php'), do_action('admin_notices'), WP_Hook->do_action, WP_Hook->apply_filters, WML\WP_MAIL_LOG->add_review_notice
+[05-May-2023 19:48:00 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[05-May-2023 19:48:30 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[05-May-2023 19:48:32 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[05-May-2023 19:48:33 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wml_entries' doesn't exist for query SELECT COUNT(*) FROM wp_wml_entries made by require_once('wp-admin/admin-header.php'), do_action('admin_notices'), WP_Hook->do_action, WP_Hook->apply_filters, WML\WP_MAIL_LOG->add_review_notice
+[05-May-2023 19:48:41 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[05-May-2023 19:48:46 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') collate utf8mb4_unicode_520_ci' at line 11 for query CREATE TABLE wp_wml_entries (
+            `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            `to_email` VARCHAR(100) NOT NULL,
+            `subject` VARCHAR(250) NOT NULL,
+            `message` TEXT NOT NULL,
+            `headers` TEXT NOT NULL,
+            `attachments` VARCHAR(50) NOT NULL,
+            `sent_date` VARCHAR(50) NOT NULL,
+            `captured_gmt` VARCHAR(50) NOT NULL,
+			`attachments_file` TEXT,
+            ) collate utf8mb4_unicode_520_ci made by require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, WML\Classes\DbTable::wml_plugin_activated, WML\Classes\DbTable::create_db_table, dbDelta
+[07-May-2023 15:39:47 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[07-May-2023 15:39:47 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[07-May-2023 15:39:47 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[10-May-2023 14:17:17 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[10-May-2023 14:17:17 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[10-May-2023 14:17:17 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[13-May-2023 14:16:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[13-May-2023 14:16:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[13-May-2023 14:16:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[15-May-2023 13:30:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[15-May-2023 13:30:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[15-May-2023 13:30:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[16-May-2023 14:56:54 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[16-May-2023 14:56:54 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[16-May-2023 14:56:54 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/dalombwn/public_html/wp-content/plugins/wordfence/lib/wfScanEngine.php on line 592
+[17-May-2023 16:06:45 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wpmailsmtp_debug_events' doesn't exist for query SHOW FULL COLUMNS FROM `wp_wpmailsmtp_debug_events` made by do_action('admin_init'), WP_Hook->do_action, WP_Hook->apply_filters, WPMailSMTP\Admin\ParentPageAbstract->process_actions, WPMailSMTP\Admin\Pages\TestTab->process_post, wp_mail, WPMailSMTP\MailCatcherV6->send, PHPMailer\PHPMailer\PHPMailer->postSend, PHPMailer\PHPMailer\PHPMailer->smtpSend, PHPMailer\PHPMailer\PHPMailer->doCallback, call_user_func, WPMailSMTP\Processor::send_callback, WPMailSMTP\Debug::set, WPMailSMTP\Admin\DebugEvents\DebugEvents::add, WPMailSMTP\Admin\DebugEvents\Event->save
+[17-May-2023 16:06:45 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wpmailsmtp_debug_events' doesn't exist for query SELECT * FROM wp_wpmailsmtp_debug_events
+			WHERE 1=1
+			ORDER BY id DESC
+			LIMIT 0, 10 made by do_action('admin_init'), WP_Hook->do_action, WP_Hook->apply_filters, WPMailSMTP\Admin\ParentPageAbstract->process_actions, WPMailSMTP\Admin\Pages\TestTab->process_post, wp_mail, WPMailSMTP\MailCatcherV6->send, PHPMailer\PHPMailer\PHPMailer->postSend, PHPMailer\PHPMailer\PHPMailer->smtpSend, PHPMailer\PHPMailer\PHPMailer->doCallback, call_user_func, WPMailSMTP\Processor::send_callback, WPMailSMTP\Debug::set, WPMailSMTP\Admin\DebugEvents\DebugEvents::add, WPMailSMTP\Admin\DebugEvents\Event->save, WPMailSMTP\Admin\DebugEvents\Event->__construct, WPMailSMTP\Admin\DebugEvents\Event->populate_event, WPMailSMTP\Admin\DebugEvents\EventsCollection->get
+[17-May-2023 16:06:45 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wpmailsmtp_debug_events' doesn't exist for query SHOW FULL COLUMNS FROM `wp_wpmailsmtp_debug_events` made by do_action('admin_init'), WP_Hook->do_action, WP_Hook->apply_filters, WPMailSMTP\Admin\ParentPageAbstract->process_actions, WPMailSMTP\Admin\Pages\TestTab->process_post, wp_mail, WPMailSMTP\MailCatcherV6->send, WPMailSMTP\Debug::set, WPMailSMTP\Admin\DebugEvents\DebugEvents::add, WPMailSMTP\Admin\DebugEvents\Event->save
+[17-May-2023 16:06:45 UTC] WordPress database error Table 'dalombwn_345er$_43erf*.wp_wpmailsmtp_debug_events' doesn't exist for query SELECT * FROM wp_wpmailsmtp_debug_events
+			WHERE 1=1
+			ORDER BY id DESC
+			LIMIT 0, 10 made by do_action('admin_init'), WP_Hook->do_action, WP_Hook->apply_filters, WPMailSMTP\Admin\ParentPageAbstract->process_actions, WPMailSMTP\Admin\Pages\TestTab->process_post, wp_mail, WPMailSMTP\MailCatcherV6->send, WPMailSMTP\Debug::set, WPMailSMTP\Admin\DebugEvents\DebugEvents::add, WPMailSMTP\Admin\DebugEvents\Event->save, WPMailSMTP\Admin\DebugEvents\Event->__construct, WPMailSMTP\Admin\DebugEvents\Event->populate_event, WPMailSMTP\Admin\DebugEvents\EventsCollection->get
+[17-May-2023 17:14:53 UTC] WordPress database error Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_unicode_520_ci,IMPLICIT) for operation 'like' for query SELECT `c`.`comment_author_email`, `c`.`comment_author`, COUNT(`c`.`comment_ID`) AS `count`, IFNULL(`s`.`count`, 0) AS `scount`, IFNULL(`fi`.`count`, 0) AS `ficount`, IFNULL(`fw`.`count`, 0) AS `fwcount`, MAX(`c`.`comment_date_gmt`) AS `last_date` FROM `wp_comments` AS `c` LEFT JOIN (SELECT `email`, COUNT(`email`) AS `count` FROM `wp_wc_comments_subscription` WHERE `confirm` = 1 GROUP BY `email`) AS `s` ON `s`.`email` LIKE `c`.`comment_author_email` LEFT JOIN (SELECT `follower_email`, COUNT(`follower_email`) AS `count` FROM `wp_wc_follow_users` WHERE `confirm` = 1 GROUP BY `follower_email`) AS `fi` ON `fi`.`follower_email` LIKE `c`.`comment_author_email` LEFT JOIN (SELECT `user_email`, COUNT(`user_email`) AS `count` FROM `wp_wc_follow_users` WHERE `confirm` = 1 GROUP BY `user_email`) AS `fw` ON `fw`.`user_email` LIKE `c`.`comment_author_email` WHERE `c`.`comment_approved` = '1'  AND `c`.`comment_type` NOT IN('order_note')  GROUP BY `c`.`comment_author_email`, `c`.`comment_author` ORDER BY `count` DESC LIMIT 7 OFFSET 0; made by do_action('wp_ajax_wpd_stat_user'), WP_Hook->do_action, WP_Hook->apply_filters, WpdiscuzHelperAjax->wpd_stat_user, WpdiscuzDBManager->getActiveUsers
+[17-May-2023 17:42:23 UTC] WordPress database error Illegal mix of collations (utf8mb4_unicode_ci,IMPLICIT) and (utf8mb4_unicode_520_ci,IMPLICIT) for operation 'like' for query SELECT `c`.`comment_author_email`, `c`.`comment_author`, COUNT(`c`.`comment_ID`) AS `count`, IFNULL(`s`.`count`, 0) AS `scount`, IFNULL(`fi`.`count`, 0) AS `ficount`, IFNULL(`fw`.`count`, 0) AS `fwcount`, MAX(`c`.`comment_date_gmt`) AS `last_date` FROM `wp_comments` AS `c` LEFT JOIN (SELECT `email`, COUNT(`email`) AS `count` FROM `wp_wc_comments_subscription` WHERE `confirm` = 1 GROUP BY `email`) AS `s` ON `s`.`email` LIKE `c`.`comment_author_email` LEFT JOIN (SELECT `follower_email`, COUNT(`follower_email`) AS `count` FROM `wp_wc_follow_users` WHERE `confirm` = 1 GROUP BY `follower_email`) AS `fi` ON `fi`.`follower_email` LIKE `c`.`comment_author_email` LEFT JOIN (SELECT `user_email`, COUNT(`user_email`) AS `count` FROM `wp_wc_follow_users` WHERE `confirm` = 1 GROUP BY `user_email`) AS `fw` ON `fw`.`user_email` LIKE `c`.`comment_author_email` WHERE `c`.`comment_approved` = '1'  AND `c`.`comment_type` NOT IN('order_note')  GROUP BY `c`.`comment_author_email`, `c`.`comment_author` ORDER BY `count` DESC LIMIT 7 OFFSET 0; made by do_action('wp_ajax_wpd_stat_user'), WP_Hook->do_action, WP_Hook->apply_filters, WpdiscuzHelperAjax->wpd_stat_user, WpdiscuzDBManager->getActiveUsers

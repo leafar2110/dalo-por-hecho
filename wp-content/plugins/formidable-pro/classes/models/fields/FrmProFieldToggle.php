@@ -15,6 +15,11 @@ class FrmProFieldToggle extends FrmFieldType {
 	 */
 	protected $type = 'toggle';
 
+	/**
+	 * @var bool
+	 */
+	protected $array_allowed = false;
+
 	protected function field_settings_for_type() {
 		$settings = array();
 

@@ -365,6 +365,8 @@ class FrmProForm {
 	 * @return array
 	 */
 	public static function after_duplicate( $new_opts, $form_id = 0 ) {
+		self::maybe_switch_submit_condition_field_ids( $new_opts );
+
 		if ( isset( $new_opts['success_url'] ) ) {
 			$new_opts['success_url'] = FrmFieldsHelper::switch_field_ids( $new_opts['success_url'] );
 		}
@@ -375,6 +377,17 @@ class FrmProForm {
 			self::maybe_fix_conditional_logic_after_duplicate( $form_id );
 		}
 		return $new_opts;
+	}
+
+	private static function maybe_switch_submit_condition_field_ids( &$new_opts ) {
+		if ( ! empty( $new_opts['submit_conditions']['hide_field'] ) ) {
+			global $frm_duplicate_ids;
+			foreach ( $new_opts['submit_conditions']['hide_field'] as $key => $val ) {
+				if ( isset( $frm_duplicate_ids[ $val ] ) ) {
+					$new_opts['submit_conditions']['hide_field'][ $key ] = $frm_duplicate_ids[ $val ];
+				}
+			}
+		}
 	}
 
 	/**
@@ -438,6 +451,12 @@ class FrmProForm {
 		return ! empty( $sub_fields );
 	}
 
+	/**
+	 * Check if the "Submit this form with AJAX" setting is toggled on.
+	 *
+	 * @param stdClass $form
+	 * @return int
+	 */
 	public static function is_ajax_on( $form ) {
 		$ajax = isset( $form->options['ajax_submit'] ) ? $form->options['ajax_submit'] : 0;
 		return $ajax;

@@ -460,25 +460,6 @@ class FrmProEntry {
 		}
 	}
 
-	//If page size is set for views, only get the current page of entries
-	public static function get_view_page( $current_p, $p_size, $where, $args ) {
-		_deprecated_function( __FUNCTION__, '2.02', 'FrmProEntry::get_view_results' );
-
-		//Make sure values are ints for use in DB call
-		$current_p = (int) $current_p;
-		$p_size = (int) $p_size;
-
-		//Calculate end_index and start_index
-		$end_index = $current_p * $p_size;
-		$start_index = $end_index - $p_size;
-
-		//Set limit and pass it to get_view_results
-		$args['limit'] = " LIMIT $start_index,$p_size";
-		$results = self::get_view_results($where, $args);
-
-		return $results;
-	}
-
 	//Get ordered and filtered entries for Views
 	public static function get_view_results( $where, $args ) {
 		global $wpdb;

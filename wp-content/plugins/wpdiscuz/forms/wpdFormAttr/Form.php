@@ -792,9 +792,24 @@ class Form {
             <?php } ?>
             <?php
             if ($this->isUserCanComment($currentUser, $message)) {
+                $wpdDefaultFormArgs = [
+                    "method" => "post",
+                    "enctype" => "multipart/form-data",
+                    "data_uploading" => "false",
+                    "class_form" => ["wpd_comm_form"]
+                    
+                ];
+                $wpdDefaultFormArgs["class_form"][] = $isMain ? "wpd_main_comm_form" : "wpd-secondary-form-wrapper";
+                $wpdFormArgs = apply_filters( 'wpdiscuz_comment_form_args', $wpdDefaultFormArgs, $isMain, $postID);
                 ?>
-                <form class="wpd_comm_form <?php echo $isMain ? "wpd_main_comm_form" : "wpd-secondary-form-wrapper"; ?>"
-                      method="post" enctype="multipart/form-data" data-uploading="false">
+                <form <?php 
+                        printf(' method="%s" enctype="%s" data-uploading="%s" class="%s"',
+	                                esc_attr( $wpdFormArgs['method'] ),
+	                                esc_attr( $wpdFormArgs['enctype'] ),
+	                                esc_attr( $wpdFormArgs['data_uploading'] ),
+	                                esc_attr( implode(" ", $wpdFormArgs['class_form']) )
+	                        ); ?>
+                      >
                           <?php do_action("comment_form_top"); ?>
                     <div class="wpd-field-comment">
                         <div class="wpdiscuz-item wc-field-textarea">

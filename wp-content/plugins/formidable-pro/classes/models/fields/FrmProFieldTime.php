@@ -23,6 +23,11 @@ class FrmProFieldTime extends FrmFieldType {
 	 */
 	protected $has_for_label = false;
 
+	/**
+	 * @var bool
+	 */
+	protected $array_allowed = false;
+
 	public function show_on_form_builder( $name = '' ) {
 		$field = FrmFieldsHelper::setup_edit_vars( $this->field );
 		$field['value'] = $field['default_value'];
@@ -182,7 +187,7 @@ class FrmProFieldTime extends FrmFieldType {
 	/**
 	 * Composes the html for a single time field, like hour or minute.
 	 *
-	 * @since x.x
+	 * @since 6.1.2
 	 *
 	 * @param array $values
 	 * @param string $field_name

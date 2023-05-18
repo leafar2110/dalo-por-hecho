@@ -325,7 +325,7 @@ class FrmProEntriesHelper {
 		if ( current_user_can( 'frm_delete_entries' ) ) {
 			if ( ! empty( $entry->post_id ) ) {
 				$actions['frm_delete_post'] = array(
-					'url'   => admin_url( 'admin.php?page=formidable-entries&frm_action=destroy&keep_post=1&id=' . $entry->id . '&form=' . $entry->form_id ),
+					'url'   => wp_nonce_url( admin_url( 'admin.php?page=formidable-entries&frm_action=destroy&keep_post=1&id=' . $entry->id . '&form=' . $entry->form_id ) ),
 					'label' => __( 'Delete without Post' ),
 					'icon'  => 'frm_icon_font frm_delete_icon',
 					'data'  => array( 'frmverify' => __( 'Really delete?', 'formidable' ) ),

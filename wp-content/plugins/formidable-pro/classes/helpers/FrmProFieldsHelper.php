@@ -1857,10 +1857,15 @@ class FrmProFieldsHelper {
 	}
 
 	public static function get_form_fields( $fields, $form_id, $errors = array() ) {
-		$error = ! empty( $errors );
+		$error        = ! empty( $errors );
 		$page_numbers = self::get_base_page_info( compact( 'fields', 'form_id', 'error', 'errors' ) );
-
-		$ajax = FrmProFormsHelper::has_form_setting( array( 'form_id' => $form_id, 'setting_name' => 'ajax_submit', 'expected_setting' => 1 ) );
+		$ajax         = FrmProFormsHelper::has_form_setting(
+			array(
+				'form_id'          => $form_id,
+				'setting_name'     => 'ajax_submit',
+				'expected_setting' => 1,
+			)
+		);
 
 		foreach ( (array) $fields as $k => $f ) {
 
@@ -4312,24 +4317,6 @@ class FrmProFieldsHelper {
 	 * @deprecated 2.03.01
 	 * @codeCoverageIgnore
 	 */
-	public static function get_time_options( $values ) {
-		_deprecated_function( __FUNCTION__, '2.03.01', 'FrmFieldType::get_options' );
-		return FrmProTimeField::get_time_options( $values );
-	}
-
-	/**
-	 * @deprecated 2.03.01
-	 * @codeCoverageIgnore
-	 */
-	public static function show_time_field( $field, $values ) {
-		_deprecated_function( __FUNCTION__, '2.03.01', 'FrmFieldType::include_front_field_input' );
-		FrmProTimeField::show_time_field( $field, $values );
-	}
-
-	/**
-	 * @deprecated 2.03.01
-	 * @codeCoverageIgnore
-	 */
 	public static function time_array_to_string( &$value ) {
 		_deprecated_function( __FUNCTION__, '2.03.01', 'FrmFieldType::time_array_to_string' );
 		FrmProTimeField::time_array_to_string( $value );
@@ -4437,42 +4424,6 @@ class FrmProFieldsHelper {
 	}
 
 	/**
-	 * @deprecated 2.02.05
-	 * @codeCoverageIgnore
-	 */
-	public static function get_field_stats( $id, $type = 'total', $user_id = false, $value = false, $round = 100, $limit = '', $atts = array(), $drafts = false ) {
-		_deprecated_function( __FUNCTION__, '2.02.05', 'FrmProStatisticsController::stats_shortcode' );
-		$pass_atts = array(
-			'id' => $id,
-			'type' => $type,
-			'round' => $round,
-			'limit' => $limit,
-			'drafts' => $drafts,
-		);
-
-		if ( $user_id !== false ) {
-			$pass_atts['user_id'] = $user_id;
-		}
-
-		if ( $value !== false ) {
-			$pass_atts['value'] = $value;
-		}
-
-		$pass_atts = array_merge( $pass_atts, $atts );
-
-		return FrmProStatisticsController::stats_shortcode( $pass_atts );
-	}
-
-	/**
-	 * @deprecated 2.02.06
-	 * @codeCoverageIgnore
-	 */
-	public static function load_hidden_sub_field_javascript( $field ) {
-		_deprecated_function( __FUNCTION__, '2.02.06', 'FrmProNestedFormsController::load_hidden_sub_field_javascript' );
-		FrmProNestedFormsController::load_hidden_sub_field_javascript( $field );
-	}
-
-	/**
 	 * @deprecated 2.02.08
 	 * @codeCoverageIgnore
 	 */
@@ -4488,15 +4439,6 @@ class FrmProFieldsHelper {
 	public static function foreach_shortcode( $replace_with, $args, &$repeat_content ) {
 		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
 		FrmProContent::foreach_shortcode( $replace_with, $args, $repeat_content );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function conditional_replace_with_value( $replace_with, $atts, $field, $tag ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		return FrmProContent::conditional_replace_with_value( $replace_with, $atts, $field, $tag );
 	}
 
 	/**
@@ -4542,158 +4484,5 @@ class FrmProFieldsHelper {
 	public static function atts_clickable( $replace_with ) {
 		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
 		return FrmProContent::atts_clickable( $replace_with );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function replace_shortcodes( $content, $entry, $shortcodes, $display = false, $show = 'one', $odd = '', $args = array() ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		return FrmProContent::replace_shortcodes( $content, $entry, $shortcodes, $display, $show, $odd, $args );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function replace_single_shortcode( $shortcodes, $short_key, $tag, $entry, $display, $args, &$content ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		FrmProContent::replace_single_shortcode( $shortcodes, $short_key, $tag, $entry, $display, $args, $content );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function replace_calendar_date_shortcode( $content, $date ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		return FrmProContent::replace_calendar_date_shortcode( $content, $date );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function do_shortcode_event_date( &$content, $atts, $shortcodes, $short_key, $args ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		FrmProContent::do_shortcode_event_date( $content, $atts, $shortcodes, $short_key, $args );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function do_shortcode_entry_count( &$content, $atts, $shortcodes, $short_key, $args ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		FrmProContent::do_shortcode_entry_count( $content, $atts, $shortcodes, $short_key, $args );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function do_shortcode_detaillink( &$content, $atts, $shortcodes, $short_key, $args, $display ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		FrmProContent::do_shortcode_detaillink( $content, $atts, $shortcodes, $short_key, $args, $display );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function do_shortcode_editlink( &$content, $atts, $shortcodes, $short_key, $args ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		FrmProContent::do_shortcode_editlink( $content, $atts, $shortcodes, $short_key, $args );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function do_shortcode_deletelink( &$content, $atts, $shortcodes, $short_key, $args ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		FrmProContent::do_shortcode_deletelink( $content, $atts, $shortcodes, $short_key, $args );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function do_shortcode_evenodd( &$content, $atts, $shortcodes, $short_key, $args ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		FrmProContent::do_shortcode_evenodd( $content, $atts, $shortcodes, $short_key, $args );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function do_shortcode_post_id( &$content, $atts, $shortcodes, $short_key, $args ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		FrmProContent::do_shortcode_post_id( $content, $atts, $shortcodes, $short_key, $args );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function do_shortcode_parent_id( &$content, $atts, $shortcodes, $short_key, $args ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		FrmProContent::do_shortcode_parent_id( $content, $atts, $shortcodes, $short_key, $args );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function do_shortcode_id( &$content, $atts, $shortcodes, $short_key, $args ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		FrmProContent::do_shortcode_id( $content, $atts, $shortcodes, $short_key, $args );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function do_shortcode_created_at( &$content, $atts, $shortcodes, $short_key, $args ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		FrmProContent::do_shortcode_created_at( $content, $atts, $shortcodes, $short_key, $args );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function do_shortcode_updated_at( &$content, $atts, $shortcodes, $short_key, $args ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		FrmProContent::do_shortcode_updated_at( $content, $atts, $shortcodes, $short_key, $args );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function do_shortcode_created_by( &$content, $atts, $shortcodes, $short_key, $args ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		FrmProContent::do_shortcode_created_by( $content, $atts, $shortcodes, $short_key, $args );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function do_shortcode_updated_by( &$content, $atts, $shortcodes, $short_key, $args ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		FrmProContent::do_shortcode_updated_by( $content, $atts, $shortcodes, $short_key, $args );
-	}
-
-	/**
-	 * @deprecated 2.02.08
-	 * @codeCoverageIgnore
-	 */
-	public static function do_shortcode_is_draft( &$content, $atts, $shortcodes, $short_key, $args ) {
-		_deprecated_function( __FUNCTION__, '2.02.08', 'FrmProContent::' . __FUNCTION__ );
-		FrmProContent::do_shortcode_is_draft( $content, $atts, $shortcodes, $short_key, $args );
 	}
 }

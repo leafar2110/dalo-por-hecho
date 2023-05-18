@@ -160,6 +160,9 @@ function frmProFormJS() {
 			dateFields[ optKey ].options.defaultDate = new Date( dateFields[ optKey ].options.defaultDate );
 		}
 
+		dateFields[ optKey ].options.beforeShow = frmProForm.addFormidableClassToDatepicker;
+		dateFields[ optKey ].options.onClose = frmProForm.removeFormidableClassFromDatepicker;
+
 		jQuery( this ).datepicker( jQuery.extend(
 			{},
 			jQuery.datepicker.regional[ dateFields[ optKey ].locale ],

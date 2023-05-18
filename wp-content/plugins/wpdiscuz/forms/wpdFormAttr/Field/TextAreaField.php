@@ -100,7 +100,7 @@ class TextAreaField extends Field {
     }
 
     public function validateFieldData($fieldName, $args, $options, $currentUser) {
-        $value = Sanitizer::sanitize(INPUT_POST, $fieldName, "FILTER_SANITIZE_STRING");
+        $value = Sanitizer::sanitize(INPUT_POST, $fieldName, "FILTER_SANITIZE_TEXTAREA");
         if ($this->isValidateRequired($args, $currentUser) && !$value && $args["required"]) {
             wp_die(esc_html__($args["name"], "wpdiscuz") . " : " . esc_html__("field is required!", "wpdiscuz"));
         }

@@ -54,6 +54,9 @@ class FrmProFormState {
 		return $default;
 	}
 
+	/**
+	 * @return void
+	 */
 	public static function maybe_render_state_field() {
 		if ( empty( self::$instance ) && ! self::get_state_from_request() ) {
 			return;
@@ -119,6 +122,12 @@ class FrmProFormState {
 		return $value;
 	}
 
+	/**
+	 * Keys are truncated to a single character to make the state string smaller.
+	 *
+	 * @param string $key
+	 * @return string The full key name if one is found. If nothing is found, the $key param is passed back.
+	 */
 	private static function decompressed_key( $key ) {
 		switch ( $key ) {
 			case 'd':
@@ -129,6 +138,9 @@ class FrmProFormState {
 				return 'include_fields';
 			case 'g':
 				return 'get';
+			case 'c':
+				// Numeric value. Used to track reCAPTCHA v3 score between pages when recaptcha_checked nonce is used.
+				return 'captcha';
 		}
 		return $key;
 	}

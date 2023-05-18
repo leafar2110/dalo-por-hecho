@@ -154,49 +154,7 @@ global $current_user, $wp_roles;?>
                            </div>
                          
                        </div>
-                       <div class="comentar-usuario">
-                            <h5>Comentar</h5>
-                            <textarea class="textarea-comentar" name="" id="" cols="30" rows="10" placeholder="Escribe un comentario"></textarea>
-                            <br><br><br>
-                            <a href="" class="btn-custom-bg  mb-5">Comentar</a>
-                            <br><br>
 
-<?php  
- while ( have_posts() ) : the_post();
- ?>
-
-    <section class="main-categories main-tareas container" id="down">
-        <div class="titulo-general text-center">
-            
-            <br><br>
-        </div>
-
-    <div class="container">
-      <div class="main-soporte__content">
-
-            <!--None template -->
-            <?php if( get_the_content() != NULL){ ?>
-                <?php
-              // Include the page content template.
-                /*  get_template_part( 'content', 'page' );*/
-                the_content();
-
-              // If comments are open or we have at least one comment, load up the comment template.
-                if ( comments_open() || get_comments_number() ) :
-                    comments_template();
-                endif;           
-            ?>  
-            <?php } ?>   
-
-        </div>
-    </div>
-</section>  
-
-<?php  endwhile; ?>
-
-
-
-                        </div>
                     </div>
                     </div>
                     <div class="col-md-2 ">

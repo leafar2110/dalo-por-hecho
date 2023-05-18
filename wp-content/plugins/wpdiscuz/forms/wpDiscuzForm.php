@@ -58,7 +58,9 @@ class wpDiscuzForm implements wpdFormConst {
 	}
 
 	public function initPersonalDataExporter() {
-		PersonalDataExporter::getInstance( $this->options );
+        if (class_exists('PersonalDataExporter')) {
+	        PersonalDataExporter::getInstance( $this->options );
+        }
 	}
 
 	public function validateMetaCommentSavePre( $commentContent ) {

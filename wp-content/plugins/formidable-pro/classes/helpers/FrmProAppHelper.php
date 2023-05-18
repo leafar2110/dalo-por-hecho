@@ -469,6 +469,10 @@ class FrmProAppHelper {
 
 	/**
 	 * @since 2.3
+	 *
+	 * @param array  $args
+	 * @param object $where_field
+	 * @return void
 	 */
 	private static function prepare_where_datetime( &$args, $where_field ) {
 		$is_datetime = ( $args['where_val'] == 'NOW' || $where_field->type == 'date' || $where_field->type == 'time' );
@@ -487,17 +491,21 @@ class FrmProAppHelper {
 
 	/**
 	 * @since 2.3
+	 *
+	 * @param string $where_is
+	 * @return bool
 	 */
 	private static function option_is_like( $where_is ) {
-		return in_array( $where_is, array( 'LIKE', 'not LIKE' ) );
+		return in_array( $where_is, array( 'LIKE', 'not LIKE' ), true );
 	}
 
 	/**
-	* Replace a text value where_val with the matching entry IDs for Dynamic Field filters
-	*
-	* @param array $args
-	* @param object $where_field
-	*/
+	 * Replace a text value where_val with the matching entry IDs for Dynamic Field filters
+	 *
+	 * @param array  $args
+	 * @param object $where_field
+	 * @return void
+	 */
 	private static function prepare_dfe_text( &$args, $where_field ) {
 		if ( $where_field->type != 'data' ) {
 			return;
@@ -518,7 +526,7 @@ class FrmProAppHelper {
 		// If text doesn't return any entry IDs, get entry IDs from entry key
 		// Note: Keep for reverse compatibility
 		if ( ! $linked_id ) {
-			$linked_field = FrmField::getOne($where_field->field_options['form_select']);
+			$linked_field = FrmField::getOne( $where_field->field_options['form_select'] );
 			if ( ! $linked_field ) {
 				return;
 			}
@@ -540,32 +548,39 @@ class FrmProAppHelper {
 		$args['where_val'] = (array) $linked_id;
 
 		// Don't use old where_val_esc value for filtering
-		unset($args['where_val_esc']);
+		unset( $args['where_val_esc'] );
 
-		$args['where_val'] = apply_filters('frm_filter_dfe_where_val', $args['where_val'], $args);
+		$args['where_val'] = apply_filters( 'frm_filter_dfe_where_val', $args['where_val'], $args );
 	}
 
+	/**
+	 * @param array  $args
+	 * @param object $where_field
+	 * @param array  $entry_ids
+	 * @param array  $new_ids
+	 * @return void
+	 */
 	private static function filter_entry_ids( $args, $where_field, $entry_ids, &$new_ids ) {
 		$where_statement = array( 'fi.id' => (int) $args['where_opt'] );
 
 		$num_query = self::maybe_query_as_number( $where_field->type );
 		$field_key = 'meta_value ' . $num_query . FrmDb::append_where_is( $args['temp_where_is'] );
 		$nested_where = array( $field_key => $args['where_val'] );
-		if ( isset($args['where_val_esc']) && $args['where_val_esc'] != $args['where_val'] ) {
-			$nested_where['or'] = 1;
+		if ( isset( $args['where_val_esc'] ) && $args['where_val_esc'] != $args['where_val'] ) {
+			$nested_where['or']               = 1;
 			$nested_where[ ' ' . $field_key ] = $args['where_val_esc'];
 		}
 		$where_statement[] = $nested_where;
 
 		$args['entry_ids'] = $entry_ids;
-		$where_statement = apply_filters('frm_where_filter', $where_statement, $args);
+		$where_statement   = apply_filters( 'frm_where_filter', $where_statement, $args );
 
 		$filter_args = array( 'is_draft' => $args['drafts'] );
 
-		// If the field is from a repeating section (or embedded form?) get the parent ID
+		// If the field is from a repeating section (or embedded form?) get the parent ID.
 		$filter_args['return_parent_id'] = ( $where_field->form_id != $args['form_id'] );
 
-		// Add entry IDs to $where_statement
+		// Add entry IDs to $where_statement.
 		if ( $args['use_ids'] ) {
 			if ( is_array( $where_statement ) ) {
 				if ( $filter_args['return_parent_id'] ) {
@@ -574,7 +589,7 @@ class FrmProAppHelper {
 					$where_statement['item_id'] = $entry_ids;
 				}
 			} else {
-				// if the filter changed the query to a string, allow it
+				// If the filter changed the query to a string, allow it.
 				$where_statement .= FrmDb::prepend_and_or_where( ' AND ', array( 'item_id' => $entry_ids ) );
 			}
 		}
@@ -595,16 +610,21 @@ class FrmProAppHelper {
 	}
 
 	/**
-	 * If there are posts linked to entries for this form
+	 * If there are posts linked to entries for this form.
+	 *
+	 * @param array  $args
+	 * @param object $where_field
+	 * @param array  $new_ids
+	 * @return void
 	 */
 	private static function prepare_post_filter( $args, $where_field, &$new_ids ) {
-		if ( empty($args['form_posts']) ) {
-			// there are not posts related to this view
+		if ( empty( $args['form_posts'] ) ) {
+			// There are not posts related to this view.
 			return;
 		}
 
-		if ( ! isset( $where_field->field_options['post_field'] ) || ! in_array( $where_field->field_options['post_field'], array( 'post_category', 'post_custom', 'post_status', 'post_content', 'post_excerpt', 'post_title', 'post_name', 'post_date' ) ) ) {
-			// this is not a post field
+		if ( ! isset( $where_field->field_options['post_field'] ) || ! in_array( $where_field->field_options['post_field'], array( 'post_category', 'post_custom', 'post_status', 'post_content', 'post_excerpt', 'post_title', 'post_name', 'post_date' ), true ) ) {
+			// This is not a post field.
 			return;
 		}
 
@@ -616,7 +636,7 @@ class FrmProAppHelper {
 			}
 		}
 
-		if ( empty($post_ids) ) {
+		if ( empty( $post_ids ) ) {
 			return;
 		}
 
@@ -647,7 +667,7 @@ class FrmProAppHelper {
 			);
 			$add_posts = array_intersect($add_posts, array_keys($post_ids));
 
-			if ( in_array( $args['where_is'], array( '!=', 'not LIKE' ) ) ) {
+			if ( in_array( $args['where_is'], array( '!=', 'not LIKE' ), true ) ) {
 				$remove_posts = $add_posts;
 				$add_posts = false;
 			} else if ( empty($add_posts) ) {
@@ -686,7 +706,7 @@ class FrmProAppHelper {
 			}
 		}
 
-		if ( isset($remove_posts) ) {
+		if ( isset( $remove_posts ) ) {
 			if ( ! empty($remove_posts) ) {
 				foreach ( $remove_posts as $remove_post ) {
 					$key = array_search( $post_ids[ $remove_post ], $new_ids );

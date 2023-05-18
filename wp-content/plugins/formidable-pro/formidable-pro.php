@@ -2,7 +2,7 @@
 /*
 Plugin Name: Formidable Forms Pro
 Description: Add more power to your forms, and bring your reports and data management to the front-end.
-Version: 6.1.2
+Version: 6.3
 Plugin URI: https://formidableforms.com/
 Author URI: https://formidableforms.com/
 Author: Strategy11
@@ -41,7 +41,7 @@ if ( ! function_exists( 'load_formidable_pro' ) ) {
 		if ( frm_pro_is_deprecated_class( $class_name ) ) {
 			$filepath .= '/deprecated/' . $class_name . '.php';
 			if ( file_exists( $filepath ) ) {
-				require( $filepath );
+				require $filepath;
 			}
 		} else {
 			frm_class_autoloader( $class_name, $filepath );
@@ -55,9 +55,7 @@ if ( ! function_exists( 'load_formidable_pro' ) ) {
 			'FrmProDisplay',
 			'FrmProDisplaysController',
 			'FrmProDropdownFieldsController',
-			'FrmProEntryFormat',
 			'FrmProTimeField',
-			'FrmUpdatesController',
 			'FrmProPhoneFieldsController',
 			'FrmProTextFieldsController',
 		);

@@ -1,5 +1,4 @@
 <?php
-
 if (!defined("ABSPATH")) {
     exit();
 }
@@ -12,7 +11,6 @@ class WpdiscuzOptions implements WpDiscuzConstants {
      * @var WpdiscuzAddons
      */
     private $addons;
-
     public $form = [];
     public $recaptcha = [];
     public $login = [];
@@ -182,6 +180,9 @@ class WpdiscuzOptions implements WpDiscuzConstants {
         $this->social["enableGoogleLogin"] = isset($options[self::TAB_SOCIAL]["enableGoogleLogin"]) ? $options[self::TAB_SOCIAL]["enableGoogleLogin"] : $defaultOptions[self::TAB_SOCIAL]["enableGoogleLogin"];
         $this->social["googleClientID"] = isset($options[self::TAB_SOCIAL]["googleClientID"]) ? $options[self::TAB_SOCIAL]["googleClientID"] : $defaultOptions[self::TAB_SOCIAL]["googleClientID"];
         $this->social["googleClientSecret"] = isset($options[self::TAB_SOCIAL]["googleClientSecret"]) ? $options[self::TAB_SOCIAL]["googleClientSecret"] : $defaultOptions[self::TAB_SOCIAL]["googleClientSecret"];
+        // telegram
+        $this->social["enableTelegramLogin"] = isset($options[self::TAB_SOCIAL]["enableTelegramLogin"]) ? $options[self::TAB_SOCIAL]["enableTelegramLogin"] : $defaultOptions[self::TAB_SOCIAL]["enableTelegramLogin"];
+        $this->social["telegramToken"] = isset($options[self::TAB_SOCIAL]["telegramToken"]) ? $options[self::TAB_SOCIAL]["telegramToken"] : $defaultOptions[self::TAB_SOCIAL]["telegramToken"];
         // disqus
         $this->social["enableDisqusLogin"] = isset($options[self::TAB_SOCIAL]["enableDisqusLogin"]) ? $options[self::TAB_SOCIAL]["enableDisqusLogin"] : $defaultOptions[self::TAB_SOCIAL]["enableDisqusLogin"];
         $this->social["disqusPublicKey"] = isset($options[self::TAB_SOCIAL]["disqusPublicKey"]) ? $options[self::TAB_SOCIAL]["disqusPublicKey"] : $defaultOptions[self::TAB_SOCIAL]["disqusPublicKey"];
@@ -302,22 +303,22 @@ class WpdiscuzOptions implements WpDiscuzConstants {
         $this->subscription["usePostmaticForCommentNotification"] = isset($options[self::TAB_SUBSCRIPTION]["usePostmaticForCommentNotification"]) ? $options[self::TAB_SUBSCRIPTION]["usePostmaticForCommentNotification"] : $defaultOptions[self::TAB_SUBSCRIPTION]["usePostmaticForCommentNotification"];
         $this->subscription["isFollowActive"] = isset($options[self::TAB_SUBSCRIPTION]["isFollowActive"]) ? $options[self::TAB_SUBSCRIPTION]["isFollowActive"] : $defaultOptions[self::TAB_SUBSCRIPTION]["isFollowActive"];
         $this->subscription["disableFollowConfirmForUsers"] = isset($options[self::TAB_SUBSCRIPTION]["disableFollowConfirmForUsers"]) ? $options[self::TAB_SUBSCRIPTION]["disableFollowConfirmForUsers"] : $defaultOptions[self::TAB_SUBSCRIPTION]["disableFollowConfirmForUsers"];
-        $this->subscription["emailSubjectPostComment"] = isset($options[self::TAB_SUBSCRIPTION]["emailSubjectPostComment"]) ? $options[self::TAB_SUBSCRIPTION]["emailSubjectPostComment"] : $defaultOptions[self::TAB_SUBSCRIPTION]["emailSubjectPostComment"];
-        $this->subscription["emailContentPostComment"] = isset($options[self::TAB_SUBSCRIPTION]["emailContentPostComment"]) ? $options[self::TAB_SUBSCRIPTION]["emailContentPostComment"] : $defaultOptions[self::TAB_SUBSCRIPTION]["emailContentPostComment"];
-        $this->subscription["emailSubjectAllCommentReply"] = isset($options[self::TAB_SUBSCRIPTION]["emailSubjectAllCommentReply"]) ? $options[self::TAB_SUBSCRIPTION]["emailSubjectAllCommentReply"] : $defaultOptions[self::TAB_SUBSCRIPTION]["emailSubjectAllCommentReply"];
-        $this->subscription["emailContentAllCommentReply"] = isset($options[self::TAB_SUBSCRIPTION]["emailContentAllCommentReply"]) ? $options[self::TAB_SUBSCRIPTION]["emailContentAllCommentReply"] : $defaultOptions[self::TAB_SUBSCRIPTION]["emailContentAllCommentReply"];
-        $this->subscription["emailSubjectCommentReply"] = isset($options[self::TAB_SUBSCRIPTION]["emailSubjectCommentReply"]) ? $options[self::TAB_SUBSCRIPTION]["emailSubjectCommentReply"] : $defaultOptions[self::TAB_SUBSCRIPTION]["emailSubjectCommentReply"];
-        $this->subscription["emailContentCommentReply"] = isset($options[self::TAB_SUBSCRIPTION]["emailContentCommentReply"]) ? $options[self::TAB_SUBSCRIPTION]["emailContentCommentReply"] : $defaultOptions[self::TAB_SUBSCRIPTION]["emailContentCommentReply"];
-        $this->subscription["emailSubjectSubscriptionConfirmation"] = isset($options[self::TAB_SUBSCRIPTION]["emailSubjectSubscriptionConfirmation"]) ? $options[self::TAB_SUBSCRIPTION]["emailSubjectSubscriptionConfirmation"] : $defaultOptions[self::TAB_SUBSCRIPTION]["emailSubjectSubscriptionConfirmation"];
-        $this->subscription["emailContentSubscriptionConfirmation"] = isset($options[self::TAB_SUBSCRIPTION]["emailContentSubscriptionConfirmation"]) ? $options[self::TAB_SUBSCRIPTION]["emailContentSubscriptionConfirmation"] : $defaultOptions[self::TAB_SUBSCRIPTION]["emailContentSubscriptionConfirmation"];
-        $this->subscription["emailSubjectCommentApproved"] = isset($options[self::TAB_SUBSCRIPTION]["emailSubjectCommentApproved"]) ? $options[self::TAB_SUBSCRIPTION]["emailSubjectCommentApproved"] : $defaultOptions[self::TAB_SUBSCRIPTION]["emailSubjectCommentApproved"];
-        $this->subscription["emailContentCommentApproved"] = isset($options[self::TAB_SUBSCRIPTION]["emailContentCommentApproved"]) ? $options[self::TAB_SUBSCRIPTION]["emailContentCommentApproved"] : $defaultOptions[self::TAB_SUBSCRIPTION]["emailContentCommentApproved"];
-        $this->subscription["emailSubjectUserMentioned"] = isset($options[self::TAB_SUBSCRIPTION]["emailSubjectUserMentioned"]) ? $options[self::TAB_SUBSCRIPTION]["emailSubjectUserMentioned"] : $defaultOptions[self::TAB_SUBSCRIPTION]["emailSubjectUserMentioned"];
-        $this->subscription["emailContentUserMentioned"] = isset($options[self::TAB_SUBSCRIPTION]["emailContentUserMentioned"]) ? $options[self::TAB_SUBSCRIPTION]["emailContentUserMentioned"] : $defaultOptions[self::TAB_SUBSCRIPTION]["emailContentUserMentioned"];
-        $this->subscription["emailSubjectFollowConfirmation"] = isset($options[self::TAB_SUBSCRIPTION]["emailSubjectFollowConfirmation"]) ? $options[self::TAB_SUBSCRIPTION]["emailSubjectFollowConfirmation"] : $defaultOptions[self::TAB_SUBSCRIPTION]["emailSubjectFollowConfirmation"];
-        $this->subscription["emailContentFollowConfirmation"] = isset($options[self::TAB_SUBSCRIPTION]["emailContentFollowConfirmation"]) ? $options[self::TAB_SUBSCRIPTION]["emailContentFollowConfirmation"] : $defaultOptions[self::TAB_SUBSCRIPTION]["emailContentFollowConfirmation"];
-        $this->subscription["emailSubjectFollowComment"] = isset($options[self::TAB_SUBSCRIPTION]["emailSubjectFollowComment"]) ? $options[self::TAB_SUBSCRIPTION]["emailSubjectFollowComment"] : $defaultOptions[self::TAB_SUBSCRIPTION]["emailSubjectFollowComment"];
-        $this->subscription["emailContentFollowComment"] = isset($options[self::TAB_SUBSCRIPTION]["emailContentFollowComment"]) ? $options[self::TAB_SUBSCRIPTION]["emailContentFollowComment"] : $defaultOptions[self::TAB_SUBSCRIPTION]["emailContentFollowComment"];
+        $this->subscription["emailSubjectPostComment"] = isset($options[self::TAB_SUBSCRIPTION]["emailSubjectPostComment"]) ? __($options[self::TAB_SUBSCRIPTION]["emailSubjectPostComment"], "wpdiscuz") : __($defaultOptions[self::TAB_SUBSCRIPTION]["emailSubjectPostComment"], "wpdiscuz");
+        $this->subscription["emailContentPostComment"] = isset($options[self::TAB_SUBSCRIPTION]["emailContentPostComment"]) ? __($options[self::TAB_SUBSCRIPTION]["emailContentPostComment"], "wpdiscuz") : __($defaultOptions[self::TAB_SUBSCRIPTION]["emailContentPostComment"], "wpdiscuz");
+        $this->subscription["emailSubjectAllCommentReply"] = isset($options[self::TAB_SUBSCRIPTION]["emailSubjectAllCommentReply"]) ? __($options[self::TAB_SUBSCRIPTION]["emailSubjectAllCommentReply"], "wpdiscuz") : __($defaultOptions[self::TAB_SUBSCRIPTION]["emailSubjectAllCommentReply"], "wpdiscuz");
+        $this->subscription["emailContentAllCommentReply"] = isset($options[self::TAB_SUBSCRIPTION]["emailContentAllCommentReply"]) ? __($options[self::TAB_SUBSCRIPTION]["emailContentAllCommentReply"], "wpdiscuz") : __($defaultOptions[self::TAB_SUBSCRIPTION]["emailContentAllCommentReply"], "wpdiscuz");
+        $this->subscription["emailSubjectCommentReply"] = isset($options[self::TAB_SUBSCRIPTION]["emailSubjectCommentReply"]) ? __($options[self::TAB_SUBSCRIPTION]["emailSubjectCommentReply"], "wpdiscuz") : __($defaultOptions[self::TAB_SUBSCRIPTION]["emailSubjectCommentReply"], "wpdiscuz");
+        $this->subscription["emailContentCommentReply"] = isset($options[self::TAB_SUBSCRIPTION]["emailContentCommentReply"]) ? __($options[self::TAB_SUBSCRIPTION]["emailContentCommentReply"], "wpdiscuz") : __($defaultOptions[self::TAB_SUBSCRIPTION]["emailContentCommentReply"], "wpdiscuz");
+        $this->subscription["emailSubjectSubscriptionConfirmation"] = isset($options[self::TAB_SUBSCRIPTION]["emailSubjectSubscriptionConfirmation"]) ? __($options[self::TAB_SUBSCRIPTION]["emailSubjectSubscriptionConfirmation"], "wpdiscuz") : __($defaultOptions[self::TAB_SUBSCRIPTION]["emailSubjectSubscriptionConfirmation"], "wpdiscuz");
+        $this->subscription["emailContentSubscriptionConfirmation"] = isset($options[self::TAB_SUBSCRIPTION]["emailContentSubscriptionConfirmation"]) ? __($options[self::TAB_SUBSCRIPTION]["emailContentSubscriptionConfirmation"], "wpdiscuz") : __($defaultOptions[self::TAB_SUBSCRIPTION]["emailContentSubscriptionConfirmation"], "wpdiscuz");
+        $this->subscription["emailSubjectCommentApproved"] = isset($options[self::TAB_SUBSCRIPTION]["emailSubjectCommentApproved"]) ? __($options[self::TAB_SUBSCRIPTION]["emailSubjectCommentApproved"], "wpdiscuz") : __($defaultOptions[self::TAB_SUBSCRIPTION]["emailSubjectCommentApproved"], "wpdiscuz");
+        $this->subscription["emailContentCommentApproved"] = isset($options[self::TAB_SUBSCRIPTION]["emailContentCommentApproved"]) ? __($options[self::TAB_SUBSCRIPTION]["emailContentCommentApproved"], "wpdiscuz") : __($defaultOptions[self::TAB_SUBSCRIPTION]["emailContentCommentApproved"], "wpdiscuz");
+        $this->subscription["emailSubjectUserMentioned"] = isset($options[self::TAB_SUBSCRIPTION]["emailSubjectUserMentioned"]) ? __($options[self::TAB_SUBSCRIPTION]["emailSubjectUserMentioned"], "wpdiscuz") : __($defaultOptions[self::TAB_SUBSCRIPTION]["emailSubjectUserMentioned"], "wpdiscuz");
+        $this->subscription["emailContentUserMentioned"] = isset($options[self::TAB_SUBSCRIPTION]["emailContentUserMentioned"]) ? __($options[self::TAB_SUBSCRIPTION]["emailContentUserMentioned"], "wpdiscuz") : __($defaultOptions[self::TAB_SUBSCRIPTION]["emailContentUserMentioned"], "wpdiscuz");
+        $this->subscription["emailSubjectFollowConfirmation"] = isset($options[self::TAB_SUBSCRIPTION]["emailSubjectFollowConfirmation"]) ? __($options[self::TAB_SUBSCRIPTION]["emailSubjectFollowConfirmation"], "wpdiscuz") : __($defaultOptions[self::TAB_SUBSCRIPTION]["emailSubjectFollowConfirmation"], "wpdiscuz");
+        $this->subscription["emailContentFollowConfirmation"] = isset($options[self::TAB_SUBSCRIPTION]["emailContentFollowConfirmation"]) ? __($options[self::TAB_SUBSCRIPTION]["emailContentFollowConfirmation"], "wpdiscuz") : __($defaultOptions[self::TAB_SUBSCRIPTION]["emailContentFollowConfirmation"], "wpdiscuz");
+        $this->subscription["emailSubjectFollowComment"] = isset($options[self::TAB_SUBSCRIPTION]["emailSubjectFollowComment"]) ? __($options[self::TAB_SUBSCRIPTION]["emailSubjectFollowComment"], "wpdiscuz") : __($defaultOptions[self::TAB_SUBSCRIPTION]["emailSubjectFollowComment"], "wpdiscuz");
+        $this->subscription["emailContentFollowComment"] = isset($options[self::TAB_SUBSCRIPTION]["emailContentFollowComment"]) ? __($options[self::TAB_SUBSCRIPTION]["emailContentFollowComment"], "wpdiscuz") : __($defaultOptions[self::TAB_SUBSCRIPTION]["emailContentFollowComment"], "wpdiscuz");
         /* labels */
         $this->labels["blogRoleLabels"] = isset($options[self::TAB_LABELS]["blogRoleLabels"]) ? $options[self::TAB_LABELS]["blogRoleLabels"] : $defaultOptions[self::TAB_LABELS]["blogRoleLabels"];
         $this->labels["blogRoles"] = isset($options[self::TAB_LABELS]["blogRoles"]) ? $options[self::TAB_LABELS]["blogRoles"] : $defaultOptions[self::TAB_LABELS]["blogRoles"];
@@ -539,7 +540,7 @@ class WpdiscuzOptions implements WpDiscuzConstants {
             "wc_feedback_shortcode_tooltip" => esc_html__("Select a part of text and ask readers for feedback (inline commenting)", "wpdiscuz"),
             "wc_feedback_popup_title" => esc_html__("Ask for Feedback", "wpdiscuz"),
             "wc_please_leave_feebdack" => esc_html__("Please leave a feedback on this", "wpdiscuz"),
-            "wc_feedback_content_text" => esc_html__("", "wpdiscuz"),
+            "wc_feedback_content_text" => "",
             "wc_feedback_comment_success" => esc_html__("Thank you for your feedback!", "wpdiscuz"),
             "wc_commenting_is_closed" => esc_html__("Commenting is closed!", "wpdiscuz"),
             "wc_closed_comment_thread" => esc_html__("This is closed comment thread", "wpdiscuz"),
@@ -667,6 +668,9 @@ class WpdiscuzOptions implements WpDiscuzConstants {
                 "enableGoogleLogin" => $this->social["enableGoogleLogin"],
                 "googleClientID" => $this->social["googleClientID"],
                 "googleClientSecret" => $this->social["googleClientSecret"],
+                // telegram
+                "enableTelegramLogin" => $this->social["enableTelegramLogin"],
+                "telegramToken" => $this->social["telegramToken"],
                 // disqus
                 "enableDisqusLogin" => $this->social["enableDisqusLogin"],
                 "disqusPublicKey" => $this->social["disqusPublicKey"],
@@ -943,6 +947,8 @@ class WpdiscuzOptions implements WpDiscuzConstants {
                 "enableGoogleLogin" => 0,
                 "googleClientID" => "",
                 "googleClientSecret" => "",
+                "enableTelegramLogin" => 0,
+                "telegramToken" => "",
                 "enableDisqusLogin" => 0,
                 "disqusPublicKey" => "",
                 "disqusSecretKey" => "",
@@ -1068,9 +1074,9 @@ class WpdiscuzOptions implements WpDiscuzConstants {
                 "emailSubjectUserMentioned" => __('You have been mentioned in comment', "wpdiscuz"),
                 "emailContentUserMentioned" => __('Hi [MENTIONED_USER_NAME]!<br/>You have been mentioned in a comment posted on "[POST_TITLE]" post by [COMMENT_AUTHOR].<br/><br/>Comment URL: <a href="[COMMENT_URL]">[COMMENT_URL]</a>', "wpdiscuz"),
                 "emailSubjectFollowConfirmation" => esc_html__('User Following Confirmation', "wpdiscuz"),
-                "emailContentFollowConfirmation" => __('Hi, <br/> You just started following a new user. You\'ll get email notification once new comment is posted by this user. <br/> Please click on "user following confirmation" link to confirm your request. If you believe this is an error, ignore this message and we\'ll never bother you again. <br/><br/><a href="[POST_URL]">[POST_TITLE]</a><br/><br/><a href="[CONFIRM_URL]">' . __("Confirm Follow", "wpdiscuz") . '</a><br/><br/><a href="[CANCEL_URL]">' . esc_html__("Unfollow", "wpdiscuz") . "</a>", "wpdiscuz"),
+                "emailContentFollowConfirmation" => __('Hi, <br/> You just started following a new user. You\'ll get email notification once new comment is posted by this user. <br/> Please click on "user following confirmation" link to confirm your request. If you believe this is an error, ignore this message and we\'ll never bother you again. <br/><br/><a href="[POST_URL]">[POST_TITLE]</a><br/><br/><a href="[CONFIRM_URL]">Confirm Follow</a><br/><br/><a href="[CANCEL_URL]">Unfollow</a>', "wpdiscuz"),
                 "emailSubjectFollowComment" => esc_html__("New Comment", "wpdiscuz"),
-                "emailContentFollowComment" => __('Hi [FOLLOWER_NAME],<br/><br/> new comment has been posted by the <em><strong>[COMMENT_AUTHOR]</em></strong> you are following<br/><br/><a href="[COMMENT_URL]">[COMMENT_URL]</a><br/><br/>[COMMENT_CONTENT]<br/><br/><a href="[CANCEL_URL]">' . esc_html__("Unfollow", "wpdiscuz") . '</a>', "wpdiscuz"),
+                "emailContentFollowComment" => __('Hi [FOLLOWER_NAME],<br/><br/> new comment has been posted by the <em><strong>[COMMENT_AUTHOR]</em></strong> you are following<br/><br/><a href="[COMMENT_URL]">[COMMENT_URL]</a><br/><br/>[COMMENT_CONTENT]<br/><br/><a href="[CANCEL_URL]">Unfollow</a>', "wpdiscuz"),
             ],
             self::TAB_LABELS => [
                 "blogRoleLabels" => isset($this->labels["blogRoleLabels"]) ? $this->labels["blogRoleLabels"] : [],
@@ -1268,9 +1274,9 @@ class WpdiscuzOptions implements WpDiscuzConstants {
 
     private function initGoodbyeCaptchaField() {
         $this->isGoodbyeCaptchaActive = is_callable([
-                "GdbcWordPressPublicModule",
-                "isCommentsProtectionActivated",
-            ]) && GdbcWordPressPublicModule::isCommentsProtectionActivated();
+                    "GdbcWordPressPublicModule",
+                    "isCommentsProtectionActivated",
+                ]) && GdbcWordPressPublicModule::isCommentsProtectionActivated();
         if ($this->isGoodbyeCaptchaActive) {
             $this->goodbyeCaptchaTocken = GdbcWordPressPublicModule::getInstance()->getTokenFieldHtml();
         }
@@ -1421,6 +1427,9 @@ class WpdiscuzOptions implements WpDiscuzConstants {
                 $this->social["enableGoogleLogin"] = isset($_POST[self::TAB_SOCIAL]["enableGoogleLogin"]) ? absint($_POST[self::TAB_SOCIAL]["enableGoogleLogin"]) : 0;
                 $this->social["googleClientID"] = isset($_POST[self::TAB_SOCIAL]["googleClientID"]) ? trim(sanitize_text_field($_POST[self::TAB_SOCIAL]["googleClientID"])) : "";
                 $this->social["googleClientSecret"] = isset($_POST[self::TAB_SOCIAL]["googleClientSecret"]) ? trim(sanitize_text_field($_POST[self::TAB_SOCIAL]["googleClientSecret"])) : "";
+                // telegram
+                $this->social["enableTelegramLogin"] = isset($_POST[self::TAB_SOCIAL]["enableTelegramLogin"]) ? absint($_POST[self::TAB_SOCIAL]["enableTelegramLogin"]) : 0;
+                $this->social["telegramToken"] = isset($_POST[self::TAB_SOCIAL]["telegramToken"]) ? trim(sanitize_text_field($_POST[self::TAB_SOCIAL]["telegramToken"])) : "";
                 // disqus
                 $this->social["enableDisqusLogin"] = isset($_POST[self::TAB_SOCIAL]["enableDisqusLogin"]) ? absint($_POST[self::TAB_SOCIAL]["enableDisqusLogin"]) : 0;
                 $this->social["disqusPublicKey"] = isset($_POST[self::TAB_SOCIAL]["disqusPublicKey"]) ? trim(sanitize_text_field($_POST[self::TAB_SOCIAL]["disqusPublicKey"])) : "";
@@ -1493,9 +1502,9 @@ class WpdiscuzOptions implements WpDiscuzConstants {
                 $this->thread_display["highlightUnreadComments"] = isset($_POST[self::TAB_THREAD_DISPLAY]["highlightUnreadComments"]) ? absint($_POST[self::TAB_THREAD_DISPLAY]["highlightUnreadComments"]) : 0;
                 $this->thread_display["scrollToComment"] = isset($_POST[self::TAB_THREAD_DISPLAY]["scrollToComment"]) ? absint($_POST[self::TAB_THREAD_DISPLAY]["scrollToComment"]) : 0;
                 $this->thread_display["orderCommentsBy"] = isset($_POST[self::TAB_THREAD_DISPLAY]["orderCommentsBy"]) && ($o = trim(sanitize_text_field($_POST[self::TAB_THREAD_DISPLAY]["orderCommentsBy"]))) && in_array($o, [
-                    "comment_ID",
-                    "comment_date_gmt",
-                ]) ? $o : "comment_ID";
+                            "comment_ID",
+                            "comment_date_gmt",
+                        ]) ? $o : "comment_ID";
             } else if (self::TAB_THREAD_LAYOUTS === $_POST["wpd_tab"]) {
                 $this->thread_layouts["showCommentLink"] = isset($_POST[self::TAB_THREAD_LAYOUTS]["showCommentLink"]) ? absint($_POST[self::TAB_THREAD_LAYOUTS]["showCommentLink"]) : 0;
                 $this->thread_layouts["showCommentDate"] = isset($_POST[self::TAB_THREAD_LAYOUTS]["showCommentDate"]) ? absint($_POST[self::TAB_THREAD_LAYOUTS]["showCommentDate"]) : 0;
@@ -2017,7 +2026,7 @@ class WpdiscuzOptions implements WpDiscuzConstants {
             ?>
             <div class='notice notice-warning'>
                 <p style="font-size: 14px; font-weight: 600;">
-                    <?php esc_html_e("Please complete required steps to start using wpDiscuz 7", "wpdiscuz"); ?> &nbsp;
+            <?php esc_html_e("Please complete required steps to start using wpDiscuz 7", "wpdiscuz"); ?> &nbsp;
                     <a href="<?php echo esc_url_raw(admin_url("admin.php?page=" . self::PAGE_SETTINGS . "&wpd_wizard=1")); ?>"
                        class="button button-primary"><?php intval(get_option(self::OPTION_SLUG_WIZARD_AFTER_UPDATE)) ? esc_html_e("Go to Update Wizard &raquo;", "wpdiscuz") : esc_html_e("Go to Installation Wizard &raquo;", "wpdiscuz"); ?></a>
                 </p>
@@ -2028,7 +2037,7 @@ class WpdiscuzOptions implements WpDiscuzConstants {
             ?>
             <div class='notice notice-warning'>
                 <p>
-                    <?php esc_html_e("Jetpack Comments are active.", "wpdiscuz"); ?>
+            <?php esc_html_e("Jetpack Comments are active.", "wpdiscuz"); ?>
                 </p>
             </div>
             <?php
@@ -2037,7 +2046,7 @@ class WpdiscuzOptions implements WpDiscuzConstants {
             ?>
             <div class='notice notice-warning'>
                 <p>
-                    <?php esc_html_e("Comment votes meta data need to be regenerated", "wpdiscuz"); ?>&nbsp;
+            <?php esc_html_e("Comment votes meta data need to be regenerated", "wpdiscuz"); ?>&nbsp;
                     <a href="<?php echo esc_url_raw(admin_url("admin.php?page=" . self::PAGE_TOOLS . "#wpdtool-regenerate")); ?>"
                        class="button button-primary"><?php esc_html_e("Regenerate Vote Metas", "wpdiscuz"); ?></a>
                 </p>
@@ -2048,7 +2057,7 @@ class WpdiscuzOptions implements WpDiscuzConstants {
             ?>
             <div class='notice notice-warning'>
                 <p>
-                    <?php esc_html_e("Closed Comments data need be regenerated", "wpdiscuz"); ?>&nbsp;
+            <?php esc_html_e("Closed Comments data need be regenerated", "wpdiscuz"); ?>&nbsp;
                     <a href="<?php echo esc_url_raw(admin_url("admin.php?page=" . self::PAGE_TOOLS . "#wpdtool-regenerate")); ?>"
                        class="button button-primary"><?php esc_html_e("Regenerate Closed Comments", "wpdiscuz"); ?></a>
                 </p>
@@ -2059,7 +2068,7 @@ class WpdiscuzOptions implements WpDiscuzConstants {
             ?>
             <div class='notice notice-warning'>
                 <p>
-                    <?php esc_html_e("Comments votes data need to be regenerated", "wpdiscuz"); ?>&nbsp;
+            <?php esc_html_e("Comments votes data need to be regenerated", "wpdiscuz"); ?>&nbsp;
                     <a href="<?php echo esc_url_raw(admin_url("admin.php?page=" . self::PAGE_TOOLS . "#wpdtool-regenerate")); ?>"
                        class="button button-primary"><?php esc_html_e("Regenerate Vote Data", "wpdiscuz"); ?></a>
                 </p>
@@ -2070,7 +2079,7 @@ class WpdiscuzOptions implements WpDiscuzConstants {
             ?>
             <div class='notice notice-warning'>
                 <p>
-                    <?php esc_html_e("Please synchronize comment data for the best performance and fastest experience", "wpdiscuz"); ?>
+            <?php esc_html_e("Please synchronize comment data for the best performance and fastest experience", "wpdiscuz"); ?>
                     &nbsp;
                     <a href="<?php echo esc_url_raw(admin_url("admin.php?page=" . self::PAGE_TOOLS . "#wpdtool-regenerate")); ?>"
                        class="button button-primary"><?php esc_html_e("Synchronize Commenters Data", "wpdiscuz"); ?></a>
@@ -2082,7 +2091,7 @@ class WpdiscuzOptions implements WpDiscuzConstants {
             ?>
             <div class='notice notice-warning'>
                 <p>
-                    <?php esc_html_e("Please rebuild ratings for the best performance and fastest experience", "wpdiscuz"); ?>
+            <?php esc_html_e("Please rebuild ratings for the best performance and fastest experience", "wpdiscuz"); ?>
                     &nbsp;
                     <a href="<?php echo esc_url_raw(admin_url("admin.php?page=" . self::PAGE_TOOLS . "#wpdtool-ratings")); ?>"
                        class="button button-primary"><?php esc_html_e("Rebuild Ratings", "wpdiscuz"); ?></a>
@@ -2140,7 +2149,7 @@ class WpdiscuzOptions implements WpDiscuzConstants {
     }
 
     public function isShowLoginButtons() {
-        return $this->social["enableFbLogin"] || $this->social["enableTwitterLogin"] || $this->social["enableGoogleLogin"] || $this->social["enableDisqusLogin"] || $this->social["enableWordpressLogin"] || $this->social["enableVkLogin"] || $this->social["enableOkLogin"] || $this->social["enableInstagramLogin"] || $this->social["enableLinkedinLogin"] || $this->social["enableYandexLogin"] || $this->social["enableMailruLogin"] || $this->social["enableWeiboLogin"] || $this->social["enableWechatLogin"] || $this->social["enableQQLogin"] || $this->social["enableBaiduLogin"];
+        return $this->social["enableFbLogin"] || $this->social["enableTwitterLogin"] || $this->social["enableGoogleLogin"]|| $this->social["enableTelegramLogin"] || $this->social["enableDisqusLogin"] || $this->social["enableWordpressLogin"] || $this->social["enableVkLogin"] || $this->social["enableOkLogin"] || $this->social["enableInstagramLogin"] || $this->social["enableLinkedinLogin"] || $this->social["enableYandexLogin"] || $this->social["enableMailruLogin"] || $this->social["enableWeiboLogin"] || $this->social["enableWechatLogin"] || $this->social["enableQQLogin"] || $this->social["enableBaiduLogin"];
     }
 
     public function showEditorToolbar() {
@@ -2185,12 +2194,12 @@ class WpdiscuzOptions implements WpDiscuzConstants {
             $newOptions[self::TAB_LOGIN]["showLoggedInUsername"] = $oldOptions[self::TAB_LOGIN]["showLoggedInUsername"];
         }
         if (isset($oldOptions["hideLoginLinkForGuests"])) {
-            $newOptions[self::TAB_LOGIN]["showLoginLinkForGuests"] = (int)!$oldOptions["hideLoginLinkForGuests"];
+            $newOptions[self::TAB_LOGIN]["showLoginLinkForGuests"] = (int) !$oldOptions["hideLoginLinkForGuests"];
         } else if (isset($oldOptions[self::TAB_LOGIN]["showLoginLinkForGuests"])) {
             $newOptions[self::TAB_LOGIN]["showLoginLinkForGuests"] = $oldOptions[self::TAB_LOGIN]["showLoginLinkForGuests"];
         }
         if (isset($oldOptions["hideUserSettingsButton"])) {
-            $settingsButton = (int)!$oldOptions["hideUserSettingsButton"];
+            $settingsButton = (int) !$oldOptions["hideUserSettingsButton"];
             $newOptions[self::TAB_LOGIN]["showActivityTab"] = $settingsButton;
             $newOptions[self::TAB_LOGIN]["showSubscriptionsTab"] = $settingsButton;
             $newOptions[self::TAB_LOGIN]["showFollowsTab"] = $settingsButton;
@@ -2206,7 +2215,7 @@ class WpdiscuzOptions implements WpDiscuzConstants {
             }
         }
         if (isset($oldOptions["disableProfileURLs"])) {
-            $newOptions[self::TAB_LOGIN]["enableProfileURLs"] = (int)!$oldOptions["disableProfileURLs"];
+            $newOptions[self::TAB_LOGIN]["enableProfileURLs"] = (int) !$oldOptions["disableProfileURLs"];
         } else if (isset($oldOptions[self::TAB_LOGIN]["enableProfileURLs"])) {
             $newOptions[self::TAB_LOGIN]["enableProfileURLs"] = $oldOptions[self::TAB_LOGIN]["enableProfileURLs"];
         }
@@ -2376,17 +2385,17 @@ class WpdiscuzOptions implements WpDiscuzConstants {
             $newOptions[self::TAB_THREAD_DISPLAY]["highlightUnreadComments"] = $oldOptions[self::TAB_THREAD_DISPLAY]["highlightUnreadComments"];
         }
         if (isset($oldOptions["showHideCommentLink"])) {
-            $newOptions[self::TAB_THREAD_DISPLAY]["showCommentLink"] = (int)!$oldOptions["showHideCommentLink"];
+            $newOptions[self::TAB_THREAD_DISPLAY]["showCommentLink"] = (int) !$oldOptions["showHideCommentLink"];
         } else if (isset($oldOptions[self::TAB_THREAD_DISPLAY]["showCommentLink"])) {
             $newOptions[self::TAB_THREAD_DISPLAY]["showCommentLink"] = $oldOptions[self::TAB_THREAD_DISPLAY]["showCommentLink"];
         }
         if (isset($oldOptions["hideCommentDate"])) {
-            $newOptions[self::TAB_THREAD_LAYOUTS]["showCommentDate"] = (int)!$oldOptions["hideCommentDate"];
+            $newOptions[self::TAB_THREAD_LAYOUTS]["showCommentDate"] = (int) !$oldOptions["hideCommentDate"];
         } else if (isset($oldOptions[self::TAB_THREAD_LAYOUTS]["showCommentDate"])) {
             $newOptions[self::TAB_THREAD_LAYOUTS]["showCommentDate"] = $oldOptions[self::TAB_THREAD_LAYOUTS]["showCommentDate"];
         }
         if (isset($oldOptions["wc_voting_buttons_show_hide"])) {
-            $newOptions[self::TAB_THREAD_LAYOUTS]["showVotingButtons"] = (int)!$oldOptions["wc_voting_buttons_show_hide"];
+            $newOptions[self::TAB_THREAD_LAYOUTS]["showVotingButtons"] = (int) !$oldOptions["wc_voting_buttons_show_hide"];
         } else if (isset($oldOptions[self::TAB_THREAD_LAYOUTS]["showVotingButtons"])) {
             $newOptions[self::TAB_THREAD_LAYOUTS]["showVotingButtons"] = $oldOptions[self::TAB_THREAD_LAYOUTS]["showVotingButtons"];
         }
@@ -2436,7 +2445,7 @@ class WpdiscuzOptions implements WpDiscuzConstants {
             $newOptions[self::TAB_THREAD_STYLES]["commentTextSize"] = $oldOptions[self::TAB_THREAD_STYLES]["commentTextSize"];
         }
         if (isset($oldOptions["disableFontAwesome"])) {
-            $newOptions[self::TAB_THREAD_STYLES]["enableFontAwesome"] = (int)!$oldOptions["disableFontAwesome"];
+            $newOptions[self::TAB_THREAD_STYLES]["enableFontAwesome"] = (int) !$oldOptions["disableFontAwesome"];
         } else if (isset($oldOptions[self::TAB_THREAD_STYLES]["enableFontAwesome"])) {
             $newOptions[self::TAB_THREAD_STYLES]["enableFontAwesome"] = $oldOptions[self::TAB_THREAD_STYLES]["enableFontAwesome"];
         }
@@ -2451,12 +2460,12 @@ class WpdiscuzOptions implements WpDiscuzConstants {
             $newOptions[self::TAB_SUBSCRIPTION]["isNotifyOnCommentApprove"] = $oldOptions[self::TAB_SUBSCRIPTION]["isNotifyOnCommentApprove"];
         }
         if (isset($oldOptions["wc_disable_member_confirm"])) {
-            $newOptions[self::TAB_SUBSCRIPTION]["enableMemberConfirm"] = (int)!$oldOptions["wc_disable_member_confirm"];
+            $newOptions[self::TAB_SUBSCRIPTION]["enableMemberConfirm"] = (int) !$oldOptions["wc_disable_member_confirm"];
         } else if (isset($oldOptions[self::TAB_SUBSCRIPTION]["enableMemberConfirm"])) {
             $newOptions[self::TAB_SUBSCRIPTION]["enableMemberConfirm"] = $oldOptions[self::TAB_SUBSCRIPTION]["enableMemberConfirm"];
         }
         if (isset($oldOptions["disableGuestsConfirm"])) {
-            $newOptions[self::TAB_SUBSCRIPTION]["enableGuestsConfirm"] = (int)!$oldOptions["disableGuestsConfirm"];
+            $newOptions[self::TAB_SUBSCRIPTION]["enableGuestsConfirm"] = (int) !$oldOptions["disableGuestsConfirm"];
         } else if (isset($oldOptions[self::TAB_SUBSCRIPTION]["enableGuestsConfirm"])) {
             $newOptions[self::TAB_SUBSCRIPTION]["enableGuestsConfirm"] = $oldOptions[self::TAB_SUBSCRIPTION]["enableGuestsConfirm"];
         }
@@ -2537,7 +2546,7 @@ class WpdiscuzOptions implements WpDiscuzConstants {
             $newOptions[self::TAB_LIVE]["commentListUpdateType"] = $oldOptions[self::TAB_LIVE]["commentListUpdateType"];
         }
         if (isset($oldOptions["wc_live_update_guests"])) {
-            $newOptions[self::TAB_LIVE]["liveUpdateGuests"] = (int)!$oldOptions["wc_live_update_guests"];
+            $newOptions[self::TAB_LIVE]["liveUpdateGuests"] = (int) !$oldOptions["wc_live_update_guests"];
         } else if (isset($oldOptions[self::TAB_LIVE]["liveUpdateGuests"])) {
             $newOptions[self::TAB_LIVE]["liveUpdateGuests"] = $oldOptions[self::TAB_LIVE]["liveUpdateGuests"];
         }
@@ -2629,7 +2638,7 @@ class WpdiscuzOptions implements WpDiscuzConstants {
             ?>
             <div class='notice notice-error'>
                 <p style="font-size: 14px; font-weight: 600;">
-                    <?php esc_html_e($msg, "wpdiscuz"); ?>
+            <?php esc_html_e($msg, "wpdiscuz"); ?>
                 </p>
             </div>
             <?php
@@ -2951,6 +2960,20 @@ class WpdiscuzOptions implements WpDiscuzConstants {
                             "description" => "",
                             "description_original" => "",
                             "docurl" => "https://wpdiscuz.com/docs/wpdiscuz-7/plugin-settings/social-login-and-share/google-app-configuration/",
+                        ],
+                        "enableTelegramLogin" => [
+                            "label" => esc_html__("Telegram Login Button", "wpdiscuz"),
+                            "label_original" => "Telegram Login Button",
+                            "description" => "",
+                            "description_original" => "",
+                            "docurl" => "",
+                        ],
+                        "telegramToken" => [
+                            "label" => esc_html__("Telegram API Token", "wpdiscuz"),
+                            "label_original" => "Telegram API Token",
+                            "description" => "",
+                            "description_original" => "",
+                            "docurl" => "https://wpdiscuz.com/docs/wpdiscuz-7/plugin-settings/social-login-and-share/telegram-bot-configuration/",
                         ],
                         "enableDisqusLogin" => [
                             "label" => esc_html__("Disqus Login Button", "wpdiscuz"),

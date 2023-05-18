@@ -13,6 +13,8 @@ class WpdiscuzAddons implements WpDiscuzConstants {
 
     private $addons;
 
+    private $tips;
+
     public function __construct($options) {
         
         if (is_admin() || !wp_doing_ajax()) {

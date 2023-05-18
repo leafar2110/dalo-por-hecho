@@ -42,25 +42,7 @@
                                         <div class="cont-pago-estado-tab">
                                             <!-- <p>Demostración</p> -->
                                             <div class="cont-pago-estado-form">
-<!--                                                 <div class="dropdown">
-                                                    <button type="button" class="btn-d-estado-p dropdown-toggle"
-                                                                    data-toggle="dropdown">Tiempo
-                                                    </button>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">Link 1</a>
-                                                        <a class="dropdown-item" href="#">Link 2</a>
-                                                        <a class="dropdown-item" href="#">Link 3</a>
-                                                    </div>
-                                                </div> -->
-                                                <!-- <input class="cont-pago-estado-form_input dropdown-toggle" type="text" placeholder="tiempo"> -->
-<!--                                                 <h6>De</h6>
-                                                <input class="cont-pago-estado-form_input" type="date">
-                                                <h6>A</h6>
-                                                <input class="cont-pago-estado-form_input" type="date"> -->
-                                                    <div class="cont-pago-estado-form-ganado">
-                                                        <h5>Ganado neto</h5>
-                                                        <p>$0</p>
-                                                    </div>
+
                                             </div>
 <!--                                             <small>1 transacciones del 07 de noviembre del 2020 al 30 de
                                                             noviembre del 2020
@@ -127,27 +109,7 @@
                                                     <div class="cont-pago-estado-tab">
                                                         <!-- <p>Demostración s</p> -->
                                                         <div class="cont-pago-estado-form">
-<!--                                                             <div class="dropdown">
-                                                                <button type="button"
-                                                                    class="btn-d-estado-p dropdown-toggle"
-                                                                    data-toggle="dropdown">
-                                                                    Tiempo
-                                                                </button>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Link 1</a>
-                                                                    <a class="dropdown-item" href="#">Link 2</a>
-                                                                    <a class="dropdown-item" href="#">Link 3</a>
-                                                                </div>
-                                                            </div> -->
-                                                            <!-- <input class="cont-pago-estado-form_input dropdown-toggle" type="text" placeholder="tiempo"> -->
-<!--                                                             <h6>De</h6>
-                                                            <input class="cont-pago-estado-form_input" type="date">
-                                                            <h6>A</h6>
-                                                            <input class="cont-pago-estado-form_input" type="date"> -->
-                                                            <div class="cont-pago-estado-form-ganado">
-                                                                <h5>Gastado neto</h5>
-                                                                <p><?php echo $gastado ?> $0</p>
-                                                            </div>
+
                                                         </div>
                                                         <!-- <small><?php echo $trans ?> </small> -->
                                                         <div class="tabla-pagos">

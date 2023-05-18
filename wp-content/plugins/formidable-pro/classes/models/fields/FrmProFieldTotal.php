@@ -72,6 +72,10 @@ DEFAULT_HTML;
 
 	/**
 	 * Check to make sure the total hasn't been tampered with.
+	 *
+	 * @param array          $errors All form errors.
+	 * @param stdClass|array $form
+	 * @return array
 	 */
 	public function validate_total( $errors, $form ) {
 		$form_id            = is_array( $form ) ? $form['id'] : $form->id;
@@ -86,17 +90,18 @@ DEFAULT_HTML;
 
 		// Check for conditional logic.
 		if ( empty( $value ) && FrmProFieldsHelper::is_field_hidden( $this->field, wp_unslash( $_POST ) ) ) {
-			return array();
+			$error_key = 'field' . $this->get_field_column( 'id' );
+			unset( $errors[ $error_key ] );
+			return $errors;
 		}
 
 		global $frm_products;
 
-		$sum = 0.0;
-
+		$sum      = 0.0;
 		$currency = FrmProCurrencyHelper::get_currency( $form );
 
-		// Set a decimal separator for currency if no default for it
-		// first remove unnecessary space(s)
+		// Set a decimal separator for currency if no default for it.
+		// first remove unnecessary space(s).
 		$currency['decimal_separator'] = trim( $currency['decimal_separator'] );
 		if ( ! strlen( $currency['decimal_separator'] ) ) {
 			$currency['decimal_separator'] = '.';

@@ -92,7 +92,7 @@ ul.frm_rootline_hidden_steps li {
 }
 
 .frm_rtl .frm_rootline.frm_show_lines > .frm_rootline_single::after {
-	right: 50%
+	right: 50%;
 	left: auto;
 }
 
