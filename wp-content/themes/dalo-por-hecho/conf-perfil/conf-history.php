@@ -95,6 +95,7 @@
                                                                 <td class="tabla-pagos_table_td">
                                                                     <p class="n-m">$ <?php echo 
                                                                     number_format(get_field('asignar_monto_tarea'), 0, '.', '.'); ?></p>
+                                                                    <?php echo get_field('asignar_monto_tarea'); ?>
                                                                 </td>
                                                             </tr>
                                                         <?php endwhile; $i = 0; $i++  ?>   
@@ -135,12 +136,12 @@
                                                             )),                     
                                                         );
                                                         $loop3 = new WP_Query( $args3 ); 
+
+                                                        $i = 0;
                                                         while ( $loop3->have_posts() ) : $loop3->the_post(); 
                                                          $fecha_tarea_publicada = get_post_meta( get_field( 'asignar_id_tarea_publicada' ), '_job_expires', true );
                                                          
-
-
-                                                        ?>                                                            
+                                                        ?>
                                                             <tr>
                                                                 <td class="tabla-pagos_table_td">
                                                                     <p><?php  echo date("d/m/y",strtotime($fecha_tarea_publicada)); ?> </p>
@@ -149,11 +150,14 @@
                                                                     <p><?php echo get_the_title(); ?></p>
                                                                 </td>
                                                                 <td class="tabla-pagos_table_td">
+                                                                    <span class="price-hide"><?php echo get_field('asignar_monto_tarea'); ?></span>
                                                                     <p class="n-m">$ <?php echo  number_format(get_field('asignar_monto_tarea'), 0, '.', '.'); ?></p>
+                                                                    
                                                                 </td>
                                                             </tr>
-                                                        <?php endwhile; ?>                                                          
 
+                                                        <?php $i = $i+1; endwhile; ?>
+                                                                            
                                                                 </tbody>
                                                             </table>
                                                         </div>

@@ -13,6 +13,8 @@ global $current_user, $wp_roles;?>
     $date_perfil = date_new_perfil(user_value_date( $_GET['post'] ));
     $user_perfil = $_GET['post'];
     $description_perfil = meta_user_value( 'description', $_GET['post'] );
+    $nac_perfil = meta_user_value( 'foto_portada_user', $_GET['post'] );
+    $image_perfil = get_post_meta($_GET['post'], 'foto_portada_user', true );
 }else{
     $email_perfil = $current_user->user_email;
     $name_perfil = meta_user_value( 'first_name',  $current_user->ID ); 
@@ -20,12 +22,16 @@ global $current_user, $wp_roles;?>
     $date_perfil = date_new_perfil(user_value_date( $current_user->ID ));    
     $user_perfil = $current_user->ID;
     $description_perfil = meta_user_value( 'description', $current_user->ID );
+    $nac_perfil = meta_user_value( 'foto_portada_user',$current_user->ID );
+    $image_perfil = get_post_meta( $current_user->ID, 'foto_portada_user', true);
 }?>
 
 
    <?php get_header(); ?>
+   <?php var_dump(meta_value_img('foto_portada_user', $user_perfil )); ?>
     <div class="top-gris">
 
+<img src="<?php echo termmeta_value_img('foto_portada_user', $user_perfil ); ?>" />
         
     </div>
     <div class="container">
