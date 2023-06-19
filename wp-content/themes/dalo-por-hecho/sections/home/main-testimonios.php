@@ -29,7 +29,10 @@
 									<p><?php echo cut_text(get_post_meta( get_the_ID(), '_job_description', true ), 10); ?></p>
 								</div>
 								<div class="col-md-4 col-lg-12 col-xl-4">
-									<p class="money">$<?php echo number_format(get_post_meta( get_the_ID(), '_job_salary', true ), 0, '.', '.');  ?></p>
+									<?php $price =  get_post_meta( get_the_ID(), '_job_salary', true ) ?? 0;?>
+									<?php if($price > 0):?>
+										<p class="money">$<?php echo number_format($price, 0, '.', '.');  ?></p>
+									<?php endif;?>
 								</div>
 							</div>
 						</div>

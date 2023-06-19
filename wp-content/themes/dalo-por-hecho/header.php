@@ -295,7 +295,7 @@
                                
                                 
 
-                                <?php echo do_shortcode('[user_registration_form id="208"]');?>
+                                <?php echo do_shortcode('[user_registration_form id="1643"]');?>
 
                                     <center>
                                         <div class="form-login__register" >

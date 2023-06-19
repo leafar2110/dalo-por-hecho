@@ -368,7 +368,7 @@ function onlynumbers(e) {
 $(document).ready(function(){
     load_data_submit();
     function load_data_submit(query)
-    { var urll = "http://localhost/dalo-por-hecho/ajax"; 
+    { var urll = "https://daloporhecho.cl/ajax"; 
         $.ajax({
             url:urll,
             method:"post",
@@ -394,7 +394,7 @@ $(document).ready(function(){
 
     load_data2_submit();
     function load_data2_submit(query)
-    {var urll2 = "http://localhost/dalo-por-hecho/ajax"; 
+    {var urll2 = "https://daloporhecho.cl/ajaxcat"; 
         $.ajax({
             url:urll2,
             method:"post",

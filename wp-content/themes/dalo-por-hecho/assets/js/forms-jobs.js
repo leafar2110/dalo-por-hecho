@@ -17,7 +17,7 @@ $( "button[name='save_draft']" ).click(function( event ) {
 
     jQuery.post(url, data, function(response) {
        if( response['status'] === 'aproved'){
-        window.location.href = "http://localhost/dalo-por-hecho/buscar-tareas/";
+        window.location.href = "https://daloporhecho.cl/buscar-tareas/";
        }
     });
 
