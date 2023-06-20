@@ -4,11 +4,22 @@ $(function () {
 	$('[data-toggle="offcanvas"]').on("click", function () {
 		$(".offcanvas-collapse").toggleClass("open");
 	});
-    $('.perfil-open-menu').on("click", function () {
-        $("#v-pills-tab").toggle("slow");
-    });
+    $('#wp_user_profile_avatar_update_profile').text('Subir foto')
+    $('#wp_user_profile_avatar_undo').text('Deshacer')
+    $('#upload_avatar_responce.wp-user-profile-avatar-error').text('Error! al seleccionar imagen')
+    $('#upload_avatar_responce.wp-user-profile-avatar-success').text('Imagen cargada correctamente')
     
 });
+
+var url = document.location.pathname
+
+if (url === '/dalo-por-hecho/mi-cuenta/' || url === '/mi-cuenta/') {
+    $(window).prop("location", "https://daloporhecho.cl/confi-perfil");
+}
+
+
+
+
 
 ///Buscar tareas
 $(document).ready(function(){
@@ -69,13 +80,23 @@ $('#search_text2').keyup(function(){
 });
 
 
-var tab = "<?= $_GET['tab_tarea']; ?>";                   
-if (tab != "") {
-   var elemento_inicial = document.getElementById("v-pills-"+tab+"-tab");  
-   elemento_inicial.className = "av-link active card-job";
-   var elemento_inicial2 = document.getElementById("v-pills-"+tab);  
-   elemento_inicial2.className = "tab-pane fade show active";           
-}
+    
+
+var elemento_inicial = $(".historial-pago-tab");
+elemento_inicial.click(function(){
+    let hasBtn = $(".historial-pago-tab").hasClass('active') ;
+    if(hasBtn){
+        $(".historial-pago-tab").removeClass('av-link active card-job');
+    }
+    $(this).addClass('av-link active card-job');
+    let href = $(this).attr('href');
+    let elemento_inicial2 = $(`${href}` );
+    let hasTab = $("#v-pills-tareas .tab-pane.fade.show").hasClass('active');
+    if(hasTab){
+        $("#v-pills-tareas .tab-pane.fade.show").removeClass('fade show active')
+    }
+    elemento_inicial2.addClass('tab-pane fade show active')
+})
 
 
 });

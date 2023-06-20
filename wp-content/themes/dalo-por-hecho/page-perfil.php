@@ -13,6 +13,8 @@ global $current_user, $wp_roles;?>
     $date_perfil = date_new_perfil(user_value_date( $_GET['post'] ));
     $user_perfil = $_GET['post'];
     $description_perfil = meta_user_value( 'description', $_GET['post'] );
+    $nac_perfil = meta_user_value( 'foto_portada_user', $_GET['post'] );
+    $image_perfil = get_post_meta($_GET['post'], 'foto_portada_user', true );
 }else{
     $email_perfil = $current_user->user_email;
     $name_perfil = meta_user_value( 'first_name',  $current_user->ID ); 
@@ -20,11 +22,18 @@ global $current_user, $wp_roles;?>
     $date_perfil = date_new_perfil(user_value_date( $current_user->ID ));    
     $user_perfil = $current_user->ID;
     $description_perfil = meta_user_value( 'description', $current_user->ID );
+    $nac_perfil = meta_user_value( 'foto_portada_user',$current_user->ID );
+    $image_perfil = get_post_meta( $current_user->ID, 'foto_portada_user', true);
 }?>
 
 
    <?php get_header(); ?>
-    <div class="top-gris"></div>
+   <?php var_dump(meta_value_img('foto_portada_user', $user_perfil )); ?>
+    <div class="top-gris">
+
+<img src="<?php echo termmeta_value_img('foto_portada_user', $user_perfil ); ?>" />
+        
+    </div>
     <div class="container">
         <div class="img-p-p">
         <?php if ($_GET['post'] != NULL) { ?>
@@ -37,17 +46,11 @@ global $current_user, $wp_roles;?>
     <div class="container inf-general-perfil">
         <div class="inf-general-perfil-1">
             <p class="p-na"> <?php echo $name_perfil; ?></p>
-            <div class="direccion-perfil">
-                <div class="direccion-perfil_img">
-                        <img class="icons" src="<?php echo get_template_directory_uri();?>/assets/img/ubicacion.png" alt="">
-                </div>
-                <div><p><?php echo $address_perfil; ?></p></div>
-            </div>
             <h6 class="p-az">Miembro desde <?php echo $date_perfil; ?></h6>
 
         </div>
         <div class="inf-general-perfil-2">
-            <h6 class="p-az">Ultima coneccion hace 12h</h6>
+            
             
             <div class="valoracion-inf-general-perfil-2">
                 <h6>Valoracion por tareas realizadas</h6>

@@ -1904,7 +1904,6 @@ a.desactivar-cuenta {
 }
 .progress {
 	display: flex !important;
-	justify-content: flex-end !important;
 }
 /**/
 .direccion-perfil {
@@ -1974,7 +1973,7 @@ a.emblemas-perfil-cont_a:hover {
 .top-gris {
 	width: 100%;
 	height: 300px;
-	background-color: #e9e9e9;
+	background: linear-gradient(45deg, rgba(236,134,3,1) 0%, rgba(233,233,233,1) 100%);
 	position: absolute;
 }
 img.img-cont-perfil {
@@ -3459,4 +3458,7 @@ td.tabla-pagos_table_td .btn-general{
 }
 .content-inf-emblemas-cont-box a:nth-child(2){
 	margin-right: 10px;
+}
+.flex-center-align{
+	padding-top: 200px;
 }

@@ -114,7 +114,9 @@
 		transition-duration: 0.3s;
 		transition-property: left, visibility;
 	}
-
+	header .nav-item.dropdown.dowms .dropdown-menu{
+		display: none !important;
+	}
 	.offcanvas-collapse.open {
 		left: 0px;
 		visibility: visible;
@@ -585,9 +587,7 @@
 	.perfil{
 		padding-bottom: 50px;
 	}
-	.perfil #v-pills-tab{
-		display: none;
-	}
+	
 	.perfil-content{
 		text-align: center;
 	}
@@ -665,6 +665,9 @@
 	.btn-general{
 		text-align: center;
 		height: max-content;
+	}
+	.flex-center-align{
+		padding: 100px 0;
 	}
 
 
