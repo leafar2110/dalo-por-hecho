@@ -11,15 +11,6 @@ $(function () {
     
 });
 
-var url = document.location.pathname
-
-if (url === '/dalo-por-hecho/mi-cuenta/' || url === '/mi-cuenta/') {
-    $(window).prop("location", "https://daloporhecho.cl/confi-perfil");
-}
-
-
-
-
 
 ///Buscar tareas
 $(document).ready(function(){

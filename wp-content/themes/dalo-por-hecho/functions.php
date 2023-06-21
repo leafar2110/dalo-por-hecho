@@ -1015,3 +1015,20 @@ function custom_override_checkout_fields( $fields ) {
 }
 
 require_once 'inc/jobs/jobs-utils.php';
+
+// Agrega este código en tu archivo functions.php del tema activo o en un plugin personalizado
+
+// Redirige después de iniciar sesión si el usuario está logueado y hay un token en la URL
+function custom_template_redirect() {
+  // Verifica si el usuario está logueado
+  if ( is_user_logged_in() ) {
+      // Verifica si hay un token en la URL
+      if ( isset( $_GET['ur_token'] ) ) {
+          // Realiza aquí cualquier otra verificación adicional si es necesario
+          // Redirige a la página deseada después de iniciar sesión y validar el token
+          wp_redirect( home_url('/confi-perfil') ); // Reemplaza con la URL de tu página específica
+          exit();
+      }
+  }
+}
+add_action( 'template_redirect', 'custom_template_redirect' );
