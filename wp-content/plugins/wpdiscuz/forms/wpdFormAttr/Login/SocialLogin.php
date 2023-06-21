@@ -53,6 +53,8 @@ class SocialLogin {
             $response = $this->instagramLogin($postID, $response);
         } else if ($provider === "google") {
             $response = $this->googleLogin($postID, $response);
+        } else if ($provider === "telegram") {
+            $response = $this->telegramLogin($postID, $response);
         } else if ($provider === "disqus") {
             $response = $this->disqusLogin($postID, $response);
         } else if ($provider === "wordpress") {
@@ -86,11 +88,13 @@ class SocialLogin {
 
     public function loginCallBack() {
         $this->deleteCookie();
-        $provider = Sanitizer::sanitize(INPUT_GET, "provider", "FILTER_SANITIZE_STRING");
+        $provider = Sanitizer::sanitize(INPUT_GET, "provider", "FILTER_SANITIZE_STRING") ? Sanitizer::sanitize(INPUT_GET, "provider", "FILTER_SANITIZE_STRING") : Sanitizer::sanitize(INPUT_POST, "provider", "FILTER_SANITIZE_STRING");
         if ($provider === "facebook") {
             $response = $this->facebookLoginPHPCallBack();
         } else if ($provider === "google") {
             $response = $this->googleLoginCallBack();
+        } else if ($provider === "telegram") {
+            $response = $this->telegramLoginCallBack();
         } else if ($provider === "twitter") {
             $response = $this->twitterLoginCallBack();
         } else if ($provider === "disqus") {
@@ -156,7 +160,7 @@ class SocialLogin {
         $uID = Utils::addUser($fb_user, "facebook");
         if (is_wp_error($uID)) {
             $response["message"] = $uID->get_error_message();
-        }else{
+        } else {
             $response = ["code" => 200];
         }
         $this->setCurrentUser($uID);
@@ -168,7 +172,7 @@ class SocialLogin {
             $response["message"] = esc_html__("Facebook Application ID and Application Secret  required.", "wpdiscuz");
             return $response;
         }
-        $fbAuthorizeURL = "https://www.facebook.com/v7.0/dialog/oauth";
+        $fbAuthorizeURL = "https://www.facebook.com/v16.0/dialog/oauth";
         $fbCallBack = $this->createCallBackURL("facebook");
         $state = Utils::generateOAuthState($this->generalOptions->social["fbAppID"]);
         Utils::addOAuthState("facebook", $state, $postID);
@@ -198,7 +202,7 @@ class SocialLogin {
             $this->redirect($postID, esc_html__("Facebook authentication failed (OAuth code does not exist).", "wpdiscuz"));
         }
         $fbCallBack = $this->createCallBackURL("facebook");
-        $fbAccessTokenURL = "https://graph.facebook.com/v7.0/oauth/access_token";
+        $fbAccessTokenURL = "https://graph.facebook.com/v16.0/oauth/access_token";
         $accessTokenArgs = ["client_id" => $this->generalOptions->social["fbAppID"],
             "client_secret" => $this->generalOptions->social["fbAppSecret"],
             "redirect_uri" => urlencode($fbCallBack),
@@ -215,7 +219,7 @@ class SocialLogin {
         }
         $token = $fbAccesTokenData["access_token"];
         $appsecret_proof = hash_hmac("sha256", $token, trim($this->generalOptions->social["fbAppSecret"]));
-        $fbGetUserDataURL = add_query_arg(["fields" => "id,first_name,last_name,email", "access_token" => $token, "appsecret_proof" => $appsecret_proof], "https://graph.facebook.com/v7.0/me");
+        $fbGetUserDataURL = add_query_arg(["fields" => "id,first_name,last_name,email", "access_token" => $token, "appsecret_proof" => $appsecret_proof], "https://graph.facebook.com/v16.0/me");
         $getFbUserResponse = wp_remote_get($fbGetUserDataURL);
         if (is_wp_error($getFbUserResponse)) {
             $this->redirect($postID, $getFbUserResponse->get_error_message());
@@ -380,6 +384,59 @@ class SocialLogin {
         }
         $this->setCurrentUser($uID);
         $this->redirect($postID);
+    }
+
+    public function telegramLogin($postID, $response) {
+        if (!$this->generalOptions->social["telegramToken"]) {
+            $response["message"] = esc_html__("Telegram token is required.", "wpdiscuz");
+            return $response;
+        }
+        $bot_id = explode(':', $this->generalOptions->social["telegramToken"])[0];
+        $telegramAuthorizeURL = "https://oauth.telegram.org/auth";
+        $oautAttributs = [
+            "bot_id" => $bot_id,
+            "origin" => get_home_url(),
+            "request_access" => "write",
+            "return_to" => urlencode(get_permalink($postID)),
+        ];
+        $oautURL = add_query_arg($oautAttributs, $telegramAuthorizeURL);
+        $response["code"] = 200;
+        $response["message"] = "";
+        $response["url"] = $oautURL;
+        return $response;
+    }
+
+    public function telegramLoginCallBack() {
+        if (!$this->generalOptions->social["telegramToken"]) {
+            wp_send_json_error(__("Telegram token is required.", "wpdiscuz"));
+        }
+
+        $provider = "telegram";
+        $user = isset($_POST["user"]["hash"]) ? $_POST["user"] : null;
+
+        $check_hash = $user["hash"];
+        unset($user["hash"]);
+        $data_check_arr = [];
+        foreach ($user as $key => $value) {
+            $data_check_arr[] = $key . "=" . $value;
+        }
+        sort($data_check_arr);
+        $data_check_string = implode("\n", $data_check_arr);
+        $secret_key = hash("sha256", $this->generalOptions->social["telegramToken"], true);
+        $hash = hash_hmac("sha256", $data_check_string, $secret_key);
+        if (strcmp($hash, $check_hash) !== 0) {
+            wp_send_json_error(__("Data is NOT from Telegram", "wpdiscuz"));
+        }
+        if ((time() - $user["auth_date"]) > 86400) {
+            wp_send_json_error(__("Data is outdated", "wpdiscuz"));
+        }
+
+        $uID = Utils::addUser($user, $provider);
+        if (is_wp_error($uID)) {
+            wp_send_json_error($uID->get_error_message());
+        }
+        $this->setCurrentUser($uID);
+        wp_send_json_success();
     }
 
     // https://docs.microsoft.com/en-us/linkedin/shared/authentication/authorization-code-flow?context=linkedin/context
@@ -1446,6 +1503,7 @@ class SocialLogin {
             $this->instagramButton();
             $this->twitterButton();
             $this->googleButton();
+            $this->telegramButton();
             $this->disqusButton();
             $this->wordpressButton();
             $this->linkedinButton();
@@ -1523,6 +1581,12 @@ class SocialLogin {
     private function wordpressButton() {
         if ($this->generalOptions->social["enableWordpressLogin"] && $this->generalOptions->social["wordpressClientID"] && $this->generalOptions->social["wordpressClientSecret"]) {
             echo "<span class='wpdsn wpdsn-wp wpdiscuz-login-button' wpd-tooltip='WordPress'><i class='fab fa-wordpress-simple'></i></span>";
+        }
+    }
+
+    private function telegramButton() {
+        if ($this->generalOptions->social["enableTelegramLogin"] && $this->generalOptions->social["telegramToken"]) {
+            echo "<span class='wpdsn wpdsn-telegram wpdiscuz-login-button' wpd-tooltip='Telegram'><i class='fab fa-telegram-plane'></i></span>";
         }
     }
 

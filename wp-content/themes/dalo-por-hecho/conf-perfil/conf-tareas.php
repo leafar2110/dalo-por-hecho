@@ -126,9 +126,17 @@
                                                 <div class="row cont-row-form" id="job_location3">
                                                     <div class="col-md-12">
                                                         <label for="exampleFormControlSelect1">Ciudad</label>
-                                                        <select class="form-control hid" name="_job_location" id="_job_location" required="">
-                                                                                 
-                                                        </select>
+                                                        <li class='nav-item dropdown dowms'>   
+                                                            <div class="main-form__icons">
+                                                                <input class="form-control" value="" type="search" placeholder="Localización" aria-label="Search" name="job_location" id="job_location" autocomplete="off">
+                                                                <input class="form-control" value="" type="hidden" placeholder="Localización" aria-label="Search" name="job_location1" id="job_location1" autocomplete="off">
+                                                            </div>             
+                                                            <div aria-labelledby='dropdownMenuButton' class='dropdown-menu dropdown-menu__scroll'>
+                                                                <div class='content-drop' id="result_submit">
+
+                                                                </div>
+                                                            </div>                    
+                                                        </li>
                                                     </div>
                                                 </div>
                                                 <div class="row cont-row-form" id="job_direccion3">

@@ -192,8 +192,7 @@ class FrmProXMLHelper {
 		// Remove time limit to execute this function
 		set_time_limit( 0 );
 
-		$unmapped_fields = self::get_unmapped_fields( $field_ids );
-		$field_ids       = array_filter( $field_ids );
+		$field_ids = array_filter( $field_ids );
 
 		/**
 		 * Allows adding fixed meta values.
@@ -220,8 +219,6 @@ class FrmProXMLHelper {
 		if ( $f ) {
 			unset( $path );
 			$row = 0;
-			//setlocale(LC_ALL, get_locale());
-
 			while ( ( $data = fgetcsv( $f, 100000, $del ) ) !== false ) {
 				$row++;
 				if ( $start_row > $row ) {
@@ -241,7 +238,7 @@ class FrmProXMLHelper {
 				self::maybe_add_fixed_meta_values( $fixed_meta_values, $values );
 				self::convert_db_cols( $values );
 				self::convert_timestamps( $values );
-				self::save_or_edit_entry( $values, $unmapped_fields );
+				self::save_or_edit_entry( $values );
 
 				unset( $_POST, $values );
 				$_POST['form_id'] = $form_id; // $form_id is set from $_POST['form_id'], so set it back again after the unset line above.
@@ -301,15 +298,6 @@ class FrmProXMLHelper {
 	 */
 	private static function check_csv_filename_for_legacy_format( $path ) {
 		self::$legacy_import_format = false !== strpos( basename( $path ), '-legacy' );
-	}
-
-	private static function get_unmapped_fields( $field_ids ) {
-		$unmapped_fields = array();
-		$mapped_fields   = array_filter( $field_ids );
-		if ( $field_ids != $mapped_fields ) {
-			$unmapped_fields = array_diff( $field_ids, $mapped_fields );
-		}
-		return $unmapped_fields;
 	}
 
 	private static function csv_to_entry_value( $key, $field_id, $data, &$values ) {
@@ -706,8 +694,8 @@ class FrmProXMLHelper {
 	/**
 	 * Save the entry after checking if it should be created or updated
 	 */
-	private static function save_or_edit_entry( $values, $unmapped_fields ) {
-		$editing = self::get_entry_to_edit( $values, $unmapped_fields );
+	private static function save_or_edit_entry( $values ) {
+		$editing = self::get_entry_to_edit( $values );
 		if ( $editing ) {
 			FrmEntry::update( $editing, $values );
 		} else {
@@ -719,8 +707,11 @@ class FrmProXMLHelper {
 	 * Editing CSV entries on import based on id or key
 	 *
 	 * @since 3.01.03
+	 *
+	 * @param array $values
+	 * @return int
 	 */
-	private static function get_entry_to_edit( $values, $unmapped_fields ) {
+	private static function get_entry_to_edit( $values ) {
 		$entry_id = 0;
 		$query    = array();
 
@@ -751,7 +742,7 @@ class FrmProXMLHelper {
 		 * @param int $entry_id - The ID of the entry to edit. 0 means a new entry will be created.
 		 * @param array $values - The mapped values for this entry
 		 */
-		return apply_filters( 'frm_editing_entry_by_csv', absint( $entry_id ), $values );
+		return (int) apply_filters( 'frm_editing_entry_by_csv', absint( $entry_id ), $values );
 	}
 
 	/**
@@ -990,7 +981,7 @@ class FrmProXMLHelper {
 	}
 
 	/**
-	 * @deprecated 2.03.08
+	 * @deprecated 2.03.08 This function is still being used in the API add on so it cannot be removed safely.
 	 */
 	public static function get_dfe_id( $value, $field, $ids = array() ) {
 		_deprecated_function( __FUNCTION__, '2.03.08' );

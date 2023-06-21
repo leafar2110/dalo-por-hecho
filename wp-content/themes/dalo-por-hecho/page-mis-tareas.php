@@ -22,7 +22,14 @@ $job_salary   = get_post_meta( get_the_ID(), '_job_salary', true );
 $job_featured = get_post_meta( get_the_ID(), '_featured', true );
 $company_name = get_post_meta( get_the_ID(), '_company_name', true );
 $al=str_replace("%2C%20", ", ", $_GET["location"]);
-$args = arg($_POST["search_text22"],'job_listing_category',$_POST["search"],$_POST["search_text"],$_POST["search_text33"]);  
+$current_user = wp_get_current_user();
+$user_id = $current_user->ID;
+$args = array(
+    'post_type' => 'job_listing',
+    'post_status' => array('publish'),
+    'posts_per_page' =>-1,
+    'author' => $user_id,
+  ); 
 
 
 $user_actual = $current_user->ID;  
@@ -167,7 +174,7 @@ input#hide:checked ~ div#contente {
                                     <div class="col-6">
                                         <li class='nav-item dropdown dowms'>
                                             <div class="main-form__icons">                                               
-                                                <a class="nav-link btn-custom-nav  btn-custom-transparent-nav" href="<?php echo get_home_url() ?>/buscar-tareas" >Cancelar</a>
+                                                <a class="nav-link btn-custom-nav  btn-custom-transparent-nav" href="<?php echo get_home_url() ?>/buscar-tareas" >Limpiar</a>
                                             </div>                 
                                         </li>                                
                                     </div>
@@ -302,7 +309,6 @@ input#hide:checked ~ div#contente {
 
                 while ( $loop2->have_posts() ) : $loop2->the_post(); $user_tarea = get_the_author_meta( 'ID' ); $title_tarea = get_the_title(); $id_tarea = get_the_ID(); $monto_salary = get_post_meta( get_the_ID(), '_job_salary', true ); $email_empleador = get_the_author_meta( 'user_email' ); $id_postulado = get_the_author_meta( 'ID' );   ?>                
                     <div class="tab-pane fade <?php if($j==0 && $_GET['tab_tarea'] == NULL){ echo "show active";} ?>" id="v-pills-<?php echo get_the_ID();?>" role="tabpanel" aria-labelledby="v-pills-<?php echo get_the_ID();?>-tab">        
-
                         <div class="main-task__minigrid">                
                             <div class="main-taks__date">
                                 <h3 class="mb-3 main-task__title"><?php wpjm_the_job_title(); ?></h3>
@@ -322,6 +328,16 @@ input#hide:checked ~ div#contente {
                                         <ul>
                                             <li class="mr-4 ml-0"><?php the_job_publish_date2(); ?></li>
                                             <li class="active">Abierto</li>
+                                            <li> 
+                                                <?php $type_jobs = get_the_terms( get_the_ID(), 'job_listing_type' )[0]; ?>
+                                                <span 
+                                                    style="background: <?php if($type_jobs->term_id == 19 ): echo '#42ff42'; else:  echo '#ec8603'; endif; ?>;
+                                                    color: #000;
+                                                    padding: 3px 10px;
+                                                    border-radius: 14px;">
+                                                    <?php echo $type_jobs->name;?>
+                                                </span>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="datos_genereal">
@@ -430,7 +446,8 @@ input#hide:checked ~ div#contente {
 
                                                                   <div>
                                                                       
-                                                                     <?php                            
+                                                                     <?php
+                                                                     
                                                                       $count_rating = count_rating($rating_postulado,'todo'); echo " ";
 
                                                                       for ($i=0; $i < $count_rating; $i++) { ?>
@@ -485,7 +502,29 @@ input#hide:checked ~ div#contente {
                                 </div>
                             </div>
 
-                            
+                            <div class="main-taks__presupuesto datos_presupuesto ">
+                                <div class="main-presupuesto__desktop">
+                                    <div class="presupuesto_minicard">
+                                        <p>Presupuesto</p>
+                                        <span class="precio">$<?php echo number_format(get_post_meta( $id_tarea, '_job_salary', true ), 0, '.', '.'); ?></span>
+
+                                        <?php if (is_user_logged_in() != NULL && meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) == "Necesito un Servicio" )
+                                        { 
+                                            $title_tarea2 = $title_tarea."-".meta_user_value( 'first_name', $current_user->ID ); 
+                                            if (bank_data() == "yes" )
+                                            { 
+                                                $target = "publicar"; }else{ $target = "publicar_bank"; 
+                                            } ?>
+                                            <a href="" class="btn-oferta" data-toggle="modal" data-target="#<?php echo $target ?>" onclick="monto_salary2('<?php echo $title_tarea2 ?>','<?php echo $title_tarea ?>','<?php echo $id_tarea ?>','<?php echo $email_empleador ?>','<?php echo meta_user_value( 'first_name', $current_user->ID ) ?>','<?php echo wp_get_current_user()->ID ?>','<?php echo get_post_meta( $id_tarea, '_job_salary', true ) ?>','<?php echo get_avatar_url( wp_get_current_user()->user_email, 50 );?>');">Ofertar</a>   
+                                            <label>Se cargará un 10% del presupuesto por cargos de servicio</label>
+                                        <?php }
+                                        else { ?>                            
+                                            <a href="" class="btn-oferta" data-toggle="modal" data-target="">Ofertar</a>
+                                            <label>Se cargará un 10% del presupuesto por cargos de servicio</label>         
+                                        <?php } ?>   
+                                    </div>
+                                </div>
+                            </div>
                             <div class="preguntas mb-4">
                                 <p>Preguntas (<?php echo count_preguntas($id_tarea); ?>)</p>
                                 <?php 
@@ -517,21 +556,11 @@ input#hide:checked ~ div#contente {
                                                         <?php echo get_avatar( get_the_author_meta( 'user_email' ), 50 );?> 
                                                         <div class="flex ml-3">
                                                             <span><?php echo meta_user_value( 'first_name',  get_the_author_meta( 'ID' ) ); ?></span>
-                                                            <div>
-                                                                <?php                                                         
-                                                                    $count_rating = count_rating($rating_postulado,'todo'); echo " ";
-
-                                                                    for ($i=0; $i < $count_rating; $i++) { ?>
-                                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    <?php } 
-                                                                    for ($i=0; $i < (5-$count_rating); $i++) { ?>
-                                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                                    <?php } ?> 
-                                                            </div>
+                                                            
                                                         </div>
                                                         <p class="ml-auto"><?php the_job_publish_date_postu(); ?></p>
                                                     </div>
-                                                    <p><?php the_field('pregunta_tarea'); ?></p>
+                                                    <p><?php echo the_field('pregunta_tarea'); ?></p>
                                                 </div> 
                                             </div>
                                             <?php 
@@ -612,9 +641,11 @@ input#hide:checked ~ div#contente {
 
 
                 
-                <?php if ($v == 0) {
-                    echo "<h6> No hay resultados </h6>";
-                } ?>        
+                <?php if ($v == 0) { ?>
+                    <h6 class="mb-4"> No hay resultados </h6>
+
+                    <a href="<?php bloginfo('url'); ?>/buscar-tareas/"  class="btn-general">Volver a todas las tareas </a>
+                 <?php } ?>        
 
             </div><!--tab principal -->
         </div>

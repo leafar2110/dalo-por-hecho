@@ -1,11 +1,9 @@
 
-
 jQuery(document).ready(function ($) {
-
     jQuery('.wdgk_select_product').select2({
         ajax: {
             type: 'POST',
-            url: custom_call.ajaxurl,
+            url: wdgkObj.ajaxurl,
             dataType: 'json',
             data: (params) => {
                 return {
@@ -26,14 +24,6 @@ jQuery(document).ready(function ($) {
                 }
             },
         },
-        minimumInputLength: 3,
-
-
+        minimumInputLength: 3
     });
-
-
-
-
-
-
 });

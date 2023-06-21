@@ -67,7 +67,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     display:block;
     overflow:hidden;
     padding:0 0 0 8px;
-    height:25px;
+    min-height:25px;
     text-decoration:none;
     white-space:nowrap;
     line-height:24px;

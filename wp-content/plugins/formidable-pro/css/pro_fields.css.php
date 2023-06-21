@@ -1065,6 +1065,53 @@ div.frm-password-strength {
     float: left;
 }
 
+.frm_show_password_wrapper {
+	position: relative;
+	display: block;
+}
+
+.frm_show_password_wrapper input {
+	display: block;
+}
+
+.frm_show_password_wrapper button {
+	position: absolute;
+	top: 50%;
+	height: 32px;
+	height: var(--field-height);
+	right: 0;
+	border: 0;
+	background: transparent !important;
+	cursor: pointer;
+	transform: translateY(-50%);
+	padding: 0 10px;
+	color: #BFC3C8;
+	color: var(--border-color);
+	display: flex;
+	align-items: center;
+}
+
+.frm_show_password_wrapper button:hover {
+	color: #BFC3C8;
+	color: var(--border-color);
+	background: transparent !important;
+}
+
+.frm_show_password_wrapper button svg {
+	width: 24px;
+	height: 24px;
+}
+
+input[type="text"] + .frm_show_password_btn svg:first-child,
+input[type="password"] + .frm_show_password_btn svg:last-child,
+.frm_form_builder input[type="text"] + .frm_show_password_btn svg:last-child {
+	display: none;
+}
+
+.frm_form_builder input[type="text"] + .frm_show_password_btn svg:first-child {
+	display: block;
+}
+
 div.frm_repeat_grid:after, div.frm_repeat_inline:after, div.frm_repeat_sec:after {
     content: '';
     display: table;

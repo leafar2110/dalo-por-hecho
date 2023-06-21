@@ -9,8 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="frm_repeat_sec">
 
 			<div class="frm_form_field form-field <?php echo esc_attr( $pos_class ); ?>">
-				<label class="frm_primary_label"><?php esc_html_e( 'Text Area', 'formidable-pro' ); ?></label>
-				<textarea></textarea>
+				<label for="field_aq7w5ep" class="frm_primary_label"><?php esc_html_e( 'Text Area', 'formidable-pro' ); ?></label>
+				<textarea id="field_aq7w5ep"></textarea>
 				<div class="frm_description"><?php esc_html_e( 'Another field with a description', 'formidable-pro' ); ?></div>
 			</div>
 

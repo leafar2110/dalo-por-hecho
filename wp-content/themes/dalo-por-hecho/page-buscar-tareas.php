@@ -167,7 +167,7 @@ input#hide:checked ~ div#contente {
                                     <div class="col-6">
                                         <li class='nav-item dropdown dowms'>
                                             <div class="main-form__icons">                                               
-                                                <a class="nav-link btn-custom-nav  btn-custom-transparent-nav" href="<?php echo get_home_url() ?>/buscar-tareas" >Cancelar</a>
+                                                <a class="nav-link btn-custom-nav  btn-custom-transparent-nav" href="<?php echo get_home_url() ?>/buscar-tareas" >Limpiar</a>
                                             </div>                 
                                         </li>                                
                                     </div>
@@ -197,10 +197,11 @@ input#hide:checked ~ div#contente {
                             <?php $i=0;
                             $loop = new WP_Query( $args ); 
 
-                            $loop = new WP_Query(  $args );
-                            $loop2 = new WP_Query( $asig);
+        
 
-                            while ( $loop->have_posts() ) : $loop->the_post(); global $product; $show_slary = get_post_meta( get_the_ID(), '_job_salary', true )?>
+                            $loop = new WP_Query(  $args );
+
+                            while ( $loop->have_posts() ) : $loop->the_post(); $id_tarea_asig = get_the_ID(); global $product; $show_slary = get_post_meta( get_the_ID(), '_job_salary', true )?>
   
 
                                 <a class="av-link <?php if($i==0 && $_GET['tab_tarea'] == NULL){ echo "active";} ?> card-job" id="v-pills-<?php echo get_the_ID();?>-tab_m" data-toggle="pill" href="#v-pills-<?php echo get_the_ID();?>" role="tab" aria-controls="v-pills-<?php echo get_the_ID();?>" aria-selected="false">
@@ -224,7 +225,31 @@ input#hide:checked ~ div#contente {
                                                 <div class="">
                                                     <ul>
                                                        <li class="price">$<?php echo number_format($show_slary, 0, '.', '.'); ?></li>
-                                                       <li class="open">Abierta</li>
+                                                       <?php
+                                               $argscard = array(
+                                                'post_type' => 'asignados', // Reemplaza 'otro_cpt' con el nombre del otro CPT
+                                                'posts_per_page' => -1, // Obtén todos los registros del CPT
+                                                'meta_query' => array(
+                                                    array(
+                                                        'key' => 'asignar_id_tarea_publicada', // Reemplaza 'nombre_del_campo_acf' con el nombre del campo ACF en el otro CPT
+                                                        'value' => $id_tarea_asig,
+                                                        'compare' => 'LIKE'
+                                                    )
+                                                )
+                                            );
+
+                                            $asingcard = new WP_Query($argscard);
+
+                                            // Verifica si se encontraron registros
+                                            if ($asingcard->have_posts()) {
+                                                    // Muestra el contenido o realiza otras operaciones necesarias
+                                                   echo '<li style="font-weight: 500; color: #ec8603;">Asignada</li>';
+
+                                            } else {
+                                                // El ID del CPT actual no se encuentra en el campo ACF del otro CPT
+                                                echo ' <li class="open">Abierta</li>';
+                                            }
+                                               ?>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -247,10 +272,8 @@ input#hide:checked ~ div#contente {
                 <div class="nav flex-column nav-pills" id="v-pills-tab"  role="tablist" aria-orientation="vertical">
                     <?php $i=0;
                     $loop = new WP_Query( $args); 
-                    $loop2 = new WP_Query( $asig);
-                
 
-                    while ( $loop->have_posts() ) : $loop->the_post(); global $product; $show_slary = get_post_meta( get_the_ID(), '_job_salary', true ); ?>                     
+                    while ( $loop->have_posts() ) : $loop->the_post(); global $product; $show_slary = get_post_meta( get_the_ID(), '_job_salary', true ); $id_tarea_asig = get_the_ID();?>                     
                         <a class="av-link email_custom_job <?php if($i==0 && $_GET['tab_tarea'] == NULL){ echo "active";} ?> card-job" id="v-pills-<?php echo get_the_ID();?>-tab" data-mailjob="<?php echo get_the_author_meta( 'user_email' ); ?>" data-toggle="pill" href="#v-pills-<?php echo get_the_ID();?>" role="tab" aria-controls="v-pills-<?php echo get_the_ID();?>" aria-selected="false">
 
                             <div class="content-tetimonios admin-card">
@@ -276,7 +299,32 @@ input#hide:checked ~ div#contente {
                                         <div class="">
                                             <ul>
                                                <li class="price">$<?php echo number_format($show_slary, 0, '.', '.'); ?></li>
-                                               <li class="open">Abierta</li>
+                                               <?php
+                                               $argscard = array(
+                                                'post_type' => 'asignados', // Reemplaza 'otro_cpt' con el nombre del otro CPT
+                                                'posts_per_page' => -1, // Obtén todos los registros del CPT
+                                                'meta_query' => array(
+                                                    array(
+                                                        'key' => 'asignar_id_tarea_publicada', // Reemplaza 'nombre_del_campo_acf' con el nombre del campo ACF en el otro CPT
+                                                        'value' => $id_tarea_asig,
+                                                        'compare' => 'LIKE'
+                                                    )
+                                                )
+                                            );
+
+                                            $asingcard = new WP_Query($argscard);
+
+                                            // Verifica si se encontraron registros
+                                            if ($asingcard->have_posts()) {
+                                                    // Muestra el contenido o realiza otras operaciones necesarias
+                                                   echo '<li style="font-weight: 500;  color: #ec8603;">Asignada</li>';
+
+                                            } else {
+                                                // El ID del CPT actual no se encuentra en el campo ACF del otro CPT
+                                                echo ' <li class="open">Abierta</li>';
+                                            }
+                                               ?>
+                                              
                                             </ul>
                                         </div>
                                     </div>
@@ -302,7 +350,6 @@ input#hide:checked ~ div#contente {
 
                 while ( $loop2->have_posts() ) : $loop2->the_post(); $user_tarea = get_the_author_meta( 'ID' ); $title_tarea = get_the_title(); $id_tarea = get_the_ID(); $monto_salary = get_post_meta( get_the_ID(), '_job_salary', true ); $email_empleador = get_the_author_meta( 'user_email' ); $id_postulado = get_the_author_meta( 'ID' );   ?>                
                     <div class="tab-pane fade <?php if($j==0 && $_GET['tab_tarea'] == NULL){ echo "show active";} ?>" id="v-pills-<?php echo get_the_ID();?>" role="tabpanel" aria-labelledby="v-pills-<?php echo get_the_ID();?>-tab">        
-
                         <div class="main-task__minigrid">                
                             <div class="main-taks__date">
                                 <h3 class="mb-3 main-task__title"><?php wpjm_the_job_title(); ?></h3>
@@ -321,7 +368,48 @@ input#hide:checked ~ div#contente {
                                         </div>
                                         <ul>
                                             <li class="mr-4 ml-0"><?php the_job_publish_date2(); ?></li>
-                                            <li class="active">Abierto</li>
+
+                                            <?php
+                                                $type_jobs = get_the_terms( get_the_ID(), 'job_listing_type' )[0]; 
+                                                // Verifica si el ID se encuentra en el campo ACF de otro CPT
+                                                $args = array(
+                                                    'post_type' => 'asignados', // Reemplaza 'otro_cpt' con el nombre del otro CPT
+                                                    'posts_per_page' => -1, // Obtén todos los registros del CPT
+                                                    'meta_query' => array(
+                                                        array(
+                                                            'key' => 'asignar_id_tarea_publicada', // Reemplaza 'nombre_del_campo_acf' con el nombre del campo ACF en el otro CPT
+                                                            'value' => get_the_ID(),
+                                                            'compare' => 'LIKE'
+                                                        )
+                                                    )
+                                                );
+
+                                                $asing = new WP_Query($args);
+
+                                                // Verifica si se encontraron registros
+                                                if ($asing->have_posts()) {
+                                                    // El ID del CPT actual se encuentra en el campo ACF del otro CPT
+                                                    while ($asing->have_posts()) {
+                                                        $asing->the_post();
+                                                        // Muestra el contenido o realiza otras operaciones necesarias
+                                                       echo '<li class="active" style="background:#a3a4a5;">Asignada</li>';
+                                                    }
+                                                } else {
+                                                    // El ID del CPT actual no se encuentra en el campo ACF del otro CPT
+                                                    echo '<li class="active">Abierta</li>';
+                                                }
+                                            ?>
+                                            
+                                            <li> 
+                                               
+                                                <span 
+                                                    style="background: <?php if($type_jobs->term_id == 19 ): echo '#42ff42'; else:  echo '#ec8603'; endif; ?>;
+                                                    color: #000;
+                                                    padding: 3px 10px;
+                                                    border-radius: 14px;">
+                                                    <?php echo $type_jobs->name;?>
+                                                </span>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="datos_genereal">
@@ -370,14 +458,17 @@ input#hide:checked ~ div#contente {
                                             <?php }
                                             if (is_user_logged_in() == NULL )
                                             {?>
+                                            
                                                 <a href="" class="btn-oferta" data-toggle="modal" data-target="">Ofertar</a>
+                                             
                                                 <label>Se cargará un 10% del presupuesto por cargos de servicio</label>
                                                 <label>Debe regristrarse <a href="#" data-toggle="modal" data-target="#exampleModal">aquí</a> para poder ofertar</label>
 
                                             <?php } ?>  
                                             <?php if (is_user_logged_in() != NULL && meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) != "Necesito un Servicio" )
                                             {?> 
-                                                <a href="" class="btn-oferta" data-toggle="modal" data-target="">Ofertar</a>  
+                                                 
+                                                     <a href="" class="btn-oferta" data-toggle="modal" data-target="">Ofertar</a>  
                                                 <label>Se cargará un 10% del presupuesto por cargos de servicio</label>
                                                 <label>Debes cambiar tu rol de perfil <a href="<?php echo get_home_url() ?>/confi-perfil/?tab=conf">aquí </a> para poder ofertar</label>
                                             <?php } ?>                            
@@ -499,10 +590,13 @@ input#hide:checked ~ div#contente {
                                             { 
                                                 $target = "publicar"; }else{ $target = "publicar_bank"; 
                                             } ?>
+                                            <?php if (!$asing->have_posts()) {?>
                                             <a href="" class="btn-oferta" data-toggle="modal" data-target="#<?php echo $target ?>" onclick="monto_salary2('<?php echo $title_tarea2 ?>','<?php echo $title_tarea ?>','<?php echo $id_tarea ?>','<?php echo $email_empleador ?>','<?php echo meta_user_value( 'first_name', $current_user->ID ) ?>','<?php echo wp_get_current_user()->ID ?>','<?php echo get_post_meta( $id_tarea, '_job_salary', true ) ?>','<?php echo get_avatar_url( wp_get_current_user()->user_email, 50 );?>');">Ofertar</a>   
                                             <label>Se cargará un 10% del presupuesto por cargos de servicio</label>
+                                            <?php }?>
                                         <?php }
-                                        else { ?>                            
+                                        else { ?>  
+
                                             <a href="" class="btn-oferta" data-toggle="modal" data-target="">Ofertar</a>
                                             <label>Se cargará un 10% del presupuesto por cargos de servicio</label>         
                                         <?php } ?>   

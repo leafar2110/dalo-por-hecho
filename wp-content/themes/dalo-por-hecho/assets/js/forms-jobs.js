@@ -1,4 +1,7 @@
 
+$('input[name=job_type]').click(function() {
+    console.log(this)
+})
 $( "button[name='save_draft']" ).click(function( event ) {
     event.preventDefault();
     //url de enpoint
@@ -17,7 +20,7 @@ $( "button[name='save_draft']" ).click(function( event ) {
 
     jQuery.post(url, data, function(response) {
        if( response['status'] === 'aproved'){
-        window.location.href = "http://localhost/dalo-por-hecho/buscar-tareas/";
+        window.location.href = "/";
        }
     });
 

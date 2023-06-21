@@ -2,7 +2,7 @@
 /*
  * Plugin Name: wpDiscuz
  * Description: #1 WordPress Comment Plugin. Innovative, modern and feature-rich comment system to supercharge your website comment section.
- * Version: 7.5.3
+ * Version: 7.6.1
  * Author: gVectors Team
  * Author URI: https://gvectors.com/
  * Plugin URI: https://wpdiscuz.com/
@@ -89,6 +89,7 @@ class WpdiscuzCore implements WpDiscuzConstants {
 
         add_action("admin_init", [&$this, "uninstall"], 1);
         add_action("init", [&$this, "wpdiscuzTextDomain"]);
+        add_action("init", [&$this, "wpdiscuzBlockInit"]);
         add_action("admin_init", [&$this, "pluginNewVersion"], 1);
         add_action("admin_enqueue_scripts", [&$this, "backendFiles"], 100);
         add_action("wp_enqueue_scripts", [&$this, "frontendFiles"]);
@@ -506,7 +507,7 @@ class WpdiscuzCore implements WpDiscuzConstants {
             $this->form = $this->wpdiscuzForm->getForm($comment->comment_post_ID);
             $this->form->initFormFields();
             $this->form->validateFields($currentUser);
-            if (!((int)get_comment_meta($comment->comment_ID, self::META_KEY_CLOSED, true)) && ($highLevelUser || $isCurrentUserCanEdit) && $this->form->isUserCanSeeComments($currentUser, $comment->comment_post_ID) && $this->form->isUserCanComment($currentUser, $comment->comment_post_ID)) {
+            if (!((int) get_comment_meta($comment->comment_ID, self::META_KEY_CLOSED, true)) && ($highLevelUser || $isCurrentUserCanEdit) && $this->form->isUserCanSeeComments($currentUser, $comment->comment_post_ID) && $this->form->isUserCanComment($currentUser, $comment->comment_post_ID)) {
                 $isInRange = $this->helper->isContentInRange($trimmedContent, $comment->comment_parent);
 
                 if (!$isInRange && !$highLevelUser) {
@@ -620,8 +621,8 @@ class WpdiscuzCore implements WpDiscuzConstants {
                         $inlineContent . $commentContent
                             ], $components["text.html"]);
 
-	                $response["callbackFunctions"] = [];
-	                $response = apply_filters("wpdiscuz_ajax_callbacks", $response);
+                    $response["callbackFunctions"] = [];
+                    $response = apply_filters("wpdiscuz_ajax_callbacks", $response);
                     $response = apply_filters("wpdiscuz_comment_edit_save", $response);
                     wp_send_json_success($response);
                 } else {
@@ -1183,7 +1184,7 @@ class WpdiscuzCore implements WpDiscuzConstants {
             wp_enqueue_script("wpdiscuz-deactivation-js");
             wp_localize_script("wpdiscuz-deactivation-js", "deactivationObj", $reasonArgs);
         }
-        wp_register_script(self::WPDISCUZ_FEEDBACK_SHORTCODE . "-shortcode-js", null);
+        wp_register_script(self::WPDISCUZ_FEEDBACK_SHORTCODE . "-shortcode-js", '');
         wp_enqueue_script(self::WPDISCUZ_FEEDBACK_SHORTCODE . "-shortcode-js");
         wp_localize_script(self::WPDISCUZ_FEEDBACK_SHORTCODE . "-shortcode-js", "wpdObject", [
             "ajaxUrl" => admin_url("admin-ajax.php"),
@@ -1664,7 +1665,7 @@ class WpdiscuzCore implements WpDiscuzConstants {
     }
 
     public function addContentModal() {
-        echo "<a href='javascript:void(0);' id='wpdUserContentInfoAnchor' style='display:none;' rel='#wpdUserContentInfo' data-wpd-lity>wpDiscuz</a>";
+        echo "<a nofollow noindex href='javascript:void(0);' id='wpdUserContentInfoAnchor' style='display:none;' rel='#wpdUserContentInfo' data-wpd-lity>wpDiscuz</a>";
         echo "<div id='wpdUserContentInfo' style='overflow:auto;background:#FDFDF6;padding:20px;width:600px;max-width:100%;border-radius:6px;' class='lity-hide'></div>";
     }
 
@@ -2504,6 +2505,63 @@ class WpdiscuzCore implements WpDiscuzConstants {
      */
     public function getOptions() {
         return $this->options;
+    }
+
+    public function wpdiscuzBlockInit() {
+        register_block_type(__DIR__ . "/assets/block", ["render_callback" => [&$this, "renderBlockWpdiscuz"]]);
+    }
+
+    public function renderBlockWpdiscuz($attributes, $content, $block) {
+        global $post;
+        $post_id = isset($block->context['postId']) ? $block->context['postId'] : 0;
+        $context = isset($_GET['context']) ? $_GET['context'] : '';
+        ob_start();
+        if ($context === 'edit') {
+            $editBlockNotice = __('This is just a demo of wpDiscuz comment section.<br>
+            Further customization can be done in the Dashboard > wpDiscuz > Settings admin page.<br>
+            The comment form layout can be customized in the Dashboard > wpDiscuz > Forms admin page.', 'wpdiscuz');
+            if ($post_id) {
+                $post_before = $post;
+                $post = get_post($post_id);
+                $form = $this->wpdiscuzForm->getForm($post_id);
+                $form->initFormFields();
+                if (!apply_filters("is_load_wpdiscuz", $form->getFormID() && (comments_open($post) || $post->comment_count) && post_type_supports($post->post_type, "comments"), $post)) {
+                    echo '<div class="wpdiscuz-edit-bloc-notice block-editor-warning">' . __('wpDiscuz is not loaded for the following reason.', 'wpdiscuz');
+                    if (!post_type_supports($post->post_type, "comments")) {
+                        echo '<br>' . __('The post type doesn\'t support comments.', 'wpdiscuz');
+                    } else if (!comments_open($post)) {
+                        echo '<br>' . __('The comments are closed for the post.', 'wpdiscuz');
+                    } else {
+                        echo '<br>' . __('The post type is not enabled in the "Display comment form for post types" section.', 'wpdiscuz');
+                    }
+                    echo '</div>';
+                } else {
+                    echo '<div class="wpdiscuz-edit-bloc-notice block-editor-warning">' . $editBlockNotice . '</div>';
+                    include __DIR__ . "/themes/default/comment-form.php";
+                }
+                $post = $post_before;
+            } else {
+                echo '<div class="wpdiscuz-edit-bloc-notice block-editor-warning">' . $editBlockNotice . '</div>';
+                include __DIR__ . "/themes/default/demo.php";
+            }
+        } else {
+            if ($post_id) {
+                $post_before = $post;
+                $post = get_post($post_id);
+                setup_postdata($post);
+                $form = $this->wpdiscuzForm->getForm($post_id);
+                $form->initFormFields();
+                if (apply_filters("is_load_wpdiscuz", $form->getFormID() && (comments_open($post) || $post->comment_count) && is_singular() && post_type_supports($post->post_type, "comments"), $post)) {
+                    add_filter('deprecated_file_trigger_error', '__return_false');
+                    comments_template();
+                    remove_filter('deprecated_file_trigger_error', '__return_false');
+                }
+                $post = $post_before;
+            } 
+        }
+        $output = ob_get_clean();
+        $wrapperAttributes = get_block_wrapper_attributes();
+        return sprintf('<div %1$s><div>%2$s</div></div>', $wrapperAttributes, $output);
     }
 
 }

@@ -47,7 +47,17 @@ class FrmProFieldPassword extends FrmFieldType {
 		return array(
 			'strong_pass' => 0,
 			'strength_meter' => 0,
+			'show_password'  => 0,
 		);
+	}
+
+	public function get_new_field_defaults() {
+		$field = parent::get_new_field_defaults();
+
+		// Setting `show_password` to 1 in the `extra_field_opts()` method will cause that option is always enabled.
+		$field['field_options']['show_password'] = 1;
+
+		return $field;
 	}
 
 	/**
@@ -56,7 +66,25 @@ class FrmProFieldPassword extends FrmFieldType {
 	protected function builder_text_field( $name = '' ) {
 		$html  = FrmProFieldsHelper::builder_page_prepend( $this->field );
 		$field = parent::builder_text_field( $name );
+
+		// Always display the show password button, then use CSS to hide it.
+		$this->maybe_add_show_password_html( $field, true );
+
 		return str_replace( '[input]', $field, $html );
+	}
+
+	/**
+	 * Modifies the field wrapper CSS classes on the form builder.
+	 *
+	 * @param string $classes Field wrapper CSS classes.
+	 * @return string
+	 */
+	protected function alter_builder_classes( $classes ) {
+		if ( ! FrmField::get_option( $this->field, 'show_password' ) ) {
+			$classes .= ' frm_disabled_show_password';
+		}
+
+		return $classes;
 	}
 
 	/**
@@ -142,6 +170,8 @@ class FrmProFieldPassword extends FrmFieldType {
 		$input_html            = parent::front_field_input( $args, $shortcode_atts );
 		$strength_meter_option = FrmField::get_option( $this->field, 'strength_meter' );
 
+		$this->maybe_add_show_password_html( $input_html );
+
 		if ( ! $strength_meter_option ) {
 			return $input_html;
 		}
@@ -159,6 +189,20 @@ class FrmProFieldPassword extends FrmFieldType {
 		}
 
 		return $input_html;
+	}
+
+	/**
+	 * Maybe add show password HTML.
+	 *
+	 * @since 6.x
+	 *
+	 * @param string $input_html Input HTML.
+	 * @param bool   $force      Force adding show password HTML.
+	 */
+	private function maybe_add_show_password_html( &$input_html, $force = false ) {
+		if ( $force || FrmField::get_option( $this->field, 'show_password' ) ) {
+			$input_html = FrmProFieldsHelper::add_show_password_html( $input_html );
+		}
 	}
 
 	/**

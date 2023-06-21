@@ -1,17 +1,17 @@
-# Copyright (C) 2022 Automattic
+# Copyright (C) 2023 Automattic
 # This file is distributed under the GPL2+.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Job Manager 1.39.0\n"
+"Project-Id-Version: WP Job Manager 1.40.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-job-manager/\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-12-13T10:58:37+00:00\n"
+"POT-Creation-Date: 2023-05-26T10:42:24+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.6.0\n"
+"X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: wp-job-manager\n"
 
 #. Plugin Name of the plugin
@@ -65,60 +65,86 @@ msgstr ""
 msgid "Terms and Conditions is a required field"
 msgstr ""
 
-#: includes/admin/class-wp-job-manager-addons.php:125
-#: includes/admin/class-wp-job-manager-admin.php:134
+#: includes/admin/class-wp-job-manager-addons.php:96
+#: includes/admin/class-wp-job-manager-admin.php:141
 #: includes/admin/views/html-admin-page-addons.php:12
 msgid "WP Job Manager Add-ons"
 msgstr ""
 
-#: includes/admin/class-wp-job-manager-addons.php:133
-#: includes/helper/views/html-licences.php:12
+#: includes/admin/class-wp-job-manager-addons.php:104
+#: includes/helper/views/html-licences.php:14
 msgid "Licenses"
 msgstr ""
 
-#: includes/admin/class-wp-job-manager-admin-notices.php:109
+#: includes/admin/class-wp-job-manager-admin-notices.php:156
 msgid "Action failed. Please refresh the page and retry."
 msgstr ""
 
-#: includes/admin/class-wp-job-manager-admin-notices.php:113
+#: includes/admin/class-wp-job-manager-admin-notices.php:160
 msgid "You don&#8217;t have permission to do this."
 msgstr ""
 
-#: includes/admin/class-wp-job-manager-admin.php:110
-msgctxt "user selection"
-msgid "No matches found"
+#: includes/admin/class-wp-job-manager-admin-notices.php:460
+msgid "Update"
 msgstr ""
 
-#: includes/admin/class-wp-job-manager-admin.php:111
-msgctxt "user selection"
-msgid "Loading failed"
+#. translators: %s is the name of the wpjm addon to be updated.
+#: includes/admin/class-wp-job-manager-admin-notices.php:463
+msgid "Good news, reminder to update to the latest version of %s."
 msgstr ""
 
-#: includes/admin/class-wp-job-manager-admin.php:112
-msgctxt "user selection"
-msgid "Please enter 1 or more characters"
+#: includes/admin/class-wp-job-manager-admin-notices.php:467
+msgid "View release notes"
 msgstr ""
 
-#: includes/admin/class-wp-job-manager-admin.php:113
-msgctxt "user selection"
-msgid "Please enter %qty% or more characters"
+#: includes/admin/class-wp-job-manager-admin-notices.php:475
+msgid "Good news, reminder to update these plugins to their latest versions."
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-admin-notices.php:476
+msgid "Update All"
+msgstr ""
+
+#. translators: %s is the new version number for the addon.
+#: includes/admin/class-wp-job-manager-admin-notices.php:485
+msgid "New Version: %s"
 msgstr ""
 
 #: includes/admin/class-wp-job-manager-admin.php:114
 msgctxt "user selection"
-msgid "Loading more results&hellip;"
+msgid "No matches found"
 msgstr ""
 
 #: includes/admin/class-wp-job-manager-admin.php:115
 msgctxt "user selection"
+msgid "Loading failed"
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-admin.php:116
+msgctxt "user selection"
+msgid "Please enter 1 or more characters"
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-admin.php:117
+msgctxt "user selection"
+msgid "Please enter %qty% or more characters"
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-admin.php:118
+msgctxt "user selection"
+msgid "Loading more results&hellip;"
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-admin.php:119
+msgctxt "user selection"
 msgid "Searching&hellip;"
 msgstr ""
 
-#: includes/admin/class-wp-job-manager-admin.php:131
+#: includes/admin/class-wp-job-manager-admin.php:138
 msgid "Settings"
 msgstr ""
 
-#: includes/admin/class-wp-job-manager-admin.php:134
+#: includes/admin/class-wp-job-manager-admin.php:141
 msgid "Add-ons"
 msgstr ""
 
@@ -989,11 +1015,7 @@ msgstr ""
 msgid "Skip Setup"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-addons.php:23
-msgid "More Information &rarr;"
-msgstr ""
-
-#: includes/admin/views/html-admin-page-addons.php:54
+#: includes/admin/views/html-admin-page-addons.php:33
 msgid "No add-ons were found."
 msgstr ""
 
@@ -1294,6 +1316,10 @@ msgstr ""
 
 #: includes/class-wp-job-manager-email-notifications.php:635
 msgid "Send rich text email"
+msgstr ""
+
+#: includes/class-wp-job-manager-email-notifications.php:647
+msgid "Email"
 msgstr ""
 
 #: includes/class-wp-job-manager-geocode.php:234
@@ -1669,35 +1695,35 @@ msgid "Enable Usage Tracking"
 msgstr ""
 
 #. translators: Placeholders %1$s and %2$s are the names of the two cookies used in WP Job Manager.
-#: includes/class-wp-job-manager.php:140
+#: includes/class-wp-job-manager.php:141
 msgid ""
 "This site adds the following cookies to help users resume job submissions that they\n"
 "\t\t\t\thave started but have not completed: %1$s and %2$s"
 msgstr ""
 
-#: includes/class-wp-job-manager.php:361
+#: includes/class-wp-job-manager.php:362
 msgid "Load previous listings"
 msgstr ""
 
-#: includes/class-wp-job-manager.php:489
+#: includes/class-wp-job-manager.php:490
 msgid "Invalid file type. Accepted types:"
 msgstr ""
 
-#: includes/class-wp-job-manager.php:507
+#: includes/class-wp-job-manager.php:508
 msgid "Any Category"
 msgstr ""
 
 #. translators: Placeholder %d is the number of files to that users are limited to.
-#: includes/class-wp-job-manager.php:523
+#: includes/class-wp-job-manager.php:524
 #: includes/forms/class-wp-job-manager-form-submit-job.php:504
 msgid "You are only allowed to upload a maximum of %d files."
 msgstr ""
 
-#: includes/class-wp-job-manager.php:531
+#: includes/class-wp-job-manager.php:532
 msgid "Are you sure you want to delete this listing?"
 msgstr ""
 
-#: includes/class-wp-job-manager.php:539
+#: includes/class-wp-job-manager.php:540
 msgid "This field is required."
 msgstr ""
 
@@ -1815,7 +1841,7 @@ msgid "Enter the name of the company"
 msgstr ""
 
 #: includes/forms/class-wp-job-manager-form-submit-job.php:301
-#: templates/content-single-job_listing-company.php:30
+#: templates/content-single-job_listing-company.php:31
 msgid "Website"
 msgstr ""
 
@@ -1922,43 +1948,52 @@ msgstr ""
 msgid "Draft was saved. Job listing drafts can be resumed from the <a href=\"%s\">job dashboard</a>."
 msgstr ""
 
-#: includes/helper/class-wp-job-manager-helper.php:329
+#: includes/helper/class-wp-job-manager-helper.php:333
 msgid "Manage License (Requires Attention)"
 msgstr ""
 
-#: includes/helper/class-wp-job-manager-helper.php:332
+#: includes/helper/class-wp-job-manager-helper.php:336
 #: tests/php/tests/includes/helper/test_class.wp-job-manager-helper.php:243
 msgid "Manage License"
 msgstr ""
 
-#: includes/helper/class-wp-job-manager-helper.php:335
-#: includes/helper/views/html-licences.php:76
+#: includes/helper/class-wp-job-manager-helper.php:339
+#: includes/helper/views/html-licences.php:44
+#: includes/helper/views/html-licences.php:170
 #: tests/php/tests/includes/helper/test_class.wp-job-manager-helper.php:259
 msgid "Activate License"
 msgstr ""
 
-#: includes/helper/class-wp-job-manager-helper.php:544
-msgid "Please enter a valid license key and email address in order to activate this plugin's license."
+#: includes/helper/class-wp-job-manager-helper.php:626
+msgid "Please enter a valid license key in order to activate this plugin's license."
 msgstr ""
 
-#: includes/helper/class-wp-job-manager-helper.php:576
-msgid "Connection failed to the License Key API server - possible server issue."
+#: includes/helper/class-wp-job-manager-helper.php:656
+msgid "Please enter a valid license key in order to activate the licenses of the plugins."
 msgstr ""
 
-#: includes/helper/class-wp-job-manager-helper.php:585
-msgid "Plugin license has been activated."
+#: includes/helper/class-wp-job-manager-helper.php:683
+msgid "There was an error activating your license key. Please try again later."
 msgstr ""
 
-#: includes/helper/class-wp-job-manager-helper.php:588
-msgid "An unknown error occurred while attempting to activate the license"
-msgstr ""
-
-#: includes/helper/class-wp-job-manager-helper.php:608
+#: includes/helper/class-wp-job-manager-helper.php:737
 msgid "license is not active."
 msgstr ""
 
-#: includes/helper/class-wp-job-manager-helper.php:624
+#: includes/helper/class-wp-job-manager-helper.php:753
 msgid "Plugin license has been deactivated."
+msgstr ""
+
+#: includes/helper/class-wp-job-manager-helper.php:874
+msgid "Connection failed to the License Key API server - possible server issue."
+msgstr ""
+
+#: includes/helper/class-wp-job-manager-helper.php:883
+msgid "Plugin license has been activated."
+msgstr ""
+
+#: includes/helper/class-wp-job-manager-helper.php:887
+msgid "An unknown error occurred while attempting to activate the license"
 msgstr ""
 
 #: includes/helper/views/html-licence-key-error.php:13
@@ -1976,31 +2011,58 @@ msgstr ""
 msgid "<a href=\"%1$s\">Please enter your license key</a> to get updates for \"%2$s\"."
 msgstr ""
 
-#: includes/helper/views/html-licences.php:57
-#: includes/helper/views/html-licences.php:70
-msgid "License"
+#: includes/helper/views/html-licences.php:24
+msgid "Activate Job Manager Licenses"
 msgstr ""
 
-#: includes/helper/views/html-licences.php:60
-#: includes/helper/views/html-licences.php:73
-msgid "Email"
+#: includes/helper/views/html-licences.php:27
+msgid "Activate all licenses at once. Easy, everything in one place."
 msgstr ""
 
-#: includes/helper/views/html-licences.php:61
-#: includes/helper/views/html-licences.php:74
-msgid "Email address"
+#: includes/helper/views/html-licences.php:43
+msgid "ENTER YOUR LICENSE KEY"
 msgstr ""
 
-#: includes/helper/views/html-licences.php:64
+#: includes/helper/views/html-licences.php:54
+#: includes/helper/views/html-licences.php:55
+msgid "Search"
+msgstr ""
+
+#. translators: placeholder is the number of active addons, which will never be zero.
+#: includes/helper/views/html-licences.php:62
+msgid "Active (%d)"
+msgstr ""
+
+#. translators: placeholder is the addon name.
+#: includes/helper/views/html-licences.php:71
+#: includes/helper/views/html-licences.php:136
+msgid "Plugin Icon for %s"
+msgstr ""
+
+#: includes/helper/views/html-licences.php:100
+msgid "Plugin is activated"
+msgstr ""
+
+#: includes/helper/views/html-licences.php:104
+#: includes/helper/views/html-licences.php:168
+msgid "LICENSE"
+msgstr ""
+
+#: includes/helper/views/html-licences.php:107
 msgid "Deactivate License"
 msgstr ""
 
+#. translators: placeholder is the number of inactive addons, which will never be zero.
+#: includes/helper/views/html-licences.php:127
+msgid "Inactive (%d)"
+msgstr ""
+
 #. translators: Placeholder %s is the lost license key URL.
-#: includes/helper/views/html-licences.php:89
+#: includes/helper/views/html-licences.php:186
 msgid "Lost your license key? <a href=\"%s\">Retrieve it here</a>."
 msgstr ""
 
-#: includes/helper/views/html-licences.php:91
+#: includes/helper/views/html-licences.php:188
 msgid "No plugins are activated that have licenses managed by WP Job Manager."
 msgstr ""
 
@@ -2087,10 +2149,6 @@ msgid "Sorry, you do not have permission to browse job listings."
 msgstr ""
 
 #: templates/access-denied-single-job_listing.php:20
-msgid "This listing has expired"
-msgstr ""
-
-#: templates/access-denied-single-job_listing.php:22
 msgid "Sorry, you do not have permission to view this job listing."
 msgstr ""
 
@@ -2465,27 +2523,27 @@ msgstr ""
 msgid "Uploaded files need to be one of the following file types: %s"
 msgstr ""
 
-#: wp-job-manager-functions.php:1691
+#: wp-job-manager-functions.php:1687
 msgid "--"
 msgstr ""
 
-#: wp-job-manager-functions.php:1692
+#: wp-job-manager-functions.php:1688
 msgid "Year"
 msgstr ""
 
-#: wp-job-manager-functions.php:1693
+#: wp-job-manager-functions.php:1689
 msgid "Month"
 msgstr ""
 
-#: wp-job-manager-functions.php:1694
+#: wp-job-manager-functions.php:1690
 msgid "Week"
 msgstr ""
 
-#: wp-job-manager-functions.php:1695
+#: wp-job-manager-functions.php:1691
 msgid "Day"
 msgstr ""
 
-#: wp-job-manager-functions.php:1696
+#: wp-job-manager-functions.php:1692
 msgid "Hour"
 msgstr ""
 

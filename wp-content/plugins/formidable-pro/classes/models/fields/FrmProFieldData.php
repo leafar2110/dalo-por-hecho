@@ -197,7 +197,16 @@ class FrmProFieldData extends FrmFieldType {
 
 					unset( $new_val, $linked_id );
 				}
-				$value = array_filter( $value, 'strlen' );
+				$value = array_filter(
+					$value,
+					function( $item ) {
+						if ( null === $item ) {
+							return false;
+						}
+
+						return strlen( $item );
+					}
+				);
 			} else {
 				$value = $this->get_single_data_value( $linked_ids, $atts );
 			}

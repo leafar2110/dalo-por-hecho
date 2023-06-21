@@ -146,6 +146,10 @@ class FrmProFormsController {
 		self::maybe_load_accordion_scripts( $frm_settings );
 	}
 
+	/**
+	 * @param string $keep
+	 * @return void
+	 */
 	public static function print_ajax_scripts( $keep = '' ) {
 		self::enqueue_footer_js();
 
@@ -157,7 +161,6 @@ class FrmProFormsController {
 				$keep_scripts = array(
 					'recaptcha-api',
 					'captcha-api',
-					'jquery-frm-rating',
 					'jquery-chosen',
 					'google_jsapi',
 					'dropzone',
@@ -288,12 +291,15 @@ class FrmProFormsController {
 		}
 	}
 
+	/**
+	 * @param array $values
+	 * @return void
+	 */
 	public static function add_form_ajax_options( $values ) {
-        global $frm_vars;
-
-        $post_types = FrmProAppHelper::get_custom_post_types();
-
-        require(FrmProAppHelper::plugin_path() . '/classes/views/frmpro-forms/add_form_ajax_options.php');
+		if ( ! FrmProFormsHelper::lite_supports_ajax_submit() ) {
+			// Only show the option when Lite doesn't support AJAX submit.
+			require FrmProAppHelper::plugin_path() . '/classes/views/frmpro-forms/add_form_ajax_options.php';
+		}
     }
 
     /**
@@ -513,10 +519,16 @@ class FrmProFormsController {
 		FrmProGlobalVarsHelper::get_instance( true )->set_included_fields( $atts );
 	}
 
+	/**
+	 * Echo additional form classes inside of a form's class attribute.
+	 *
+	 * @param stdClass $form
+	 * @return void
+	 */
 	public static function add_form_classes( $form ) {
 		echo ' frm_pro_form ';
 
-		if ( FrmProForm::is_ajax_on( $form ) ) {
+		if ( ! FrmProFormsHelper::lite_supports_ajax_submit() && FrmProForm::is_ajax_on( $form ) ) {
 			echo ' frm_ajax_submit ';
 		}
 
@@ -1368,15 +1380,6 @@ class FrmProFormsController {
 	 */
 	public static function instruction_tabs() {
 		_deprecated_function( __METHOD__, '4.0' );
-	}
-
-	/**
-	 * @deprecated 2.05
-	 * @codeCoverageIgnore
-	 */
-	public static function add_form_row() {
-		_deprecated_function( __FUNCTION__, '2.05', 'FrmProNestedFormsController::ajax_add_repeat_row' );
-		FrmProNestedFormsController::ajax_add_repeat_row();
 	}
 
 	/**

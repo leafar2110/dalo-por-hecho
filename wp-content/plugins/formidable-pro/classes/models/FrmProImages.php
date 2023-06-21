@@ -108,11 +108,12 @@ class FrmProImages {
 	 * field type check.
 	 *
 	 * @since 5.0
+	 * @since 6.2 This method is public.
 	 *
 	 * @param array $field Field data.
 	 * @return bool
 	 */
-	private static function should_show_images( $field ) {
+	public static function should_show_images( $field ) {
 		$image_options = FrmField::get_option( $field, 'image_options' );
 
 		/**

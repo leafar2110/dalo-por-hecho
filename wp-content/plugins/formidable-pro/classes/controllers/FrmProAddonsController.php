@@ -15,7 +15,7 @@ class FrmProAddonsController extends FrmAddonsController {
 	 * @return void
 	 */
 	public static function conditional_action_button( $plugin, $upgrade_link_args ) {
-		if ( ! is_callable( 'self::get_addon' ) ) {
+		if ( ! is_callable( self::class . '::get_addon' ) ) {
 			// FrmAddonsController may not have this function depending on version.
 			return;
 		}
@@ -123,7 +123,7 @@ class FrmProAddonsController extends FrmAddonsController {
 	/**
 	 * @since 5.0.03
 	 *
-	 * @return string "Basic", "Plus", "Business" or "Elite" depending on license type. "Premium" by default if type can not be determined.
+	 * @return string "Basic", "Plus", "Starter", "Business" or "Elite" depending on license type. "Premium" by default if type can not be determined.
 	 */
 	public static function get_readable_license_type() {
 		$license_type = self::license_type( true );
@@ -136,7 +136,7 @@ class FrmProAddonsController extends FrmAddonsController {
 			$license_type = 'plus';
 		} elseif ( $license_type === 'free' ) {
 			$license_type = 'lite';
-		} elseif ( ! in_array( $license_type, array( 'basic', 'elite', 'business', 'plus' ), true ) ) {
+		} elseif ( ! in_array( $license_type, array( 'basic', 'elite', 'business', 'plus', 'starter' ), true ) ) {
 			$license_type = 'premium';
 		}
 

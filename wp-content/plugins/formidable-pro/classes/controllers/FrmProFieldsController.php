@@ -740,11 +740,6 @@ class FrmProFieldsController {
 	 * @return void
 	 */
 	public static function date_field_js( $field_id, $options ) {
-		if ( self::handle_frm_datepicker_add_on_in_pro( $field_id ) ) {
-			echo ',beforeShow: frmProForm.addFormidableClassToDatepicker';
-			echo ',onClose: frmProForm.removeFormidableClassFromDatepicker';
-		}
-
 		if ( empty( $options['unique'] ) ) {
 			return;
 		}
@@ -853,26 +848,6 @@ class FrmProFieldsController {
 		unset( $formatted );
 
 		echo ',beforeShowDay: function(date){' . $js_vars . 'var disabled=' . json_encode( $disabled ) . ';if($.inArray(y+"-"+m+"-"+d,disabled) != -1){return [false];} return [' . $selectable_response . '];}';
-	}
-
-	/**
-	 * @since 5.5
-	 *
-	 * @param string $field_id
-	 * @return bool
-	 */
-	private static function handle_frm_datepicker_add_on_in_pro( $field_id ) {
-		if ( ! is_callable( 'FrmDatesAppController::date_field_options_js' ) ) {
-			// Always handle in pro when there is no Dates add on.
-			return true;
-		}
-
-		$js_options = array( 'options' => array() );
-		$extra      = compact( 'field_id' );
-		$js_options = FrmDatesAppController::date_field_options_js( $js_options, $extra );
-
-		// Return true if there are no special dates add on options set. If there are the "formidable_dates" key will be set.
-		return empty( $js_options['formidable_dates'] );
 	}
 
 	/**
@@ -1315,15 +1290,6 @@ class FrmProFieldsController {
 	}
 
 	/**
-	 * @deprecated 2.03
-	 * @codeCoverageIgnore
-	 */
-	public static function ajax_time_options() {
-		_deprecated_function( __FUNCTION__, '2.03', 'FrmProTimeFieldsController::ajax_time_options' );
-		FrmProTimeFieldsController::ajax_time_options();
-	}
-
-	/**
 	 * Add an option at the top of the media library page
 	 * to show the unattached Formidable files based on user role.
 	 *
@@ -1688,24 +1654,6 @@ class FrmProFieldsController {
 	}
 
 	/**
-	 *
-	 * Update the repeating form name when a repeating section name is updated
-	 *
-	 * @since 2.0.12
-	 * @deprecated 2.04
-	 * @codeCoverageIgnore
-	 *
-	 * @param array $atts
-	 */
-	public static function update_repeating_form_name( $atts ) {
-		_deprecated_function( __FUNCTION__, '3.0.03', 'FrmProFieldsController::update_repeater_form_name' );
-		$field = FrmField::getOne( $atts['id'] );
-		if ( FrmField::is_repeating_field( $field ) ) {
-			FrmForm::update( $field->field_options['form_select'], array( 'name' => $atts['value'] ) );
-		}
-	}
-
-	/**
 	 * Setup each field's array when an entry is being edited
 	 * Similar to FrmAppHelper::fill_field_defaults
 	 *
@@ -1986,6 +1934,22 @@ class FrmProFieldsController {
 	}
 
 	/**
+	 * Adds show password HTML to the backend conf input.
+	 *
+	 * @since x.x
+	 *
+	 * @param string $input_html Input HTML.
+	 * @param array  $args       Contains `field` array.
+	 * @return string
+	 */
+	public static function add_show_password_html_to_backend_conf_input( $input_html, $args ) {
+		if ( 'password' === $args['field']['type'] ) {
+			$input_html = FrmProFieldsHelper::add_show_password_html( $input_html );
+		}
+		return $input_html;
+	}
+
+	/**
 	 * @deprecated 4.0
 	 */
 	public static function populate_calc_dropdown() {
@@ -2098,15 +2062,5 @@ class FrmProFieldsController {
 	 */
 	public static function form_fields( $field, $field_name, $atts ) {
 		_deprecated_function( __FUNCTION__, '3.0', 'FrmFieldType Modals' );
-	}
-
-	/**
-	 * @deprecated 2.03.10
-	 * @codeCoverageIgnore
-	 */
-	public static function prepare_single_field_for_duplication( $field_values ) {
-		_deprecated_function( __FUNCTION__, '2.03.10', 'custom code' );
-
-		return $field_values;
 	}
 }

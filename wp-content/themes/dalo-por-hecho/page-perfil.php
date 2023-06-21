@@ -24,6 +24,7 @@ global $current_user, $wp_roles;?>
     $description_perfil = meta_user_value( 'description', $current_user->ID );
     $nac_perfil = meta_user_value( 'foto_portada_user',$current_user->ID );
     $image_perfil = get_post_meta( $current_user->ID, 'foto_portada_user', true);
+    
 }?>
 
 
@@ -117,91 +118,100 @@ global $current_user, $wp_roles;?>
                         </div>
                         
                       </div>
-                       <h4>Mi portafolio</h4>
-                       <div class="cont-cont-perfil-inf">
-
-                        <div class="cont-cont-perfil-inf">
-                         <div class="cont-espacio"></div>
-                        </div>
-                         
-
-                        </div>
+                     
                        <h4>Mis aptitudes</h4>
                        <div class="cont-cont-perfil-inf">
 
-                            <div class="cont-cont-perfil-inf">
-                                <p></p>
+                            <div class="cont-cont-perfil-inf" style="flex-direction: column;">
+                                <div>
+                                    <strong>Idiomas</strong>
+                                    <p><?php the_author_meta( 'idiomas_user', $current_user->ID ); ?></p>
+                                </div>
+                                <div>
+                                    <strong>Certificaciones</strong>
+                                    <p><?php the_author_meta( 'certificaciones_user', $current_user->ID ); ?></p>
+                                </div>
+                                <div>
+                                    <strong>Mi experiencia</strong>
+                                    <p><?php the_author_meta( 'experiencia_user', $current_user->ID ); ?></p>
+                                </div>
+                                <div>
+                                    <strong>Indica tu medio de transporte</strong>
+                                    <?php $sinparametrosu = explode(',', meta_user_value( 'medio_de_transporte_user', $current_user->ID ), 4); ?>
+                                    <?php foreach( $sinparametrosu as $item ): ?>
+                                        <?php if(!empty($item)): ?>
+                                            <p><?php echo $item; ?></p>
+                                        <?php endif; ?>
+                                    <?php endforeach;?>
+                                </div>
                             </div>
                             
 
                         </div>
                        <h4>Comentarios de la comunidad</h4>
+
+                       <?php
+                       $id_user = $_GET['post'] ?? '';
+                        $arg = array (
+                          'post_type' => 'rating',
+                          'post_status' =>'publish',
+                          'posts_per_page' => 15,
+                          'meta_query' => array(
+                                'relation'=>'AND', // 'AND' 'OR' ...
+                                    array(
+                                        'key' => 'id_user_calif_valor',
+                                        'value' =>  $id_user,
+                                        'operator' => 'IN',
+                                    ),   
+                            ),
+                        ); 
+
+                        $loop = new WP_Query( $arg ); 
+                        while ( $loop->have_posts() ) : $loop->the_post();  
+                            // Obtiene la fecha del post
+                            $post_date = get_the_date();
+
+                            // Calcula la diferencia de tiempo
+                            $time_diff = human_time_diff(get_the_time('U'), current_time('timestamp'));
+
+                            // Genera la cadena de texto con el formato "Hace X minutos"
+                            $time_string = sprintf(__('Hace %s', 'text-domain'), $time_diff);
+
+                            $rating = get_the_title();
+                       ?>
                        <div class="comentarios-comunidad-perfil">
                            <div class="comentario-comunidad-perfil">
                                <div class="comentario-comunidad-perfil-usuario">
                                     <div class="comentario-comunidad-perfil-usuario-gi">
                                         <div  class="comentario-comunidad-perfil-usuario_img"></div>
                                         <div class="comentario-comunidad-perfil-usuario-inf">
-                                            <h6>Nombre de la persona</h6>
+                                            <?php
+                                            $user_data = get_userdata(get_field('id_user_valor'));
+                                            if ($user_data): ?>
+                                                 <h6><?php echo $user_data->display_name; ?></h6>
+                                            <?php endif; ?>
+                                            <br>
                                             <div class="circulos-n">
-                                                <div class="circulos-n-i"></div>
-                                                <div class="circulos-n-i"></div>
-                                                <div class="circulos-n-i"></div>
-                                                <div class="circulos-n-i"></div>
-                                                <div class="circulos-n-i"></div>
-                                                <h5>5.0 (3)</h5>
+                                                <?php for( $i=0; $i < (int) $rating; $i++):?>
+                                                    <div class="circulos-n-i"></div>
+                                                <?php endfor;?>
+                                                <h5><?php echo $rating . '.0'; ?></h5>
                                             </div>
                                         </div>
-                                        <div class="ultima-c">Hace 11 minutos</div>
+                                        <div class="ultima-c"><?php echo $time_string; ?></div>
                                     </div>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque nihil cumque facilis voluptate consequuntur expedita atque hic id enim adipisci sint, excepturi rerum totam maxime autem? Corrupti nobis quibusdam nulla?</p>
+                                    <p><?php the_content(); ?></p>
                                </div>
                                
                            </div>
                          
                        </div>
+                       <?php endwhile; ?>
                        <div class="comentar-usuario">
-                            <h5>Comentar</h5>
-                            <textarea class="textarea-comentar" name="" id="" cols="30" rows="10" placeholder="Escribe un comentario"></textarea>
-                            <br><br><br>
-                            <a href="" class="btn-custom-bg  mb-5">Comentar</a>
-                            <br><br>
-
-<?php  
- while ( have_posts() ) : the_post();
- ?>
-
-    <section class="main-categories main-tareas container" id="down">
-        <div class="titulo-general text-center">
-            
-            <br><br>
-        </div>
-
-    <div class="container">
-      <div class="main-soporte__content">
-
-            <!--None template -->
-            <?php if( get_the_content() != NULL){ ?>
-                <?php
-              // Include the page content template.
-                /*  get_template_part( 'content', 'page' );*/
-                the_content();
-
-              // If comments are open or we have at least one comment, load up the comment template.
-                if ( comments_open() || get_comments_number() ) :
-                    comments_template();
-                endif;           
-            ?>  
-            <?php } ?>   
-
-        </div>
-    </div>
-</section>  
-
-<?php  endwhile; ?>
-
-
-
+                           <br>
+                           <br>
+                           <br>
+                       <?php echo FrmFormsController::get_form_shortcode( array( 'id' => 21 ) ); ?>
                         </div>
                     </div>
                     </div>

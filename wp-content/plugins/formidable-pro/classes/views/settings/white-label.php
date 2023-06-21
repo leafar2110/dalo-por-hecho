@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php esc_html_e( 'Remove references to Formidable Forms to provide an unbranded experience for your clients.', 'formidable-pro' ); ?>
 </p>
 <p>
-	<label class="frm_left_label"><?php esc_html_e( 'Plugin Label', 'formidable-pro' ); ?></label>
+	<label for="frm_menu" class="frm_left_label"><?php esc_html_e( 'Plugin Label', 'formidable-pro' ); ?></label>
 	<input type="text" name="frm_menu" id="frm_menu" value="<?php echo esc_attr( $frm_settings->menu ); ?>" />
 	<?php if ( is_multisite() && current_user_can( 'setup_network' ) ) { ?>
 		<label for="frm_mu_menu">

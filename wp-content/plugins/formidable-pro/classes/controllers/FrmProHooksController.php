@@ -305,6 +305,7 @@ class FrmProHooksController {
 		add_filter( 'frm_radio_display_format_args', 'FrmProFieldsController::change_radio_display_format_args', 5, 2 );
 		add_action( 'frm_before_create_field', 'FrmProFieldsController::before_create_field', 1 );
 		add_filter( 'frm_should_sanitize_field_opt_string', 'FrmProFieldsController::should_sanitize_field_opt_string', 10, 2 );
+		add_filter( 'frm_conf_input_backend', 'FrmProFieldsController::add_show_password_html_to_backend_conf_input', 10, 2 );
 
 		// Fields Helper
 		add_filter( 'frm_show_custom_html', 'FrmProFieldsHelper::show_custom_html', 10, 2 );

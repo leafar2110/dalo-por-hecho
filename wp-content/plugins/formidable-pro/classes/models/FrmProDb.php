@@ -6,12 +6,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class FrmProDb {
 
-	public static $db_version = 83;
+	public static $db_version = 84;
 
 	/**
 	 * @since 3.0.02
 	 */
-	public static $plug_version = '6.1.2';
+	public static $plug_version = '6.3.1';
 
 	/**
 	 * @since 2.3
@@ -99,6 +99,50 @@ class FrmProDb {
 	 */
 	public static function before_free_version_db_upgrade() {
 		FrmProContent::add_rewrite_endpoint();
+	}
+
+	/**
+	 * Add an index to the frm_item_metas table to speed up lookup fields.
+	 *
+	 * @since 6.3
+	 *
+	 * @return void
+	 */
+	private static function migrate_to_84() {
+		global $wpdb;
+
+		$table_name = "{$wpdb->prefix}frm_items";
+		$index_name = 'idx_form_id_is_draft';
+
+		if ( self::index_exists( $table_name, $index_name ) ) {
+			return;
+		}
+
+		$wpdb->query( "CREATE INDEX idx_form_id_is_draft ON `{$wpdb->prefix}frm_items` (form_id, is_draft)" );
+	}
+
+	/**
+	 * Check that an index exists in a database table before trying to add it (which results in an error).
+	 *
+	 * @since 6.3
+	 *
+	 * @param string $table_name
+	 * @param string $index_name
+	 * @return bool
+	 */
+	private static function index_exists( $table_name, $index_name ) {
+		global $wpdb;
+		$row = $wpdb->get_row(
+			$wpdb->prepare(
+				'SELECT 1 FROM information_schema.statistics 
+					WHERE table_schema = database()
+						AND table_name = %s
+						AND index_name = %s
+					LIMIT 1',
+				array( $table_name, $index_name )
+			)
+		);
+		return (bool) $row;
 	}
 
 	/**

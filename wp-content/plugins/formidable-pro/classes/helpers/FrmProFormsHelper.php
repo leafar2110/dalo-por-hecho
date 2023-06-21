@@ -176,6 +176,9 @@ class FrmProFormsHelper {
 			if ( empty( $custom_options ) ) {
 				$datepicker_js[] = $date_options;
 			} else {
+				$custom_options .= ',beforeShow:frmProForm.addFormidableClassToDatepicker';
+				$custom_options .= ',onClose:frmProForm.removeFormidableClassFromDatepicker';
+
 				$change_month = self::adjust_value_for_js_boolean( $date_options['options'], 'changeMonth' );
 				$change_year  = self::adjust_value_for_js_boolean( $date_options['options'], 'changeYear' );
 				?>
@@ -236,14 +239,6 @@ echo $custom_options;
 		ob_end_clean();
 
 		return $custom_options;
-	}
-
-	/**
-	 * @deprecated 2.03
-	 */
-	public static function load_timepicker_js( $datepicker ) {
-		_deprecated_function( __FUNCTION__, '2.03', 'FrmProTimeFieldsController::load_timepicker_js' );
-		FrmProTimeFieldsController::load_timepicker_js( $datepicker );
 	}
 
 	public static function load_calc_js( $frm_vars ) {
@@ -1106,6 +1101,17 @@ echo $custom_options;
 		if ( is_callable( 'FrmAntiSpam::maybe_echo_token' ) ) {
 			FrmAntiSpam::maybe_echo_token( $form_id );
 		}
+	}
+
+	/**
+	 * Check if Lite has been updated to support AJAX Submit (v6.2+).
+	 *
+	 * @since 6.2
+	 *
+	 * @return bool
+	 */
+	public static function lite_supports_ajax_submit() {
+		return is_callable( 'FrmForm::is_ajax_on' );
 	}
 
 	public static function get_sub_form( $field_name, $field, $args = array() ) {

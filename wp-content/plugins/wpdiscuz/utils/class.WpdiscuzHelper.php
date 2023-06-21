@@ -221,6 +221,9 @@ class WpdiscuzHelper implements WpDiscuzConstants {
      * return boolean
      */
     public function isCommentEditable($comment) {
+        if(!$comment){
+            return false;
+        }
         $commentTimestamp = strtotime($comment->comment_date);
         $timeDiff = self::$current_time - $commentTimestamp;
         $editableTimeLimit = $this->options->moderation["commentEditableTime"] === "unlimit" ? abs($timeDiff) + 100 : intval($this->options->moderation["commentEditableTime"]);
@@ -962,7 +965,7 @@ class WpdiscuzHelper implements WpDiscuzConstants {
     public function getCommentFormPath($theme) {
         if (file_exists(get_stylesheet_directory() . "/wpdiscuz/comment-form.php")) {
             return get_stylesheet_directory() . "/wpdiscuz/comment-form.php";
-        } elseif (file_exists(get_template_directory() . "/comment-form.php")) {
+        } elseif (file_exists(get_template_directory() . "/wpdiscuz/comment-form.php")) {
             return get_template_directory() . "/wpdiscuz/comment-form.php";
         } else {
             return apply_filters("wpdiscuz_comment_form_include", $theme . "/comment-form.php");
@@ -1078,6 +1081,8 @@ class WpdiscuzHelper implements WpDiscuzConstants {
                     $user["socIcon"] = "<i class='fas fa-at'></i>";
                 } else if ($socialProvider === "baidu") {
                     $user["socIcon"] = "<i class='fas fa-paw'></i>";
+                } else if ($socialProvider === "telegram") {
+                    $user["socIcon"] = "<i class='fab fa-telegram-plane'></i>";
                 } else {
                     $user["socIcon"] = "<i class='fab fa-{$socialProvider}'></i>";
                 }

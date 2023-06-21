@@ -136,7 +136,7 @@ if (strpos($url, '?') !== false) {
 					<?php $product_categories = get_categories( array( 'taxonomy' => 'job_listing_type', 'orderby' => 'menu_order', 'order' => 'asc', 'hide_empty'=> FALSE ));  ?>
 					<?php foreach($product_categories as $category):  global $wpdb; $i = 0;?>					
 						<div class="col-md-6 step-content <?php if ($category->name == 'En Persona') {echo 'active';} ?> ">
-							<a class="job-but" onclick="mark('<?=$category->name ?>')">	
+							<a class="job-but" onclick="mark('<?=$category->slug ?>')">	
 								<p class="p-0 m-0 color-blue">
 									<i	class="<?php if($category->name == 'En Persona'){ $mens = "Selecciona si necesitas la persona físicamente en el lugar"; echo "fa fa-map-marker";}if($category->name == 'On Line'){ $mens = "Selecciona si la tarea se puede hacer desde casa"; echo "fa fa-globe";} ?>" aria-hidden="true"></i>
 									<input 
@@ -345,6 +345,8 @@ if (strpos($url, '?') !== false) {
 
 <?php } ?>	
 <script>
+$("input[name=job_type]").val(16); 
+
 function onlynumbers(e) {
       key = e.keyCode || e.which;
       tecla = String.fromCharCode(key).toLowerCase();
@@ -394,7 +396,7 @@ $(document).ready(function(){
 
     load_data2_submit();
     function load_data2_submit(query)
-    {var urll2 = "http://localhost/dalo-por-hecho/ajax"; 
+    {var urll2 = "http://localhost/dalo-por-hecho/ajaxcat"; 
         $.ajax({
             url:urll2,
             method:"post",
@@ -421,9 +423,10 @@ $(document).ready(function(){
 });
 
 function mark(tipo){
-	
-	if (tipo == 'On Line') {		
-        $("#en-linea").prop("checked", true); 
+
+	if (tipo == 'on-line') {		
+        $("input[name=job_type]").val(19); 
+		$("#en-persona").prop("checked", false); 
         $("#job_location").css("display", "none");
         $("#job_direccion").css("display", "none");  
         $("#job_location2").css("display", "none");
@@ -433,8 +436,10 @@ function mark(tipo){
         $("#step2 .step-content:first-child").removeClass('active');
         $("#step2 .step-content:last-child").addClass('active');
 	}
-	if (tipo == 'En Persona') {
+	if (tipo == 'en-persona') {
+        $("input[name=job_type]").val(16); 
         $("#en-persona").prop("checked", true); 
+		$("#en-linea").prop("checked", false); 
         $("#job_location").css("display", "block");
         $("#job_direccion").css("display", "block");   
         $("#job_location2").css("display", "block");

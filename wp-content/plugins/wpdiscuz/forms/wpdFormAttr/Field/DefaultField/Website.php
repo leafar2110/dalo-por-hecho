@@ -90,6 +90,9 @@ class Website extends Field {
     }
 
     public function validateFieldData($fieldName, $args, $options, $currentUser) {
+        if($args['enable'] == 0){
+            return '';
+        }
         $website_url = Sanitizer::sanitize(INPUT_POST, $fieldName, "FILTER_SANITIZE_STRING");
         if ($website_url !== "") {
             if (strpos($website_url, "http://") !== 0 && strpos($website_url, "https://") !== 0) {

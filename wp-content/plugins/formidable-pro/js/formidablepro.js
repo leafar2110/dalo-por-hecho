@@ -160,6 +160,9 @@ function frmProFormJS() {
 			dateFields[ optKey ].options.defaultDate = new Date( dateFields[ optKey ].options.defaultDate );
 		}
 
+		dateFields[ optKey ].options.beforeShow = frmProForm.addFormidableClassToDatepicker;
+		dateFields[ optKey ].options.onClose = frmProForm.removeFormidableClassFromDatepicker;
+
 		jQuery( this ).datepicker( jQuery.extend(
 			{},
 			jQuery.datepicker.regional[ dateFields[ optKey ].locale ],
@@ -3700,6 +3703,11 @@ function frmProFormJS() {
 				thisFieldCall: 'input[id^="field_' + fieldKey + '-"]'
 			};
 
+		// exit early for sliders as there is no calculation for such types and avoid errors that might rise due to formatting the value
+		if ( totalField.attr( 'type' ) === 'range' ) {
+			return;
+		}
+
 		// TODO: update this to work more like conditional logic
 		if ( totalField.length < 1 && typeof triggerField !== 'undefined' ) {
 			// check if the total field is inside of a repeating/embedded form
@@ -6473,6 +6481,52 @@ function frmProFormJS() {
 		});
 	}
 
+	function handleShowPasswordBtn() {
+		documentOn( 'click', '.frm_show_password_btn', function( event ) {
+			var input = event.target.closest( '.frm_show_password_wrapper' ).querySelector( 'input' ),
+				button = input.nextElementSibling;
+
+			if ( 'password' === input.type ) {
+				input.type = 'text';
+				button.setAttribute( 'data-show-password-label', button.title );
+				button.title = button.getAttribute( 'data-hide-password-label' );
+			} else {
+				input.type = 'password';
+				button.title = button.getAttribute( 'data-show-password-label' );
+			}
+
+			button.setAttribute( 'aria-label', button.title );
+		});
+	}
+
+	/**
+	 * Does the same as jQuery( document ).on( 'event', 'selector', handler ).
+	 *
+	 * @since 6.x
+	 *
+	 * @param {String}         event    Event name.
+	 * @param {String}         selector Selector.
+	 * @param {Function}       handler  Handler.
+	 * @param {Boolean|Object} options  Options to be added to `addEventListener()` method. Default is `false`.
+	 */
+	function documentOn( event, selector, handler, options ) {
+		if ( 'undefined' === typeof options ) {
+			options = false;
+		}
+
+		document.addEventListener( event, function( e ) {
+			var target;
+
+			// loop parent nodes from the target to the delegation node.
+			for ( target = e.target; target && target != this; target = target.parentNode ) {
+				if ( target && target.matches && target.matches( selector ) ) {
+					handler.call( target, e );
+					break;
+				}
+			}
+		}, options );
+	}
+
 	return {
 		init: function() {
 			maybeAddPolyfills();
@@ -6567,6 +6621,8 @@ function frmProFormJS() {
 			showMoreStepsButtonEvents();
 
 			validateFieldValue();
+
+			handleShowPasswordBtn();
 		},
 
 		savingDraft: function( object ) {

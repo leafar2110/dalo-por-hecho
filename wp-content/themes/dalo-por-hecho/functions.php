@@ -322,7 +322,7 @@ function custom_post_type_Rating() {
     'label'                 => __( 'Rating', 'text_domain' ),
     'description'           => __( 'Rating image', 'text_domain' ),
     'labels'                => $labels,
-    'supports'              => array( 'title', '', '', 'custom-fields' ),
+    'supports'              => array( 'title', 'editor', '', 'custom-fields' ),
     'taxonomies'            => array( ''),
     'hierarchical'          => false,
     'public'                => true,

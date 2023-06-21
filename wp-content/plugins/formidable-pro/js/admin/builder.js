@@ -438,7 +438,7 @@
 	}
 
 	function validateTimeFieldRangeValue( target ) {
-		if ( ! target.closest( '.frm-type-time' ) ) {
+		if ( ! ( target.id.startsWith( 'start_time' ) || target.id.startsWith( 'end_time' ) ) ) {
 			return;
 		}
 

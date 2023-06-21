@@ -21,9 +21,14 @@ foreach ( $field['options'] as $opt_key => $opt ) {
 		$skipped = true;
 		continue;
 	}
-	?>
-	<option value="<?php echo esc_attr( $field_val ); ?>" <?php echo $selected ? ' selected="selected"' : ''; ?> data-frmprice="<?php echo esc_attr( $price ); ?>">
-		<?php echo esc_html( $opt == '' ? ' ' : $opt ); ?>
-	</option>
-<?php } ?>
+	FrmProHtmlHelper::echo_dropdown_option(
+		$opt,
+		$selected,
+		array(
+			'value'         => $field_val,
+			'data-frmprice' => $price,
+		)
+	);
+}
+?>
 </select>

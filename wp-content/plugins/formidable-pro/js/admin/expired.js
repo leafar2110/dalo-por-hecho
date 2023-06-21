@@ -16,7 +16,7 @@
 			const modal = maybeCreateModal(
 				'frm_expired_modal',
 				{
-					title: '',
+					title: __( 'You don\'t have access to do that', 'formidable-pro' ),
 					content: getExpiredModalContent()
 				}
 			);

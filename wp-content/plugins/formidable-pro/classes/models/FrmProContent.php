@@ -938,15 +938,32 @@ class FrmProContent {
 
 	public static function trigger_shortcode_atts( $atts, $display, $args, &$replace_with ) {
 		$frm_atts = array(
-			'sanitize', 'sanitize_url',
-			'truncate', 'clickable',
+			'remove_accents', 'sanitize', 'sanitize_url', 'truncate', 'clickable',
 		);
+
 		$included_atts = array_intersect( $frm_atts, array_keys( $atts ) );
 
 		foreach ( $included_atts as $included_att ) {
+			if ( '0' === $atts[ $included_att ] ) {
+				// Skip any option that uses 0 so sanitize_url=0 does not encode.
+				continue;
+			}
 			$function = 'atts_' . $included_att;
 			$replace_with = self::$function( $replace_with, $atts, $display, $args );
 		}
+	}
+
+	/**
+	 * Converts all accent characters to ASCII characters.
+	 *
+	 * @since x.x
+	 *
+	 * @param string $replace_with The text to remove accents from.
+	 *
+	 * @return string
+	 */
+	public static function atts_remove_accents( $replace_with ) {
+		return remove_accents( $replace_with );
 	}
 
 	public static function atts_sanitize( $replace_with ) {

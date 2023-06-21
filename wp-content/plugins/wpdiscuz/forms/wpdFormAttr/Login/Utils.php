@@ -17,6 +17,8 @@ class Utils {
             $userData = self::sanitizeTwitterUser($socialUser);
         } else if ($provider === "google") {
             $userData = self::sanitizeGoogleUser($socialUser);
+        } else if ($provider === "telegram") {
+            $userData = self::sanitizeTelegramUser($socialUser);
         } else if ($provider === "disqus") {
             $userData = self::sanitizeDisqusUser($socialUser);
         } else if ($provider === "wordpress") {
@@ -125,6 +127,25 @@ class Utils {
             "provider" => "google",
             "social_user_id" => $googleUser["sub"],
             "avatar" => $googleUser["picture"],
+        ];
+        return $userData;
+    }
+    
+    private static function sanitizeTelegramUser($telegramUser) {
+        $userID = $telegramUser["id"] ? $telegramUser["id"] : uniqid();
+        $username = $telegramUser["username"] ? $telegramUser["username"] : "tlg_" . $userID;
+        $dname = $telegramUser["first_name"] ? $telegramUser["first_name"] : $username;
+                
+        $userData = [
+            "user_login" => self::saitizeUsername($username),
+            "first_name" => $telegramUser["first_name"],
+            "last_name" => '',
+            "display_name" => $dname,
+            "user_url" => "",
+            "user_email" => $userID . "@telegram.com",
+            "provider" => "telegram",
+            "social_user_id" => $userID,
+            "avatar" => $telegramUser["photo_url"],
         ];
         return $userData;
     }
@@ -344,7 +365,7 @@ class Utils {
     }
 
     public static function addOAuthState($provider, $secret, $postID) {
-        add_option(wpdFormConst::WPDISCUZ_OAUTH_STATE_TOKEN.md5($secret),[wpdFormConst::WPDISCUZ_OAUTH_STATE_PROVIDER => $provider , wpdFormConst::WPDISCUZ_OAUTH_CURRENT_POSTID => $postID],'','no');
+        set_transient(wpdFormConst::WPDISCUZ_OAUTH_STATE_TOKEN.md5($secret),[wpdFormConst::WPDISCUZ_OAUTH_STATE_PROVIDER => $provider , wpdFormConst::WPDISCUZ_OAUTH_CURRENT_POSTID => $postID], HOUR_IN_SECONDS);
     }
 
     public static function generateOAuthState($appID) {
@@ -353,8 +374,7 @@ class Utils {
 
     public static function getProviderByState($state) {
         $option_key = wpdFormConst::WPDISCUZ_OAUTH_STATE_TOKEN.md5($state);
-        $providerData = get_option($option_key);
-        delete_option($option_key);
+        $providerData = get_transient($option_key);
         return $providerData;
     }
 

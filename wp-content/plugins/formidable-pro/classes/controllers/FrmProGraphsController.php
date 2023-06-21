@@ -1069,7 +1069,108 @@ class FrmProGraphsController {
 			}
 		}
 
+		self::maybe_add_date_filter( $meta_args );
+
 		return $meta_args;
+	}
+
+	/**
+	 * Adds date filters to argument, converting them to gmt.
+	 *
+	 * @since 6.2
+	 *
+	 * @param array $args
+	 * @return void
+	 */
+	private static function maybe_add_date_filter( &$args ) {
+		$start_end_dates = self::get_start_and_end_dates();
+
+		if ( $start_end_dates['start_date'] ) {
+			$args['start_date'] = get_gmt_from_date( $start_end_dates['start_date'] );
+		}
+
+		if ( $start_end_dates['end_date'] ) {
+			$args['end_date'] = get_gmt_from_date( $start_end_dates['end_date'] );
+		}
+	}
+
+	/**
+	 * Get start and end dates from relative date queries.
+	 *
+	 * @since 6.2
+	 *
+	 * @return array
+	 */
+	private static function get_start_and_end_dates() {
+		$start_date = '';
+		$end_date   = '';
+
+		if ( ! self::is_reports_page() ) {
+			return array( 'start_date' => $start_date, 'end_date' => $end_date );
+		}
+
+		$date_range = FrmAppHelper::get_post_param( 'date_range', '', 'sanitize_title' );
+		$start_date_format = 'Y-m-d 00:00:00';
+		$end_date_format   = 'Y-m-d 23:59:59';
+
+		switch ( $date_range ) {
+			case 'custom':
+				$start_date = FrmAppHelper::get_post_param( 'start_date', '', 'sanitize_title' );
+				$end_date   = FrmAppHelper::get_post_param( 'end_date', '', 'sanitize_title' );
+
+				$start_date = $start_date ? gmdate( $start_date_format, strtotime( $start_date ) ) : '';
+				$end_date   = $end_date ? gmdate( $end_date_format, strtotime( $end_date ) ) : '';
+				break;
+			case 'today':
+				$start_date = gmdate( $start_date_format );
+				$end_date   = gmdate( $end_date_format );
+				break;
+			case 'yesterday':
+				$start_date = gmdate( $start_date_format, strtotime( 'yesterday' ) );
+				$end_date   = gmdate( $end_date_format, strtotime( 'yesterday' ) );
+				break;
+			case 'this_week':
+			case 'last_week':
+				$date_range = str_replace( '_', ' ', $date_range );
+				$start_date = gmdate( $start_date_format, strtotime( 'monday ' . $date_range ) );
+				$end_date   = gmdate( $end_date_format, strtotime( 'sunday ' . $date_range ) );
+				break;
+			case 'last_thirty_days':
+				$start_date = gmdate( $start_date_format, strtotime( 'last month' ) );
+				$end_date   = gmdate( $end_date_format );
+				break;
+			case 'last_month':
+				$start_date = gmdate( $start_date_format, strtotime( 'first day of last month' ) );
+				$end_date   = gmdate( $end_date_format, strtotime( 'last day of last month' ) );
+				break;
+			case 'this_quarter':
+				$current_quarter = ceil( gmdate( 'n' ) / 3 );
+				$start_date      = gmdate( $start_date_format, strtotime( gmdate( 'Y' ) . '-' . ( ( $current_quarter * 3 ) - 2 ) . '-1') );
+				$end_date        = gmdate( 'Y-m-t 23:59:59', strtotime( gmdate('Y') . '-' . ( ( $current_quarter * 3 ) ) . '-1' ) );
+				break;
+			case 'last_quarter':
+				$start_date = gmdate( $start_date_format, strtotime( 'first day of -' . ( ( ( gmdate( 'n' ) - 1 ) % 3 ) + 3 ) . ' month' ) );
+				$end_date   = gmdate( $end_date_format, strtotime( 'last day of -' . ( ( ( gmdate( 'n' ) - 1 ) % 3 ) + 1 ) . ' month' ) );
+				break;
+			case 'this_year':
+			case 'last_year':
+				$period     = str_replace( '_', ' ', $date_range );
+				$start_date = gmdate( $start_date_format, strtotime( 'first day of january ' . $period ) );
+				$end_date   = gmdate( $end_date_format, strtotime( 'last day of december ' . $period ) );
+				break;
+			default:
+		}
+
+		return array( 'start_date' => $start_date, 'end_date' => $end_date );
+	}
+
+	/**
+	 * @since 6.2
+	 *
+	 * @return bool
+	 */
+	private static function is_reports_page() {
+		return FrmAppHelper::is_admin_page( 'formidable' ) && 'reports' === FrmAppHelper::simple_get( 'frm_action' );
 	}
 
 	/**
@@ -1100,7 +1201,7 @@ class FrmProGraphsController {
 	}
 
 	/**
-	 * Get the entry IDs for a field filter
+	 * Get the entry IDs for a field filter.
 	 *
 	 * @since 2.02.05
 	 * @param string $key
@@ -1110,13 +1211,13 @@ class FrmProGraphsController {
 	 */
 	private static function get_entry_ids_for_field_filter( $key, $value, $args ) {
 		$pass_args = array(
-			'orig_f' => $key,
-			'val' => $value,
-			'entry_ids' => $args['entry_ids'],
+			'orig_f'      => $key,
+			'val'         => $value,
+			'entry_ids'   => $args['entry_ids'],
 			'after_where' => $args['after_where'],
-			'drafts' => isset( $args['is_draft'] ) ? $args['is_draft'] : 0,
-			'form_id' => $args['form_id'],
-			'form_posts' => self::get_form_posts( $args ),
+			'drafts'      => isset( $args['is_draft'] ) ? $args['is_draft'] : 0,
+			'form_id'     => $args['form_id'],
+			'form_posts'  => self::get_form_posts( $args ),
 		);
 
 		return FrmProStatisticsController::get_field_matches( $pass_args );
@@ -1302,10 +1403,18 @@ class FrmProGraphsController {
 
 		$x_axis_data = self::get_associative_values_for_x_axis( $atts['x_axis_field'], $atts );
 		$y_axis_data = $x_axis_data;
-
 		self::order_x_axis_values( $atts, $x_axis_data );
 
 		$graph_data = self::combine_data_by_id( $x_axis_data, array( $y_axis_data ), $atts );
+		$start_end_dates = self::get_start_and_end_dates();
+
+		if ( $start_end_dates['start_date'] ) {
+			$atts['start_date'] = $start_end_dates['start_date'];
+		}
+
+		if ( $start_end_dates['end_date'] ) {
+			$atts['end_date'] = $start_end_dates['end_date'];
+		}
 
 		self::maybe_add_zero_value_dates( $atts, $graph_data );
 
@@ -1409,9 +1518,18 @@ class FrmProGraphsController {
 		if ( ! self::is_created_at_or_updated_at( $atts['x_axis_field'] ) && ! self::is_date_field( $atts['x_axis_field'] ) ) {
 			return;
 		}
+		if ( isset( $atts['start_date'] ) ) {
+			$start_date = $atts['start_date'];
+		} else {
+			$start_date = self::get_start_date_for_x_axis_date_include_zero_graph( $atts, $graph_data );
+		}
 
-		$start_date     = self::get_start_date_for_x_axis_date_include_zero_graph( $atts, $graph_data );
-		$end_date       = self::get_end_date_for_x_axis_date_include_zero_graph( $atts, $graph_data );
+		if ( isset( $atts['end_date'] ) ) {
+			$end_date = $atts['end_date'];
+		} else {
+			$end_date = self::get_end_date_for_x_axis_date_include_zero_graph( $atts, $graph_data );
+		}
+
 		$group_by       = isset( $atts['group_by'] ) ? $atts['group_by'] : '';
 		$all_dates      = self::get_all_dates_for_period( $start_date, $end_date, $group_by );
 		$new_graph_data = array();
@@ -1488,8 +1606,12 @@ class FrmProGraphsController {
 	 */
 	private static function get_all_dates_for_period( $start_date, $end_date, $group_by ) {
 		$start_timestamp = strtotime( $start_date );
-		$end_timestamp   = strtotime( $end_date ) + 86399;
-		$all_dates       = array();
+		$end_timestamp   = strtotime( $end_date );
+		if ( $end_date === 'NOW' ) {
+			// add a day to make sure the data for current date are considered for graph not grouped
+			$end_timestamp += 86399;
+		}
+		$all_dates = array();
 
 		if ( $group_by === 'month' ) {
 			for ( $d = $start_timestamp; $d <= $end_timestamp; $d += 60 * 60 * 24 * 25 ) {
@@ -1505,6 +1627,7 @@ class FrmProGraphsController {
 			}
 		} else {
 			$date_format = get_option( 'date_format' );
+			$start_timestamp = current_time( $start_timestamp );
 			for ( $d = $start_timestamp; $d <= $end_timestamp; $d += 60 * 60 * 24 ) {
 				$all_dates[] = date_i18n( $date_format, $d, true );
 			}
@@ -1772,6 +1895,7 @@ class FrmProGraphsController {
 	 */
 	private static function get_associative_values_for_fields( $atts ) {
 		$field_data = array();
+		self::maybe_add_date_filter( $atts );
 		foreach ( $atts['fields'] as $field ) {
 			$field_data[] = FrmProEntryMeta::get_associative_array_values_for_field( $field, $atts );
 		}
@@ -1795,6 +1919,16 @@ class FrmProGraphsController {
 		foreach ( $x_axis_data as $x_data ) {
 			$entry_id = $x_data->id;
 			$x_value = self::get_x_axis_displayed_value( $x_data->meta_value, $atts );
+
+			// if date is out of the filter, continue
+			$start_end_dates = self::get_start_and_end_dates();
+			if ( $start_end_dates['start_date'] !== '' && strtotime( $x_value) < strtotime( $start_end_dates['start_date'] ) ) {
+				continue;
+			}
+
+			if ( $start_end_dates['end_date'] !== '' && strtotime( $x_value) > strtotime( $start_end_dates['end_date'] ) ) {
+				continue;
+			}
 
 			if ( $x_value === '' ) {
 				continue;
@@ -1967,6 +2101,8 @@ class FrmProGraphsController {
 	 * @return array
 	 */
 	private static function get_associative_values_for_x_axis( $x_axis_field, $atts ) {
+		self::maybe_add_date_filter( $atts );
+
 		if ( ! $x_axis_field ) {
 			$x_axis_data = array();
 		} elseif ( self::is_created_at_or_updated_at( $x_axis_field ) ) {
@@ -2334,7 +2470,23 @@ class FrmProGraphsController {
 			return;
 		}
 
-		$entries = FrmDb::get_col( 'frm_items', array( 'form_id' => $form->id ), 'created_at' );
+		$start_end_dates = self::get_start_and_end_dates();
+		$start_date = $start_end_dates['start_date'];
+		$end_date   = $start_end_dates['end_date'];
+
+		$args = array( 'form_id' => $form->id );
+		if ( $start_date !== '' ) {
+			$args['created_at >'] = get_gmt_from_date( $start_date );
+		}
+
+		if ( $end_date !== '' ) {
+			$args['created_at <'] = get_gmt_from_date( $end_date );
+		}
+
+		$entries = FrmDb::get_col( 'frm_items', $args, 'created_at' );
+
+		$date_range_options  = self::get_date_range_options();
+		$selected_date_range = FrmAppHelper::get_post_param( 'date_range', '', 'sanitize_title' );
 
 		if ( empty( $entries ) ) {
 			$fields = array();
@@ -2359,6 +2511,30 @@ class FrmProGraphsController {
 		}
 
 		include( FrmProAppHelper::plugin_path() . '/classes/views/frmpro-statistics/show.php' );
+	}
+
+	/**
+	 * Get a list of relative date options.
+	 *
+	 * @since 6.2
+	 *
+	 * @return array
+	 */
+	private static function get_date_range_options() {
+		return array(
+			'all_time'         => __( 'All Time', 'formidable-pro' ),
+			'custom'           => __( 'Custom', 'formidable-pro' ),
+			'today'            => __( 'Today', 'formidable-pro' ),
+			'yesterday'        => __( 'Yesterday', 'formidable-pro' ),
+			'this_week'        => __( 'This week', 'formidable-pro' ),
+			'last_week'        => __( 'Last week', 'formidable-pro' ),
+			'last_thirty_days' => __( 'Last 30 days', 'formidable-pro' ),
+			'last_month'       => __( 'Last month', 'formidable-pro' ),
+			'this_quarter'     => __( 'This quarter', 'formidable-pro' ),
+			'last_quarter'     => __( 'Last quarter', 'formidable-pro' ),
+			'this_year'        => __( 'This year', 'formidable-pro' ),
+			'last_year'        => __( 'Last year', 'formidable-pro' ),
+		);
 	}
 
 	/**
@@ -2518,7 +2694,7 @@ class FrmProGraphsController {
 			'bg_color'       => 'transparent',
 			'title'          => '',
 			'chart_area'     => 'top:30;height:90%',
-			'x_slanted_text' => 0,
+			'x_slanted_text' => 1,
 			'x_order'        => 'field_opts',
 			'include_zero'   => 1,
 			'x_grid_color'   => '#fff',

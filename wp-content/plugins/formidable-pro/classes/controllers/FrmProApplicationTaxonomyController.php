@@ -288,6 +288,12 @@ class FrmProApplicationTaxonomyController {
 			return;
 		}
 
+		// Define a $plugin_page global value.
+		// Without this, PHP8.2+ will throw a deprecated message because $plugin_page cannot be null.
+		// The warning comes from a preg_replace call in wp-admin/includes/plugin.php
+		global $plugin_page;
+		$plugin_page = 'formidable'; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+
 		FrmProApplicationsHelper::custom_application_permission_check();
 
 		wp_enqueue_style( 'formidable-admin' );

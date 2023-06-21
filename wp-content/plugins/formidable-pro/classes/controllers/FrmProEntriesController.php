@@ -1069,7 +1069,7 @@ class FrmProEntriesController {
 	 * Determine whether the form is displayed after edit
 	 *
 	 * @since 2.01.0
-	 * @since 6.x.x This method is public.
+	 * @since 6.1.2 This method is public.
 	 *
 	 * @param object $form
 	 * @return boolean $show_form
@@ -1158,7 +1158,7 @@ class FrmProEntriesController {
 	 * Show the editable form/entry on the front-end
 	 *
 	 * @since 2.01.0
-	 * @since 6.x.x This method is public.
+	 * @since 6.1.2 This method is public.
 	 *
 	 * @param object $entry
 	 * @param array $args
@@ -1229,19 +1229,9 @@ class FrmProEntriesController {
 			return 'message';
 		}
 
-		if ( 'update' === $action ) {
-			$entry_id = FrmAppHelper::get_param( FrmAppHelper::doing_ajax() ? 'id' : 'entry', 0, 'get', 'intval' );
-			if ( ! $entry_id ) {
-				$entry_id = FrmAppHelper::get_param( 'id', 0, 'post', 'intval' );
-			}
-		} else {
-			global $frm_vars;
-			if ( isset( $frm_vars['saved_entries'] ) && is_array( $frm_vars['saved_entries'] ) ) {
-				$entry_id = reset( $frm_vars['saved_entries'] );
-			}
-		}
+		$entry_id = self::get_entry_id_for_confirmation_action( $form, $action );
 
-		if ( empty( $entry_id ) ) {
+		if ( ! $entry_id ) {
 			return $method;
 		}
 
@@ -1263,6 +1253,32 @@ class FrmProEntriesController {
 		$method = ( isset( $form->options[ $opt ] ) && ! empty( $form->options[ $opt ] ) ) ? $form->options[ $opt ] : $method;
 
 		return $method;
+	}
+
+	/**
+	 * Gets entry ID to process confirmation action.
+	 *
+	 * @since 6.2
+	 *
+	 * @param object $form   Form object.
+	 * @param string $action Accepts `create` or `update`.
+	 * @return int|false
+	 */
+	private static function get_entry_id_for_confirmation_action( $form, $action = 'create' ) {
+		if ( 'update' === $action ) {
+			$entry_id = FrmAppHelper::get_param( FrmAppHelper::doing_ajax() ? 'id' : 'entry', 0, 'get', 'intval' );
+			if ( ! $entry_id ) {
+				$entry_id = FrmAppHelper::get_param( 'id', 0, 'post', 'intval' );
+			}
+			return $entry_id;
+		}
+
+		global $frm_vars;
+		if ( isset( $frm_vars['created_entries'][ $form->id ]['entry_id'] ) ) {
+			return $frm_vars['created_entries'][ $form->id ]['entry_id'];
+		}
+
+		return false;
 	}
 
 	public static function confirmation( $method, $form, $form_options, $entry_id, $args = array() ) {
@@ -3299,6 +3315,20 @@ class FrmProEntriesController {
 		setcookie( 'frm_form' . $form_id . '_' . COOKIEHASH, current_time('mysql', 1), time() + $expiration, COOKIEPATH, COOKIE_DOMAIN, is_ssl() );
 	}
 
+	/**
+	 * Create an entry when the ajax_submit option is on.
+	 *
+	 * As of v6.2 Lite now has an ajax_create function.
+	 * However, this function includes additional support for Pro-specific features as well.
+	 * Those features include:
+	 * - forms with multiple pages.
+	 * - file fields.
+	 * - updating entries (in-place edit).
+	 * - include_fields/exclude_fields/get form shortcode options.
+	 * - loading scripts for Pro fields (chosen, datepicker, input mask, dropzone).
+	 *
+	 * @return void
+	 */
 	public static function ajax_create() {
 		if ( ! FrmAppHelper::doing_ajax() || ! isset( $_POST['form_id'] ) ) {
 			// normally, this function would be triggered with the wp_ajax hook, but we need it fired sooner
@@ -3306,14 +3336,24 @@ class FrmProEntriesController {
 		}
 
 		$allowed_actions = array( 'frm_entries_create', 'frm_entries_update' );
-		if ( ! in_array( FrmAppHelper::get_post_param( 'action', '', 'sanitize_title' ), $allowed_actions ) ) {
+		if ( ! in_array( FrmAppHelper::get_post_param( 'action', '', 'sanitize_title' ), $allowed_actions, true ) ) {
 			// allow ajax creating and updating
 			return;
 		}
 
-		$response = array( 'errors' => array(), 'content' => '', 'pass' => false );
+		$response = array(
+			'errors'  => array(),
+			'content' => '',
+			'pass'    => false,
+		);
 
-		$form = FrmForm::getOne( FrmAppHelper::get_post_param( 'form_id', 0, 'absint' ) );
+		$form_id  = FrmAppHelper::get_post_param( 'form_id', 0, 'absint' );
+		if ( ! $form_id ) {
+			echo json_encode( $response );
+			wp_die();
+		}
+
+		$form = FrmForm::getOne( $form_id );
 		if ( ! $form ) {
 			echo json_encode( $response );
 			wp_die();
@@ -3323,10 +3363,10 @@ class FrmProEntriesController {
 		$no_ajax_fields = $is_ajax_on ? false : array( 'file' );
 		$errors         = FrmEntryValidate::validate( wp_unslash( $_POST ), $no_ajax_fields );
 
-		if ( empty( $errors ) ) {
+		if ( ! $errors ) {
 			if ( $is_ajax_on ) {
 				global $frm_vars;
-				$frm_vars['ajax'] = true;
+				$frm_vars['ajax']       = true;
 				$frm_vars['css_loaded'] = true;
 
 				self::maybe_include_exclude_fields( $form->id );
@@ -3885,25 +3925,6 @@ class FrmProEntriesController {
 	public static function register_scripts() {
 		_deprecated_function( __METHOD__, '3.0', 'FrmProAppController::register_scripts' );
 		FrmProAppController::register_scripts();
-	}
-
-	/**
-	 * @deprecated 2.04
-	 * @codeCoverageIgnore
-	 */
-	public static function filter_value_in_single_entry_table( $value, $meta, $entry, $atts = array() ) {
-		_deprecated_function( __FUNCTION__, '2.04', 'FrmProEntriesController::get_option_label_for_saved_value');
-
-		if ( isset( $atts['field'] ) ) {
-			$field = $atts['field'];
-		} else {
-			$field = FrmField::getOne( $meta->field_id );
-		}
-		if ( ! $field ) {
-			return $value;
-		}
-
-		return self::get_option_label_for_saved_value( $value, $field, $atts );
 	}
 
 	/**

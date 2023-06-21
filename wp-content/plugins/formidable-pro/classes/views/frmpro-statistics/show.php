@@ -11,8 +11,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 	) );
 
 	$class = 'odd';
+	$time_data = isset( $data['time'] ) ? $data['time'] : '';
 	?>
 	<div class="frm-inner-content wrap">
+		<h2><?php esc_html_e( 'Reports', 'formidable-pro' ); ?></h2>
+		<form method="POST" class="frm-report-filter frm-flex-justify tablenav">
+			<div class="frm_form_field">
+				<label for="frm_stats_date_range" class="frm_primary_label"><?php esc_html_e( 'Date range', 'formidable-pro' ); ?></label>
+				<select id="frm_stats_date_range" name="date_range">
+					<?php
+					foreach ( $date_range_options as $val => $label ) {
+						?>
+						<option value="<?php echo esc_attr( $val ); ?>" <?php selected( $val, $selected_date_range ); ?>><?php echo esc_html( $label ); ?></option>
+						<?php
+					}
+					?>
+				</select>
+			</div>
+			<div class="frm_form_field frm_stats_date_wrapper frm_invisible">
+				<label for="frm_stats_start_date" class="frm_primary_label"><?php esc_html_e( 'Start date', 'formidable-pro' ); ?></label>
+				<input name="start_date" id="frm_stats_start_date" type="date" value="<?php echo $start_date ? esc_attr( gmdate( 'Y-m-d', strtotime( $start_date ) ) ) : ''; ?>" disabled />
+			</div>
+			<div class="frm_form_field frm_stats_date_wrapper frm_invisible">
+				<label for="frm_stats_end_date" class="frm_primary_label"><?php esc_html_e( 'End date', 'formidable-pro' ); ?></label>
+				<input name="end_date" id="frm_stats_end_date" type="date" value="<?php echo $end_date ? esc_attr( gmdate( 'Y-m-d', strtotime( $end_date ) ) ) : ''; ?>" disabled />
+			</div>
+			<div>
+				<br>
+				<button class="frm-button-secondary frm-button-sm" type="submit">
+					<?php esc_html_e( 'Apply', 'formidable-pro' ); ?>
+				</button>
+			</div>
+		</form>
+
 		<div class="frmcenter">
 		<div class="postbox">
 			<div class="inside">
@@ -31,17 +62,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="clear"></div>
 		</div>
 
-        <?php
-		if ( isset( $data['time'] ) ) {
-			?>
-			<h2 class="frm-h2">
-				<?php esc_html_e( 'Responses Over Time', 'formidable-pro' ); ?>
-			</h2>
-			<?php
-			echo $data['time'];
-        }
+		<div class="frm-inline-pro-tip">
+			<?php if ( $time_data ) { ?>
+				<h3><?php esc_html_e( 'Responses Over Time', 'formidable-pro' ); ?></h3>
+			<?php } ?>
 
-        foreach ( $fields as $field ) {
+			<a class="frm-pro-tip frm-pro-tip-end" href="https://formidableforms.com/knowledgebase/graphs/" target="_blank">
+				<span class="frm-pro-tip-text"><?php esc_html_e( 'Pro Tip: Add graphs like this on a page', 'formidable-pro' ); ?></span>
+				<?php FrmAppHelper::icon_by_class( 'frmfont frm_external_link_icon' ); ?>
+			</a>
+		</div>
+
+		<?php
+		if ( $time_data ) {
+			echo $data['time'];
+		}
+
+		foreach ( $fields as $field ) {
 			if ( ! isset( $data[ $field->id ] ) ) {
                 continue;
             }
@@ -52,9 +89,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			}
             ?>
 			<div class="frm_report_box pg_<?php echo esc_attr( $class ); ?>" data-ftype="<?php echo esc_attr( $field->type ); ?>">
-				<h2 class="frm-h2">
+				<h3>
 					<?php echo esc_html( $field->name ); ?>
-				</h2>
+				</h3>
 				<?php echo $data[ $field->id ]; ?>
 
 				<?php if ( isset( $data[ $field->id . '_table' ] ) ) { ?>

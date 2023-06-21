@@ -2,13 +2,13 @@
 
 if(!defined('ABSPATH')) exit;
 
-if(!defined("wdgk_PLUGIN_DIR_PATH"))
+if(!defined("WDGK_PLUGIN_DIR_PATH"))
 	
-	define("wdgk_PLUGIN_DIR_PATH",plugin_dir_path(__FILE__));	
+	define("WDGK_PLUGIN_DIR_PATH",plugin_dir_path(__FILE__));	
 	
-if(!defined("wdgk_PLUGIN_URL"))
+if(!defined("WDGK_PLUGIN_URL"))
 	
-	define("wdgk_PLUGIN_URL",plugins_url().'/'.basename(dirname(__FILE__)));	
+	define("WDGK_PLUGIN_URL",plugins_url().'/'.basename(dirname(__FILE__)));	
 
 
 // Get form setting options

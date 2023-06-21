@@ -334,6 +334,49 @@ if (!defined("ABSPATH")) {
 
 
 
+
+
+<div class="wpd-social-label wpd-telegram" style="padding: 25px 0px 10px 0px;">
+    <img src="<?php echo esc_url_raw(plugins_url(WPDISCUZ_DIR_NAME . "/assets/img/social-icons/telegram.png")); ?>" style="vertical-align:bottom; height: 24px; margin-bottom: -2px; position: relative; border-radius: 50%;">&nbsp; Telegram
+</div>
+<p style="font-size: 14px; font-style: italic; margin-top: 5px;">
+    <?php esc_html_e("To start using Telegram Login Button you should get Telegram API Token for your website. Please follow to this", "wpdiscuz"); ?> <a href="https://wpdiscuz.com/docs/wpdiscuz-7/plugin-settings/social-login-and-share/telegram-bot-configuration/" target="_blank" style="font-weight: 600;"><?php esc_html_e("instruction &raquo;", "wpdiscuz"); ?></a> &nbsp;
+    <?php echo esc_html__("Origin URL", "wpdiscuz") . " : <code>" . get_home_url() . "</code>"; ?>
+</p>
+
+<!-- Option start -->
+<div class="wpd-opt-row wpd-opt-row-tight" data-wpd-opt="enableTelegramLogin">
+    <div class="wpd-opt-name">
+        <label for="enableTelegramLogin"><?php echo esc_html($setting["options"]["enableTelegramLogin"]["label"]) ?></label>
+        <p class="wpd-desc"><?php echo esc_html($setting["options"]["enableTelegramLogin"]["description"]) ?></p>
+    </div>
+    <div class="wpd-opt-input">
+        <div class="wpd-switcher">
+            <input type="checkbox"<?php checked($this->social["enableTelegramLogin"] == 1); ?> value="1" name="<?php echo esc_attr(WpdiscuzCore::TAB_SOCIAL); ?>[enableTelegramLogin]" id="enableTelegramLogin">
+            <label for="enableTelegramLogin"></label>
+        </div>
+    </div>
+    <div class="wpd-opt-doc">
+        <?php $this->printDocLink($setting["options"]["enableTelegramLogin"]["docurl"]) ?>
+    </div>
+</div>
+<!-- Option end -->
+
+<!-- Option start -->
+<div class="wpd-opt-row wpd-opt-row-tight" data-wpd-opt="telegramToken">
+    <div class="wpd-opt-name">
+        <label for="telegramAPIToken"><?php echo esc_html($setting["options"]["telegramToken"]["label"]) ?></label>
+        <p class="wpd-desc"><?php echo esc_html($setting["options"]["telegramToken"]["description"]) ?></p>
+    </div>
+    <div class="wpd-opt-input">
+        <input placeholder="<?php esc_attr_e("API Token", "wpdiscuz"); ?>" type="text" value="<?php echo esc_attr($this->social["telegramToken"]); ?>" name="<?php echo esc_attr(WpdiscuzCore::TAB_SOCIAL); ?>[telegramToken]" id="wpd-telegram-token" />
+    </div>
+    <div class="wpd-opt-doc">
+        <?php $this->printDocLink($setting["options"]["telegramToken"]["docurl"]) ?>
+    </div>
+</div>
+<!-- Option end -->
+
 <div class="wpd-social-label wpd-disqus" style="padding: 25px 0px 10px 0px;">
     <img src="<?php echo esc_url_raw(plugins_url(WPDISCUZ_DIR_NAME . "/assets/img/social-icons/dq-m.png")); ?>" style="vertical-align:bottom; height: 24px; margin-bottom: -2px; position: relative; border-radius: 50%;">&nbsp; Disqus
 </div>
