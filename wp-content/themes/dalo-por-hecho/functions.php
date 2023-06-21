@@ -933,7 +933,7 @@ function wdgk_donation_shortcode1(){
     echo '<div class="wdgk_donation_content"><input type="text" name="donation-price" class="wdgk_donation" placeholder="Ex.100">'.$note_html.'<a 
 href="javascript:void(0)" class="button wdgk_add_donation" data-product-id="'.$product.'" data-product-url="'.$cart_url.'">'.$text.'</a><input 
 type="hidden" name="wdgk_product_id" value="" class="wdgk_product_id"><input type="hidden" name="wdgk_ajax_url" value="'.$ajax_url.'" 
-class="wdgk_ajax_url"><img src="'.wdgk_PLUGIN_URL.'/assets/images/ajax-loader.gif" class="wdgk_loader wdgk_loader_img"><div 
+class="wdgk_ajax_url"><img src="'.WDGK_PLUGIN_URL.'/assets/images/ajax-loader.gif" class="wdgk_loader wdgk_loader_img"><div 
 class="wdgk_error_front"></div></div>';
     return ob_get_clean();
   
@@ -987,7 +987,7 @@ class="wdgk_error_front"></div></div>';
   echo '<div class="wdgk_donation_content"><input type="text" name="donation-price" class="wdgk_donation" placeholder="Ex.100">'.$note_html.'<a 
 href="javascript:void(0)" class="button wdgk_add_donation" data-product-id="'.$product.'" data-product-url="'.$checkout_url.'">'.$text.'</a><input 
 type="hidden" name="wdgk_product_id" value="" class="wdgk_product_id"><input type="hidden" name="wdgk_ajax_url" value="'.$ajax_url.'" 
-class="wdgk_ajax_url"><img src="'.wdgk_PLUGIN_URL.'/assets/images/ajax-loader.gif" class="wdgk_loader wdgk_loader_img"><div 
+class="wdgk_ajax_url"><img src="'.WDGK_PLUGIN_URL.'/assets/images/ajax-loader.gif" class="wdgk_loader wdgk_loader_img"><div 
 class="wdgk_error_front"></div></div>';
   
 }
