@@ -22,7 +22,12 @@ $job_salary   = get_post_meta( get_the_ID(), '_job_salary', true );
 $job_featured = get_post_meta( get_the_ID(), '_featured', true );
 $company_name = get_post_meta( get_the_ID(), '_company_name', true );
 $al=str_replace("%2C%20", ", ", $_GET["location"]);
-$args = arg($_POST["search_text22"],'job_listing_category',$_POST["search"],$_POST["search_text"],$_POST["search_text33"]);  
+$search_text22 = $_POST["search_text22"] ?? '';
+$search = $_POST["search"] ?? '';
+$search_text = $_POST["search_text"] ?? '';
+$search_text33 = $_POST["search_text33"] ?? '';
+
+$args = arg($search_text22,'job_listing_category',$search,$search_text,$search_text33);  
 
 
 $user_actual = $current_user->ID;  

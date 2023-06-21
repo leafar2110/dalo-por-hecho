@@ -57,10 +57,6 @@
                                                 <input class="cont-pago-estado-form_input" type="date">
                                                 <h6>A</h6>
                                                 <input class="cont-pago-estado-form_input" type="date"> -->
-                                                    <div class="cont-pago-estado-form-ganado">
-                                                        <h5>Ganado neto</h5>
-                                                        <p>$0</p>
-                                                    </div>
                                             </div>
 <!--                                             <small>1 transacciones del 07 de noviembre del 2020 al 30 de
                                                             noviembre del 2020
@@ -145,10 +141,6 @@
                                                             <input class="cont-pago-estado-form_input" type="date">
                                                             <h6>A</h6>
                                                             <input class="cont-pago-estado-form_input" type="date"> -->
-                                                            <div class="cont-pago-estado-form-ganado">
-                                                                <h5>Gastado neto</h5>
-                                                                <p><?php echo $gastado ?> $0</p>
-                                                            </div>
                                                         </div>
                                                         <!-- <small><?php echo $trans ?> </small> -->
                                                         <div class="tabla-pagos">
