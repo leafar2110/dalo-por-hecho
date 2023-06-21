@@ -4,11 +4,12 @@ global $wpdb;
 
 $html = '';
 $key = $_POST['query'] ?? '';
+$cat = $_GET['cat'] ?? '';
 
   
   $product_categories = get_categories( array( 'taxonomy' => 'job_listing_category', 'orderby' => 'menu_order', 'order' => 'asc', 'hide_empty'=> FALSE ));  
   foreach($product_categories as $category):
-    $checked =NULL;  if ($category->slug == $_GET['cat']) { $checked = "checked='checked'"; } $categoria = $category->name; $category_id = $category->term_id; $category_link = get_category_link( $category_id );                 
+    $checked =NULL;  if ($category->slug == $cat) { $checked = "checked='checked'"; } $categoria = $category->name; $category_id = $category->term_id; $category_link = get_category_link( $category_id );                 
                     
      $arraycolombia[] = ''.$categoria.','.$category->slug.','.$category->term_id;
 

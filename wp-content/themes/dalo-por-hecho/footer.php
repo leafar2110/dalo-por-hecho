@@ -63,7 +63,7 @@
                                             <p class="name" id="nombre_empleado"></p>
                                             <?php if(!empty($sinparametros)):?>
                                               <span><?php echo $sinparametros[1]; ?></span>
-                                            <?php endif; ?>
+                                            <?php endif;?>
                                         </div>
                                     </div>
 
