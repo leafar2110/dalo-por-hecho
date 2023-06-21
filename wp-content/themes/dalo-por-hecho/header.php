@@ -179,7 +179,9 @@
             <div class="container main-login__container ">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 order-last-xs ">
-                        <?php if ($create != 'account') { ?>
+                        <?php 
+                        $create2 = $create ?? '';
+                        if ($create2 != 'account') { ?>
 <?php 
 /*
  * This is the page users will see logged out. 
