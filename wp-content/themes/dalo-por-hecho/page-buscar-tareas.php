@@ -464,18 +464,20 @@ input#hide:checked ~ div#contente {
                                             <?php }
                                             if (is_user_logged_in() == NULL )
                                             {?>
-                                            
+                                            <?php  if (!$asing->have_posts()) { ?>
                                                 <a href="" class="btn-oferta" data-toggle="modal" data-target="">Ofertar</a>
                                              
                                                 <label>Se cargará un 10% del presupuesto por cargos de servicio</label>
+                                                <?php } ?>
                                                 <label>Debe regristrarse <a href="#" data-toggle="modal" data-target="#exampleModal">aquí</a> para poder ofertar</label>
 
                                             <?php } ?>  
                                             <?php if (is_user_logged_in() != NULL && meta_user_value( 'user_registration_radio_1600171615', $current_user->ID ) != "Necesito un Servicio" )
                                             {?> 
-                                                 
+                                                 <?php  if (!$asing->have_posts()) {?>
                                                      <a href="" class="btn-oferta" data-toggle="modal" data-target="">Ofertar</a>  
                                                 <label>Se cargará un 10% del presupuesto por cargos de servicio</label>
+                                                <?php }?>
                                                 <label>Debes cambiar tu rol de perfil <a href="<?php echo get_home_url() ?>/confi-perfil/?tab=conf">aquí </a> para poder ofertar</label>
                                             <?php } ?>                            
                                         </div>
@@ -483,8 +485,11 @@ input#hide:checked ~ div#contente {
                                     <!-- descripcion -->
                                     <p class="description"><?php wpjm_the_job_description(); ?></p>
                                     <h6 class="">Detalle</h6>
+                                   
                                     <?php if (job_meta_value_img( get_the_ID()) != NULL) { ?>
-                                        <img src="<?php echo get_home_url().'/wp-content/uploads/'.job_meta_value_img( get_the_ID()); ?>" >
+                                        <img style="width: 100%;" src="<?php echo get_home_url().'/wp-content/uploads/'.job_meta_value_img( get_the_ID()); ?>" >
+                                    <?php } else if (meta_value( '_company_logo', get_the_ID())) {?>
+                                        <img style="width: 100%;" src="<?php echo meta_value( '_company_logo', get_the_ID()); ?>" >
                                     <?php } ?>
                                     <p class="description m-0 border-n"><?php echo meta_value( '_job_important_info', get_the_ID()); ?>
                                     </p>
@@ -621,13 +626,7 @@ input#hide:checked ~ div#contente {
                                     'key' => 'id_tareas_preguntas_copy',
                                     'value' =>  $id_tarea,
                                     'operator' => 'IN',
-                                    ),
-                                   
-                                    array(
-                                    'key' => 'id_pregunta',
-                                    'value' =>  'NULL',
-                                    'operator' => 'IN',
-                                    ),                                                        
+                                    ),                                               
                                 ),                     
                                 ); 
                                 $loops = new WP_Query( $argss ); 
@@ -658,7 +657,6 @@ input#hide:checked ~ div#contente {
                                                 'value' =>  $id_tarea,
                                                 'operator' => 'IN',
                                                 ),
-                                               
                                                 array(
                                                 'key' => 'id_pregunta',
                                                 'value' =>  get_the_ID(),
@@ -703,7 +701,7 @@ input#hide:checked ~ div#contente {
                             </div>
                         </div>
                         <?php if (is_user_logged_in() != NULL){ 
-                             echo do_shortcode('[frm-set-get id_tareas_preguntas_copy='.$id_tarea.'][frm-set-get id_user_preguntas='.$user_actual.'][frm-set-get id_pregunta=NULL][formidable id=15]');  ?>
+                             echo do_shortcode('[frm-set-get id_tareas_preguntas_copy='.$id_tarea.'][frm-set-get id_user_preguntas='.$user_actual.'][frm-set-get id_pregunta=12345][formidable id=15]');  ?>
                         <?php }
                         else { ?>                           
                             <span>Debe iniciar sesión para hacer preguntas</span>                              

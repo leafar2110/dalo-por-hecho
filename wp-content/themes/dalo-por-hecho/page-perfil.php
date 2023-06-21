@@ -183,10 +183,22 @@ global $current_user, $wp_roles;?>
                            <div class="comentario-comunidad-perfil">
                                <div class="comentario-comunidad-perfil-usuario">
                                     <div class="comentario-comunidad-perfil-usuario-gi">
-                                        <div  class="comentario-comunidad-perfil-usuario_img"></div>
+
+                                    <style>
+                                        .content-image img {
+                                            width: 85px;
+                                            height: 85px;
+                                        }
+                                    </style>
+                                    <div class="content-image">
+                                        <?php 
+                                        $user_data = get_userdata(get_field('id_user_valor'));
+
+                                        if (is_user_logged_in()){ echo get_avatar( $user_data->user_email, 165 );  }?> 
+                                    </div>
+                                        <!-- <div  class="comentario-comunidad-perfil-usuario_img"></div> -->
                                         <div class="comentario-comunidad-perfil-usuario-inf">
                                             <?php
-                                            $user_data = get_userdata(get_field('id_user_valor'));
                                             if ($user_data): ?>
                                                  <h6><?php echo $user_data->display_name; ?></h6>
                                             <?php endif; ?>

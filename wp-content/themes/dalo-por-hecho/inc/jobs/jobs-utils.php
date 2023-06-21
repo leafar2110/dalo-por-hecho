@@ -57,8 +57,32 @@
             'post_author' => (int) base64_decode($user_id),
             'post_type' => 'job_listing'
             );
-                
+
             $post_id= wp_insert_post( $jobs );
+            
+            // Verificar si se ha enviado una imagen
+            if (isset($_FILES['company_logo'])) {
+                $file = $_FILES['company_logo'];
+                
+                // Comprobar si no hay errores en la carga de la imagen
+                if ($file['error'] === UPLOAD_ERR_OK) {
+                    $file_name = $file['name'];
+                    $file_tmp = $file['tmp_name'];
+
+                    // Mover la imagen cargada a una ubicación deseada
+                    $upload_dir = wp_upload_dir(); // Directorio de subidas de WordPress
+                    $file_path = $upload_dir['path'] . '/' . $file_name;
+                    move_uploaded_file($file_tmp, $file_path);
+
+                    // Obtener la URL de la imagen cargada
+                    $file_url = $upload_dir['url'] . '/' . $file_name;
+
+                    // Guardar la URL de la imagen en el CPT
+                    update_post_meta($post_id, '_company_logo', $file_url);
+                }
+            }
+                
+            
             update_post_meta( $post_id, '_job_salary', $_POST['job_total'] );
             update_post_meta( $post_id, '_job_direccion', $_POST['job_direccion'] );
             update_post_meta( $post_id, '_job_expires', $_POST['job_expires'] );
