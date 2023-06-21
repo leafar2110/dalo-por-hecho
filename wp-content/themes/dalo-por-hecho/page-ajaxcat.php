@@ -3,7 +3,7 @@ global $wpdb;
 
 
 $html = '';
-$key = $_POST['query'] ?? '';
+$key = $_POST['query'] ?? NULL;
 $cat = $_GET['cat'] ?? '';
 
   

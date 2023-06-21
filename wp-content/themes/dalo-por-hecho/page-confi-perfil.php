@@ -35,6 +35,9 @@ get_header();?>
                     </div>
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
                             aria-orientation="vertical">
+                            <a class="nav-link" onclick="formconfi()" id="v-pills-conf-tab" data-toggle="pill" href="#v-pills-conf" role="tab"
+                                    aria-controls="v-pills-three" aria-selected="false">Configuración de cuenta</a>
+
                         <a class="nav-link" onclick="formconfi()" id="v-pills-history-tab" data-toggle="pill" href="#v-pills-history" role="tab"
                             aria-controls="v-pills-history" aria-selected="false">Historial de pagos</a>
 
@@ -48,8 +51,6 @@ get_header();?>
                             role="tab" aria-controls="v-pills-recomendar" aria-selected="false">Recomendar a un
                             amigo</a> -->
 
-                        <a class="nav-link " onclick="formconfi()" id="v-pills-conf-tab" data-toggle="pill" href="#v-pills-conf" role="tab"
-                                aria-controls="v-pills-three" aria-selected="false">Configuración de cuenta</a>
 
                         <a class="nav-link " onclick="formconfi()" id="v-pills-aptitudes-tab" data-toggle="pill" href="#v-pills-aptitudes"
                             role="tab" aria-controls="v-pills-aptitudes" aria-selected="true">Mis aptitudes</a>
@@ -82,11 +83,11 @@ get_header();?>
                 <div class="col-md-9 main-content__tabs">
                     <div class="tab-content" id="v-pills-tabContent">
 
+                        <?php get_template_part('conf-perfil/conf-conf-cuenta'); ?>
                         <?php get_template_part('conf-perfil/conf-history'); ?>
                         <?php get_template_part('conf-perfil/conf-method'); ?>
                         <?php get_template_part('conf-perfil/conf-bancario'); ?>
                         <?php get_template_part('conf-perfil/conf-recomendar'); ?>         
-                        <?php get_template_part('conf-perfil/conf-conf-cuenta'); ?>
                         <?php get_template_part('conf-perfil/conf-aptitudes'); ?>
                         <?php get_template_part('conf-perfil/conf-emblemas'); ?>            
                         <?php get_template_part('conf-perfil/conf-senales'); ?>
@@ -137,12 +138,12 @@ var nombre_bancario = document.getElementsByName("nombre_bancario")[0].value;
          
         var tab = "<?= $_GET['tab']; ?>";         
         if (tab == "") {
-            $("#v-pills-history-tab").addClass("nav-link active");
-            $("#v-pills-history").addClass("tab-pane fade  show active");
+            $("#v-pills-conf-tab").addClass("nav-link active");
+            $("#v-pills-conf").addClass("tab-pane fade  show active");
         };          
         if (tab != "") {
-            $("#v-pills-history-tab").addClass("nav-link");
-            $("#v-pills-history").addClass("tab-pane fade");
+            $("#v-pills-conf-tab").addClass("nav-link");
+            $("#v-pills-conf").addClass("tab-pane fade");
 
             $("#v-pills-"+tab+"-tab").addClass("nav-link active show");
             $("#v-pills-"+tab).addClass("tab-pane fade  show active");

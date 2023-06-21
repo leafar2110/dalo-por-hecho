@@ -19,16 +19,6 @@
                                                                 <div class="cont-top-conf-cuenta_h4">
                                                                     Datos Bancarios
                                                                 </div>
-                                                                <div class="barra-progreso">
-                                                                    <h6>Completa tu perfil para mejorar tus oportunidades de trabajo
-                                                                    </h6>
-                                                                    <br>
-                                                                    <div class="cont-barra-progreso">
-                                                                        <div class="progress">
-                                                                            <div class="progress-bar" style="width:<?php echo $porcent; ?>%"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
                                                             </div>
                                                         </a>
                                                     </h5>

@@ -37,14 +37,6 @@ $porcent = (( $cont2 + $cont4 + $cont5 + $cont6 + $cont7 + $cont8)/7)*100;
                                                 <?php $urlsinparametros= explode('=', $_SERVER['REQUEST_URI'], 2);
                                                 $urlsin = $urlsinparametros[1]; ?>
                                               </div>
-                                              <div class="barra-progreso">
-                                                <h6>Completa tu perfil para mejorar tus oportunidades de trabajo </h6><br>
-                                                <div class="cont-barra-progreso">
-                                                  <div class="progress">
-                                                    <div class="progress-bar" style="width:<?php echo $porcent; ?>%">  </div>
-                                                  </div>
-                                                </div> 
-                                              </div>
                                             </div>
                                           </a>
                                         </h5>
