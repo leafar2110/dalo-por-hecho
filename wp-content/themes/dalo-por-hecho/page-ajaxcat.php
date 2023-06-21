@@ -3,7 +3,7 @@ global $wpdb;
 
 
 $html = '';
-$key = $_POST['query'];
+$key = $_POST['query'] ?? '';
 
   
   $product_categories = get_categories( array( 'taxonomy' => 'job_listing_category', 'orderby' => 'menu_order', 'order' => 'asc', 'hide_empty'=> FALSE ));  

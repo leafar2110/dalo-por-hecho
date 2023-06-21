@@ -61,7 +61,9 @@
                                         </div>
                                         <div class="col-lg-8 col-md-9">
                                             <p class="name" id="nombre_empleado"></p>
-                                            <span><?php echo $sinparametros[1]; ?></span>
+                                            <?php if(!empty($sinparametros)):?>
+                                              <span><?php echo $sinparametros[1]; ?></span>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
 
