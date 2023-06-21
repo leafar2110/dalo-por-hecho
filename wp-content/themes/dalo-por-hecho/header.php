@@ -205,7 +205,7 @@
             </p>
             <p class="form-row">
                         <input class="main-general__btn main-general__button woocommerce-button woocommerce-form-login__submit" type="submit" name="wp-submit" id="lwa_wp-submit" value="<?php esc_attr_e('Iniciar sesión', 'login-with-ajax'); ?>" tabindex="100" />
-                        <?php if( !empty($lwa_data['profile_link']) ): ?>
+                        <?php if( isset($lwa_data['profile_link']) ): ?>
                         <input type="hidden" name="lwa_profile_link" value="<?php echo esc_attr($lwa_data['profile_link']); ?>" />
                         <?php endif; ?>
                         <input type="hidden" name="login-with-ajax" value="login" />
