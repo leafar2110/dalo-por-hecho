@@ -3462,3 +3462,16 @@ td.tabla-pagos_table_td .btn-general{
 .flex-center-align{
 	padding-top: 200px;
 }
+.comentar-usuario .with_frm_style .frm_scale input[type=radio]:before{
+	position: relative;
+	top: -2.4px;
+	left: -3px;
+	box-shadow: inset 10px 10px #ec8603;
+}
+.frm_style_formidable-style.with_frm_style .form-field input:not([type=file]):focus, .frm_style_formidable-style.with_frm_style select:focus, .frm_style_formidable-style.with_frm_style textarea:focus, .frm_style_formidable-style.with_frm_style .frm_focus_field input[type=text], .frm_style_formidable-style.with_frm_style .frm_focus_field input[type=password], .frm_style_formidable-style.with_frm_style .frm_focus_field input[type=email], .frm_style_formidable-style.with_frm_style .frm_focus_field input[type=number], .frm_style_formidable-style.with_frm_style .frm_focus_field input[type=url], .frm_style_formidable-style.with_frm_style .frm_focus_field input[type=tel], .frm_style_formidable-style.with_frm_style .frm_focus_field input[type=search], .frm_form_fields_active_style, .frm_style_formidable-style.with_frm_style .frm_focus_field .frm-card-element.StripeElement, .frm_style_formidable-style.with_frm_style .chosen-container-single.chosen-container-active .chosen-single, .frm_style_formidable-style.with_frm_style .chosen-container-active .chosen-choices{
+	border-color: #ec8603;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgb(236 134 3 / 62%);
+}
+.with_frm_style .frm_scale input[type=radio]:checked:before{
+	transform: scale(1.1);
+}
