@@ -1220,7 +1220,11 @@
 		padding: 0;
 		text-align: center;
 	}
- 
+	.check-line .custom-control{
+		margin-right: 0;
+		padding-left: 10px;
+	}
+ 	
 	
 }
 
