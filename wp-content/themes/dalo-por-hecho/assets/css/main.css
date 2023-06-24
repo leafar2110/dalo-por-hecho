@@ -3488,3 +3488,31 @@ td.tabla-pagos_table_td .btn-general{
 .cont-perfil-inf .comentar-usuario{
 	padding: 0 20px;
 }
+.woocommerce-form-login .woocommerce-form-row{
+	display: flex;
+	flex-direction: column;	
+}
+.woocommerce .woocommerce-form-login .woocommerce-form-login__rememberme{
+	display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.woocommerce .woocommerce-form-login .woocommerce-form-login__rememberme input{
+	width: 22px;
+}
+.woocommerce .woocommerce-form-login .woocommerce-form-login__submit{
+	background-color: #ec8603;
+  background-clip: padding-box;
+  border: 1px solid #ec8603;
+  border-radius: 15px !important;
+  transition: 0.3s ease-in-out;
+  color: #fff;
+  margin: 0;
+}
+.woocommerce .woocommerce-form-login .woocommerce-form-login__submit:hover{
+	background: transparent;
+	color: #ec8603;
+}
+.lost_password a{
+	color: #007bff;
+}
