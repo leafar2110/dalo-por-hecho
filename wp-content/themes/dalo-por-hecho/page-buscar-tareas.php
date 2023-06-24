@@ -753,6 +753,12 @@ $('.main-taks__mobiletitle').click(function(){
         $('.main-taks__mobiletitle span').text('Ver más tareas')   
     }
 })
+$('.av-link.card-job').click(function(){
+    $('.main-taks__sidebar').removeClass('active');
+    $('.main-taks__mobiletitle').removeClass('active');
+    $('.buscar_tareas').removeClass('in-active');
+    $('.main-taks__mobiletitle span').text('Ver más tareas') 
+})
 
 
 

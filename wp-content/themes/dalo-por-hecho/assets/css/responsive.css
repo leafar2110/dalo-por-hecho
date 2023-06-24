@@ -317,6 +317,7 @@
 		margin-top: 10px;
 		text-align: center;
 		display: block;
+		gap: 10px;
 	}
 	.contenido {
 		text-align: center;
@@ -522,7 +523,13 @@
     	left: inherit;
 	}
 	.datos_name ul li{
-		margin: 0 !important;
+		margin: 0 0 5px !important;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+	.datos_name ul li span{
+		width: 100%;
 	}
 	.buscar_tareas{
 		height: max-content;
