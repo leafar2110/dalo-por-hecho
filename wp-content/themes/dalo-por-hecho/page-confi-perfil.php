@@ -109,7 +109,13 @@ $(document).ready(function () {
 
 ///Validation fields
 var nombre_bancario = document.getElementsByName("nombre_bancario")[0].value;
-
+    
+    
+    if($(window).width() < 768){
+        $('#v-pills-tab .nav-link').click(function(){
+            window.scrollBy(0, 800);
+        });
+    }
 
         $("#ano").keyup(function () {
             var valuea =  document.getElementById("dia").value + "/" + document.getElementById("mes").value + "/" + $(this).val();
