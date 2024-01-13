@@ -168,24 +168,13 @@
                                                                 <div class="row main-type__inputs mb-3">
                                                                     <input class="input-type__presupuesto" type="radio" name="radio1" id="radio1" onclick="quitar();" <?php echo $checkedsh ?> />
                                                                     <label class="label-type__presupuesto" for="tab1">Total</label>
-                                                                    <input class="input-type__presupuesto" type="radio" name="radio1" id="radio2" onclick="quitar();" <?php echo $checkedh ?>/>
-                                                                    <label class="label-type__presupuesto"  for="tab2">Tarifa por horas</label>   
+                                                                
                                                                     <div class="tab content1">
                                                                         <div class="row mb-3">
                                                                             <div class="col-md-6">
-                                                                                <input type="text"  name="_job_total" id="job_total_conf" placeholder="$000"  value="" />
+                                                                                <input type="number"  name="_job_total" id="job_total_conf" placeholder="$000"  value="" oninput="removerCaracteres(event)" />
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="tab content2">
-                                                                        <div class="row mb-3">
-                                                                            <div class="col-md-6">
-                                                                                <input type="text" onkeypress="return onlynumbers(event)" name="_job_clp" id="job_clp_conf" placeholder="CLP" value="<?php echo meta_value( '_job_clp', get_the_ID() ) ?>"/>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <input type="text" onkeypress="return onlynumbers(event)" name="_job_horas" id="job_horas_conf" placeholder="Horas" value="<?php echo meta_value( '_job_horas', get_the_ID() ) ?>"/>
-                                                                            </div>
-                                                                        </div>                         
                                                                     </div>
                                                                     <div class="presupuesto">
                                                                         <div class="row">
@@ -262,48 +251,31 @@ function onlynumbers_conf(e) {
           return false;
   }
 
-    
-$("#job_total_conf").on({
-    "focus": function (event) {
-        $(event.target).select();
-    },
-    "keyup": function (event) {
-        $(event.target).val(function (index, value ) {
-            return value.replace(/\D/g, "")
-                        //.replace(/([0-9])([0-9]{2})$/, '$1,$2')
-                        .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ".");
-        });
-    }
-});
-
-
 
 function quitar_conf(){
    var valuea = "";
    $("#job_salary_conf").val(valuea);
-   $("#job_clp_conf").val(valuea);
-   $("#job_horas_conf").val(valuea);
    $("#job_total_conf").val(valuea);
 }   
 $(document).ready(function () {
-    
-        
-        $("#job_clp_conf").keyup(function () {
-            var valuea =  document.getElementById("job_horas_conf").value*$(this).val();
-            v=new Intl.NumberFormat("de-DE").format(valuea);
-            $("#job_salary_conf").val(v);
-        });    
-        $("#job_horas_conf").keyup(function () {
-            var valuea =  document.getElementById("job_clp_conf").value*$(this).val();
-            v=new Intl.NumberFormat("de-DE").format(valuea);
-            $("#job_salary_conf").val(new Intl.NumberFormat("de-DE").format(valuea));
-
-        });     
-        $("#job_total_conf").keyup(function () {
-            var valuea =  document.getElementById("job_total_conf").value;
-            $("#job_salary_conf").val(valuea);
-        });
-
+     
+    $("#job_total_conf").keyup(function () {
+        var valuea =  document.getElementById("job_total_conf").value;
+        $("#job_salary_conf").val(valuea);
+    });
 
 });
+
+function removerCaracteres(event) {
+  const input = event.target;
+  const valor = input.value;
+  
+  // Remover puntos y comas del valor
+  const valorSinCaracteres = valor.replace(/[.,]/g, '');
+  
+  // Actualizar el valor del campo de entrada sin los caracteres
+  if (valor !== valorSinCaracteres) {
+    input.value = valorSinCaracteres;
+  }
+}
 </script>                                   

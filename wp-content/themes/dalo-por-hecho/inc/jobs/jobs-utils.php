@@ -82,8 +82,10 @@
                 }
             }
                 
-            
-            update_post_meta( $post_id, '_job_salary', $_POST['job_total'] );
+            $salary = str_replace('.', '', $_POST['job_total']);
+            $salary = str_replace(',', '',  $salary);
+            $salary = intval($salary);
+            update_post_meta( $post_id, '_job_salary', $salary );
             update_post_meta( $post_id, '_job_direccion', $_POST['job_direccion'] );
             update_post_meta( $post_id, '_job_expires', $_POST['job_expires'] );
             update_post_meta( $post_id, '_job_horas', $_POST['job_horas'] );

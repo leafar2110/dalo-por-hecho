@@ -3,12 +3,12 @@
 <div class="tab-pane fade " id="v-pills-notification-empleado" role="tabpanel" aria-labelledby="v-pills-tareas-tab">
   <div id="collapseOne" class="collapse show mb-5" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">                        
   <ul class="nav nav-tabs h-p-nav-tab">
-    <li class="nav-item">
+    <li class="nav-item"id="item-notification">
       <a class="nav-link rol_user-tab active" id="item-perfil" data-toggle="tab" href="#notifi-e">
         Notificaciones /
       </a>                                                      
     </li>   
-    <li class="nav-item">
+    <li class="nav-item" id="item-chat">
       <a class="nav-link imagen-perfil-tab" id="item-perfil" data-toggle="tab" href="#chate-e">   
         Chat  
       </a>
@@ -239,3 +239,54 @@
     </div>       
   </div>
 </div>                                            
+
+
+<script>
+function verificarSubtab() {
+  // Obtener la URL actual
+  const url = new URL(window.location.href);
+
+  // Obtener los parámetros de la URL
+  const params = new URLSearchParams(url.search);
+
+  // Obtener el valor del parámetro "subtab"
+  const subtabValue = params.get("subtab");
+
+  // Verificar si el parámetro "subtab" existe y tiene el valor deseado
+  if (subtabValue === "chat") {
+    document.querySelector("#item-chat").classList.add("active");
+    document.querySelector("#item-chat a").classList.add("active");
+    document.querySelector("#item-chat a").classList.add("show");
+    document.querySelector("#item-notification").classList.remove("active");
+    document.querySelector("#item-notification a").classList.remove("active");
+    document.querySelector("#item-notification a").classList.remove("show");
+
+
+
+    document.querySelector("#chate-e").classList.add("fade");
+    document.querySelector("#chate-e").classList.add("active");
+    document.querySelector("#chate-e").classList.add("show");
+    document.querySelector("#notifi").classList.remove("fade");
+    document.querySelector("#notifi").classList.remove("active");
+    document.querySelector("#notifi").classList.remove("show");
+  } else {
+    document.querySelector("#item-chat").classList.remove("active");
+    document.querySelector("#item-chat a").classList.remove("active");
+    document.querySelector("#item-chat a").classList.remove("show");
+    document.querySelector("#item-notification").classList.add("active");
+    document.querySelector("#item-notification a").classList.add("active");
+    document.querySelector("#item-notification a").classList.add("show");
+
+
+    document.querySelector("#item-chat").classList.remove("active");
+    document.querySelector("#chate-e").classList.remove("fade");
+    document.querySelector("#chate-e").classList.remove("active");
+    document.querySelector("#chate-e").classList.remove("show");
+    document.querySelector("#notifi-e").classList.add("fade");
+    document.querySelector("#notifi-e").classList.add("active");
+    document.querySelector("#notifi-e").classList.add("show");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", verificarSubtab);
+</script>

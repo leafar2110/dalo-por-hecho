@@ -259,30 +259,9 @@ $(document).ready(function () {
 		var elemento_job_clp = document.getElementById("job_salary");	
         valor_job_salary = document.getElementById("job_salary").value;
 
- 		
-		var elemento_job_horas = document.getElementById("job_horas");	
-        valor_job_horas = document.getElementById("job_horas").value;        
-
-        if (document.getElementById('radio2').checked) {         	
-
-           if( valor_job_clp == null || valor_job_clp.length == 0  ) {
-              elemento_job_clp.className = "error-input";
-              val_job_salary1 = 1;
-
-           }    
-
-          if( valor_job_horas == null || valor_job_horas.length == 0  ) {
-              elemento_job_horas.className = "error-input";
-              val_job_salary1 = 1;
-
-           } 
-
-        }
-
         if( val_job_salary1 != 1 ) {
               elemento_job_total.className = "input-type__presupuesto ";
               elemento_job_clp.className = " ";
-              elemento_job_horas.className = " ";
 
 
 		      var active = $(".wizard .nav-tabs li.active");

@@ -137,11 +137,11 @@
                         ?>
                         <?php if (is_user_logged_in()){ ?>
                             <li class="nav-item-notifications">
-                                <a class="nav-link-notifications" href="<?php bloginfo('url'); echo $url; ?>"> 
+                                <a class="nav-link-notifications" href="<?php bloginfo('url'); echo $url; ?>&subtab=notificacion"> 
                                     <i class="fa fa-bell-o" aria-hidden="true"></i>
                                     <span>1</span> 
                                 </a>
-                                <a class="nav-link-notifications" href="<?php bloginfo('url'); echo $url; ?>">
+                                <a class="nav-link-notifications" href="<?php bloginfo('url'); echo $url; ?>&subtab=chat">
                                     <i class="fa fa-envelope-o" aria-hidden="true"></i> 
                                     <span><?php echo count_chat($current_user->ID); ?></span>
                                 </a>

@@ -195,8 +195,6 @@ if (strpos($url, '?') !== false) {
 			<div class="row main-type__inputs mb-3">
 				<input class="input-type__presupuesto" type="radio" name="radio1" id="radio1" onclick="quitar();" checked />
 				<label class="label-type__presupuesto" for="tab1">Total</label>
-				<input class="input-type__presupuesto" type="radio" name="radio1" id="radio2" onclick="quitar();"/>
-				<label class="label-type__presupuesto"  for="tab2">Tarifa por horas</label>
 
 				<div class="tab content1">
 					<div class="row mb-3">
@@ -204,17 +202,6 @@ if (strpos($url, '?') !== false) {
 							<input type="number"  name="job_total" id="job_total" placeholder="$000" required="" onkeypress=""  onpaste="return false"/>
 						</div>
 					</div>
-				</div>
-				<div class="tab content2">
-					<div class="row mb-3">
-						<div class="col-md-6">
-							<input type="text" onkeypress="return onlynumbers(event)" class="" name="job_salary" id="job_salary" placeholder="CLP" required pattern="[0-9]" />
-						</div>
-						<div class="col-md-6">
-							<input type="text" class="" onkeypress="return onlynumbers(event)" name="job_horas" id="job_horas" placeholder="Horas" />
-						</div>
-					</div>	
-
 				</div>
 				<div class="presupuesto">
 					<div class="row">
@@ -370,7 +357,7 @@ function onlynumbers(e) {
 $(document).ready(function(){
     load_data_submit();
     function load_data_submit(query)
-    { var urll = "http://localhost/dalo-por-hecho/ajax"; 
+    { var urll = "https://daloporhecho.cl/ajax"; 
         $.ajax({
             url:urll,
             method:"post",
@@ -396,7 +383,7 @@ $(document).ready(function(){
 
     load_data2_submit();
     function load_data2_submit(query)
-    {var urll2 = "http://localhost/dalo-por-hecho/ajaxcat"; 
+    {var urll2 = "https://daloporhecho.cl/ajaxcat"; 
         $.ajax({
             url:urll2,
             method:"post",
